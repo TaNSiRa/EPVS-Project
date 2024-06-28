@@ -22,6 +22,28 @@ class ChangepasswordBody extends StatefulWidget {
 }
 
 class _ChangepasswordBodyState extends State<ChangepasswordBody> {
+  bool _isOldPasswordObscured = true;
+  bool _isNewPasswordObscured = true;
+  bool _isConfirmPasswordObscured = true;
+
+  void _toggleOldPasswordVisibility() {
+    setState(() {
+      _isOldPasswordObscured = !_isOldPasswordObscured;
+    });
+  }
+
+  void _toggleNewPasswordVisibility() {
+    setState(() {
+      _isNewPasswordObscured = !_isNewPasswordObscured;
+    });
+  }
+
+  void _toggleConfirmPasswordVisibility() {
+    setState(() {
+      _isConfirmPasswordObscured = !_isConfirmPasswordObscured;
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Center(
@@ -42,8 +64,16 @@ class _ChangepasswordBodyState extends State<ChangepasswordBody> {
                   decoration: InputDecoration(
                     border: OutlineInputBorder(),
                     labelText: 'Old Password',
+                    suffixIcon: IconButton(
+                      icon: Icon(
+                        _isOldPasswordObscured
+                            ? Icons.visibility
+                            : Icons.visibility_off,
+                      ),
+                      onPressed: _toggleOldPasswordVisibility,
+                    ),
                   ),
-                  obscureText: true,
+                  obscureText: _isOldPasswordObscured,
                 ),
               ),
               SizedBox(height: 5),
@@ -54,8 +84,16 @@ class _ChangepasswordBodyState extends State<ChangepasswordBody> {
                   decoration: InputDecoration(
                     border: OutlineInputBorder(),
                     labelText: 'New Password',
+                    suffixIcon: IconButton(
+                      icon: Icon(
+                        _isNewPasswordObscured
+                            ? Icons.visibility
+                            : Icons.visibility_off,
+                      ),
+                      onPressed: _toggleNewPasswordVisibility,
+                    ),
                   ),
-                  obscureText: true,
+                  obscureText: _isNewPasswordObscured,
                 ),
               ),
               SizedBox(height: 5),
@@ -66,8 +104,16 @@ class _ChangepasswordBodyState extends State<ChangepasswordBody> {
                   decoration: InputDecoration(
                     border: OutlineInputBorder(),
                     labelText: 'New Password Confirm',
+                    suffixIcon: IconButton(
+                      icon: Icon(
+                        _isConfirmPasswordObscured
+                            ? Icons.visibility
+                            : Icons.visibility_off,
+                      ),
+                      onPressed: _toggleConfirmPasswordVisibility,
+                    ),
                   ),
-                  obscureText: true,
+                  obscureText: _isConfirmPasswordObscured,
                 ),
               ),
               SizedBox(height: 5),

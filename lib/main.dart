@@ -54,7 +54,7 @@ class MainContext extends MyApp {
     return BlocBuilder<BlocPageRebuild, bool>(
       builder: (_, e) {
         return MaterialApp(
-          title: 'XXXXXX',
+          title: 'Flutter-Login',
           theme: ThemeData(
             primarySwatch: Colors.blue,
           ),

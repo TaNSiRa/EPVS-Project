@@ -99,6 +99,14 @@ class _HistoryBodyState extends State<HistoryBody> {
                   }
                 },
                 child: Text('Generate Table'),
+                style: ElevatedButton.styleFrom(
+                  minimumSize: Size(50, 45),
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(10.0),
+                  ),
+                  primary: Colors.red,
+                  onPrimary: Colors.white,
+                ),
               ),
             ],
           ),

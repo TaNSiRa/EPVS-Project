@@ -1,27 +1,33 @@
 import 'package:flutter/material.dart';
 
-class Progress extends StatefulWidget {
-  const Progress({super.key});
+import '../../bloc/BlocEvent/01-01-P01PROGRESSGETDATA.dart';
+import 'P01PROGRESSVAR.dart';
 
+class P01PROGRESSMAIN extends StatefulWidget {
+  P01PROGRESSMAIN({
+    super.key,
+    this.data,
+  });
+  List<P01PROGRESSGETDATAclass>? data;
   @override
-  State<Progress> createState() => _ProgressState();
+  State<P01PROGRESSMAIN> createState() => _P01PROGRESSMAINState();
 }
 
-class _ProgressState extends State<Progress> {
+class _P01PROGRESSMAINState extends State<P01PROGRESSMAIN> {
   @override
   Widget build(BuildContext context) {
-    return const Progressbody();
+    return const P01PROGRESSMAINbody();
   }
 }
 
-class Progressbody extends StatefulWidget {
-  const Progressbody({super.key});
+class P01PROGRESSMAINbody extends StatefulWidget {
+  const P01PROGRESSMAINbody({super.key});
 
   @override
-  State<Progressbody> createState() => _ProgressbodyState();
+  State<P01PROGRESSMAINbody> createState() => _P01PROGRESSMAINbodyState();
 }
 
-class _ProgressbodyState extends State<Progressbody> {
+class _P01PROGRESSMAINbodyState extends State<P01PROGRESSMAINbody> {
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -44,7 +50,7 @@ class _ProgressbodyState extends State<Progressbody> {
                 ),
                 height: 80,
                 width: 100,
-                child: const Center(child: Text("200"))),
+                child: Center(child: Text(P01PROGRESSVAR.datadummy[0].STEP01))),
             Container(
                 decoration: BoxDecoration(
                   border: Border.all(color: Colors.black),

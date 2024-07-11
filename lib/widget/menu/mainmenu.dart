@@ -10,7 +10,7 @@ import '../../page/page2.dart';
 import '../../page/page3.dart';
 import '../../page/page4.dart';
 import '../../page/page5.dart';
-import '../../page/progress.dart';
+
 import 'sub_widget.dart';
 
 late BuildContext MenuContext;
@@ -78,7 +78,7 @@ class Data_Menu_mainmenu extends StatelessWidget {
                   ),
                 ))),
         menu_normal(
-          name: "Page1",
+          name: "Progress",
           page: Page1(),
           Lv: 1,
         ),
@@ -101,11 +101,6 @@ class Data_Menu_mainmenu extends StatelessWidget {
           name: "Page5",
           page: Page5(),
           Lv: 5,
-        ),
-        menu_normal(
-          name: "Progress",
-          page: Progress(),
-          Lv: 1,
         ),
         menu_normal(
           name: "History",

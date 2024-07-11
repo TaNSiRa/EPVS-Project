@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:newmaster/page/changepassword.dart';
 import 'package:newmaster/page/history.dart';
-import 'package:newmaster/page/progress.dart';
 
 import 'TEST.dart';
 import 'page1.dart';
@@ -13,7 +12,7 @@ class Page0 extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return History();
+    return Page1();
   }
 }
 

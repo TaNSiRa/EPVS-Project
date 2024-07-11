@@ -32,6 +32,26 @@ class _HistoryBodyState extends State<HistoryBody> {
     ['1620342', '2024-07-02', 'Material B', 'Action 2'],
     ['1650580', '2024-07-03', 'Material C', 'Action 3'],
     ['1650549', '2024-07-04', 'Material D', 'Action 4'],
+    ['1650549', '2024-07-05'],
+  ];
+
+  List<testclass> tableDatav2 = [
+    testclass(
+      po: '1650574',
+      date: '2024-07-01',
+      mat: 'Material A',
+    ),
+    testclass(
+      po: '1650575',
+      date: '2024-07-02',
+      mat: 'Material B',
+    ),
+    testclass(
+      po: '1650576',
+      date: '2024-07-03',
+      mat: 'Material C',
+    ),
+    testclass(),
   ];
 
   // int columns = 0;
@@ -211,14 +231,112 @@ class _HistoryBodyState extends State<HistoryBody> {
                     ),
                   ],
                 ),
-                ...tableData.map((rowData) {
-                  return TableRow(
+                // ...tableDatav2.map((rowData) {
+                //   return TableRow(
+                //     children: [
+                //       TableCell(
+                //         child: SizedBox(
+                //           height: 50,
+                //           child: Center(
+                //             child: Text(rowData.po),
+                //           ),
+                //         ),
+                //       ),
+                //       TableCell(
+                //         child: SizedBox(
+                //           height: 50,
+                //           child: Center(
+                //             child: Text(rowData.date),
+                //           ),
+                //         ),
+                //       ),
+                //       TableCell(
+                //         child: SizedBox(
+                //           height: 50,
+                //           child: Center(
+                //             child: Text(rowData.mat),
+                //           ),
+                //         ),
+                //       ),
+                //       TableCell(
+                //         child: SizedBox(
+                //           height: 50,
+                //           child: Stack(
+                //             children: [
+                //               Positioned(
+                //                 bottom: 0,
+                //                 left: 0,
+                //                 width: 75,
+                //                 height: 50,
+                //                 child: Container(
+                //                   decoration: BoxDecoration(
+                //                     border: Border(
+                //                       right: BorderSide(color: Colors.black),
+                //                     ),
+                //                   ),
+                //                   child: Center(
+                //                     child: Text(
+                //                       "Action",
+                //                       style: TextStyle(color: Colors.black),
+                //                     ),
+                //                   ),
+                //                 ),
+                //               ),
+                //               Positioned(
+                //                 bottom: 0,
+                //                 right: 0,
+                //                 width: 75,
+                //                 height: 50,
+                //                 child: InkWell(
+                //                   onTap: () {
+                //                     showDialog(
+                //                       context: context,
+                //                       builder: (BuildContext context) {
+                //                         return AlertDialog(
+                //                           title: Text(
+                //                               'การปรับแต่ง: ${rowData.po}'),
+                //                           content:
+                //                               Text('แก้ไข: ${rowData.po} แล้ว'),
+                //                           actions: <Widget>[
+                //                             TextButton(
+                //                               child: Text('ปิด'),
+                //                               onPressed: () {
+                //                                 Navigator.of(context).pop();
+                //                               },
+                //                             ),
+                //                           ],
+                //                         );
+                //                       },
+                //                     );
+                //                   },
+                //                   child: Center(
+                //                     child: Icon(
+                //                       Icons.edit,
+                //                       color: Colors.black,
+                //                     ),
+                //                   ),
+                //                 ),
+                //               ),
+                //             ],
+                //           ),
+                //         ),
+                //       ),
+                //     ],
+                //   );
+                // }),
+                // ...tableDatav2.map(
+                //   (rowData) {
+                // return
+
+                // },
+                for (int i = 0; i < tableDatav2.length; i++) ...[
+                  TableRow(
                     children: [
                       TableCell(
                         child: SizedBox(
                           height: 50,
                           child: Center(
-                            child: Text(rowData[0]),
+                            child: Text(tableDatav2[i].po),
                           ),
                         ),
                       ),
@@ -226,7 +344,7 @@ class _HistoryBodyState extends State<HistoryBody> {
                         child: SizedBox(
                           height: 50,
                           child: Center(
-                            child: Text(rowData[1]),
+                            child: Text(tableDatav2[i].date),
                           ),
                         ),
                       ),
@@ -234,7 +352,7 @@ class _HistoryBodyState extends State<HistoryBody> {
                         child: SizedBox(
                           height: 50,
                           child: Center(
-                            child: Text(rowData[2]),
+                            child: Text(tableDatav2[i].mat),
                           ),
                         ),
                       ),
@@ -256,7 +374,7 @@ class _HistoryBodyState extends State<HistoryBody> {
                                   ),
                                   child: Center(
                                     child: Text(
-                                      rowData[3],
+                                      "Action",
                                       style: TextStyle(color: Colors.black),
                                     ),
                                   ),
@@ -274,9 +392,9 @@ class _HistoryBodyState extends State<HistoryBody> {
                                       builder: (BuildContext context) {
                                         return AlertDialog(
                                           title: Text(
-                                              'การปรับแต่ง: ' + rowData[3]),
+                                              'การปรับแต่ง: ${tableDatav2[i].po}'),
                                           content: Text(
-                                              'แก้ไข: ' + rowData[3] + ' แล้ว'),
+                                              'แก้ไข: ${tableDatav2[i].po} แล้ว'),
                                           actions: <Widget>[
                                             TextButton(
                                               child: Text('ปิด'),
@@ -302,8 +420,8 @@ class _HistoryBodyState extends State<HistoryBody> {
                         ),
                       ),
                     ],
-                  );
-                }).toList(),
+                  ),
+                ]
               ],
             ),
           ),
@@ -312,101 +430,124 @@ class _HistoryBodyState extends State<HistoryBody> {
     );
   }
 }
-    // return SingleChildScrollView(
-    //   padding: EdgeInsets.all(16.0),
-    //   child: Column(
-    //     crossAxisAlignment: CrossAxisAlignment.stretch,
-    //     children: <Widget>[
-    //       Row(
-    //         children: <Widget>[
-    //           SizedBox(
-    //             height: 30,
-    //             width: 100,
-    //             child: TextField(
-    //               decoration: InputDecoration(
-    //                 labelText: 'T-Column',
-    //                 border: OutlineInputBorder(),
-    //               ),
-    //               keyboardType: TextInputType.number,
-    //               onChanged: (value) {
-    //                 setState(() {
-    //                   columns = int.tryParse(value) ?? 0;
-    //                 });
-    //               },
-    //             ),
-    //           ),
-    //           SizedBox(width: 20),
-    //           SizedBox(
-    //             height: 30,
-    //             width: 100,
-    //             child: TextField(
-    //               decoration: InputDecoration(
-    //                 labelText: 'T-Row',
-    //                 border: OutlineInputBorder(),
-    //               ),
-    //               keyboardType: TextInputType.number,
-    //               onChanged: (value) {
-    //                 setState(() {
-    //                   rows = int.tryParse(value) ?? 0;
-    //                 });
-    //               },
-    //             ),
-    //           ),
-    //           SizedBox(width: 20),
-    //           ElevatedButton(
-    //             onPressed: () {
-    //               if (columns >= 1 && rows >= 1) {
-    //                 setState(() {
-    //                   // generateTable();
-    //                 });
-    //               } else {
-    //                 BlocProvider.of<BlocNotification>(contextGB)
-    //                     .UpdateNotification(
-    //                         "Notification",
-    //                         "T-Column and T-Row must be > 0",
-    //                         enumNotificationlist.Error);
-    //               }
-    //             },
-    //             child: Text('Generate Table'),
-    //             style: ElevatedButton.styleFrom(
-    //               minimumSize: Size(50, 45),
-    //               shape: RoundedRectangleBorder(
-    //                 borderRadius: BorderRadius.circular(10.0),
-    //               ),
-    //               primary: Colors.red,
-    //               onPrimary: Colors.white,
-    //             ),
-    //           ),
-    //         ],
-    //       ),
-    //       SizedBox(height: 20),
-    //       Table(
-    //         border: TableBorder.all(
-    //           color: Colors.red,
-    //         ),
-    //         children: tableData.asMap().entries.map((entry) {
-    //           int rowIndex = entry.key;
-    //           List<String> rowData = entry.value;
+// return SingleChildScrollView(
+//   padding: EdgeInsets.all(16.0),
+//   child: Column(
+//     crossAxisAlignment: CrossAxisAlignment.stretch,
+//     children: <Widget>[
+//       Row(
+//         children: <Widget>[
+//           SizedBox(
+//             height: 30,
+//             width: 100,
+//             child: TextField(
+//               decoration: InputDecoration(
+//                 labelText: 'T-Column',
+//                 border: OutlineInputBorder(),
+//               ),
+//               keyboardType: TextInputType.number,
+//               onChanged: (value) {
+//                 setState(() {
+//                   columns = int.tryParse(value) ?? 0;
+//                 });
+//               },
+//             ),
+//           ),
+//           SizedBox(width: 20),
+//           SizedBox(
+//             height: 30,
+//             width: 100,
+//             child: TextField(
+//               decoration: InputDecoration(
+//                 labelText: 'T-Row',
+//                 border: OutlineInputBorder(),
+//               ),
+//               keyboardType: TextInputType.number,
+//               onChanged: (value) {
+//                 setState(() {
+//                   rows = int.tryParse(value) ?? 0;
+//                 });
+//               },
+//             ),
+//           ),
+//           SizedBox(width: 20),
+//           ElevatedButton(
+//             onPressed: () {
+//               if (columns >= 1 && rows >= 1) {
+//                 setState(() {
+//                   // generateTable();
+//                 });
+//               } else {
+//                 BlocProvider.of<BlocNotification>(contextGB)
+//                     .UpdateNotification(
+//                         "Notification",
+//                         "T-Column and T-Row must be > 0",
+//                         enumNotificationlist.Error);
+//               }
+//             },
+//             child: Text('Generate Table'),
+//             style: ElevatedButton.styleFrom(
+//               minimumSize: Size(50, 45),
+//               shape: RoundedRectangleBorder(
+//                 borderRadius: BorderRadius.circular(10.0),
+//               ),
+//               primary: Colors.red,
+//               onPrimary: Colors.white,
+//             ),
+//           ),
+//         ],
+//       ),
+//       SizedBox(height: 20),
+//       Table(
+//         border: TableBorder.all(
+//           color: Colors.red,
+//         ),
+//         children: tableData.asMap().entries.map((entry) {
+//           int rowIndex = entry.key;
+//           List<String> rowData = entry.value;
 
-    //           return TableRow(
-    //             children: rowData.map((cellData) {
-    //               return TableCell(
-    //                 child: Container(
-    //                   color: rowIndex == 0
-    //                       ? Colors.grey
-    //                       : Colors
-    //                           .transparent, // เปลี่ยนสีพื้นหลังเฉพาะคอลัมน์บนสุด
-    //                   padding: EdgeInsets.all(8.0),
-    //                   child: Text(cellData),
-    //                 ),
-    //               );
-    //             }).toList(),
-    //           );
-    //         }).toList(),
-    //       ),
-    //     ],
-    //   ),
-    // );
-    //  }
-    // }
+//           return TableRow(
+//             children: rowData.map((cellData) {
+//               return TableCell(
+//                 child: Container(
+//                   color: rowIndex == 0
+//                       ? Colors.grey
+//                       : Colors
+//                           .transparent, // เปลี่ยนสีพื้นหลังเฉพาะคอลัมน์บนสุด
+//                   padding: EdgeInsets.all(8.0),
+//                   child: Text(cellData),
+//                 ),
+//               );
+//             }).toList(),
+//           );
+//         }).toList(),
+//       ),
+//     ],
+//   ),
+// );
+//  }
+// }
 
+class testclass {
+  testclass({
+    this.po = 'error',
+    this.date = '',
+    this.mat = '',
+    this.data1 = '',
+    this.data2 = '',
+    this.data3 = '',
+    this.data4 = '',
+    this.data5 = '',
+    this.data6 = '',
+  });
+
+  String po;
+  String date;
+  String mat;
+  String data1;
+  String data2;
+  String data3;
+  String data4;
+  String data5;
+  String data6;
+}

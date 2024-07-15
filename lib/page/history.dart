@@ -78,41 +78,299 @@ class _HistoryBodyState extends State<HistoryBody> {
   Widget build(BuildContext context) {
     return Column(
       children: [
+        Padding(
+          padding: const EdgeInsets.all(20.0),
+          child: Center(
+            child: ShaderMask(
+              shaderCallback: (bounds) => LinearGradient(
+                colors: [Colors.blueAccent, Colors.lightBlueAccent],
+                begin: Alignment.topLeft,
+                end: Alignment.bottomRight,
+              ).createShader(bounds),
+              child: Text(
+                'HISTORY',
+                style: TextStyle(
+                  fontSize: 20.0,
+                  fontWeight: FontWeight.bold,
+                  color: Colors.white,
+                ),
+              ),
+            ),
+          ),
+        ),
         Center(
-          child: Padding(
-            padding: const EdgeInsets.all(10.0),
-            child: Table(
-              border: TableBorder.all(),
-              columnWidths: const {
-                0: FixedColumnWidth(100.0),
-                1: FixedColumnWidth(150.0),
-                2: FixedColumnWidth(150.0),
-                3: FixedColumnWidth(150.0),
-              },
-              children: [
+          child: Table(
+            border: TableBorder.all(),
+            columnWidths: const {
+              0: FixedColumnWidth(100.0),
+              1: FixedColumnWidth(150.0),
+              2: FixedColumnWidth(150.0),
+              3: FixedColumnWidth(150.0),
+            },
+            children: [
+              TableRow(
+                children: [
+                  TableCell(
+                    child: SizedBox(
+                      height: 50,
+                      child: Stack(
+                        children: [
+                          Positioned(
+                            top: 0,
+                            left: 0,
+                            right: 0,
+                            height: 50,
+                            child: Container(
+                              color: Colors.blue,
+                              child: Center(
+                                child: Text(
+                                  'PO.',
+                                  style: TextStyle(color: Colors.white),
+                                ),
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ),
+                  TableCell(
+                    child: SizedBox(
+                      height: 50,
+                      child: Stack(
+                        children: [
+                          Positioned(
+                            top: 0,
+                            left: 0,
+                            right: 0,
+                            height: 50,
+                            child: Container(
+                              color: Colors.blue,
+                              child: Center(
+                                child: Text(
+                                  'Date',
+                                  style: TextStyle(color: Colors.white),
+                                ),
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ),
+                  TableCell(
+                    child: SizedBox(
+                      height: 50,
+                      child: Stack(
+                        children: [
+                          Positioned(
+                            top: 0,
+                            left: 0,
+                            right: 0,
+                            height: 50,
+                            child: Container(
+                              color: Colors.blue,
+                              child: Center(
+                                child: Text(
+                                  'Mat.',
+                                  style: TextStyle(color: Colors.white),
+                                ),
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ),
+                  TableCell(
+                    child: SizedBox(
+                      height: 50,
+                      child: Stack(
+                        children: [
+                          Positioned(
+                            top: 0,
+                            left: 0,
+                            right: 0,
+                            height: 25,
+                            child: Container(
+                              decoration: BoxDecoration(
+                                color: Colors.orange,
+                                border: Border.all(color: Colors.black),
+                              ),
+                              child: Center(
+                                child: Text(
+                                  'Adjustment',
+                                  style: TextStyle(color: Colors.white),
+                                ),
+                              ),
+                            ),
+                          ),
+                          Positioned(
+                            bottom: 0,
+                            left: 0,
+                            width: 75,
+                            height: 25,
+                            child: Container(
+                              decoration: BoxDecoration(
+                                  color: Colors.green,
+                                  border: Border(
+                                    right: BorderSide(color: Colors.black),
+                                  )),
+                              child: Center(
+                                child: Text(
+                                  'Action',
+                                  style: TextStyle(color: Colors.white),
+                                ),
+                              ),
+                            ),
+                          ),
+                          Positioned(
+                            bottom: 0,
+                            right: 0,
+                            width: 75,
+                            height: 25,
+                            child: Container(
+                              decoration: BoxDecoration(
+                                  color: Colors.green,
+                                  border: Border(
+                                    right: BorderSide(color: Colors.black),
+                                  )),
+                              child: Center(
+                                child: Text(
+                                  'Edit',
+                                  style: TextStyle(color: Colors.white),
+                                ),
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+              // ...tableDatav2.map((rowData) {
+              //   return TableRow(
+              //     children: [
+              //       TableCell(
+              //         child: SizedBox(
+              //           height: 50,
+              //           child: Center(
+              //             child: Text(rowData.po),
+              //           ),
+              //         ),
+              //       ),
+              //       TableCell(
+              //         child: SizedBox(
+              //           height: 50,
+              //           child: Center(
+              //             child: Text(rowData.date),
+              //           ),
+              //         ),
+              //       ),
+              //       TableCell(
+              //         child: SizedBox(
+              //           height: 50,
+              //           child: Center(
+              //             child: Text(rowData.mat),
+              //           ),
+              //         ),
+              //       ),
+              //       TableCell(
+              //         child: SizedBox(
+              //           height: 50,
+              //           child: Stack(
+              //             children: [
+              //               Positioned(
+              //                 bottom: 0,
+              //                 left: 0,
+              //                 width: 75,
+              //                 height: 50,
+              //                 child: Container(
+              //                   decoration: BoxDecoration(
+              //                     border: Border(
+              //                       right: BorderSide(color: Colors.black),
+              //                     ),
+              //                   ),
+              //                   child: Center(
+              //                     child: Text(
+              //                       "Action",
+              //                       style: TextStyle(color: Colors.black),
+              //                     ),
+              //                   ),
+              //                 ),
+              //               ),
+              //               Positioned(
+              //                 bottom: 0,
+              //                 right: 0,
+              //                 width: 75,
+              //                 height: 50,
+              //                 child: InkWell(
+              //                   onTap: () {
+              //                     showDialog(
+              //                       context: context,
+              //                       builder: (BuildContext context) {
+              //                         return AlertDialog(
+              //                           title: Text(
+              //                               'การปรับแต่ง: ${rowData.po}'),
+              //                           content:
+              //                               Text('แก้ไข: ${rowData.po} แล้ว'),
+              //                           actions: <Widget>[
+              //                             TextButton(
+              //                               child: Text('ปิด'),
+              //                               onPressed: () {
+              //                                 Navigator.of(context).pop();
+              //                               },
+              //                             ),
+              //                           ],
+              //                         );
+              //                       },
+              //                     );
+              //                   },
+              //                   child: Center(
+              //                     child: Icon(
+              //                       Icons.edit,
+              //                       color: Colors.black,
+              //                     ),
+              //                   ),
+              //                 ),
+              //               ),
+              //             ],
+              //           ),
+              //         ),
+              //       ),
+              //     ],
+              //   );
+              // }),
+              // ...tableDatav2.map(
+              //   (rowData) {
+              // return
+
+              // },
+              for (int i = 0; i < tableDatav2.length; i++) ...[
                 TableRow(
                   children: [
                     TableCell(
                       child: SizedBox(
                         height: 50,
-                        child: Stack(
-                          children: [
-                            Positioned(
-                              top: 0,
-                              left: 0,
-                              right: 0,
-                              height: 50,
-                              child: Container(
-                                color: Colors.blue,
-                                child: Center(
-                                  child: Text(
-                                    'PO.',
-                                    style: TextStyle(color: Colors.white),
-                                  ),
-                                ),
-                              ),
-                            ),
-                          ],
+                        child: Center(
+                          child: Text(tableDatav2[i].po),
+                        ),
+                      ),
+                    ),
+                    TableCell(
+                      child: SizedBox(
+                        height: 50,
+                        child: Center(
+                          child: Text(tableDatav2[i].date),
+                        ),
+                      ),
+                    ),
+                    TableCell(
+                      child: SizedBox(
+                        height: 50,
+                        child: Center(
+                          child: Text(tableDatav2[i].mat),
                         ),
                       ),
                     ),
@@ -121,87 +379,21 @@ class _HistoryBodyState extends State<HistoryBody> {
                         height: 50,
                         child: Stack(
                           children: [
-                            Positioned(
-                              top: 0,
-                              left: 0,
-                              right: 0,
-                              height: 50,
-                              child: Container(
-                                color: Colors.blue,
-                                child: Center(
-                                  child: Text(
-                                    'Date',
-                                    style: TextStyle(color: Colors.white),
-                                  ),
-                                ),
-                              ),
-                            ),
-                          ],
-                        ),
-                      ),
-                    ),
-                    TableCell(
-                      child: SizedBox(
-                        height: 50,
-                        child: Stack(
-                          children: [
-                            Positioned(
-                              top: 0,
-                              left: 0,
-                              right: 0,
-                              height: 50,
-                              child: Container(
-                                color: Colors.blue,
-                                child: Center(
-                                  child: Text(
-                                    'Mat.',
-                                    style: TextStyle(color: Colors.white),
-                                  ),
-                                ),
-                              ),
-                            ),
-                          ],
-                        ),
-                      ),
-                    ),
-                    TableCell(
-                      child: SizedBox(
-                        height: 50,
-                        child: Stack(
-                          children: [
-                            Positioned(
-                              top: 0,
-                              left: 0,
-                              right: 0,
-                              height: 25,
-                              child: Container(
-                                decoration: BoxDecoration(
-                                  color: Colors.orange,
-                                  border: Border.all(color: Colors.black),
-                                ),
-                                child: Center(
-                                  child: Text(
-                                    'Adjustment',
-                                    style: TextStyle(color: Colors.white),
-                                  ),
-                                ),
-                              ),
-                            ),
                             Positioned(
                               bottom: 0,
                               left: 0,
                               width: 75,
-                              height: 25,
+                              height: 50,
                               child: Container(
                                 decoration: BoxDecoration(
-                                    color: Colors.green,
-                                    border: Border(
-                                      right: BorderSide(color: Colors.black),
-                                    )),
+                                  border: Border(
+                                    right: BorderSide(color: Colors.black),
+                                  ),
+                                ),
                                 child: Center(
                                   child: Text(
-                                    'Action',
-                                    style: TextStyle(color: Colors.white),
+                                    "Action",
+                                    style: TextStyle(color: Colors.black),
                                   ),
                                 ),
                               ),
@@ -210,17 +402,33 @@ class _HistoryBodyState extends State<HistoryBody> {
                               bottom: 0,
                               right: 0,
                               width: 75,
-                              height: 25,
-                              child: Container(
-                                decoration: BoxDecoration(
-                                    color: Colors.green,
-                                    border: Border(
-                                      right: BorderSide(color: Colors.black),
-                                    )),
+                              height: 50,
+                              child: InkWell(
+                                onTap: () {
+                                  showDialog(
+                                    context: context,
+                                    builder: (BuildContext context) {
+                                      return AlertDialog(
+                                        title: Text(
+                                            'การปรับแต่ง: ${tableDatav2[i].po}'),
+                                        content: Text(
+                                            'แก้ไข: ${tableDatav2[i].po} แล้ว'),
+                                        actions: <Widget>[
+                                          TextButton(
+                                            child: Text('ปิด'),
+                                            onPressed: () {
+                                              Navigator.of(context).pop();
+                                            },
+                                          ),
+                                        ],
+                                      );
+                                    },
+                                  );
+                                },
                                 child: Center(
-                                  child: Text(
-                                    'Edit',
-                                    style: TextStyle(color: Colors.white),
+                                  child: Icon(
+                                    Icons.edit,
+                                    color: Colors.black,
                                   ),
                                 ),
                               ),
@@ -231,199 +439,8 @@ class _HistoryBodyState extends State<HistoryBody> {
                     ),
                   ],
                 ),
-                // ...tableDatav2.map((rowData) {
-                //   return TableRow(
-                //     children: [
-                //       TableCell(
-                //         child: SizedBox(
-                //           height: 50,
-                //           child: Center(
-                //             child: Text(rowData.po),
-                //           ),
-                //         ),
-                //       ),
-                //       TableCell(
-                //         child: SizedBox(
-                //           height: 50,
-                //           child: Center(
-                //             child: Text(rowData.date),
-                //           ),
-                //         ),
-                //       ),
-                //       TableCell(
-                //         child: SizedBox(
-                //           height: 50,
-                //           child: Center(
-                //             child: Text(rowData.mat),
-                //           ),
-                //         ),
-                //       ),
-                //       TableCell(
-                //         child: SizedBox(
-                //           height: 50,
-                //           child: Stack(
-                //             children: [
-                //               Positioned(
-                //                 bottom: 0,
-                //                 left: 0,
-                //                 width: 75,
-                //                 height: 50,
-                //                 child: Container(
-                //                   decoration: BoxDecoration(
-                //                     border: Border(
-                //                       right: BorderSide(color: Colors.black),
-                //                     ),
-                //                   ),
-                //                   child: Center(
-                //                     child: Text(
-                //                       "Action",
-                //                       style: TextStyle(color: Colors.black),
-                //                     ),
-                //                   ),
-                //                 ),
-                //               ),
-                //               Positioned(
-                //                 bottom: 0,
-                //                 right: 0,
-                //                 width: 75,
-                //                 height: 50,
-                //                 child: InkWell(
-                //                   onTap: () {
-                //                     showDialog(
-                //                       context: context,
-                //                       builder: (BuildContext context) {
-                //                         return AlertDialog(
-                //                           title: Text(
-                //                               'การปรับแต่ง: ${rowData.po}'),
-                //                           content:
-                //                               Text('แก้ไข: ${rowData.po} แล้ว'),
-                //                           actions: <Widget>[
-                //                             TextButton(
-                //                               child: Text('ปิด'),
-                //                               onPressed: () {
-                //                                 Navigator.of(context).pop();
-                //                               },
-                //                             ),
-                //                           ],
-                //                         );
-                //                       },
-                //                     );
-                //                   },
-                //                   child: Center(
-                //                     child: Icon(
-                //                       Icons.edit,
-                //                       color: Colors.black,
-                //                     ),
-                //                   ),
-                //                 ),
-                //               ),
-                //             ],
-                //           ),
-                //         ),
-                //       ),
-                //     ],
-                //   );
-                // }),
-                // ...tableDatav2.map(
-                //   (rowData) {
-                // return
-
-                // },
-                for (int i = 0; i < tableDatav2.length; i++) ...[
-                  TableRow(
-                    children: [
-                      TableCell(
-                        child: SizedBox(
-                          height: 50,
-                          child: Center(
-                            child: Text(tableDatav2[i].po),
-                          ),
-                        ),
-                      ),
-                      TableCell(
-                        child: SizedBox(
-                          height: 50,
-                          child: Center(
-                            child: Text(tableDatav2[i].date),
-                          ),
-                        ),
-                      ),
-                      TableCell(
-                        child: SizedBox(
-                          height: 50,
-                          child: Center(
-                            child: Text(tableDatav2[i].mat),
-                          ),
-                        ),
-                      ),
-                      TableCell(
-                        child: SizedBox(
-                          height: 50,
-                          child: Stack(
-                            children: [
-                              Positioned(
-                                bottom: 0,
-                                left: 0,
-                                width: 75,
-                                height: 50,
-                                child: Container(
-                                  decoration: BoxDecoration(
-                                    border: Border(
-                                      right: BorderSide(color: Colors.black),
-                                    ),
-                                  ),
-                                  child: Center(
-                                    child: Text(
-                                      "Action",
-                                      style: TextStyle(color: Colors.black),
-                                    ),
-                                  ),
-                                ),
-                              ),
-                              Positioned(
-                                bottom: 0,
-                                right: 0,
-                                width: 75,
-                                height: 50,
-                                child: InkWell(
-                                  onTap: () {
-                                    showDialog(
-                                      context: context,
-                                      builder: (BuildContext context) {
-                                        return AlertDialog(
-                                          title: Text(
-                                              'การปรับแต่ง: ${tableDatav2[i].po}'),
-                                          content: Text(
-                                              'แก้ไข: ${tableDatav2[i].po} แล้ว'),
-                                          actions: <Widget>[
-                                            TextButton(
-                                              child: Text('ปิด'),
-                                              onPressed: () {
-                                                Navigator.of(context).pop();
-                                              },
-                                            ),
-                                          ],
-                                        );
-                                      },
-                                    );
-                                  },
-                                  child: Center(
-                                    child: Icon(
-                                      Icons.edit,
-                                      color: Colors.black,
-                                    ),
-                                  ),
-                                ),
-                              ),
-                            ],
-                          ),
-                        ),
-                      ),
-                    ],
-                  ),
-                ]
-              ],
-            ),
+              ]
+            ],
           ),
         ),
       ],

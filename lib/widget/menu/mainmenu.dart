@@ -98,11 +98,6 @@ class Data_Menu_mainmenu extends StatelessWidget {
           Lv: 1,
         ),
         menu_normal(
-          name: "Page5",
-          page: Page5(),
-          Lv: 5,
-        ),
-        menu_normal(
           name: "History",
           page: History(),
           Lv: 1,

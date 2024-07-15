@@ -80,7 +80,7 @@ var dummydatainput2 = [
   {
     "plant": "LIQUID",
     "order": "1111111",
-    "mat": "24000002",
+    "mat": "24000001",
     "location": "BP8",
     "step1": "YES",
     "step2": "YES",
@@ -91,7 +91,7 @@ var dummydatainput2 = [
   {
     "plant": "POWDER",
     "order": "2222222",
-    "mat": "24000003",
+    "mat": "24000002",
     "location": "BP8",
     "step1": "YES",
     "step2": "YES",
@@ -101,7 +101,7 @@ var dummydatainput2 = [
   {
     "plant": "GAS",
     "order": "1111111",
-    "mat": "24000004",
+    "mat": "24000001",
     "location": "GATEWAY",
     "step1": "YES",
     "step2": "YES",

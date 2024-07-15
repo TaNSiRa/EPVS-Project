@@ -1,3 +1,5 @@
+// ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables, no_leading_underscores_for_local_identifiers
+
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -38,7 +40,7 @@ class _P01PROGRESSMAINState extends State<P01PROGRESSMAIN> {
                 end: Alignment.bottomRight,
               ).createShader(bounds),
               child: Text(
-                'HES',
+                'HES : PROGRESS',
                 style: TextStyle(
                   fontSize: 20.0,
                   fontWeight: FontWeight.bold,
@@ -48,6 +50,88 @@ class _P01PROGRESSMAINState extends State<P01PROGRESSMAIN> {
             ),
           ),
         ),
+        Row(children: [
+          Container(
+              decoration: BoxDecoration(
+                border: Border.all(
+                  color: Colors.teal.shade500,
+                ),
+                borderRadius: BorderRadius.only(
+                  topLeft: Radius.circular(20),
+                ),
+                color: Colors.black,
+              ),
+              height: 40,
+              width: 100,
+              child: Center(
+                  child: Text(
+                "PLANT",
+                style: TextStyle(
+                  fontSize: 16.0,
+                  color: Colors.white,
+                  fontWeight: FontWeight.bold,
+                ),
+              ))),
+          Container(
+              decoration: BoxDecoration(
+                border: Border.all(
+                  color: Colors.teal.shade500,
+                ),
+                borderRadius: BorderRadius.circular(0),
+                color: Colors.black,
+              ),
+              height: 40,
+              width: 100,
+              child: Center(
+                  child: Text(
+                "ORDER",
+                style: TextStyle(
+                  fontSize: 16.0,
+                  color: Colors.white,
+                  fontWeight: FontWeight.bold,
+                ),
+              ))),
+          Container(
+              decoration: BoxDecoration(
+                border: Border.all(
+                  color: Colors.teal.shade500,
+                ),
+                borderRadius: BorderRadius.circular(0),
+                color: Colors.black,
+              ),
+              height: 40,
+              width: 100,
+              child: Center(
+                  child: Text(
+                "MAT",
+                style: TextStyle(
+                  fontSize: 16.0,
+                  color: Colors.white,
+                  fontWeight: FontWeight.bold,
+                ),
+              ))),
+          Container(
+              decoration: BoxDecoration(
+                border: Border.all(
+                  color: Colors.teal.shade500,
+                ),
+                borderRadius: BorderRadius.only(
+                  topRight: Radius.circular(20),
+                ),
+                color: Colors.black,
+              ),
+              height: 40,
+              width: 900,
+              child: Center(
+                  child: Text(
+                "STEP",
+                style: TextStyle(
+                  fontSize: 16.0,
+                  color: Colors.white,
+                  fontWeight: FontWeight.bold,
+                ),
+              ))),
+        ]),
         // InkWell(
         //   onDoubleTap: () {
         //     context
@@ -71,8 +155,11 @@ class _P01PROGRESSMAINState extends State<P01PROGRESSMAIN> {
               Container(
                   decoration: BoxDecoration(
                     border: Border.all(color: Colors.black),
-                    borderRadius: BorderRadius.circular(10),
-                    color: Colors.blue,
+                    borderRadius: BorderRadius.only(
+                      topRight: Radius.circular(10),
+                      bottomRight: Radius.circular(10),
+                    ),
+                    color: Colors.teal.shade500,
                   ),
                   height: 80,
                   width: 100,
@@ -83,8 +170,34 @@ class _P01PROGRESSMAINState extends State<P01PROGRESSMAIN> {
                   ))),
               Container(
                   decoration: BoxDecoration(
+                    border: Border.all(color: Colors.black),
+                    borderRadius: BorderRadius.circular(10),
+                    color: Colors.teal.shade400,
+                  ),
+                  height: 80,
+                  width: 100,
+                  child: Center(
+                      child: Text(
+                    _data.ORDER,
+                    style: TextStyle(color: Colors.white),
+                  ))),
+              Container(
+                  decoration: BoxDecoration(
+                    border: Border.all(color: Colors.black),
+                    borderRadius: BorderRadius.circular(10),
+                    color: Colors.teal.shade300,
+                  ),
+                  height: 80,
+                  width: 100,
+                  child: Center(
+                      child: Text(
+                    _data.MAT,
+                    style: TextStyle(color: Colors.white),
+                  ))),
+              Container(
+                  decoration: BoxDecoration(
                     color: _data.STEP01 == 'YES'
-                        ? Colors.green
+                        ? Colors.greenAccent
                         : Colors.grey.shade500,
                     border: Border.all(color: Colors.black),
                     borderRadius: BorderRadius.circular(10),
@@ -95,7 +208,7 @@ class _P01PROGRESSMAINState extends State<P01PROGRESSMAIN> {
               Container(
                   decoration: BoxDecoration(
                     color: _data.STEP02 == 'YES'
-                        ? Colors.green
+                        ? Colors.greenAccent
                         : Colors.grey.shade500,
                     border: Border.all(color: Colors.black),
                     borderRadius: BorderRadius.circular(10),
@@ -106,7 +219,7 @@ class _P01PROGRESSMAINState extends State<P01PROGRESSMAIN> {
               Container(
                   decoration: BoxDecoration(
                     color: _data.STEP03 == 'YES'
-                        ? Colors.green
+                        ? Colors.greenAccent
                         : Colors.grey.shade500,
                     border: Border.all(color: Colors.black),
                     borderRadius: BorderRadius.circular(10),
@@ -117,7 +230,7 @@ class _P01PROGRESSMAINState extends State<P01PROGRESSMAIN> {
               Container(
                   decoration: BoxDecoration(
                     color: _data.STEP04 == 'YES'
-                        ? Colors.green
+                        ? Colors.greenAccent
                         : Colors.grey.shade500,
                     border: Border.all(color: Colors.black),
                     borderRadius: BorderRadius.circular(10),
@@ -128,7 +241,7 @@ class _P01PROGRESSMAINState extends State<P01PROGRESSMAIN> {
               Container(
                   decoration: BoxDecoration(
                     color: _data.STEP05 == 'YES'
-                        ? Colors.green
+                        ? Colors.greenAccent
                         : Colors.grey.shade500,
                     border: Border.all(color: Colors.black),
                     borderRadius: BorderRadius.circular(10),
@@ -139,7 +252,7 @@ class _P01PROGRESSMAINState extends State<P01PROGRESSMAIN> {
               Container(
                   decoration: BoxDecoration(
                     color: _data.STEP06 == 'YES'
-                        ? Colors.green
+                        ? Colors.greenAccent
                         : Colors.grey.shade500,
                     border: Border.all(color: Colors.black),
                     borderRadius: BorderRadius.circular(10),
@@ -150,7 +263,7 @@ class _P01PROGRESSMAINState extends State<P01PROGRESSMAIN> {
               Container(
                   decoration: BoxDecoration(
                     color: _data.STEP07 == 'YES'
-                        ? Colors.green
+                        ? Colors.greenAccent
                         : Colors.grey.shade500,
                     border: Border.all(color: Colors.black),
                     borderRadius: BorderRadius.circular(10),
@@ -161,7 +274,7 @@ class _P01PROGRESSMAINState extends State<P01PROGRESSMAIN> {
               Container(
                   decoration: BoxDecoration(
                     color: _data.STEP08 == 'YES'
-                        ? Colors.green
+                        ? Colors.greenAccent
                         : Colors.grey.shade500,
                     border: Border.all(color: Colors.black),
                     borderRadius: BorderRadius.circular(10),
@@ -172,10 +285,13 @@ class _P01PROGRESSMAINState extends State<P01PROGRESSMAIN> {
               Container(
                   decoration: BoxDecoration(
                     color: _data.STEP09 == 'YES'
-                        ? Colors.green
+                        ? Colors.greenAccent
                         : Colors.grey.shade500,
                     border: Border.all(color: Colors.black),
-                    borderRadius: BorderRadius.circular(10),
+                    borderRadius: BorderRadius.only(
+                      topLeft: Radius.circular(10),
+                      bottomLeft: Radius.circular(10),
+                    ),
                   ),
                   height: 80,
                   width: 100,

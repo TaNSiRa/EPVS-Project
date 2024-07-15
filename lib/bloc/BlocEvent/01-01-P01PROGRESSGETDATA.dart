@@ -64,6 +64,8 @@ class P01PROGRESSGETDATA_Bloc
         input.where((data) => data['location'] == 'HES').map((data) {
       return P01PROGRESSGETDATAclass(
         PLANT: savenull(data['plant']),
+        ORDER: savenull(data['order']),
+        MAT: savenull(data['mat']),
         STEP01: savenull(data['step1']),
         STEP02: savenull(data['step2']),
         STEP03: savenull(data['step3']),
@@ -154,6 +156,8 @@ class P01PROGRESSGETDATA_Bloc
 class P01PROGRESSGETDATAclass {
   P01PROGRESSGETDATAclass({
     this.PLANT = '',
+    this.ORDER = '',
+    this.MAT = '',
     this.STEP01 = '',
     this.STEP02 = '',
     this.STEP03 = '',
@@ -166,6 +170,8 @@ class P01PROGRESSGETDATAclass {
   });
 
   String PLANT;
+  String ORDER;
+  String MAT;
   String STEP01;
   String STEP02;
   String STEP03;

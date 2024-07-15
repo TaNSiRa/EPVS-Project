@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:newmaster/page/history.dart';
+import 'package:newmaster/page/page6.dart';
 
 import '../../bloc/BlocEvent/LoginEvent.dart';
 import '../../mainBody.dart';
@@ -99,12 +100,12 @@ class Data_Menu_mainmenu extends StatelessWidget {
         ),
         menu_normal(
           name: "History",
-          page: History(),
+          page: Page5(),
           Lv: 1,
         ),
         menu_normal(
           name: "Change Password",
-          page: Changepassword(),
+          page: Page6(),
           Lv: 1,
         ),
         menu_logout(

@@ -1,10 +1,7 @@
-// ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables, no_leading_underscores_for_local_identifiers
-
+// ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables, no_leading_underscores_for_local_identifiers, file_names, must_be_immutable
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-
 import '../../bloc/BlocEvent/01-01-P01PROGRESSGETDATA.dart';
-import 'P01PROGRESSVAR.dart';
 
 class P01PROGRESSMAIN extends StatefulWidget {
   P01PROGRESSMAIN({
@@ -20,7 +17,6 @@ class P01PROGRESSMAIN extends StatefulWidget {
 class _P01PROGRESSMAINState extends State<P01PROGRESSMAIN> {
   @override
   void initState() {
-    // TODO: implement initState
     super.initState();
     context.read<P01PROGRESSGETDATA_Bloc>().add(P01PROGRESSGETDATA_GET());
   }
@@ -124,7 +120,7 @@ class _P01PROGRESSMAINState extends State<P01PROGRESSMAIN> {
               width: 900,
               child: Center(
                   child: Text(
-                "STEP",
+                "PROGRESS",
                 style: TextStyle(
                   fontSize: 16.0,
                   color: Colors.white,

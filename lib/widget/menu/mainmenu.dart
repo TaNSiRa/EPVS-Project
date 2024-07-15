@@ -1,16 +1,15 @@
+// ignore_for_file: prefer_const_constructors, camel_case_types, must_be_immutable
+
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:newmaster/page/history.dart';
-import 'package:newmaster/page/page6.dart';
-
 import '../../bloc/BlocEvent/LoginEvent.dart';
 import '../../mainBody.dart';
-import '../../page/changepassword.dart';
 import '../../page/page1.dart';
 import '../../page/page2.dart';
 import '../../page/page3.dart';
 import '../../page/page4.dart';
 import '../../page/page5.dart';
+import '../../page/page6.dart';
 
 import 'sub_widget.dart';
 

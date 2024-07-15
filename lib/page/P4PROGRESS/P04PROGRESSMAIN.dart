@@ -1,10 +1,7 @@
-// ignore_for_file: prefer_const_constructors, no_leading_underscores_for_local_identifiers
-
+// ignore_for_file: prefer_const_constructors, no_leading_underscores_for_local_identifiers, must_be_immutable, file_names
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-
 import '../../bloc/BlocEvent/04-04-P04PROGRESSGETDATA.dart';
-import 'P04PROGRESSVAR.dart';
 
 class P04PROGRESSMAIN extends StatefulWidget {
   P04PROGRESSMAIN({
@@ -20,7 +17,6 @@ class P04PROGRESSMAIN extends StatefulWidget {
 class _P04PROGRESSMAINState extends State<P04PROGRESSMAIN> {
   @override
   void initState() {
-    // TODO: implement initState
     super.initState();
     context.read<P04PROGRESSGETDATA_Bloc>().add(P04PROGRESSGETDATA_GET());
   }
@@ -35,7 +31,7 @@ class _P04PROGRESSMAINState extends State<P04PROGRESSMAIN> {
           child: Center(
             child: ShaderMask(
               shaderCallback: (bounds) => LinearGradient(
-                colors: [Colors.blueAccent, Colors.lightBlueAccent],
+                colors: const [Colors.blueAccent, Colors.lightBlueAccent],
                 begin: Alignment.topLeft,
                 end: Alignment.bottomRight,
               ).createShader(bounds),
@@ -124,7 +120,7 @@ class _P04PROGRESSMAINState extends State<P04PROGRESSMAIN> {
               width: 900,
               child: Center(
                   child: Text(
-                "STEP",
+                "PROGRESS",
                 style: TextStyle(
                   fontSize: 16.0,
                   color: Colors.white,

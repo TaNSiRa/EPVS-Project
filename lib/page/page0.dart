@@ -4,6 +4,7 @@ import 'package:newmaster/page/history.dart';
 
 import 'TEST.dart';
 import 'page1.dart';
+import 'page2.dart';
 
 bool isChecked = false;
 

@@ -1,31 +1,31 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import '../../bloc/BlocEvent/01-01-P01PROGRESSGETDATA.dart';
-import 'P01PROGRESSVAR.dart';
+import '../../bloc/BlocEvent/03-03-P03PROGRESSGETDATA.dart';
+import 'P03PROGRESSVAR.dart';
 
-class P01PROGRESSMAIN extends StatefulWidget {
-  P01PROGRESSMAIN({
+class P03PROGRESSMAIN extends StatefulWidget {
+  P03PROGRESSMAIN({
     super.key,
     this.data,
   });
-  List<P01PROGRESSGETDATAclass>? data;
+  List<P03PROGRESSGETDATAclass>? data;
 
   @override
-  State<P01PROGRESSMAIN> createState() => _P01PROGRESSMAINState();
+  State<P03PROGRESSMAIN> createState() => _P03PROGRESSMAINState();
 }
 
-class _P01PROGRESSMAINState extends State<P01PROGRESSMAIN> {
+class _P03PROGRESSMAINState extends State<P03PROGRESSMAIN> {
   @override
   void initState() {
     // TODO: implement initState
     super.initState();
-    context.read<P01PROGRESSGETDATA_Bloc>().add(P01PROGRESSGETDATA_GET());
+    context.read<P03PROGRESSGETDATA_Bloc>().add(P03PROGRESSGETDATA_GET());
   }
 
   @override
   Widget build(BuildContext context) {
-    List<P01PROGRESSGETDATAclass> _datain = widget.data ?? [];
+    List<P03PROGRESSGETDATAclass> _datain = widget.data ?? [];
     return Column(
       children: [
         Padding(
@@ -38,7 +38,7 @@ class _P01PROGRESSMAINState extends State<P01PROGRESSMAIN> {
                 end: Alignment.bottomRight,
               ).createShader(bounds),
               child: Text(
-                'HES',
+                'BANGPOO SOI 8',
                 style: TextStyle(
                   fontSize: 20.0,
                   fontWeight: FontWeight.bold,
@@ -51,13 +51,13 @@ class _P01PROGRESSMAINState extends State<P01PROGRESSMAIN> {
         // InkWell(
         //   onDoubleTap: () {
         //     context
-        //         .read<P01PROGRESSGETDATA_Bloc>()
-        //         .add(P01PROGRESSGETDATA_GET2());
+        //         .read<P03PROGRESSGETDATA_Bloc>()
+        //         .add(P03PROGRESSGETDATA_GET2());
         //   },
         //   onLongPress: () {
         //     context
-        //         .read<P01PROGRESSGETDATA_Bloc>()
-        //         .add(P01PROGRESSGETDATA_GET3());
+        //         .read<P03PROGRESSGETDATA_Bloc>()
+        //         .add(P03PROGRESSGETDATA_GET3());
         //   },
         //   child: Container(
         //     height: 40,

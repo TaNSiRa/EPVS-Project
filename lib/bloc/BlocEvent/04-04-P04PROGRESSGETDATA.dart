@@ -4,43 +4,43 @@ import '../../data/dummydata2.dart';
 
 //-------------------------------------------------
 
-abstract class P01PROGRESSGETDATA_Event {}
+abstract class P04PROGRESSGETDATA_Event {}
 
-class P01PROGRESSGETDATA_GET extends P01PROGRESSGETDATA_Event {}
+class P04PROGRESSGETDATA_GET extends P04PROGRESSGETDATA_Event {}
 
-class P01PROGRESSGETDATA_GET2 extends P01PROGRESSGETDATA_Event {}
+class P04PROGRESSGETDATA_GET2 extends P04PROGRESSGETDATA_Event {}
 
-class P01PROGRESSGETDATA_GET3 extends P01PROGRESSGETDATA_Event {}
+class P04PROGRESSGETDATA_GET3 extends P04PROGRESSGETDATA_Event {}
 
-class P01PROGRESSGETDATA_FLUSH extends P01PROGRESSGETDATA_Event {}
+class P04PROGRESSGETDATA_FLUSH extends P04PROGRESSGETDATA_Event {}
 
-class P01PROGRESSGETDATA_Bloc
-    extends Bloc<P01PROGRESSGETDATA_Event, List<P01PROGRESSGETDATAclass>> {
-  P01PROGRESSGETDATA_Bloc() : super([]) {
-    on<P01PROGRESSGETDATA_GET>((event, emit) {
-      return _P01PROGRESSGETDATA_GET([], emit);
+class P04PROGRESSGETDATA_Bloc
+    extends Bloc<P04PROGRESSGETDATA_Event, List<P04PROGRESSGETDATAclass>> {
+  P04PROGRESSGETDATA_Bloc() : super([]) {
+    on<P04PROGRESSGETDATA_GET>((event, emit) {
+      return _P04PROGRESSGETDATA_GET([], emit);
     });
 
-    on<P01PROGRESSGETDATA_GET2>((event, emit) {
-      return _P01PROGRESSGETDATA_GET2([], emit);
+    on<P04PROGRESSGETDATA_GET2>((event, emit) {
+      return _P04PROGRESSGETDATA_GET2([], emit);
     });
-    on<P01PROGRESSGETDATA_GET3>((event, emit) {
-      return _P01PROGRESSGETDATA_GET3([], emit);
+    on<P04PROGRESSGETDATA_GET3>((event, emit) {
+      return _P04PROGRESSGETDATA_GET3([], emit);
     });
-    on<P01PROGRESSGETDATA_FLUSH>((event, emit) {
-      return _P01PROGRESSGETDATA_FLUSH([], emit);
+    on<P04PROGRESSGETDATA_FLUSH>((event, emit) {
+      return _P04PROGRESSGETDATA_FLUSH([], emit);
     });
   }
 
-  Future<void> _P01PROGRESSGETDATA_GET(List<P01PROGRESSGETDATAclass> toAdd,
-      Emitter<List<P01PROGRESSGETDATAclass>> emit) async {
-    List<P01PROGRESSGETDATAclass> output = [];
+  Future<void> _P04PROGRESSGETDATA_GET(List<P04PROGRESSGETDATAclass> toAdd,
+      Emitter<List<P04PROGRESSGETDATAclass>> emit) async {
+    List<P04PROGRESSGETDATAclass> output = [];
     //-------------------------------------------------------------------------------------
     var input = dummydatainput2;
 
     print(input.length);
     // for (var i = 0; i < input.length; i++) {
-    //   output.add(P01PROGRESSGETDATAclass(
+    //   output.add(P04PROGRESSGETDATAclass(
     //     PLANT: savenull(input[i]['plant']),
     //     STEP01: savenull(input[i]['step1']),
     //     STEP02: savenull(input[i]['step2']),
@@ -53,16 +53,16 @@ class P01PROGRESSGETDATA_Bloc
     //     STEP09: savenull(input[i]['step9']),
     //   ));
     // }
-    // List<P01PROGRESSGETDATAclass> datadummy = [
+    // List<P04PROGRESSGETDATAclass> datadummy = [
 
     // ];
 
     //-------------------------------------------------------------------------------------
     // output = datadummy;
 
-    List<P01PROGRESSGETDATAclass> outputdata =
-        input.where((data) => data['location'] == 'HES').map((data) {
-      return P01PROGRESSGETDATAclass(
+    List<P04PROGRESSGETDATAclass> outputdata =
+        input.where((data) => data['location'] == 'GATEWAY').map((data) {
+      return P04PROGRESSGETDATAclass(
         PLANT: savenull(data['plant']),
         STEP01: savenull(data['step1']),
         STEP02: savenull(data['step2']),
@@ -80,26 +80,26 @@ class P01PROGRESSGETDATA_Bloc
     emit(output);
   }
 
-  Future<void> _P01PROGRESSGETDATA_GET2(List<P01PROGRESSGETDATAclass> toAdd,
-      Emitter<List<P01PROGRESSGETDATAclass>> emit) async {
-    List<P01PROGRESSGETDATAclass> output = [];
+  Future<void> _P04PROGRESSGETDATA_GET2(List<P04PROGRESSGETDATAclass> toAdd,
+      Emitter<List<P04PROGRESSGETDATAclass>> emit) async {
+    List<P04PROGRESSGETDATAclass> output = [];
     //-------------------------------------------------------------------------------------
-    List<P01PROGRESSGETDATAclass> datadummy = [
-      P01PROGRESSGETDATAclass(
+    List<P04PROGRESSGETDATAclass> datadummy = [
+      P04PROGRESSGETDATAclass(
         PLANT: "PH PO:1234",
         STEP01: "YES",
         STEP02: "YES",
         STEP03: "YES",
         STEP04: "YES",
       ),
-      P01PROGRESSGETDATAclass(
+      P04PROGRESSGETDATAclass(
         PLANT: "PH PO:5555",
         STEP01: "YES",
         STEP02: "YES",
         STEP03: "YES",
         STEP04: "YES",
       ),
-      P01PROGRESSGETDATAclass(
+      P04PROGRESSGETDATAclass(
         PLANT: "PH PO:5556",
         STEP01: "YES",
         STEP02: "YES",
@@ -111,30 +111,30 @@ class P01PROGRESSGETDATA_Bloc
     emit(output);
   }
 
-  Future<void> _P01PROGRESSGETDATA_GET3(List<P01PROGRESSGETDATAclass> toAdd,
-      Emitter<List<P01PROGRESSGETDATAclass>> emit) async {
-    List<P01PROGRESSGETDATAclass> output = [];
+  Future<void> _P04PROGRESSGETDATA_GET3(List<P04PROGRESSGETDATAclass> toAdd,
+      Emitter<List<P04PROGRESSGETDATAclass>> emit) async {
+    List<P04PROGRESSGETDATAclass> output = [];
     //-------------------------------------------------------------------------------------
-    List<P01PROGRESSGETDATAclass> datadummy = [
-      P01PROGRESSGETDATAclass(
+    List<P04PROGRESSGETDATAclass> datadummy = [
+      P04PROGRESSGETDATAclass(
         PLANT: "PH PO:1234",
         STEP01: "YES",
         STEP02: "YES",
         STEP03: "YES",
       ),
-      P01PROGRESSGETDATAclass(
+      P04PROGRESSGETDATAclass(
         PLANT: "PH PO:5555",
         STEP01: "YES",
         STEP02: "YES",
         STEP03: "YES",
         STEP04: "YES",
       ),
-      P01PROGRESSGETDATAclass(
+      P04PROGRESSGETDATAclass(
         PLANT: "PH PO:5556",
         STEP01: "YES",
         STEP02: "YES",
       ),
-      P01PROGRESSGETDATAclass(
+      P04PROGRESSGETDATAclass(
         PLANT: "PH PO:9999",
       ),
     ];
@@ -144,15 +144,15 @@ class P01PROGRESSGETDATA_Bloc
     emit(output);
   }
 
-  Future<void> _P01PROGRESSGETDATA_FLUSH(List<P01PROGRESSGETDATAclass> toAdd,
-      Emitter<List<P01PROGRESSGETDATAclass>> emit) async {
-    List<P01PROGRESSGETDATAclass> output = [];
+  Future<void> _P04PROGRESSGETDATA_FLUSH(List<P04PROGRESSGETDATAclass> toAdd,
+      Emitter<List<P04PROGRESSGETDATAclass>> emit) async {
+    List<P04PROGRESSGETDATAclass> output = [];
     emit(output);
   }
 }
 
-class P01PROGRESSGETDATAclass {
-  P01PROGRESSGETDATAclass({
+class P04PROGRESSGETDATAclass {
+  P04PROGRESSGETDATAclass({
     this.PLANT = '',
     this.STEP01 = '',
     this.STEP02 = '',

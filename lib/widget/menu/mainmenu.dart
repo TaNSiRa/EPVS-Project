@@ -78,22 +78,22 @@ class Data_Menu_mainmenu extends StatelessWidget {
                   ),
                 ))),
         menu_normal(
-          name: "Progress",
+          name: "HES",
           page: Page1(),
           Lv: 1,
         ),
         menu_normal(
-          name: "Page2",
+          name: "BP12",
           page: Page2(),
           Lv: 1,
         ),
         menu_normal(
-          name: "Page3",
+          name: "BP8",
           page: Page3(),
           Lv: 1,
         ),
         menu_normal(
-          name: "Page4",
+          name: "GATEWAY",
           page: Page4(),
           Lv: 1,
         ),

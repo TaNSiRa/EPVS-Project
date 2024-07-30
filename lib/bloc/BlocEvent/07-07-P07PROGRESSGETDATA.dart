@@ -24,9 +24,6 @@ class P07PROGRESSGETDATA_GET3 extends P07PROGRESSGETDATA_Event {}
 
 class P07PROGRESSGETDATA_FLUSH extends P07PROGRESSGETDATA_Event {}
 
-// Event ใหม่สำหรับรับข้อมูลจากหน้าก่อนหน้า
-class P07PROGRESSGETDATA_SendData extends P07PROGRESSGETDATA_Event {}
-
 class P07PROGRESSGETDATA_Bloc
     extends Bloc<P07PROGRESSGETDATA_Event, List<P07PROGRESSGETDATAclass>> {
   P07PROGRESSGETDATA_Bloc() : super([]) {

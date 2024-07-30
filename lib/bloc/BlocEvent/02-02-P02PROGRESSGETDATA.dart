@@ -38,7 +38,7 @@ class P02PROGRESSGETDATA_Bloc
     //-------------------------------------------------------------------------------------
     var input = dummydatainput2;
 
-    print(input.length);
+    // print(input.length);
     // for (var i = 0; i < input.length; i++) {
     //   output.add(P02PROGRESSGETDATAclass(
     //     PLANT: savenull(input[i]['plant']),

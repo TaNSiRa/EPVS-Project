@@ -38,7 +38,7 @@ class P01PROGRESSGETDATA_Bloc
     //-------------------------------------------------------------------------------------
     var input = dummydatainput2;
 
-    print(input.length);
+    // print(input.length);
     // for (var i = 0; i < input.length; i++) {
     //   output.add(P01PROGRESSGETDATAclass(
     //     PLANT: savenull(input[i]['plant']),
@@ -66,6 +66,11 @@ class P01PROGRESSGETDATA_Bloc
         PLANT: savenull(data['plant']),
         ORDER: savenull(data['order']),
         MAT: savenull(data['mat']),
+        LOCATION: savenull(data['location']),
+        LOT: savenull(data['lot']),
+        CUSTOMER: savenull(data['customer']),
+        PARTNO: savenull(data['partno']),
+        PARTNAME: savenull(data['partname']),
         STEP01: savenull(data['step1']),
         STEP02: savenull(data['step2']),
         STEP03: savenull(data['step3']),
@@ -86,30 +91,36 @@ class P01PROGRESSGETDATA_Bloc
       Emitter<List<P01PROGRESSGETDATAclass>> emit) async {
     List<P01PROGRESSGETDATAclass> output = [];
     //-------------------------------------------------------------------------------------
-    List<P01PROGRESSGETDATAclass> datadummy = [
-      P01PROGRESSGETDATAclass(
-        PLANT: "PH PO:1234",
-        STEP01: "YES",
-        STEP02: "YES",
-        STEP03: "YES",
-        STEP04: "YES",
-      ),
-      P01PROGRESSGETDATAclass(
-        PLANT: "PH PO:5555",
-        STEP01: "YES",
-        STEP02: "YES",
-        STEP03: "YES",
-        STEP04: "YES",
-      ),
-      P01PROGRESSGETDATAclass(
-        PLANT: "PH PO:5556",
-        STEP01: "YES",
-        STEP02: "YES",
-      ),
-    ];
+    var input = dummydatainput2;
 
-    //-------------------------------------------------------------------------------------
-    output = datadummy;
+    List<P01PROGRESSGETDATAclass> outputdata = input
+        .where((data) =>
+            data['location'] == 'HES' &&
+            data['plant'] == 'YES' &&
+            data['step01'] == 'YES')
+        .map((data) {
+      return P01PROGRESSGETDATAclass(
+        PLANT: savenull(data['plant']),
+        ORDER: savenull(data['order']),
+        MAT: savenull(data['mat']),
+        LOCATION: savenull(data['location']),
+        LOT: savenull(data['lot']),
+        CUSTOMER: savenull(data['customer']),
+        PARTNO: savenull(data['partno']),
+        PARTNAME: savenull(data['partname']),
+        STEP01: savenull(data['step1']),
+        STEP02: savenull(data['step2']),
+        STEP03: savenull(data['step3']),
+        STEP04: savenull(data['step4']),
+        STEP05: savenull(data['step5']),
+        STEP06: savenull(data['step6']),
+        STEP07: savenull(data['step7']),
+        STEP08: savenull(data['step8']),
+        STEP09: savenull(data['step9']),
+      );
+    }).toList();
+
+    output = outputdata;
     emit(output);
   }
 
@@ -158,6 +169,11 @@ class P01PROGRESSGETDATAclass {
     this.PLANT = '',
     this.ORDER = '',
     this.MAT = '',
+    this.LOT = '',
+    this.LOCATION = '',
+    this.CUSTOMER = '',
+    this.PARTNO = '',
+    this.PARTNAME = '',
     this.STEP01 = '',
     this.STEP02 = '',
     this.STEP03 = '',
@@ -172,6 +188,11 @@ class P01PROGRESSGETDATAclass {
   String PLANT;
   String ORDER;
   String MAT;
+  String LOCATION;
+  String LOT;
+  String CUSTOMER;
+  String PARTNO;
+  String PARTNAME;
   String STEP01;
   String STEP02;
   String STEP03;

@@ -51,8 +51,8 @@ class _testbuttonState extends State<testbutton> {
           onChangeinside: (d, k) {
             setState(() {
               test01 = d;
-              print(test01);
-              print(k);
+              // print(test01);
+              // print(k);
             });
           },
           value: test01,
@@ -261,7 +261,7 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
             onChanged: (SingingCharacter? value) {
               setState(() {
                 _character = value;
-                print(value);
+                // print(value);
               });
             },
           ),
@@ -274,7 +274,7 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
             onChanged: (SingingCharacter? value) {
               setState(() {
                 _character = value;
-                print(value);
+                // print(value);
               });
             },
           ),

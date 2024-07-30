@@ -1,7 +1,10 @@
-// ignore_for_file: prefer_const_constructors, no_leading_underscores_for_local_identifiers, must_be_immutable, file_names
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../bloc/BlocEvent/03-03-P03PROGRESSGETDATA.dart';
+import '../../bloc/BlocEvent/ChangePageEvent.dart';
+import '../../data/global.dart';
+import '../../mainBody.dart';
+import '../page7.dart';
 
 class P03PROGRESSMAIN extends StatefulWidget {
   P03PROGRESSMAIN({
@@ -24,175 +27,226 @@ class _P03PROGRESSMAINState extends State<P03PROGRESSMAIN> {
   @override
   Widget build(BuildContext context) {
     List<P03PROGRESSGETDATAclass> _datain = widget.data ?? [];
-    return Column(
-      children: [
-        Padding(
-          padding: const EdgeInsets.all(20.0),
-          child: Center(
-            child: ShaderMask(
-              shaderCallback: (bounds) => LinearGradient(
-                colors: const [Colors.blueAccent, Colors.lightBlueAccent],
-                begin: Alignment.topLeft,
-                end: Alignment.bottomRight,
-              ).createShader(bounds),
-              child: Text(
-                'BANGPOO SOI 8 : PROGRESS',
-                style: TextStyle(
-                  fontSize: 20.0,
-                  fontWeight: FontWeight.bold,
-                  color: Colors.white,
+
+    // Group data by PLANT
+    Map<String, List<P03PROGRESSGETDATAclass>> groupedData = {};
+    for (var item in _datain) {
+      if (groupedData.containsKey(item.PLANT)) {
+        groupedData[item.PLANT]!.add(item);
+      } else {
+        groupedData[item.PLANT] = [item];
+      }
+    }
+
+    return SingleChildScrollView(
+      child: Column(
+        children: [
+          Padding(
+            padding: const EdgeInsets.all(20.0),
+            child: Center(
+              child: ShaderMask(
+                shaderCallback: (bounds) => LinearGradient(
+                  colors: [Colors.blueAccent, Colors.lightBlueAccent],
+                  begin: Alignment.topLeft,
+                  end: Alignment.bottomRight,
+                ).createShader(bounds),
+                child: Text(
+                  'BP SOI 8 : PROGRESS',
+                  style: TextStyle(
+                    fontSize: 20.0,
+                    fontWeight: FontWeight.bold,
+                    color: Colors.white,
+                  ),
                 ),
               ),
             ),
           ),
-        ),
-        Row(children: [
-          Container(
-              decoration: BoxDecoration(
-                border: Border.all(
-                  color: Colors.teal.shade500,
-                ),
-                borderRadius: BorderRadius.only(
-                  topLeft: Radius.circular(20),
-                ),
-                color: Colors.black,
-              ),
-              height: 40,
-              width: 100,
-              child: Center(
-                  child: Text(
-                "PLANT",
-                style: TextStyle(
-                  fontSize: 16.0,
-                  color: Colors.white,
-                  fontWeight: FontWeight.bold,
-                ),
-              ))),
-          Container(
-              decoration: BoxDecoration(
-                border: Border.all(
-                  color: Colors.teal.shade500,
-                ),
-                borderRadius: BorderRadius.circular(0),
-                color: Colors.black,
-              ),
-              height: 40,
-              width: 100,
-              child: Center(
-                  child: Text(
-                "ORDER",
-                style: TextStyle(
-                  fontSize: 16.0,
-                  color: Colors.white,
-                  fontWeight: FontWeight.bold,
-                ),
-              ))),
-          Container(
-              decoration: BoxDecoration(
-                border: Border.all(
-                  color: Colors.teal.shade500,
-                ),
-                borderRadius: BorderRadius.circular(0),
-                color: Colors.black,
-              ),
-              height: 40,
-              width: 100,
-              child: Center(
-                  child: Text(
-                "MAT",
-                style: TextStyle(
-                  fontSize: 16.0,
-                  color: Colors.white,
-                  fontWeight: FontWeight.bold,
-                ),
-              ))),
-          Container(
-              decoration: BoxDecoration(
-                border: Border.all(
-                  color: Colors.teal.shade500,
-                ),
-                borderRadius: BorderRadius.only(
-                  topRight: Radius.circular(20),
-                ),
-                color: Colors.black,
-              ),
-              height: 40,
-              width: 900,
-              child: Center(
-                  child: Text(
-                "PROGRESS",
-                style: TextStyle(
-                  fontSize: 16.0,
-                  color: Colors.white,
-                  fontWeight: FontWeight.bold,
-                ),
-              ))),
-        ]),
-        // InkWell(
-        //   onDoubleTap: () {
-        //     context
-        //         .read<P01PROGRESSGETDATA_Bloc>()
-        //         .add(P01PROGRESSGETDATA_GET2());
-        //   },
-        //   onLongPress: () {
-        //     context
-        //         .read<P01PROGRESSGETDATA_Bloc>()
-        //         .add(P01PROGRESSGETDATA_GET3());
-        //   },
-        //   child: Container(
-        //     height: 40,
-        //     width: 100,
-        //     color: Colors.red,
-        //   ),
-        // ),
-        ..._datain.map((_data) {
-          return Row(
-            children: [
-              Container(
-                  decoration: BoxDecoration(
-                    border: Border.all(color: Colors.black),
-                    borderRadius: BorderRadius.only(
-                      topRight: Radius.circular(10),
-                      bottomRight: Radius.circular(10),
-                    ),
+          Row(children: [
+            Container(
+                decoration: BoxDecoration(
+                  border: Border.all(
                     color: Colors.teal.shade500,
                   ),
+                  borderRadius: BorderRadius.only(
+                    topLeft: Radius.circular(20),
+                  ),
+                  color: Colors.black,
+                ),
+                height: 40,
+                width: 100,
+                child: Center(
+                    child: Text(
+                  "PLANT",
+                  style: TextStyle(
+                    fontSize: 16.0,
+                    color: Colors.white,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ))),
+            Container(
+                decoration: BoxDecoration(
+                  border: Border.all(
+                    color: Colors.teal.shade500,
+                  ),
+                  borderRadius: BorderRadius.only(
+                    topRight: Radius.circular(20),
+                  ),
+                  color: Colors.black,
+                ),
+                height: 40,
+                width: 900,
+                child: Center(
+                    child: Text(
+                  "PROGRESS",
+                  style: TextStyle(
+                    fontSize: 16.0,
+                    color: Colors.white,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ))),
+          ]),
+          ...groupedData.entries.map((_entry) {
+            String plant = _entry.key;
+            List<P03PROGRESSGETDATAclass> steps = _entry.value;
+            bool step01Complete = steps.any((step) => step.STEP01 == 'YES');
+            bool step02Complete = steps.any((step) => step.STEP02 == 'YES');
+            bool step03Complete = steps.any((step) => step.STEP03 == 'YES');
+            bool step04Complete = steps.any((step) => step.STEP04 == 'YES');
+            bool step05Complete = steps.any((step) => step.STEP05 == 'YES');
+            bool step06Complete = steps.any((step) => step.STEP06 == 'YES');
+            bool step07Complete = steps.any((step) => step.STEP07 == 'YES');
+            bool step08Complete = steps.any((step) => step.STEP08 == 'YES');
+            bool step09Complete = steps.any((step) => step.STEP09 == 'YES');
+            int transactionsCount1 = _getPlantTransactionsCount1(plant);
+            int transactionsCount2 = _getPlantTransactionsCount2(plant);
+            int transactionsCount3 = _getPlantTransactionsCount3(plant);
+            int transactionsCount4 = _getPlantTransactionsCount4(plant);
+            int transactionsCount5 = _getPlantTransactionsCount5(plant);
+            int transactionsCount6 = _getPlantTransactionsCount6(plant);
+            int transactionsCount7 = _getPlantTransactionsCount7(plant);
+            int transactionsCount8 = _getPlantTransactionsCount8(plant);
+            int transactionsCount9 = _getPlantTransactionsCount9(plant);
+
+            return Row(
+              children: [
+                Container(
+                    decoration: BoxDecoration(
+                      border: Border.all(color: Colors.black),
+                      borderRadius: BorderRadius.only(
+                        topRight: Radius.circular(10),
+                        bottomRight: Radius.circular(10),
+                      ),
+                      color: Colors.teal.shade500,
+                    ),
+                    height: 80,
+                    width: 100,
+                    child: Center(
+                        child: Text(
+                      plant,
+                      style: TextStyle(color: Colors.white),
+                    ))),
+                InkWell(
+                  onTap: () {
+                    // CuPage = Page7();
+                    // MainBodyContext.read<ChangePage_Bloc>()
+                    //     .add(ChangePage_nodrower());
+                  },
+                  child: Container(
+                    decoration: BoxDecoration(
+                      color: step01Complete
+                          ? Colors.greenAccent
+                          : Colors.grey.shade500,
+                      border: Border.all(color: Colors.black),
+                      borderRadius: BorderRadius.circular(10),
+                    ),
+                    height: 80,
+                    width: 100,
+                    child: Center(
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Text("200"),
+                          Text(
+                            transactionsCount1.toString() + " transactions",
+                            style: TextStyle(fontSize: 10),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ),
+                ),
+                Container(
+                  decoration: BoxDecoration(
+                    color: step02Complete
+                        ? Colors.greenAccent
+                        : Colors.grey.shade500,
+                    border: Border.all(color: Colors.black),
+                    borderRadius: BorderRadius.circular(10),
+                  ),
                   height: 80,
                   width: 100,
                   child: Center(
-                      child: Text(
-                    _data.PLANT,
-                    style: TextStyle(color: Colors.white),
-                  ))),
-              Container(
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Text("400"),
+                        Text(
+                          transactionsCount2.toString() + " transactions",
+                          style: TextStyle(fontSize: 10),
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
+                Container(
                   decoration: BoxDecoration(
+                    color: step03Complete
+                        ? Colors.greenAccent
+                        : Colors.grey.shade500,
                     border: Border.all(color: Colors.black),
                     borderRadius: BorderRadius.circular(10),
-                    color: Colors.teal.shade400,
                   ),
                   height: 80,
                   width: 100,
                   child: Center(
-                      child: Text(
-                    _data.ORDER,
-                    style: TextStyle(color: Colors.white),
-                  ))),
-              Container(
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Text("600"),
+                        Text(
+                          transactionsCount3.toString() + " transactions",
+                          style: TextStyle(fontSize: 10),
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
+                Container(
                   decoration: BoxDecoration(
+                    color: step04Complete
+                        ? Colors.greenAccent
+                        : Colors.grey.shade500,
                     border: Border.all(color: Colors.black),
                     borderRadius: BorderRadius.circular(10),
-                    color: Colors.teal.shade300,
                   ),
                   height: 80,
                   width: 100,
                   child: Center(
-                      child: Text(
-                    _data.MAT,
-                    style: TextStyle(color: Colors.white),
-                  ))),
-              Container(
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Text("800"),
+                        Text(
+                          transactionsCount4.toString() + " transactions",
+                          style: TextStyle(fontSize: 10),
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
+                Container(
                   decoration: BoxDecoration(
-                    color: _data.STEP01 == 'YES'
+                    color: step05Complete
                         ? Colors.greenAccent
                         : Colors.grey.shade500,
                     border: Border.all(color: Colors.black),
@@ -200,10 +254,22 @@ class _P03PROGRESSMAINState extends State<P03PROGRESSMAIN> {
                   ),
                   height: 80,
                   width: 100,
-                  child: Center(child: Text("200"))),
-              Container(
+                  child: Center(
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Text("1000"),
+                        Text(
+                          transactionsCount5.toString() + " transactions",
+                          style: TextStyle(fontSize: 10),
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
+                Container(
                   decoration: BoxDecoration(
-                    color: _data.STEP02 == 'YES'
+                    color: step06Complete
                         ? Colors.greenAccent
                         : Colors.grey.shade500,
                     border: Border.all(color: Colors.black),
@@ -211,10 +277,22 @@ class _P03PROGRESSMAINState extends State<P03PROGRESSMAIN> {
                   ),
                   height: 80,
                   width: 100,
-                  child: const Center(child: Text("400"))),
-              Container(
+                  child: Center(
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Text("1200"),
+                        Text(
+                          transactionsCount6.toString() + " transactions",
+                          style: TextStyle(fontSize: 10),
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
+                Container(
                   decoration: BoxDecoration(
-                    color: _data.STEP03 == 'YES'
+                    color: step07Complete
                         ? Colors.greenAccent
                         : Colors.grey.shade500,
                     border: Border.all(color: Colors.black),
@@ -222,10 +300,22 @@ class _P03PROGRESSMAINState extends State<P03PROGRESSMAIN> {
                   ),
                   height: 80,
                   width: 100,
-                  child: const Center(child: Text("600"))),
-              Container(
+                  child: Center(
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Text("1400"),
+                        Text(
+                          transactionsCount7.toString() + " transactions",
+                          style: TextStyle(fontSize: 10),
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
+                Container(
                   decoration: BoxDecoration(
-                    color: _data.STEP04 == 'YES'
+                    color: step08Complete
                         ? Colors.greenAccent
                         : Colors.grey.shade500,
                     border: Border.all(color: Colors.black),
@@ -233,54 +323,22 @@ class _P03PROGRESSMAINState extends State<P03PROGRESSMAIN> {
                   ),
                   height: 80,
                   width: 100,
-                  child: const Center(child: Text("800"))),
-              Container(
-                  decoration: BoxDecoration(
-                    color: _data.STEP05 == 'YES'
-                        ? Colors.greenAccent
-                        : Colors.grey.shade500,
-                    border: Border.all(color: Colors.black),
-                    borderRadius: BorderRadius.circular(10),
+                  child: Center(
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Text("1600"),
+                        Text(
+                          transactionsCount8.toString() + " transactions",
+                          style: TextStyle(fontSize: 10),
+                        ),
+                      ],
+                    ),
                   ),
-                  height: 80,
-                  width: 100,
-                  child: const Center(child: Text("1000"))),
-              Container(
+                ),
+                Container(
                   decoration: BoxDecoration(
-                    color: _data.STEP06 == 'YES'
-                        ? Colors.greenAccent
-                        : Colors.grey.shade500,
-                    border: Border.all(color: Colors.black),
-                    borderRadius: BorderRadius.circular(10),
-                  ),
-                  height: 80,
-                  width: 100,
-                  child: const Center(child: Text("1200"))),
-              Container(
-                  decoration: BoxDecoration(
-                    color: _data.STEP07 == 'YES'
-                        ? Colors.greenAccent
-                        : Colors.grey.shade500,
-                    border: Border.all(color: Colors.black),
-                    borderRadius: BorderRadius.circular(10),
-                  ),
-                  height: 80,
-                  width: 100,
-                  child: const Center(child: Text("1400"))),
-              Container(
-                  decoration: BoxDecoration(
-                    color: _data.STEP08 == 'YES'
-                        ? Colors.greenAccent
-                        : Colors.grey.shade500,
-                    border: Border.all(color: Colors.black),
-                    borderRadius: BorderRadius.circular(10),
-                  ),
-                  height: 80,
-                  width: 100,
-                  child: const Center(child: Text("1600"))),
-              Container(
-                  decoration: BoxDecoration(
-                    color: _data.STEP09 == 'YES'
+                    color: step09Complete
                         ? Colors.greenAccent
                         : Colors.grey.shade500,
                     border: Border.all(color: Colors.black),
@@ -291,11 +349,87 @@ class _P03PROGRESSMAINState extends State<P03PROGRESSMAIN> {
                   ),
                   height: 80,
                   width: 100,
-                  child: const Center(child: Text("1800"))),
-            ],
-          );
-        })
-      ],
+                  child: Center(
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Text("1800"),
+                        Text(
+                          transactionsCount9.toString() + " transactions",
+                          style: TextStyle(fontSize: 10),
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
+              ],
+            );
+          }).toList()
+        ],
+      ),
     );
+  }
+
+  int _getPlantTransactionsCount1(String plant) {
+    return widget.data
+            ?.where((item) => item.PLANT == plant && item.STEP01 == 'YES')
+            .length ??
+        0;
+  }
+
+  int _getPlantTransactionsCount2(String plant) {
+    return widget.data
+            ?.where((item) => item.PLANT == plant && item.STEP02 == 'YES')
+            .length ??
+        0;
+  }
+
+  int _getPlantTransactionsCount3(String plant) {
+    return widget.data
+            ?.where((item) => item.PLANT == plant && item.STEP03 == 'YES')
+            .length ??
+        0;
+  }
+
+  int _getPlantTransactionsCount4(String plant) {
+    return widget.data
+            ?.where((item) => item.PLANT == plant && item.STEP04 == 'YES')
+            .length ??
+        0;
+  }
+
+  int _getPlantTransactionsCount5(String plant) {
+    return widget.data
+            ?.where((item) => item.PLANT == plant && item.STEP05 == 'YES')
+            .length ??
+        0;
+  }
+
+  int _getPlantTransactionsCount6(String plant) {
+    return widget.data
+            ?.where((item) => item.PLANT == plant && item.STEP06 == 'YES')
+            .length ??
+        0;
+  }
+
+  int _getPlantTransactionsCount7(String plant) {
+    return widget.data
+            ?.where((item) => item.PLANT == plant && item.STEP07 == 'YES')
+            .length ??
+        0;
+  }
+
+  int _getPlantTransactionsCount8(String plant) {
+    return widget.data
+            ?.where((item) => item.PLANT == plant && item.STEP08 == 'YES')
+            .length ??
+        0;
+  }
+
+  int _getPlantTransactionsCount9(String plant) {
+    return widget.data
+            ?.where((item) => item.PLANT == plant && item.STEP09 == 'YES')
+            .length ??
+        0;
   }
 }

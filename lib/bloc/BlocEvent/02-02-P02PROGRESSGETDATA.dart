@@ -66,6 +66,11 @@ class P02PROGRESSGETDATA_Bloc
         PLANT: savenull(data['plant']),
         ORDER: savenull(data['order']),
         MAT: savenull(data['mat']),
+        LOCATION: savenull(data['location']),
+        LOT: savenull(data['lot']),
+        CUSTOMER: savenull(data['customer']),
+        PARTNO: savenull(data['partno']),
+        PARTNAME: savenull(data['partname']),
         STEP01: savenull(data['step1']),
         STEP02: savenull(data['step2']),
         STEP03: savenull(data['step3']),
@@ -158,6 +163,11 @@ class P02PROGRESSGETDATAclass {
     this.PLANT = '',
     this.ORDER = '',
     this.MAT = '',
+    this.LOT = '',
+    this.LOCATION = '',
+    this.CUSTOMER = '',
+    this.PARTNO = '',
+    this.PARTNAME = '',
     this.STEP01 = '',
     this.STEP02 = '',
     this.STEP03 = '',
@@ -172,6 +182,11 @@ class P02PROGRESSGETDATAclass {
   String PLANT;
   String ORDER;
   String MAT;
+  String LOCATION;
+  String LOT;
+  String CUSTOMER;
+  String PARTNO;
+  String PARTNAME;
   String STEP01;
   String STEP02;
   String STEP03;

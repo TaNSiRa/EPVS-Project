@@ -78,7 +78,7 @@ var dummydatainput2 = [
   },
   {
     "plant": "PHO",
-    "order": "1111111",
+    "order": "11111119",
     "mat": "24000001",
     "location": "BP12",
     "lot": "123456789",

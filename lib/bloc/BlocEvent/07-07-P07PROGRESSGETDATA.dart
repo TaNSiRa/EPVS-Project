@@ -1,22 +1,13 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../page/P1PROGRESS/P01PROGRESSMAIN.dart';
 import '../../data/dummydata2.dart';
+import '../../page/P1PROGRESS/P01PROGRESSVAR.dart';
 
 //-------------------------------------------------
 
 abstract class P07PROGRESSGETDATA_Event {}
 
-class P07PROGRESSGETDATA_GET extends P07PROGRESSGETDATA_Event {
-  final String location;
-  final String plant;
-  final String step1;
-
-  P07PROGRESSGETDATA_GET({
-    required this.location,
-    required this.plant,
-    required this.step1,
-  });
-}
+class P07PROGRESSGETDATA_GET extends P07PROGRESSGETDATA_Event {}
 
 class P07PROGRESSGETDATA_GET2 extends P07PROGRESSGETDATA_Event {}
 
@@ -51,9 +42,9 @@ class P07PROGRESSGETDATA_Bloc
     List<P07PROGRESSGETDATAclass> outputdata = input
         .where(
       (data) =>
-          data['location'] == event.location &&
-          data['plant'] == event.plant &&
-          data['step1'] == event.step1,
+          data['location'] == P01PROGRESSVAR.sendLocation &&
+          data['plant'] == P01PROGRESSVAR.sendPlant &&
+          data[P01PROGRESSVAR.changeStep] == 'YES',
     )
         .map((data) {
       return P07PROGRESSGETDATAclass(

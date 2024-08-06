@@ -2,6 +2,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../bloc/BlocEvent/07-07-P07PROGRESSGETDATA.dart';
+import '../P1PROGRESS/P01PROGRESSVAR.dart';
 
 class P07PROGRESSMAIN extends StatefulWidget {
   P07PROGRESSMAIN({
@@ -18,9 +19,7 @@ class _P07PROGRESSMAINState extends State<P07PROGRESSMAIN> {
   @override
   void initState() {
     super.initState();
-    context
-        .read<P07PROGRESSGETDATA_Bloc>()
-        .add(P07PROGRESSGETDATA_GET(location: '', plant: '', step1: ''));
+    context.read<P07PROGRESSGETDATA_Bloc>().add(P07PROGRESSGETDATA_GET());
   }
 
   @override

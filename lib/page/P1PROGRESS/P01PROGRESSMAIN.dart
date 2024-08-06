@@ -6,6 +6,7 @@ import '../../bloc/BlocEvent/ChangePageEvent.dart';
 import '../../data/global.dart';
 import '../../mainBody.dart';
 import '../page7.dart';
+import 'P01PROGRESSVAR.dart';
 
 class P01PROGRESSMAIN extends StatefulWidget {
   P01PROGRESSMAIN({
@@ -133,7 +134,7 @@ class _P01PROGRESSMAINState extends State<P01PROGRESSMAIN> {
             int transactionsCount7 = _getPlantTransactionsCount(plant, 7);
             int transactionsCount8 = _getPlantTransactionsCount(plant, 8);
             int transactionsCount9 = _getPlantTransactionsCount(plant, 9);
-            print(transactionsCount1);
+            // print(transactionsCount1);
             return Row(
               children: [
                 Container(
@@ -156,20 +157,14 @@ class _P01PROGRESSMAINState extends State<P01PROGRESSMAIN> {
                   absorbing: !step01Complete, // ถ้าไม่ครบจะทำให้ไม่สามารถกดได้
                   child: InkWell(
                     onTap: () {
+                      print(_data.value[0].LOCATION);
                       print(_data.value[0].PLANT);
-                      print(_data.value[0].STEP01);
-                      print(_data.value[0].STEP02);
                       if (step01Complete) {
-                        String sendLocation = _data.value[0].LOCATION;
-                        String sendPlant = _data.value[0].PLANT;
-                        String sendStep1 = _data.value[0].STEP01;
-                        context.read<P07PROGRESSGETDATA_Bloc>().add(
-                              P07PROGRESSGETDATA_GET(
-                                location: sendLocation,
-                                plant: sendPlant,
-                                step1: sendStep1,
-                              ),
-                            );
+                        P01PROGRESSVAR.sendLocation = _data.value[0].LOCATION;
+                        P01PROGRESSVAR.sendPlant = _data.value[0].PLANT;
+                        P01PROGRESSVAR.changeStep = 'step1';
+                        print(P01PROGRESSVAR.changeStep);
+                        print(transactionsCount1.toString() + " transactions");
                         CuPage = Page7();
                         MainBodyContext.read<ChangePage_Bloc>()
                             .add(ChangePage_nodrower());
@@ -200,190 +195,339 @@ class _P01PROGRESSMAINState extends State<P01PROGRESSMAIN> {
                     ),
                   ),
                 ),
-                Container(
-                  decoration: BoxDecoration(
-                    color: step02Complete
-                        ? Colors.greenAccent
-                        : Colors.grey.shade500,
-                    border: Border.all(color: Colors.black),
-                    borderRadius: BorderRadius.circular(10),
-                  ),
-                  height: 80,
-                  width: 100,
-                  child: Center(
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Text("400"),
-                        Text(
-                          transactionsCount2.toString() + " transactions",
-                          style: TextStyle(fontSize: 10),
+                AbsorbPointer(
+                  absorbing: !step02Complete, // ถ้าไม่ครบจะทำให้ไม่สามารถกดได้
+                  child: InkWell(
+                    onTap: () {
+                      print(_data.value[0].LOCATION);
+                      print(_data.value[0].PLANT);
+                      if (step02Complete) {
+                        P01PROGRESSVAR.sendLocation = _data.value[0].LOCATION;
+                        P01PROGRESSVAR.sendPlant = _data.value[0].PLANT;
+                        P01PROGRESSVAR.changeStep = 'step2';
+                        print(P01PROGRESSVAR.changeStep);
+                        print(transactionsCount2.toString() + " transactions");
+                        CuPage = Page7();
+                        MainBodyContext.read<ChangePage_Bloc>()
+                            .add(ChangePage_nodrower());
+                      }
+                    },
+                    child: Container(
+                      decoration: BoxDecoration(
+                        color: step02Complete
+                            ? Colors.greenAccent
+                            : Colors.grey.shade500,
+                        border: Border.all(color: Colors.black),
+                        borderRadius: BorderRadius.circular(10),
+                      ),
+                      height: 80,
+                      width: 100,
+                      child: Center(
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Text("400"),
+                            Text(
+                              transactionsCount2.toString() + " transactions",
+                              style: TextStyle(fontSize: 10),
+                            ),
+                          ],
                         ),
-                      ],
+                      ),
                     ),
                   ),
                 ),
-                Container(
-                  decoration: BoxDecoration(
-                    color: step03Complete
-                        ? Colors.greenAccent
-                        : Colors.grey.shade500,
-                    border: Border.all(color: Colors.black),
-                    borderRadius: BorderRadius.circular(10),
-                  ),
-                  height: 80,
-                  width: 100,
-                  child: Center(
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Text("600"),
-                        Text(
-                          transactionsCount3.toString() + " transactions",
-                          style: TextStyle(fontSize: 10),
+                AbsorbPointer(
+                  absorbing: !step03Complete, // ถ้าไม่ครบจะทำให้ไม่สามารถกดได้
+                  child: InkWell(
+                    onTap: () {
+                      print(_data.value[0].LOCATION);
+                      print(_data.value[0].PLANT);
+                      if (step03Complete) {
+                        P01PROGRESSVAR.sendLocation = _data.value[0].LOCATION;
+                        P01PROGRESSVAR.sendPlant = _data.value[0].PLANT;
+                        P01PROGRESSVAR.changeStep = 'step3';
+                        print(P01PROGRESSVAR.changeStep);
+                        print(transactionsCount3.toString() + " transactions");
+                        CuPage = Page7();
+                        MainBodyContext.read<ChangePage_Bloc>()
+                            .add(ChangePage_nodrower());
+                      }
+                    },
+                    child: Container(
+                      decoration: BoxDecoration(
+                        color: step03Complete
+                            ? Colors.greenAccent
+                            : Colors.grey.shade500,
+                        border: Border.all(color: Colors.black),
+                        borderRadius: BorderRadius.circular(10),
+                      ),
+                      height: 80,
+                      width: 100,
+                      child: Center(
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Text("600"),
+                            Text(
+                              transactionsCount3.toString() + " transactions",
+                              style: TextStyle(fontSize: 10),
+                            ),
+                          ],
                         ),
-                      ],
+                      ),
                     ),
                   ),
                 ),
-                Container(
-                  decoration: BoxDecoration(
-                    color: step04Complete
-                        ? Colors.greenAccent
-                        : Colors.grey.shade500,
-                    border: Border.all(color: Colors.black),
-                    borderRadius: BorderRadius.circular(10),
-                  ),
-                  height: 80,
-                  width: 100,
-                  child: Center(
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Text("800"),
-                        Text(
-                          transactionsCount4.toString() + " transactions",
-                          style: TextStyle(fontSize: 10),
+                AbsorbPointer(
+                  absorbing: !step04Complete, // ถ้าไม่ครบจะทำให้ไม่สามารถกดได้
+                  child: InkWell(
+                    onTap: () {
+                      print(_data.value[0].LOCATION);
+                      print(_data.value[0].PLANT);
+                      if (step04Complete) {
+                        P01PROGRESSVAR.sendLocation = _data.value[0].LOCATION;
+                        P01PROGRESSVAR.sendPlant = _data.value[0].PLANT;
+                        P01PROGRESSVAR.changeStep = 'step4';
+                        print(P01PROGRESSVAR.changeStep);
+                        print(transactionsCount4.toString() + " transactions");
+                        CuPage = Page7();
+                        MainBodyContext.read<ChangePage_Bloc>()
+                            .add(ChangePage_nodrower());
+                      }
+                    },
+                    child: Container(
+                      decoration: BoxDecoration(
+                        color: step04Complete
+                            ? Colors.greenAccent
+                            : Colors.grey.shade500,
+                        border: Border.all(color: Colors.black),
+                        borderRadius: BorderRadius.circular(10),
+                      ),
+                      height: 80,
+                      width: 100,
+                      child: Center(
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Text("800"),
+                            Text(
+                              transactionsCount4.toString() + " transactions",
+                              style: TextStyle(fontSize: 10),
+                            ),
+                          ],
                         ),
-                      ],
+                      ),
                     ),
                   ),
                 ),
-                Container(
-                  decoration: BoxDecoration(
-                    color: step05Complete
-                        ? Colors.greenAccent
-                        : Colors.grey.shade500,
-                    border: Border.all(color: Colors.black),
-                    borderRadius: BorderRadius.circular(10),
-                  ),
-                  height: 80,
-                  width: 100,
-                  child: Center(
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Text("1000"),
-                        Text(
-                          transactionsCount5.toString() + " transactions",
-                          style: TextStyle(fontSize: 10),
+                AbsorbPointer(
+                  absorbing: !step05Complete, // ถ้าไม่ครบจะทำให้ไม่สามารถกดได้
+                  child: InkWell(
+                    onTap: () {
+                      print(_data.value[0].LOCATION);
+                      print(_data.value[0].PLANT);
+                      if (step05Complete) {
+                        P01PROGRESSVAR.sendLocation = _data.value[0].LOCATION;
+                        P01PROGRESSVAR.sendPlant = _data.value[0].PLANT;
+                        P01PROGRESSVAR.changeStep = 'step5';
+                        print(P01PROGRESSVAR.changeStep);
+                        print(transactionsCount5.toString() + " transactions");
+                        CuPage = Page7();
+                        MainBodyContext.read<ChangePage_Bloc>()
+                            .add(ChangePage_nodrower());
+                      }
+                    },
+                    child: Container(
+                      decoration: BoxDecoration(
+                        color: step05Complete
+                            ? Colors.greenAccent
+                            : Colors.grey.shade500,
+                        border: Border.all(color: Colors.black),
+                        borderRadius: BorderRadius.circular(10),
+                      ),
+                      height: 80,
+                      width: 100,
+                      child: Center(
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Text("1000"),
+                            Text(
+                              transactionsCount5.toString() + " transactions",
+                              style: TextStyle(fontSize: 10),
+                            ),
+                          ],
                         ),
-                      ],
+                      ),
                     ),
                   ),
                 ),
-                Container(
-                  decoration: BoxDecoration(
-                    color: step06Complete
-                        ? Colors.greenAccent
-                        : Colors.grey.shade500,
-                    border: Border.all(color: Colors.black),
-                    borderRadius: BorderRadius.circular(10),
-                  ),
-                  height: 80,
-                  width: 100,
-                  child: Center(
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Text("1200"),
-                        Text(
-                          transactionsCount6.toString() + " transactions",
-                          style: TextStyle(fontSize: 10),
+                AbsorbPointer(
+                  absorbing: !step06Complete, // ถ้าไม่ครบจะทำให้ไม่สามารถกดได้
+                  child: InkWell(
+                    onTap: () {
+                      print(_data.value[0].LOCATION);
+                      print(_data.value[0].PLANT);
+                      if (step06Complete) {
+                        P01PROGRESSVAR.sendLocation = _data.value[0].LOCATION;
+                        P01PROGRESSVAR.sendPlant = _data.value[0].PLANT;
+                        P01PROGRESSVAR.changeStep = 'step6';
+                        print(P01PROGRESSVAR.changeStep);
+                        print(transactionsCount6.toString() + " transactions");
+                        CuPage = Page7();
+                        MainBodyContext.read<ChangePage_Bloc>()
+                            .add(ChangePage_nodrower());
+                      }
+                    },
+                    child: Container(
+                      decoration: BoxDecoration(
+                        color: step06Complete
+                            ? Colors.greenAccent
+                            : Colors.grey.shade500,
+                        border: Border.all(color: Colors.black),
+                        borderRadius: BorderRadius.circular(10),
+                      ),
+                      height: 80,
+                      width: 100,
+                      child: Center(
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Text("1200"),
+                            Text(
+                              transactionsCount6.toString() + " transactions",
+                              style: TextStyle(fontSize: 10),
+                            ),
+                          ],
                         ),
-                      ],
+                      ),
                     ),
                   ),
                 ),
-                Container(
-                  decoration: BoxDecoration(
-                    color: step07Complete
-                        ? Colors.greenAccent
-                        : Colors.grey.shade500,
-                    border: Border.all(color: Colors.black),
-                    borderRadius: BorderRadius.circular(10),
-                  ),
-                  height: 80,
-                  width: 100,
-                  child: Center(
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Text("1400"),
-                        Text(
-                          transactionsCount7.toString() + " transactions",
-                          style: TextStyle(fontSize: 10),
+                AbsorbPointer(
+                  absorbing: !step07Complete, // ถ้าไม่ครบจะทำให้ไม่สามารถกดได้
+                  child: InkWell(
+                    onTap: () {
+                      print(_data.value[0].LOCATION);
+                      print(_data.value[0].PLANT);
+                      if (step07Complete) {
+                        P01PROGRESSVAR.sendLocation = _data.value[0].LOCATION;
+                        P01PROGRESSVAR.sendPlant = _data.value[0].PLANT;
+                        P01PROGRESSVAR.changeStep = 'step7';
+                        print(P01PROGRESSVAR.changeStep);
+                        print(transactionsCount7.toString() + " transactions");
+                        CuPage = Page7();
+                        MainBodyContext.read<ChangePage_Bloc>()
+                            .add(ChangePage_nodrower());
+                      }
+                    },
+                    child: Container(
+                      decoration: BoxDecoration(
+                        color: step07Complete
+                            ? Colors.greenAccent
+                            : Colors.grey.shade500,
+                        border: Border.all(color: Colors.black),
+                        borderRadius: BorderRadius.circular(10),
+                      ),
+                      height: 80,
+                      width: 100,
+                      child: Center(
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Text("1400"),
+                            Text(
+                              transactionsCount7.toString() + " transactions",
+                              style: TextStyle(fontSize: 10),
+                            ),
+                          ],
                         ),
-                      ],
+                      ),
                     ),
                   ),
                 ),
-                Container(
-                  decoration: BoxDecoration(
-                    color: step08Complete
-                        ? Colors.greenAccent
-                        : Colors.grey.shade500,
-                    border: Border.all(color: Colors.black),
-                    borderRadius: BorderRadius.circular(10),
-                  ),
-                  height: 80,
-                  width: 100,
-                  child: Center(
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Text("1600"),
-                        Text(
-                          transactionsCount8.toString() + " transactions",
-                          style: TextStyle(fontSize: 10),
+                AbsorbPointer(
+                  absorbing: !step08Complete, // ถ้าไม่ครบจะทำให้ไม่สามารถกดได้
+                  child: InkWell(
+                    onTap: () {
+                      print(_data.value[0].LOCATION);
+                      print(_data.value[0].PLANT);
+                      if (step08Complete) {
+                        P01PROGRESSVAR.sendLocation = _data.value[0].LOCATION;
+                        P01PROGRESSVAR.sendPlant = _data.value[0].PLANT;
+                        P01PROGRESSVAR.changeStep = 'step8';
+                        print(P01PROGRESSVAR.changeStep);
+                        print(transactionsCount8.toString() + " transactions");
+                        CuPage = Page7();
+                        MainBodyContext.read<ChangePage_Bloc>()
+                            .add(ChangePage_nodrower());
+                      }
+                    },
+                    child: Container(
+                      decoration: BoxDecoration(
+                        color: step08Complete
+                            ? Colors.greenAccent
+                            : Colors.grey.shade500,
+                        border: Border.all(color: Colors.black),
+                        borderRadius: BorderRadius.circular(10),
+                      ),
+                      height: 80,
+                      width: 100,
+                      child: Center(
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Text("1600"),
+                            Text(
+                              transactionsCount8.toString() + " transactions",
+                              style: TextStyle(fontSize: 10),
+                            ),
+                          ],
                         ),
-                      ],
+                      ),
                     ),
                   ),
                 ),
-                Container(
-                  decoration: BoxDecoration(
-                    color: step09Complete
-                        ? Colors.greenAccent
-                        : Colors.grey.shade500,
-                    border: Border.all(color: Colors.black),
-                    borderRadius: BorderRadius.only(
-                      topLeft: Radius.circular(10),
-                      bottomLeft: Radius.circular(10),
-                    ),
-                  ),
-                  height: 80,
-                  width: 100,
-                  child: Center(
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Text("1800"),
-                        Text(
-                          transactionsCount9.toString() + " transactions",
-                          style: TextStyle(fontSize: 10),
+                AbsorbPointer(
+                  absorbing: !step09Complete, // ถ้าไม่ครบจะทำให้ไม่สามารถกดได้
+                  child: InkWell(
+                    onTap: () {
+                      print(_data.value[0].LOCATION);
+                      print(_data.value[0].PLANT);
+                      if (step09Complete) {
+                        P01PROGRESSVAR.sendLocation = _data.value[0].LOCATION;
+                        P01PROGRESSVAR.sendPlant = _data.value[0].PLANT;
+                        P01PROGRESSVAR.changeStep = 'step9';
+                        print(P01PROGRESSVAR.changeStep);
+                        print(transactionsCount9.toString() + " transactions");
+                        CuPage = Page7();
+                        MainBodyContext.read<ChangePage_Bloc>()
+                            .add(ChangePage_nodrower());
+                      }
+                    },
+                    child: Container(
+                      decoration: BoxDecoration(
+                        color: step09Complete
+                            ? Colors.greenAccent
+                            : Colors.grey.shade500,
+                        border: Border.all(color: Colors.black),
+                        borderRadius: BorderRadius.circular(10),
+                      ),
+                      height: 80,
+                      width: 100,
+                      child: Center(
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Text("1800"),
+                            Text(
+                              transactionsCount9.toString() + " transactions",
+                              style: TextStyle(fontSize: 10),
+                            ),
+                          ],
                         ),
-                      ],
+                      ),
                     ),
                   ),
                 ),

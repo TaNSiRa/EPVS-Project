@@ -55,6 +55,30 @@ class _P09PROGRESSMAINBodyState extends State<P09PROGRESSMAINBody> {
               },
             ),
           ),
+          Column(
+            children: [
+              Padding(
+                padding: const EdgeInsets.all(20.0),
+                child: Center(
+                  child: ShaderMask(
+                    shaderCallback: (bounds) => LinearGradient(
+                      colors: [Colors.blueAccent, Colors.lightBlueAccent],
+                      begin: Alignment.topLeft,
+                      end: Alignment.bottomRight,
+                    ).createShader(bounds),
+                    child: Text(
+                      'SELECT BRANCH',
+                      style: TextStyle(
+                        fontSize: 20.0,
+                        fontWeight: FontWeight.bold,
+                        color: Colors.white,
+                      ),
+                    ),
+                  ),
+                ),
+              ),
+            ],
+          ),
           Center(
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
@@ -77,7 +101,7 @@ class _P09PROGRESSMAINBodyState extends State<P09PROGRESSMAINBody> {
                           height: 150,
                           width: 150,
                           decoration: BoxDecoration(
-                            color: Colors.cyan,
+                            color: Colors.green,
                             border: Border.all(
                               color: Colors.black,
                               width: 2.0,
@@ -136,7 +160,7 @@ class _P09PROGRESSMAINBodyState extends State<P09PROGRESSMAINBody> {
                           height: 150,
                           width: 150,
                           decoration: BoxDecoration(
-                            color: Colors.blue,
+                            color: Colors.red.shade900,
                             border: Border.all(
                               color: Colors.black,
                               width: 2.0,
@@ -174,7 +198,7 @@ class _P09PROGRESSMAINBodyState extends State<P09PROGRESSMAINBody> {
                           height: 150,
                           width: 150,
                           decoration: BoxDecoration(
-                            color: Colors.cyan,
+                            color: Colors.green,
                             border: Border.all(
                               color: Colors.black,
                               width: 2.0,
@@ -205,7 +229,7 @@ class _P09PROGRESSMAINBodyState extends State<P09PROGRESSMAINBody> {
                           height: 150,
                           width: 150,
                           decoration: BoxDecoration(
-                            color: Colors.green,
+                            color: Colors.red.shade900,
                             border: Border.all(
                               color: Colors.black,
                               width: 2.0,

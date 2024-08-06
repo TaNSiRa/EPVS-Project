@@ -100,7 +100,7 @@ class Data_Menu_mainmenu extends StatelessWidget {
         //   Lv: 1,
         // ),
         menu_normal(
-          name: "HOME",
+          name: "SELECT PROGRESS",
           page: Page8(),
           Lv: 1,
         ),

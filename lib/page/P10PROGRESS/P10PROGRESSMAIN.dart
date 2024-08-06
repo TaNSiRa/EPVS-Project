@@ -54,6 +54,30 @@ class _P10PROGRESSMAINBodyState extends State<P10PROGRESSMAINBody> {
               },
             ),
           ),
+          Column(
+            children: [
+              Padding(
+                padding: const EdgeInsets.all(20.0),
+                child: Center(
+                  child: ShaderMask(
+                    shaderCallback: (bounds) => LinearGradient(
+                      colors: [Colors.blueAccent, Colors.lightBlueAccent],
+                      begin: Alignment.topLeft,
+                      end: Alignment.bottomRight,
+                    ).createShader(bounds),
+                    child: Text(
+                      'SELECT ACTION',
+                      style: TextStyle(
+                        fontSize: 20.0,
+                        fontWeight: FontWeight.bold,
+                        color: Colors.white,
+                      ),
+                    ),
+                  ),
+                ),
+              ),
+            ],
+          ),
           Center(
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
@@ -73,7 +97,7 @@ class _P10PROGRESSMAINBodyState extends State<P10PROGRESSMAINBody> {
                       height: 50,
                       width: 400,
                       decoration: BoxDecoration(
-                        color: Colors.green,
+                        color: Colors.red.shade900,
                         border: Border.all(
                           color: Colors.black,
                           width: 2.0,
@@ -143,7 +167,7 @@ class _P10PROGRESSMAINBodyState extends State<P10PROGRESSMAINBody> {
                       height: 50,
                       width: 400,
                       decoration: BoxDecoration(
-                        color: Colors.green,
+                        color: Colors.red.shade900,
                         border: Border.all(
                           color: Colors.black,
                           width: 2.0,
@@ -174,7 +198,7 @@ class _P10PROGRESSMAINBodyState extends State<P10PROGRESSMAINBody> {
                       height: 50,
                       width: 400,
                       decoration: BoxDecoration(
-                        color: Colors.green,
+                        color: Colors.red.shade900,
                         border: Border.all(
                           color: Colors.black,
                           width: 2.0,
@@ -205,7 +229,7 @@ class _P10PROGRESSMAINBodyState extends State<P10PROGRESSMAINBody> {
                       height: 50,
                       width: 400,
                       decoration: BoxDecoration(
-                        color: Colors.green,
+                        color: Colors.red.shade900,
                         border: Border.all(
                           color: Colors.black,
                           width: 2.0,

@@ -11,6 +11,8 @@ import '../../page/page4.dart';
 import '../../page/page5.dart';
 import '../../page/page6.dart';
 
+import '../../page/page8.dart';
+import '../../page/page9.dart';
 import 'sub_widget.dart';
 
 late BuildContext MenuContext;
@@ -77,24 +79,29 @@ class Data_Menu_mainmenu extends StatelessWidget {
                     ),
                   ),
                 ))),
+        // menu_normal(
+        //   name: "HES",
+        //   page: Page1(),
+        //   Lv: 1,
+        // ),
+        // menu_normal(
+        //   name: "BP12",
+        //   page: Page2(),
+        //   Lv: 1,
+        // ),
+        // menu_normal(
+        //   name: "BP8",
+        //   page: Page3(),
+        //   Lv: 1,
+        // ),
+        // menu_normal(
+        //   name: "GATEWAY",
+        //   page: Page4(),
+        //   Lv: 1,
+        // ),
         menu_normal(
-          name: "HES",
-          page: Page1(),
-          Lv: 1,
-        ),
-        menu_normal(
-          name: "BP12",
-          page: Page2(),
-          Lv: 1,
-        ),
-        menu_normal(
-          name: "BP8",
-          page: Page3(),
-          Lv: 1,
-        ),
-        menu_normal(
-          name: "GATEWAY",
-          page: Page4(),
+          name: "HOME",
+          page: Page8(),
           Lv: 1,
         ),
         // menu_normal(

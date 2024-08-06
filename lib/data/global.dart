@@ -9,6 +9,9 @@ class USERDATA {
   static int UserLV = 0;
   static String NAME = '';
   static String ID = '';
+  static String SECTION = '';
+  static String BRANCH = '';
+  static String INSMASTER = '';
 }
 
 class logindata {

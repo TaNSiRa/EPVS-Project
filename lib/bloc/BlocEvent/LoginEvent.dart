@@ -35,6 +35,11 @@ class Login_Bloc extends Bloc<LoginEvent, String> {
     // token = (prefs.getString('token') ?? '');
     token = 'test';
     USERDATA.UserLV = 10;
+    USERDATA.NAME = 'Sirawit';
+    USERDATA.ID = '1650574';
+    USERDATA.SECTION = 'CHEM';
+    USERDATA.BRANCH = 'HES';
+    USERDATA.INSMASTER = '';
 
     tokenSP = prefs.setString("tokenSP", token).then((bool success) {
       return state;

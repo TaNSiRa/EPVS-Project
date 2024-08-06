@@ -104,16 +104,168 @@ class _P04PROGRESSMAINState extends State<P04PROGRESSMAIN> {
                       border: Border.all(
                         color: Colors.teal.shade500,
                       ),
+                      borderRadius: BorderRadius.circular(0),
+                      color: Colors.black,
+                    ),
+                    height: 40,
+                    width: 100,
+                    child: Center(
+                        child: Text(
+                      "Setting",
+                      style: TextStyle(
+                        fontSize: 16.0,
+                        color: Colors.white,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ))),
+                Container(
+                    decoration: BoxDecoration(
+                      border: Border.all(
+                        color: Colors.teal.shade500,
+                      ),
+                      borderRadius: BorderRadius.circular(0),
+                      color: Colors.black,
+                    ),
+                    height: 40,
+                    width: 100,
+                    child: Center(
+                        child: Text(
+                      "Line",
+                      style: TextStyle(
+                        fontSize: 16.0,
+                        color: Colors.white,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ))),
+                Container(
+                    decoration: BoxDecoration(
+                      border: Border.all(
+                        color: Colors.teal.shade500,
+                      ),
+                      borderRadius: BorderRadius.circular(0),
+                      color: Colors.black,
+                    ),
+                    height: 40,
+                    width: 100,
+                    child: Center(
+                        child: Text(
+                      "S/B",
+                      style: TextStyle(
+                        fontSize: 16.0,
+                        color: Colors.white,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ))),
+                Container(
+                    decoration: BoxDecoration(
+                      border: Border.all(
+                        color: Colors.teal.shade500,
+                      ),
+                      borderRadius: BorderRadius.circular(0),
+                      color: Colors.black,
+                    ),
+                    height: 40,
+                    width: 100,
+                    child: Center(
+                        child: Text(
+                      "QC",
+                      style: TextStyle(
+                        fontSize: 16.0,
+                        color: Colors.white,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ))),
+                Container(
+                    decoration: BoxDecoration(
+                      border: Border.all(
+                        color: Colors.teal.shade500,
+                      ),
+                      borderRadius: BorderRadius.circular(0),
+                      color: Colors.black,
+                    ),
+                    height: 40,
+                    width: 100,
+                    child: Center(
+                        child: Text(
+                      "Packing",
+                      style: TextStyle(
+                        fontSize: 16.0,
+                        color: Colors.white,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ))),
+                Container(
+                    decoration: BoxDecoration(
+                      border: Border.all(
+                        color: Colors.teal.shade500,
+                      ),
+                      borderRadius: BorderRadius.circular(0),
+                      color: Colors.black,
+                    ),
+                    height: 40,
+                    width: 100,
+                    child: Center(
+                        child: Text(
+                      "1200",
+                      style: TextStyle(
+                        fontSize: 16.0,
+                        color: Colors.white,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ))),
+                Container(
+                    decoration: BoxDecoration(
+                      border: Border.all(
+                        color: Colors.teal.shade500,
+                      ),
+                      borderRadius: BorderRadius.circular(0),
+                      color: Colors.black,
+                    ),
+                    height: 40,
+                    width: 100,
+                    child: Center(
+                        child: Text(
+                      "1400",
+                      style: TextStyle(
+                        fontSize: 16.0,
+                        color: Colors.white,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ))),
+                Container(
+                    decoration: BoxDecoration(
+                      border: Border.all(
+                        color: Colors.teal.shade500,
+                      ),
+                      borderRadius: BorderRadius.circular(0),
+                      color: Colors.black,
+                    ),
+                    height: 40,
+                    width: 100,
+                    child: Center(
+                        child: Text(
+                      "1600",
+                      style: TextStyle(
+                        fontSize: 16.0,
+                        color: Colors.white,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ))),
+                Container(
+                    decoration: BoxDecoration(
+                      border: Border.all(
+                        color: Colors.teal.shade500,
+                      ),
                       borderRadius: BorderRadius.only(
                         topRight: Radius.circular(20),
                       ),
                       color: Colors.black,
                     ),
                     height: 40,
-                    width: 900,
+                    width: 100,
                     child: Center(
                         child: Text(
-                      "PROGRESS",
+                      "1800",
                       style: TextStyle(
                         fontSize: 16.0,
                         color: Colors.white,
@@ -199,10 +351,9 @@ class _P04PROGRESSMAINState extends State<P04PROGRESSMAIN> {
                             child: Column(
                               mainAxisAlignment: MainAxisAlignment.center,
                               children: [
-                                Text("200"),
+                                Text(transactionsCount1.toString()),
                                 Text(
-                                  transactionsCount1.toString() +
-                                      " transactions",
+                                  " transactions",
                                   style: TextStyle(fontSize: 10),
                                 ),
                               ],
@@ -245,10 +396,9 @@ class _P04PROGRESSMAINState extends State<P04PROGRESSMAIN> {
                             child: Column(
                               mainAxisAlignment: MainAxisAlignment.center,
                               children: [
-                                Text("400"),
+                                Text(transactionsCount2.toString()),
                                 Text(
-                                  transactionsCount2.toString() +
-                                      " transactions",
+                                  " transactions",
                                   style: TextStyle(fontSize: 10),
                                 ),
                               ],
@@ -291,10 +441,9 @@ class _P04PROGRESSMAINState extends State<P04PROGRESSMAIN> {
                             child: Column(
                               mainAxisAlignment: MainAxisAlignment.center,
                               children: [
-                                Text("600"),
+                                Text(transactionsCount3.toString()),
                                 Text(
-                                  transactionsCount3.toString() +
-                                      " transactions",
+                                  " transactions",
                                   style: TextStyle(fontSize: 10),
                                 ),
                               ],
@@ -337,10 +486,9 @@ class _P04PROGRESSMAINState extends State<P04PROGRESSMAIN> {
                             child: Column(
                               mainAxisAlignment: MainAxisAlignment.center,
                               children: [
-                                Text("800"),
+                                Text(transactionsCount4.toString()),
                                 Text(
-                                  transactionsCount4.toString() +
-                                      " transactions",
+                                  " transactions",
                                   style: TextStyle(fontSize: 10),
                                 ),
                               ],
@@ -383,10 +531,9 @@ class _P04PROGRESSMAINState extends State<P04PROGRESSMAIN> {
                             child: Column(
                               mainAxisAlignment: MainAxisAlignment.center,
                               children: [
-                                Text("1000"),
+                                Text(transactionsCount5.toString()),
                                 Text(
-                                  transactionsCount5.toString() +
-                                      " transactions",
+                                  " transactions",
                                   style: TextStyle(fontSize: 10),
                                 ),
                               ],
@@ -429,10 +576,9 @@ class _P04PROGRESSMAINState extends State<P04PROGRESSMAIN> {
                             child: Column(
                               mainAxisAlignment: MainAxisAlignment.center,
                               children: [
-                                Text("1200"),
+                                Text(transactionsCount6.toString()),
                                 Text(
-                                  transactionsCount6.toString() +
-                                      " transactions",
+                                  " transactions",
                                   style: TextStyle(fontSize: 10),
                                 ),
                               ],
@@ -475,10 +621,9 @@ class _P04PROGRESSMAINState extends State<P04PROGRESSMAIN> {
                             child: Column(
                               mainAxisAlignment: MainAxisAlignment.center,
                               children: [
-                                Text("1400"),
+                                Text(transactionsCount7.toString()),
                                 Text(
-                                  transactionsCount7.toString() +
-                                      " transactions",
+                                  " transactions",
                                   style: TextStyle(fontSize: 10),
                                 ),
                               ],
@@ -521,10 +666,9 @@ class _P04PROGRESSMAINState extends State<P04PROGRESSMAIN> {
                             child: Column(
                               mainAxisAlignment: MainAxisAlignment.center,
                               children: [
-                                Text("1600"),
+                                Text(transactionsCount8.toString()),
                                 Text(
-                                  transactionsCount8.toString() +
-                                      " transactions",
+                                  " transactions",
                                   style: TextStyle(fontSize: 10),
                                 ),
                               ],
@@ -567,10 +711,9 @@ class _P04PROGRESSMAINState extends State<P04PROGRESSMAIN> {
                             child: Column(
                               mainAxisAlignment: MainAxisAlignment.center,
                               children: [
-                                Text("1800"),
+                                Text(transactionsCount9.toString()),
                                 Text(
-                                  transactionsCount9.toString() +
-                                      " transactions",
+                                  " transactions",
                                   style: TextStyle(fontSize: 10),
                                 ),
                               ],

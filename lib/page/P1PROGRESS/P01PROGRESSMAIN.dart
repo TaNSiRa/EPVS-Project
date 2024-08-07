@@ -71,7 +71,7 @@ class _P01PROGRESSMAINState extends State<P01PROGRESSMAIN> {
                       end: Alignment.bottomRight,
                     ).createShader(bounds),
                     child: Text(
-                      'HES : PROGRESS',
+                      'ESIE1 : PROGRESS',
                       style: TextStyle(
                         fontSize: 20.0,
                         fontWeight: FontWeight.bold,

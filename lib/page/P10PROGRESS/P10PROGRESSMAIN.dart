@@ -3,10 +3,14 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:newmaster/data/global.dart';
+import 'package:newmaster/page/page12.dart';
+import 'package:newmaster/page/page16.dart';
 
 import '../../bloc/BlocEvent/ChangePageEvent.dart';
 import '../../mainBody.dart';
 import '../page1.dart';
+import '../page14.dart';
+import '../page15.dart';
 import '../page2.dart';
 import '../page3.dart';
 import '../page4.dart';
@@ -66,7 +70,7 @@ class _P10PROGRESSMAINBodyState extends State<P10PROGRESSMAINBody> {
                       end: Alignment.bottomRight,
                     ).createShader(bounds),
                     child: Text(
-                      'SELECT ACTION',
+                      USERDATA.BRANCH + ' : SELECT ACTION',
                       style: TextStyle(
                         fontSize: 20.0,
                         fontWeight: FontWeight.bold,
@@ -86,18 +90,27 @@ class _P10PROGRESSMAINBodyState extends State<P10PROGRESSMAINBody> {
                   padding: const EdgeInsets.all(5.0),
                   child: InkWell(
                     onTap: () {
-                      // print(USERDATA.BRANCH);
-                      // if (USERDATA.BRANCH == 'BP12') {
-                      //   CuPage = Page2();
-                      //   MainBodyContext.read<ChangePage_Bloc>()
-                      //       .add(ChangePage_nodrower());
-                      // }
+                      USERDATA.ACTION = 'INCOMING';
+                      print(USERDATA.ACTION);
+                      if (USERDATA.BRANCH == 'BP12') {
+                        CuPage = Page12();
+                        MainBodyContext.read<ChangePage_Bloc>()
+                            .add(ChangePage_nodrower());
+                      } else if (USERDATA.BRANCH == 'GW') {
+                        CuPage = Page14();
+                        MainBodyContext.read<ChangePage_Bloc>()
+                            .add(ChangePage_nodrower());
+                      } else if (USERDATA.BRANCH == 'ESIE1') {
+                        CuPage = Page15();
+                        MainBodyContext.read<ChangePage_Bloc>()
+                            .add(ChangePage_nodrower());
+                      }
                     },
                     child: Container(
                       height: 50,
                       width: 400,
                       decoration: BoxDecoration(
-                        color: Colors.red.shade900,
+                        color: Colors.green,
                         border: Border.all(
                           color: Colors.black,
                           width: 2.0,
@@ -118,6 +131,8 @@ class _P10PROGRESSMAINBodyState extends State<P10PROGRESSMAINBody> {
                   child: InkWell(
                     onTap: () {
                       print(USERDATA.BRANCH);
+                      USERDATA.ACTION = 'STATUS';
+                      print(USERDATA.ACTION);
                       if (USERDATA.BRANCH == 'BP12') {
                         CuPage = Page2();
                         MainBodyContext.read<ChangePage_Bloc>()
@@ -156,6 +171,8 @@ class _P10PROGRESSMAINBodyState extends State<P10PROGRESSMAINBody> {
                   padding: const EdgeInsets.all(5.0),
                   child: InkWell(
                     onTap: () {
+                      USERDATA.ACTION = 'PLANNING';
+                      print(USERDATA.ACTION);
                       // print(USERDATA.BRANCH);
                       // if (USERDATA.BRANCH == 'BP12') {
                       //   CuPage = Page2();
@@ -187,6 +204,8 @@ class _P10PROGRESSMAINBodyState extends State<P10PROGRESSMAINBody> {
                   padding: const EdgeInsets.all(5.0),
                   child: InkWell(
                     onTap: () {
+                      USERDATA.ACTION = 'MASTER JOBBING';
+                      print(USERDATA.ACTION);
                       // print(USERDATA.BRANCH);
                       // if (USERDATA.BRANCH == 'BP12') {
                       //   CuPage = Page2();
@@ -218,18 +237,27 @@ class _P10PROGRESSMAINBodyState extends State<P10PROGRESSMAINBody> {
                   padding: const EdgeInsets.all(5.0),
                   child: InkWell(
                     onTap: () {
-                      // print(USERDATA.BRANCH);
-                      // if (USERDATA.BRANCH == 'BP12') {
-                      //   CuPage = Page2();
-                      //   MainBodyContext.read<ChangePage_Bloc>()
-                      //       .add(ChangePage_nodrower());
-                      // }
+                      USERDATA.ACTION = 'AQC';
+                      print(USERDATA.ACTION);
+                      if (USERDATA.BRANCH == 'BP12') {
+                        CuPage = Page16();
+                        MainBodyContext.read<ChangePage_Bloc>()
+                            .add(ChangePage_nodrower());
+                      } else if (USERDATA.BRANCH == 'GW') {
+                        CuPage = Page16();
+                        MainBodyContext.read<ChangePage_Bloc>()
+                            .add(ChangePage_nodrower());
+                      } else if (USERDATA.BRANCH == 'ESIE1') {
+                        CuPage = Page16();
+                        MainBodyContext.read<ChangePage_Bloc>()
+                            .add(ChangePage_nodrower());
+                      }
                     },
                     child: Container(
                       height: 50,
                       width: 400,
                       decoration: BoxDecoration(
-                        color: Colors.red.shade900,
+                        color: Colors.green,
                         border: Border.all(
                           color: Colors.black,
                           width: 2.0,

@@ -1,6 +1,8 @@
+import 'package:dio/dio.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../data/dummydata2.dart';
+import '../../data/global.dart';
 
 //-------------------------------------------------
 
@@ -37,28 +39,20 @@ class P02PROGRESSGETDATA_Bloc
     List<P02PROGRESSGETDATAclass> output = [];
     //-------------------------------------------------------------------------------------
     var input = dummydatainput2;
+    // final response = await Dio().post(
+    //   server + "getsap/getincomming_2",
+    //   data: {
+    //     "IMP_PRCTR": "24000",
+    //     "IMP_WERKS": "2100",
+    //     "LAST_DATE": "${'01'}-${'01'}-${'2024'}",
+    //     "LAST_TIME": "${'00'}:${'00'}:00",
+    //     // "LAST_DATE": "01-04-2024",
+    //     // "LAST_TIME": "19:00:08"
+    //   },
+    // );
 
-    // print(input.length);
-    // for (var i = 0; i < input.length; i++) {
-    //   output.add(P02PROGRESSGETDATAclass(
-    //     PLANT: savenull(input[i]['plant']),
-    //     STEP01: savenull(input[i]['step1']),
-    //     STEP02: savenull(input[i]['step2']),
-    //     STEP03: savenull(input[i]['step3']),
-    //     STEP04: savenull(input[i]['step4']),
-    //     STEP05: savenull(input[i]['step5']),
-    //     STEP06: savenull(input[i]['step6']),
-    //     STEP07: savenull(input[i]['step7']),
-    //     STEP08: savenull(input[i]['step8']),
-    //     STEP09: savenull(input[i]['step9']),
-    //   ));
-    // }
-    // List<P02PROGRESSGETDATAclass> datadummy = [
-
-    // ];
-
-    //-------------------------------------------------------------------------------------
-    // output = datadummy;
+    // print(response.statusCode);
+    // print(response.data);
 
     List<P02PROGRESSGETDATAclass> outputdata =
         input.where((data) => data['location'] == 'BP12').map((data) {

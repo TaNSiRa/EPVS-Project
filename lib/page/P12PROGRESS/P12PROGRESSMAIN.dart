@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:newmaster/data/global.dart';
 import 'package:newmaster/page/page10.dart';
+import 'package:newmaster/page/page13.dart';
 import 'package:newmaster/page/page8.dart';
 
 import '../../bloc/BlocEvent/ChangePageEvent.dart';
@@ -16,28 +17,28 @@ import '../page4.dart';
 
 // import '../bloc/cubit/NotificationEvent.dart';
 
-class P09PROGRESSMAIN extends StatefulWidget {
-  const P09PROGRESSMAIN({super.key});
+class P12PROGRESSMAIN extends StatefulWidget {
+  const P12PROGRESSMAIN({super.key});
 
   @override
-  State<P09PROGRESSMAIN> createState() => _P09PROGRESSMAINState();
+  State<P12PROGRESSMAIN> createState() => _P12PROGRESSMAINState();
 }
 
-class _P09PROGRESSMAINState extends State<P09PROGRESSMAIN> {
+class _P12PROGRESSMAINState extends State<P12PROGRESSMAIN> {
   @override
   Widget build(BuildContext context) {
-    return P09PROGRESSMAINBody();
+    return P12PROGRESSMAINBody();
   }
 }
 
-class P09PROGRESSMAINBody extends StatefulWidget {
-  const P09PROGRESSMAINBody({super.key});
+class P12PROGRESSMAINBody extends StatefulWidget {
+  const P12PROGRESSMAINBody({super.key});
 
   @override
-  State<P09PROGRESSMAINBody> createState() => _P09PROGRESSMAINBodyState();
+  State<P12PROGRESSMAINBody> createState() => _P12PROGRESSMAINBodyState();
 }
 
-class _P09PROGRESSMAINBodyState extends State<P09PROGRESSMAINBody> {
+class _P12PROGRESSMAINBodyState extends State<P12PROGRESSMAINBody> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -49,7 +50,7 @@ class _P09PROGRESSMAINBodyState extends State<P09PROGRESSMAINBody> {
             child: IconButton(
               icon: Icon(Icons.arrow_back, size: 30),
               onPressed: () {
-                CuPage = Page8();
+                CuPage = Page10();
                 MainBodyContext.read<ChangePage_Bloc>()
                     .add(ChangePage_nodrower());
               },
@@ -67,7 +68,10 @@ class _P09PROGRESSMAINBodyState extends State<P09PROGRESSMAINBody> {
                       end: Alignment.bottomRight,
                     ).createShader(bounds),
                     child: Text(
-                      USERDATA.INSMASTER + ' : SELECT BRANCH',
+                      USERDATA.BRANCH +
+                          ' : ' +
+                          USERDATA.ACTION +
+                          ' : SELECT PLANT',
                       style: TextStyle(
                         fontSize: 20.0,
                         fontWeight: FontWeight.bold,
@@ -91,11 +95,10 @@ class _P09PROGRESSMAINBodyState extends State<P09PROGRESSMAINBody> {
                       padding: const EdgeInsets.all(10.0),
                       child: InkWell(
                         onTap: () {
-                          USERDATA.BRANCH = 'BP12';
-                          USERDATA.BRANCHNUMBER = '2100';
-                          print(USERDATA.BRANCH);
-                          print(USERDATA.BRANCHNUMBER);
-                          CuPage = Page10();
+                          USERDATA.PLANTNUMBER = '24000';
+                          USERDATA.PLANT = 'GAS';
+                          print(USERDATA.PLANTNUMBER);
+                          CuPage = Page13();
                           MainBodyContext.read<ChangePage_Bloc>()
                               .add(ChangePage_nodrower());
                         },
@@ -112,7 +115,7 @@ class _P09PROGRESSMAINBodyState extends State<P09PROGRESSMAINBody> {
                           ),
                           child: Center(
                             child: Text(
-                              'BP12',
+                              'GAS',
                               style:
                                   TextStyle(color: Colors.white, fontSize: 20),
                             ),
@@ -124,11 +127,10 @@ class _P09PROGRESSMAINBodyState extends State<P09PROGRESSMAINBody> {
                       padding: const EdgeInsets.all(10.0),
                       child: InkWell(
                         onTap: () {
-                          USERDATA.BRANCH = 'GW';
-                          USERDATA.BRANCHNUMBER = '2200';
-                          print(USERDATA.BRANCH);
-                          print(USERDATA.BRANCHNUMBER);
-                          CuPage = Page10();
+                          USERDATA.PLANTNUMBER = '21000';
+                          USERDATA.PLANT = 'PHO';
+                          print(USERDATA.PLANTNUMBER);
+                          CuPage = Page13();
                           MainBodyContext.read<ChangePage_Bloc>()
                               .add(ChangePage_nodrower());
                         },
@@ -145,7 +147,7 @@ class _P09PROGRESSMAINBodyState extends State<P09PROGRESSMAINBody> {
                           ),
                           child: Center(
                             child: Text(
-                              'GW',
+                              'PHO',
                               style:
                                   TextStyle(color: Colors.white, fontSize: 20),
                             ),
@@ -157,11 +159,10 @@ class _P09PROGRESSMAINBodyState extends State<P09PROGRESSMAINBody> {
                       padding: const EdgeInsets.all(10.0),
                       child: InkWell(
                         onTap: () {
-                          USERDATA.BRANCH = 'ESIE1';
-                          USERDATA.BRANCHNUMBER = '2300';
-                          print(USERDATA.BRANCH);
-                          print(USERDATA.BRANCHNUMBER);
-                          CuPage = Page10();
+                          USERDATA.PLANTNUMBER = '22000';
+                          USERDATA.PLANT = 'PAL';
+                          print(USERDATA.PLANTNUMBER);
+                          CuPage = Page13();
                           MainBodyContext.read<ChangePage_Bloc>()
                               .add(ChangePage_nodrower());
                         },
@@ -178,7 +179,78 @@ class _P09PROGRESSMAINBodyState extends State<P09PROGRESSMAINBody> {
                           ),
                           child: Center(
                             child: Text(
-                              'ESIE1',
+                              'PAL',
+                              style:
+                                  TextStyle(color: Colors.white, fontSize: 20),
+                            ),
+                          ),
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+                SizedBox(height: 10),
+                Wrap(
+                  spacing: 10.0,
+                  runSpacing: 10.0,
+                  children: [
+                    Padding(
+                      padding: const EdgeInsets.all(10.0),
+                      child: InkWell(
+                        onTap: () {
+                          USERDATA.PLANTNUMBER = '61000';
+                          USERDATA.PLANT = 'KNG';
+                          print(USERDATA.PLANTNUMBER);
+                          CuPage = Page13();
+                          MainBodyContext.read<ChangePage_Bloc>()
+                              .add(ChangePage_nodrower());
+                        },
+                        child: Container(
+                          height: 150,
+                          width: 150,
+                          decoration: BoxDecoration(
+                            color: Colors.green,
+                            border: Border.all(
+                              color: Colors.black,
+                              width: 2.0,
+                            ),
+                            borderRadius: BorderRadius.circular(10),
+                          ),
+                          child: Center(
+                            child: Text(
+                              'KNG',
+                              style:
+                                  TextStyle(color: Colors.white, fontSize: 20),
+                            ),
+                          ),
+                        ),
+                      ),
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.all(10.0),
+                      child: InkWell(
+                        onTap: () {
+                          USERDATA.PLANTNUMBER = '62000';
+                          USERDATA.PLANT = 'PVD';
+                          print(USERDATA.PLANTNUMBER);
+                          CuPage = Page13();
+                          MainBodyContext.read<ChangePage_Bloc>()
+                              .add(ChangePage_nodrower());
+                        },
+                        child: Container(
+                          height: 150,
+                          width: 150,
+                          decoration: BoxDecoration(
+                            color: Colors.green,
+                            border: Border.all(
+                              color: Colors.black,
+                              width: 2.0,
+                            ),
+                            borderRadius: BorderRadius.circular(10),
+                          ),
+                          child: Center(
+                            child: Text(
+                              'PVD',
                               style:
                                   TextStyle(color: Colors.white, fontSize: 20),
                             ),
@@ -192,6 +264,9 @@ class _P09PROGRESSMAINBodyState extends State<P09PROGRESSMAINBody> {
                     //     onTap: () {
                     //       // USERDATA.INSMASTER = '';
                     //       // print(USERDATA.INSMASTER);
+                    //       // // CuPage = Page3();
+                    //       // // MainBodyContext.read<ChangePage_Bloc>()
+                    //       // //     .add(ChangePage_nodrower());
                     //     },
                     //     child: Container(
                     //       height: 150,
@@ -206,7 +281,7 @@ class _P09PROGRESSMAINBodyState extends State<P09PROGRESSMAINBody> {
                     //       ),
                     //       child: Center(
                     //         child: Text(
-                    //           'Multi',
+                    //           'Others',
                     //           style:
                     //               TextStyle(color: Colors.white, fontSize: 20),
                     //         ),
@@ -216,77 +291,6 @@ class _P09PROGRESSMAINBodyState extends State<P09PROGRESSMAINBody> {
                     // ),
                   ],
                 ),
-                // SizedBox(height: 10),
-                // Wrap(
-                //   spacing: 10.0,
-                //   runSpacing: 10.0,
-                //   children: [
-                //     Padding(
-                //       padding: const EdgeInsets.all(10.0),
-                //       child: InkWell(
-                //         onTap: () {
-                //           USERDATA.BRANCH = 'ESIE1';
-                //           USERDATA.BRANCHNUMBER = '2300';
-                //           print(USERDATA.BRANCH);
-                //           print(USERDATA.BRANCHNUMBER);
-                //           CuPage = Page10();
-                //           MainBodyContext.read<ChangePage_Bloc>()
-                //               .add(ChangePage_nodrower());
-                //         },
-                //         child: Container(
-                //           height: 150,
-                //           width: 150,
-                //           decoration: BoxDecoration(
-                //             color: Colors.green,
-                //             border: Border.all(
-                //               color: Colors.black,
-                //               width: 2.0,
-                //             ),
-                //             borderRadius: BorderRadius.circular(10),
-                //           ),
-                //           child: Center(
-                //             child: Text(
-                //               'ESIE1',
-                //               style:
-                //                   TextStyle(color: Colors.white, fontSize: 20),
-                //             ),
-                //           ),
-                //         ),
-                //       ),
-                //     ),
-                //     // Padding(
-                //     //   padding: const EdgeInsets.all(10.0),
-                //     //   child: InkWell(
-                //     //     onTap: () {
-                //     //       // USERDATA.INSMASTER = '';
-                //     //       // print(USERDATA.INSMASTER);
-                //     //       // // CuPage = Page3();
-                //     //       // // MainBodyContext.read<ChangePage_Bloc>()
-                //     //       // //     .add(ChangePage_nodrower());
-                //     //     },
-                //     //     child: Container(
-                //     //       height: 150,
-                //     //       width: 150,
-                //     //       decoration: BoxDecoration(
-                //     //         color: Colors.red.shade900,
-                //     //         border: Border.all(
-                //     //           color: Colors.black,
-                //     //           width: 2.0,
-                //     //         ),
-                //     //         borderRadius: BorderRadius.circular(10),
-                //     //       ),
-                //     //       child: Center(
-                //     //         child: Text(
-                //     //           'Others',
-                //     //           style:
-                //     //               TextStyle(color: Colors.white, fontSize: 20),
-                //     //         ),
-                //     //       ),
-                //     //     ),
-                //     //   ),
-                //     // ),
-                //   ],
-                // ),
               ],
             ),
           ),

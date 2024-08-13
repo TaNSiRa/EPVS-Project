@@ -12,6 +12,10 @@ class USERDATA {
   static String SECTION = '';
   static String BRANCH = '';
   static String INSMASTER = '';
+  static String ACTION = '';
+  static String BRANCHNUMBER = '';
+  static String PLANT = '';
+  static String PLANTNUMBER = '';
 }
 
 class logindata {
@@ -19,3 +23,5 @@ class logindata {
   static String userID = '';
   static String userPASS = '';
 }
+
+String server = 'http://172.23.10.40:16714/';

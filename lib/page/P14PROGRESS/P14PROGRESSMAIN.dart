@@ -10,6 +10,7 @@ import 'package:newmaster/page/page8.dart';
 import '../../bloc/BlocEvent/ChangePageEvent.dart';
 import '../../mainBody.dart';
 import '../page1.dart';
+import '../page16.dart';
 import '../page2.dart';
 import '../page3.dart';
 import '../page4.dart';
@@ -98,9 +99,16 @@ class _P14PROGRESSMAINBodyState extends State<P14PROGRESSMAINBody> {
                           USERDATA.PLANTNUMBER = '25000';
                           USERDATA.PLANT = 'GW OLD';
                           print(USERDATA.PLANTNUMBER);
-                          CuPage = Page13();
-                          MainBodyContext.read<ChangePage_Bloc>()
-                              .add(ChangePage_nodrower());
+                          print(USERDATA.PLANT);
+                          if (USERDATA.ACTION == 'INCOMING') {
+                            CuPage = Page13();
+                            MainBodyContext.read<ChangePage_Bloc>()
+                                .add(ChangePage_nodrower());
+                          } else if (USERDATA.ACTION == 'AQC') {
+                            CuPage = Page16();
+                            MainBodyContext.read<ChangePage_Bloc>()
+                                .add(ChangePage_nodrower());
+                          }
                         },
                         child: Container(
                           height: 150,
@@ -130,9 +138,16 @@ class _P14PROGRESSMAINBodyState extends State<P14PROGRESSMAINBody> {
                           USERDATA.PLANTNUMBER = '25700';
                           USERDATA.PLANT = 'GW NEW';
                           print(USERDATA.PLANTNUMBER);
-                          CuPage = Page13();
-                          MainBodyContext.read<ChangePage_Bloc>()
-                              .add(ChangePage_nodrower());
+                          print(USERDATA.PLANT);
+                          if (USERDATA.ACTION == 'INCOMING') {
+                            CuPage = Page13();
+                            MainBodyContext.read<ChangePage_Bloc>()
+                                .add(ChangePage_nodrower());
+                          } else if (USERDATA.ACTION == 'AQC') {
+                            CuPage = Page16();
+                            MainBodyContext.read<ChangePage_Bloc>()
+                                .add(ChangePage_nodrower());
+                          }
                         },
                         child: Container(
                           height: 150,

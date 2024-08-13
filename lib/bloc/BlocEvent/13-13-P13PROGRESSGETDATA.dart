@@ -57,7 +57,7 @@ class P13PROGRESSGETDATA_Bloc
     // var input = actualdata;
     if (response.statusCode == 200) {
       print(response.statusCode);
-      // print(response.data);
+      print(response.data);
       var databuff = response.data;
       input = databuff;
 

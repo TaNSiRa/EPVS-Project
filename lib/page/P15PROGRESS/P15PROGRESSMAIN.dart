@@ -10,6 +10,7 @@ import 'package:newmaster/page/page8.dart';
 import '../../bloc/BlocEvent/ChangePageEvent.dart';
 import '../../mainBody.dart';
 import '../page1.dart';
+import '../page16.dart';
 import '../page2.dart';
 import '../page3.dart';
 import '../page4.dart';
@@ -98,9 +99,16 @@ class _P15PROGRESSMAINBodyState extends State<P15PROGRESSMAINBody> {
                           USERDATA.PLANTNUMBER = '51000';
                           USERDATA.PLANT = 'PHO';
                           print(USERDATA.PLANTNUMBER);
-                          CuPage = Page13();
-                          MainBodyContext.read<ChangePage_Bloc>()
-                              .add(ChangePage_nodrower());
+                          print(USERDATA.PLANT);
+                          if (USERDATA.ACTION == 'INCOMING') {
+                            CuPage = Page13();
+                            MainBodyContext.read<ChangePage_Bloc>()
+                                .add(ChangePage_nodrower());
+                          } else if (USERDATA.ACTION == 'AQC') {
+                            CuPage = Page16();
+                            MainBodyContext.read<ChangePage_Bloc>()
+                                .add(ChangePage_nodrower());
+                          }
                         },
                         child: Container(
                           height: 150,
@@ -130,9 +138,16 @@ class _P15PROGRESSMAINBodyState extends State<P15PROGRESSMAINBody> {
                           USERDATA.PLANTNUMBER = '52000';
                           USERDATA.PLANT = 'PAL';
                           print(USERDATA.PLANTNUMBER);
-                          CuPage = Page13();
-                          MainBodyContext.read<ChangePage_Bloc>()
-                              .add(ChangePage_nodrower());
+                          print(USERDATA.PLANT);
+                          if (USERDATA.ACTION == 'INCOMING') {
+                            CuPage = Page13();
+                            MainBodyContext.read<ChangePage_Bloc>()
+                                .add(ChangePage_nodrower());
+                          } else if (USERDATA.ACTION == 'AQC') {
+                            CuPage = Page16();
+                            MainBodyContext.read<ChangePage_Bloc>()
+                                .add(ChangePage_nodrower());
+                          }
                         },
                         child: Container(
                           height: 150,
@@ -162,9 +177,16 @@ class _P15PROGRESSMAINBodyState extends State<P15PROGRESSMAINBody> {
                           USERDATA.PLANTNUMBER = '53000';
                           USERDATA.PLANT = 'ISN';
                           print(USERDATA.PLANTNUMBER);
-                          CuPage = Page13();
-                          MainBodyContext.read<ChangePage_Bloc>()
-                              .add(ChangePage_nodrower());
+                          print(USERDATA.PLANT);
+                          if (USERDATA.ACTION == 'INCOMING') {
+                            CuPage = Page13();
+                            MainBodyContext.read<ChangePage_Bloc>()
+                                .add(ChangePage_nodrower());
+                          } else if (USERDATA.ACTION == 'AQC') {
+                            CuPage = Page16();
+                            MainBodyContext.read<ChangePage_Bloc>()
+                                .add(ChangePage_nodrower());
+                          }
                         },
                         child: Container(
                           height: 150,
@@ -201,9 +223,16 @@ class _P15PROGRESSMAINBodyState extends State<P15PROGRESSMAINBody> {
                           USERDATA.PLANTNUMBER = '54000';
                           USERDATA.PLANT = 'GAS NONBOI';
                           print(USERDATA.PLANTNUMBER);
-                          CuPage = Page13();
-                          MainBodyContext.read<ChangePage_Bloc>()
-                              .add(ChangePage_nodrower());
+                          print(USERDATA.PLANT);
+                          if (USERDATA.ACTION == 'INCOMING') {
+                            CuPage = Page13();
+                            MainBodyContext.read<ChangePage_Bloc>()
+                                .add(ChangePage_nodrower());
+                          } else if (USERDATA.ACTION == 'AQC') {
+                            CuPage = Page16();
+                            MainBodyContext.read<ChangePage_Bloc>()
+                                .add(ChangePage_nodrower());
+                          }
                         },
                         child: Container(
                           height: 150,
@@ -233,9 +262,16 @@ class _P15PROGRESSMAINBodyState extends State<P15PROGRESSMAINBody> {
                           USERDATA.PLANTNUMBER = '54500';
                           USERDATA.PLANT = 'GAS BOI';
                           print(USERDATA.PLANTNUMBER);
-                          CuPage = Page13();
-                          MainBodyContext.read<ChangePage_Bloc>()
-                              .add(ChangePage_nodrower());
+                          print(USERDATA.PLANT);
+                          if (USERDATA.ACTION == 'INCOMING') {
+                            CuPage = Page13();
+                            MainBodyContext.read<ChangePage_Bloc>()
+                                .add(ChangePage_nodrower());
+                          } else if (USERDATA.ACTION == 'AQC') {
+                            CuPage = Page16();
+                            MainBodyContext.read<ChangePage_Bloc>()
+                                .add(ChangePage_nodrower());
+                          }
                         },
                         child: Container(
                           height: 150,

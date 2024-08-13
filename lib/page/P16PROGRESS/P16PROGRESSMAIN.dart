@@ -72,7 +72,7 @@ class _P16PROGRESSMAINState extends State<P16PROGRESSMAIN> {
                         end: Alignment.bottomRight,
                       ).createShader(bounds),
                       child: Text(
-                        USERDATA.BRANCH + ' : INCOMING : ' + USERDATA.PLANT,
+                        USERDATA.BRANCH + ' : AQC : ' + USERDATA.PLANT,
                         style: TextStyle(
                           fontSize: 20.0,
                           fontWeight: FontWeight.bold,
@@ -85,14 +85,12 @@ class _P16PROGRESSMAINState extends State<P16PROGRESSMAIN> {
                   Table(
                     border: TableBorder.all(),
                     columnWidths: const {
-                      0: FixedColumnWidth(50.0),
-                      1: FixedColumnWidth(100.0),
-                      2: FixedColumnWidth(300.0),
-                      3: FixedColumnWidth(160.0),
-                      4: FixedColumnWidth(160.0),
-                      5: FixedColumnWidth(80.0),
-                      6: FixedColumnWidth(100.0),
-                      7: FixedColumnWidth(100.0),
+                      0: FixedColumnWidth(120.0),
+                      1: FixedColumnWidth(300.0),
+                      2: FixedColumnWidth(200.0),
+                      3: FixedColumnWidth(150.0),
+                      4: FixedColumnWidth(100.0),
+                      5: FixedColumnWidth(100.0),
                     },
                     children: [
                       TableRow(
@@ -111,7 +109,7 @@ class _P16PROGRESSMAINState extends State<P16PROGRESSMAIN> {
                                       color: Colors.blue,
                                       child: Center(
                                         child: Text(
-                                          'ID',
+                                          'PO NO.',
                                           style: TextStyle(color: Colors.white),
                                         ),
                                       ),
@@ -135,31 +133,7 @@ class _P16PROGRESSMAINState extends State<P16PROGRESSMAIN> {
                                       color: Colors.blue,
                                       child: Center(
                                         child: Text(
-                                          'MATCP',
-                                          style: TextStyle(color: Colors.white),
-                                        ),
-                                      ),
-                                    ),
-                                  ),
-                                ],
-                              ),
-                            ),
-                          ),
-                          TableCell(
-                            child: SizedBox(
-                              height: 50,
-                              child: Stack(
-                                children: [
-                                  Positioned(
-                                    top: 0,
-                                    left: 0,
-                                    right: 0,
-                                    height: 50,
-                                    child: Container(
-                                      color: Colors.blue,
-                                      child: Center(
-                                        child: Text(
-                                          'CUST NAME',
+                                          'CUSTOMER NAME',
                                           style: TextStyle(color: Colors.white),
                                         ),
                                       ),
@@ -207,55 +181,7 @@ class _P16PROGRESSMAINState extends State<P16PROGRESSMAIN> {
                                       color: Colors.blue,
                                       child: Center(
                                         child: Text(
-                                          'PART NO',
-                                          style: TextStyle(color: Colors.white),
-                                        ),
-                                      ),
-                                    ),
-                                  ),
-                                ],
-                              ),
-                            ),
-                          ),
-                          TableCell(
-                            child: SizedBox(
-                              height: 50,
-                              child: Stack(
-                                children: [
-                                  Positioned(
-                                    top: 0,
-                                    left: 0,
-                                    right: 0,
-                                    height: 50,
-                                    child: Container(
-                                      color: Colors.blue,
-                                      child: Center(
-                                        child: Text(
-                                          'CHARG',
-                                          style: TextStyle(color: Colors.white),
-                                        ),
-                                      ),
-                                    ),
-                                  ),
-                                ],
-                              ),
-                            ),
-                          ),
-                          TableCell(
-                            child: SizedBox(
-                              height: 50,
-                              child: Stack(
-                                children: [
-                                  Positioned(
-                                    top: 0,
-                                    left: 0,
-                                    right: 0,
-                                    height: 50,
-                                    child: Container(
-                                      color: Colors.blue,
-                                      child: Center(
-                                        child: Text(
-                                          'CUST LOT',
+                                          'PART NO.',
                                           style: TextStyle(color: Colors.white),
                                         ),
                                       ),
@@ -289,6 +215,30 @@ class _P16PROGRESSMAINState extends State<P16PROGRESSMAIN> {
                               ),
                             ),
                           ),
+                          TableCell(
+                            child: SizedBox(
+                              height: 50,
+                              child: Stack(
+                                children: [
+                                  Positioned(
+                                    top: 0,
+                                    left: 0,
+                                    right: 0,
+                                    height: 50,
+                                    child: Container(
+                                      color: Colors.blue,
+                                      child: Center(
+                                        child: Text(
+                                          'TPK LOT',
+                                          style: TextStyle(color: Colors.white),
+                                        ),
+                                      ),
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ),
+                          ),
                         ],
                       ),
                       for (int i = 0; i < _datain.length; i++) ...[
@@ -298,15 +248,7 @@ class _P16PROGRESSMAINState extends State<P16PROGRESSMAIN> {
                               child: SizedBox(
                                 height: 30,
                                 child: Center(
-                                  child: Text((i + 1).toString()),
-                                ),
-                              ),
-                            ),
-                            TableCell(
-                              child: SizedBox(
-                                height: 30,
-                                child: Center(
-                                  child: Text(_datain[i].MATCP),
+                                  child: Text(_datain[i].PO),
                                 ),
                               ),
                             ),
@@ -331,23 +273,7 @@ class _P16PROGRESSMAINState extends State<P16PROGRESSMAIN> {
                               child: SizedBox(
                                 height: 30,
                                 child: Center(
-                                  child: Text(_datain[i].CUSLOTNO),
-                                ),
-                              ),
-                            ),
-                            TableCell(
-                              child: SizedBox(
-                                height: 30,
-                                child: Center(
-                                  child: Text(_datain[i].CUSLOTNO),
-                                ),
-                              ),
-                            ),
-                            TableCell(
-                              child: SizedBox(
-                                height: 30,
-                                child: Center(
-                                  child: Text(_datain[i].CUST_SHORT),
+                                  child: Text(_datain[i].PARTNO),
                                 ),
                               ),
                             ),
@@ -356,6 +282,14 @@ class _P16PROGRESSMAINState extends State<P16PROGRESSMAIN> {
                                 height: 30,
                                 child: Center(
                                   child: Text(_datain[i].QTY),
+                                ),
+                              ),
+                            ),
+                            TableCell(
+                              child: SizedBox(
+                                height: 30,
+                                child: Center(
+                                  child: Text(_datain[i].TPKLOT),
                                 ),
                               ),
                             ),

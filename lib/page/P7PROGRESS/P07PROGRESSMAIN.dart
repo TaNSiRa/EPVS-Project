@@ -40,7 +40,7 @@ class _P07PROGRESSMAINState extends State<P07PROGRESSMAIN> {
             top: 10,
             left: 10,
             child: IconButton(
-              icon: Icon(Icons.arrow_back, size: 30),
+              icon: Icon(Icons.arrow_back_ios_new_rounded, size: 30),
               onPressed: () {
                 if (USERDATA.BRANCH == 'BP12') {
                   CuPage = Page2();
@@ -80,7 +80,7 @@ class _P07PROGRESSMAINState extends State<P07PROGRESSMAIN> {
                   ),
                 ),
               ),
-              Row(children: [
+              Row(mainAxisAlignment: MainAxisAlignment.center, children: [
                 Container(
                     decoration: BoxDecoration(
                       border: Border.all(
@@ -239,6 +239,7 @@ class _P07PROGRESSMAINState extends State<P07PROGRESSMAIN> {
               ..._datain.map((_data) {
                 int dataCount = _datain.indexOf(_data) + 1;
                 return Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     Container(
                         decoration: BoxDecoration(

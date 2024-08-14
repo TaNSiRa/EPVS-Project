@@ -46,6 +46,7 @@ class P16PROGRESSGETDATA_Bloc
       // ตรวจสอบว่า databuff เป็น List
       if (databuff is List) {
         var input = databuff;
+        print(input);
 
         List<P16PROGRESSGETDATAclass> outputdata = input.map((dataActual) {
           return P16PROGRESSGETDATAclass(

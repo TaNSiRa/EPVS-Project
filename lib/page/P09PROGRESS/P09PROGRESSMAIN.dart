@@ -12,6 +12,7 @@ import '../page1.dart';
 import '../page2.dart';
 import '../page3.dart';
 import '../page4.dart';
+import 'P09PROGRESSVAR.dart';
 // import 'package:flutter_bloc/flutter_bloc.dart';
 
 // import '../bloc/cubit/NotificationEvent.dart';
@@ -47,7 +48,7 @@ class _P09PROGRESSMAINBodyState extends State<P09PROGRESSMAINBody> {
             top: 10,
             left: 10,
             child: IconButton(
-              icon: Icon(Icons.arrow_back, size: 30),
+              icon: Icon(Icons.arrow_back_ios_new_rounded, size: 30),
               onPressed: () {
                 CuPage = Page8();
                 MainBodyContext.read<ChangePage_Bloc>()
@@ -77,218 +78,187 @@ class _P09PROGRESSMAINBodyState extends State<P09PROGRESSMAINBody> {
                   ),
                 ),
               ),
-            ],
-          ),
-          Center(
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Wrap(
-                  spacing: 10.0,
-                  runSpacing: 10.0,
-                  children: [
-                    Padding(
-                      padding: const EdgeInsets.all(10.0),
-                      child: InkWell(
-                        onTap: () {
-                          USERDATA.BRANCH = 'BP12';
-                          USERDATA.BRANCHNUMBER = '2100';
-                          print(USERDATA.BRANCH);
-                          print(USERDATA.BRANCHNUMBER);
-                          CuPage = Page10();
-                          MainBodyContext.read<ChangePage_Bloc>()
-                              .add(ChangePage_nodrower());
-                        },
-                        child: Container(
-                          height: 150,
-                          width: 150,
-                          decoration: BoxDecoration(
-                            color: Colors.green,
-                            border: Border.all(
-                              color: Colors.black,
-                              width: 2.0,
+              Expanded(
+                child: SingleChildScrollView(
+                  child: Center(
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Wrap(
+                          spacing: 10.0,
+                          runSpacing: 10.0,
+                          children: [
+                            Padding(
+                              padding: const EdgeInsets.all(10.0),
+                              child: MouseRegion(
+                                onEnter: (_) {
+                                  setState(() {
+                                    P09PROGRESSVAR.isHoveredBP12 = true;
+                                  });
+                                },
+                                onExit: (_) {
+                                  setState(() {
+                                    P09PROGRESSVAR.isHoveredBP12 = false;
+                                  });
+                                },
+                                child: InkWell(
+                                  onTap: () {
+                                    setState(() {
+                                      P09PROGRESSVAR.isHoveredBP12 = false;
+                                    });
+                                    USERDATA.BRANCH = 'BP12';
+                                    USERDATA.BRANCHNUMBER = '2100';
+                                    print(USERDATA.BRANCH);
+                                    print(USERDATA.BRANCHNUMBER);
+                                    CuPage = Page10();
+                                    MainBodyContext.read<ChangePage_Bloc>()
+                                        .add(ChangePage_nodrower());
+                                  },
+                                  child: AnimatedContainer(
+                                    duration: Duration(milliseconds: 300),
+                                    height: P09PROGRESSVAR.isHoveredBP12
+                                        ? 170
+                                        : 150,
+                                    width: P09PROGRESSVAR.isHoveredBP12
+                                        ? 170
+                                        : 150,
+                                    decoration: BoxDecoration(
+                                      color: P09PROGRESSVAR.isHoveredBP12
+                                          ? Colors.greenAccent
+                                          : Colors.green,
+                                      border: Border.all(
+                                        color: Colors.black,
+                                        width: 2.0,
+                                      ),
+                                      borderRadius: BorderRadius.circular(10),
+                                    ),
+                                    child: Center(
+                                      child: Text(
+                                        'BP12',
+                                        style: TextStyle(
+                                            color: Colors.white, fontSize: 20),
+                                      ),
+                                    ),
+                                  ),
+                                ),
+                              ),
                             ),
-                            borderRadius: BorderRadius.circular(10),
-                          ),
-                          child: Center(
-                            child: Text(
-                              'BP12',
-                              style:
-                                  TextStyle(color: Colors.white, fontSize: 20),
+                            Padding(
+                              padding: const EdgeInsets.all(10.0),
+                              child: MouseRegion(
+                                onEnter: (_) {
+                                  setState(() {
+                                    P09PROGRESSVAR.isHoveredGW = true;
+                                  });
+                                },
+                                onExit: (_) {
+                                  setState(() {
+                                    P09PROGRESSVAR.isHoveredGW = false;
+                                  });
+                                },
+                                child: InkWell(
+                                  onTap: () {
+                                    setState(() {
+                                      P09PROGRESSVAR.isHoveredGW = false;
+                                    });
+                                    USERDATA.BRANCH = 'GW';
+                                    USERDATA.BRANCHNUMBER = '2200';
+                                    print(USERDATA.BRANCH);
+                                    print(USERDATA.BRANCHNUMBER);
+                                    CuPage = Page10();
+                                    MainBodyContext.read<ChangePage_Bloc>()
+                                        .add(ChangePage_nodrower());
+                                  },
+                                  child: AnimatedContainer(
+                                    duration: Duration(milliseconds: 300),
+                                    height:
+                                        P09PROGRESSVAR.isHoveredGW ? 170 : 150,
+                                    width:
+                                        P09PROGRESSVAR.isHoveredGW ? 170 : 150,
+                                    decoration: BoxDecoration(
+                                      color: P09PROGRESSVAR.isHoveredGW
+                                          ? Colors.greenAccent
+                                          : Colors.green,
+                                      border: Border.all(
+                                        color: Colors.black,
+                                        width: 2.0,
+                                      ),
+                                      borderRadius: BorderRadius.circular(10),
+                                    ),
+                                    child: Center(
+                                      child: Text(
+                                        'GW',
+                                        style: TextStyle(
+                                            color: Colors.white, fontSize: 20),
+                                      ),
+                                    ),
+                                  ),
+                                ),
+                              ),
                             ),
-                          ),
+                            Padding(
+                              padding: const EdgeInsets.all(10.0),
+                              child: MouseRegion(
+                                onEnter: (_) {
+                                  setState(() {
+                                    P09PROGRESSVAR.isHoveredESIE1 = true;
+                                  });
+                                },
+                                onExit: (_) {
+                                  setState(() {
+                                    P09PROGRESSVAR.isHoveredESIE1 = false;
+                                  });
+                                },
+                                child: InkWell(
+                                  onTap: () {
+                                    setState(() {
+                                      P09PROGRESSVAR.isHoveredESIE1 = false;
+                                    });
+                                    USERDATA.BRANCH = 'ESIE1';
+                                    USERDATA.BRANCHNUMBER = '2300';
+                                    print(USERDATA.BRANCH);
+                                    print(USERDATA.BRANCHNUMBER);
+                                    CuPage = Page10();
+                                    MainBodyContext.read<ChangePage_Bloc>()
+                                        .add(ChangePage_nodrower());
+                                  },
+                                  child: AnimatedContainer(
+                                    duration: Duration(milliseconds: 300),
+                                    height: P09PROGRESSVAR.isHoveredESIE1
+                                        ? 170
+                                        : 150,
+                                    width: P09PROGRESSVAR.isHoveredESIE1
+                                        ? 170
+                                        : 150,
+                                    decoration: BoxDecoration(
+                                      color: P09PROGRESSVAR.isHoveredESIE1
+                                          ? Colors.greenAccent
+                                          : Colors.green,
+                                      border: Border.all(
+                                        color: Colors.black,
+                                        width: 2.0,
+                                      ),
+                                      borderRadius: BorderRadius.circular(10),
+                                    ),
+                                    child: Center(
+                                      child: Text(
+                                        'ESIE1',
+                                        style: TextStyle(
+                                            color: Colors.white, fontSize: 20),
+                                      ),
+                                    ),
+                                  ),
+                                ),
+                              ),
+                            ),
+                          ],
                         ),
-                      ),
+                      ],
                     ),
-                    Padding(
-                      padding: const EdgeInsets.all(10.0),
-                      child: InkWell(
-                        onTap: () {
-                          USERDATA.BRANCH = 'GW';
-                          USERDATA.BRANCHNUMBER = '2200';
-                          print(USERDATA.BRANCH);
-                          print(USERDATA.BRANCHNUMBER);
-                          CuPage = Page10();
-                          MainBodyContext.read<ChangePage_Bloc>()
-                              .add(ChangePage_nodrower());
-                        },
-                        child: Container(
-                          height: 150,
-                          width: 150,
-                          decoration: BoxDecoration(
-                            color: Colors.green,
-                            border: Border.all(
-                              color: Colors.black,
-                              width: 2.0,
-                            ),
-                            borderRadius: BorderRadius.circular(10),
-                          ),
-                          child: Center(
-                            child: Text(
-                              'GW',
-                              style:
-                                  TextStyle(color: Colors.white, fontSize: 20),
-                            ),
-                          ),
-                        ),
-                      ),
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.all(10.0),
-                      child: InkWell(
-                        onTap: () {
-                          USERDATA.BRANCH = 'ESIE1';
-                          USERDATA.BRANCHNUMBER = '2300';
-                          print(USERDATA.BRANCH);
-                          print(USERDATA.BRANCHNUMBER);
-                          CuPage = Page10();
-                          MainBodyContext.read<ChangePage_Bloc>()
-                              .add(ChangePage_nodrower());
-                        },
-                        child: Container(
-                          height: 150,
-                          width: 150,
-                          decoration: BoxDecoration(
-                            color: Colors.green,
-                            border: Border.all(
-                              color: Colors.black,
-                              width: 2.0,
-                            ),
-                            borderRadius: BorderRadius.circular(10),
-                          ),
-                          child: Center(
-                            child: Text(
-                              'ESIE1',
-                              style:
-                                  TextStyle(color: Colors.white, fontSize: 20),
-                            ),
-                          ),
-                        ),
-                      ),
-                    ),
-                    // Padding(
-                    //   padding: const EdgeInsets.all(10.0),
-                    //   child: InkWell(
-                    //     onTap: () {
-                    //       // USERDATA.INSMASTER = '';
-                    //       // print(USERDATA.INSMASTER);
-                    //     },
-                    //     child: Container(
-                    //       height: 150,
-                    //       width: 150,
-                    //       decoration: BoxDecoration(
-                    //         color: Colors.red.shade900,
-                    //         border: Border.all(
-                    //           color: Colors.black,
-                    //           width: 2.0,
-                    //         ),
-                    //         borderRadius: BorderRadius.circular(10),
-                    //       ),
-                    //       child: Center(
-                    //         child: Text(
-                    //           'Multi',
-                    //           style:
-                    //               TextStyle(color: Colors.white, fontSize: 20),
-                    //         ),
-                    //       ),
-                    //     ),
-                    //   ),
-                    // ),
-                  ],
+                  ),
                 ),
-                // SizedBox(height: 10),
-                // Wrap(
-                //   spacing: 10.0,
-                //   runSpacing: 10.0,
-                //   children: [
-                //     Padding(
-                //       padding: const EdgeInsets.all(10.0),
-                //       child: InkWell(
-                //         onTap: () {
-                //           USERDATA.BRANCH = 'ESIE1';
-                //           USERDATA.BRANCHNUMBER = '2300';
-                //           print(USERDATA.BRANCH);
-                //           print(USERDATA.BRANCHNUMBER);
-                //           CuPage = Page10();
-                //           MainBodyContext.read<ChangePage_Bloc>()
-                //               .add(ChangePage_nodrower());
-                //         },
-                //         child: Container(
-                //           height: 150,
-                //           width: 150,
-                //           decoration: BoxDecoration(
-                //             color: Colors.green,
-                //             border: Border.all(
-                //               color: Colors.black,
-                //               width: 2.0,
-                //             ),
-                //             borderRadius: BorderRadius.circular(10),
-                //           ),
-                //           child: Center(
-                //             child: Text(
-                //               'ESIE1',
-                //               style:
-                //                   TextStyle(color: Colors.white, fontSize: 20),
-                //             ),
-                //           ),
-                //         ),
-                //       ),
-                //     ),
-                //     // Padding(
-                //     //   padding: const EdgeInsets.all(10.0),
-                //     //   child: InkWell(
-                //     //     onTap: () {
-                //     //       // USERDATA.INSMASTER = '';
-                //     //       // print(USERDATA.INSMASTER);
-                //     //       // // CuPage = Page3();
-                //     //       // // MainBodyContext.read<ChangePage_Bloc>()
-                //     //       // //     .add(ChangePage_nodrower());
-                //     //     },
-                //     //     child: Container(
-                //     //       height: 150,
-                //     //       width: 150,
-                //     //       decoration: BoxDecoration(
-                //     //         color: Colors.red.shade900,
-                //     //         border: Border.all(
-                //     //           color: Colors.black,
-                //     //           width: 2.0,
-                //     //         ),
-                //     //         borderRadius: BorderRadius.circular(10),
-                //     //       ),
-                //     //       child: Center(
-                //     //         child: Text(
-                //     //           'Others',
-                //     //           style:
-                //     //               TextStyle(color: Colors.white, fontSize: 20),
-                //     //         ),
-                //     //       ),
-                //     //     ),
-                //     //   ),
-                //     // ),
-                //   ],
-                // ),
-              ],
-            ),
+              ),
+            ],
           ),
         ],
       ),

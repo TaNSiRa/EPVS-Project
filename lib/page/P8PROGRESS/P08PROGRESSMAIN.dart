@@ -1,5 +1,3 @@
-// ignore_for_file: prefer_const_constructors
-
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:newmaster/data/global.dart';
@@ -8,9 +6,7 @@ import 'package:newmaster/page/page9.dart';
 import '../../bloc/BlocEvent/ChangePageEvent.dart';
 import '../../mainBody.dart';
 import '../page11.dart';
-// import 'package:flutter_bloc/flutter_bloc.dart';
-
-// import '../bloc/cubit/NotificationEvent.dart';
+import 'P08PROGRESSVAR.dart';
 
 class P08PROGRESSMAIN extends StatefulWidget {
   const P08PROGRESSMAIN({super.key});
@@ -36,10 +32,10 @@ class P08PROGRESSMAINBody extends StatefulWidget {
 class _P08PROGRESSMAINBodyState extends State<P08PROGRESSMAINBody> {
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: [
-        Center(
-          child: Padding(
+    return Scaffold(
+      body: Column(
+        children: [
+          Padding(
             padding: const EdgeInsets.all(20.0),
             child: Center(
               child: ShaderMask(
@@ -59,76 +55,116 @@ class _P08PROGRESSMAINBodyState extends State<P08PROGRESSMAINBody> {
               ),
             ),
           ),
-        ),
-        Center(
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Padding(
-                padding: const EdgeInsets.all(10.0),
-                child: InkWell(
-                  onTap: () {
-                    USERDATA.INSMASTER = 'H&S';
-                    print(USERDATA.INSMASTER);
-                    CuPage = Page9();
-                    MainBodyContext.read<ChangePage_Bloc>()
-                        .add(ChangePage_nodrower());
-                  },
-                  child: Container(
-                    height: 300,
-                    width: 300,
-                    decoration: BoxDecoration(
-                      color: Colors.green,
-                      border: Border.all(
-                        color: Colors.black,
-                        width: 2.0,
-                      ),
-                      borderRadius: BorderRadius.circular(50),
-                    ),
-                    child: Center(
-                      child: Text(
-                        'Heat & Surface',
-                        style: TextStyle(color: Colors.white, fontSize: 25),
-                      ),
-                    ),
-                  ),
-                ),
-              ),
-              SizedBox(width: 10),
-              Padding(
-                padding: const EdgeInsets.all(10.0),
-                child: InkWell(
-                  onTap: () {
-                    USERDATA.INSMASTER = 'CHEM';
-                    print(USERDATA.INSMASTER);
-                    CuPage = Page11();
-                    MainBodyContext.read<ChangePage_Bloc>()
-                        .add(ChangePage_nodrower());
-                  },
-                  child: Container(
-                    height: 300,
-                    width: 300,
-                    decoration: BoxDecoration(
-                      color: Colors.green,
-                      border: Border.all(
-                        color: Colors.black,
-                        width: 2.0,
-                      ),
-                      borderRadius: BorderRadius.circular(50),
-                    ),
-                    child: Center(
-                      child: Text(
-                        'CHEM',
-                        style: TextStyle(color: Colors.white, fontSize: 25),
+          Expanded(
+            child: Center(
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Padding(
+                    padding: const EdgeInsets.all(10.0),
+                    child: MouseRegion(
+                      onEnter: (_) {
+                        setState(() {
+                          P08PROGRESSVAR.isHoveredHAndS = true;
+                        });
+                      },
+                      onExit: (_) {
+                        setState(() {
+                          P08PROGRESSVAR.isHoveredHAndS = false;
+                        });
+                      },
+                      child: InkWell(
+                        onTap: () {
+                          setState(() {
+                            P08PROGRESSVAR.isHoveredHAndS = false;
+                          });
+                          USERDATA.INSMASTER = 'H&S';
+                          print(USERDATA.INSMASTER);
+                          CuPage = Page9();
+                          MainBodyContext.read<ChangePage_Bloc>()
+                              .add(ChangePage_nodrower());
+                        },
+                        child: AnimatedContainer(
+                          duration: Duration(milliseconds: 300),
+                          height: P08PROGRESSVAR.isHoveredHAndS ? 220 : 200,
+                          width: P08PROGRESSVAR.isHoveredHAndS ? 220 : 200,
+                          decoration: BoxDecoration(
+                            color: P08PROGRESSVAR.isHoveredHAndS
+                                ? Colors.greenAccent
+                                : Colors.green,
+                            border: Border.all(
+                              color: Colors.black,
+                              width: 2.0,
+                            ),
+                            borderRadius: BorderRadius.circular(10),
+                          ),
+                          child: Center(
+                            child: Text(
+                              'Heat & Surface',
+                              style:
+                                  TextStyle(color: Colors.white, fontSize: 25),
+                            ),
+                          ),
+                        ),
                       ),
                     ),
                   ),
-                ),
+                  SizedBox(width: 10),
+                  Padding(
+                    padding: const EdgeInsets.all(10.0),
+                    child: MouseRegion(
+                      onEnter: (_) {
+                        setState(() {
+                          P08PROGRESSVAR.isHoveredChem = true;
+                        });
+                      },
+                      onExit: (_) {
+                        setState(() {
+                          P08PROGRESSVAR.isHoveredChem = false;
+                        });
+                      },
+                      child: InkWell(
+                        onTap: () {
+                          setState(() {
+                            P08PROGRESSVAR.isHoveredChem = false;
+                          });
+                          USERDATA.INSMASTER = 'CHEM';
+                          print(USERDATA.INSMASTER);
+                          CuPage = Page11();
+                          MainBodyContext.read<ChangePage_Bloc>()
+                              .add(ChangePage_nodrower());
+                        },
+                        child: AnimatedContainer(
+                          duration: Duration(milliseconds: 300),
+                          height: P08PROGRESSVAR.isHoveredChem ? 220 : 200,
+                          width: P08PROGRESSVAR.isHoveredChem ? 220 : 200,
+                          decoration: BoxDecoration(
+                            color: P08PROGRESSVAR.isHoveredChem
+                                ? Colors.greenAccent
+                                : Colors.green,
+                            border: Border.all(
+                              color: Colors.black,
+                              width: 2.0,
+                            ),
+                            borderRadius: BorderRadius.circular(10),
+                          ),
+                          child: Center(
+                            child: Text(
+                              'CHEM',
+                              style:
+                                  TextStyle(color: Colors.white, fontSize: 25),
+                            ),
+                          ),
+                        ),
+                      ),
+                    ),
+                  ),
+                ],
               ),
-            ],
+            ),
           ),
-        ),
-      ],
+        ],
+      ),
     );
   }
 }

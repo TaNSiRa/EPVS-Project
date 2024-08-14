@@ -49,7 +49,7 @@ class _P14PROGRESSMAINBodyState extends State<P14PROGRESSMAINBody> {
             top: 10,
             left: 10,
             child: IconButton(
-              icon: Icon(Icons.arrow_back, size: 30),
+              icon: Icon(Icons.arrow_back_ios_new_rounded, size: 30),
               onPressed: () {
                 CuPage = Page10();
                 MainBodyContext.read<ChangePage_Bloc>()
@@ -82,98 +82,102 @@ class _P14PROGRESSMAINBodyState extends State<P14PROGRESSMAINBody> {
                   ),
                 ),
               ),
-            ],
-          ),
-          Center(
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Wrap(
-                  spacing: 10.0,
-                  runSpacing: 10.0,
-                  children: [
-                    Padding(
-                      padding: const EdgeInsets.all(10.0),
-                      child: InkWell(
-                        onTap: () {
-                          USERDATA.PLANTNUMBER = '25000';
-                          USERDATA.PLANT = 'GW OLD';
-                          print(USERDATA.PLANTNUMBER);
-                          print(USERDATA.PLANT);
-                          if (USERDATA.ACTION == 'INCOMING') {
-                            CuPage = Page13();
-                            MainBodyContext.read<ChangePage_Bloc>()
-                                .add(ChangePage_nodrower());
-                          } else if (USERDATA.ACTION == 'AQC') {
-                            CuPage = Page16();
-                            MainBodyContext.read<ChangePage_Bloc>()
-                                .add(ChangePage_nodrower());
-                          }
-                        },
-                        child: Container(
-                          height: 150,
-                          width: 150,
-                          decoration: BoxDecoration(
-                            color: Colors.green,
-                            border: Border.all(
-                              color: Colors.black,
-                              width: 2.0,
+              Expanded(
+                child: SingleChildScrollView(
+                  child: Center(
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Wrap(
+                          spacing: 10.0,
+                          runSpacing: 10.0,
+                          children: [
+                            Padding(
+                              padding: const EdgeInsets.all(10.0),
+                              child: InkWell(
+                                onTap: () {
+                                  USERDATA.PLANTNUMBER = '25000';
+                                  USERDATA.PLANT = 'GW OLD';
+                                  print(USERDATA.PLANTNUMBER);
+                                  print(USERDATA.PLANT);
+                                  if (USERDATA.ACTION == 'INCOMING') {
+                                    CuPage = Page13();
+                                    MainBodyContext.read<ChangePage_Bloc>()
+                                        .add(ChangePage_nodrower());
+                                  } else if (USERDATA.ACTION == 'AQC') {
+                                    CuPage = Page16();
+                                    MainBodyContext.read<ChangePage_Bloc>()
+                                        .add(ChangePage_nodrower());
+                                  }
+                                },
+                                child: Container(
+                                  height: 150,
+                                  width: 150,
+                                  decoration: BoxDecoration(
+                                    color: Colors.green,
+                                    border: Border.all(
+                                      color: Colors.black,
+                                      width: 2.0,
+                                    ),
+                                    borderRadius: BorderRadius.circular(10),
+                                  ),
+                                  child: Center(
+                                    child: Text(
+                                      'GW OLD',
+                                      style: TextStyle(
+                                          color: Colors.white, fontSize: 20),
+                                    ),
+                                  ),
+                                ),
+                              ),
                             ),
-                            borderRadius: BorderRadius.circular(10),
-                          ),
-                          child: Center(
-                            child: Text(
-                              'GW OLD',
-                              style:
-                                  TextStyle(color: Colors.white, fontSize: 20),
+                            Padding(
+                              padding: const EdgeInsets.all(10.0),
+                              child: InkWell(
+                                onTap: () {
+                                  USERDATA.PLANTNUMBER = '25700';
+                                  USERDATA.PLANT = 'GW NEW';
+                                  print(USERDATA.PLANTNUMBER);
+                                  print(USERDATA.PLANT);
+                                  if (USERDATA.ACTION == 'INCOMING') {
+                                    CuPage = Page13();
+                                    MainBodyContext.read<ChangePage_Bloc>()
+                                        .add(ChangePage_nodrower());
+                                  } else if (USERDATA.ACTION == 'AQC') {
+                                    CuPage = Page16();
+                                    MainBodyContext.read<ChangePage_Bloc>()
+                                        .add(ChangePage_nodrower());
+                                  }
+                                },
+                                child: Container(
+                                  height: 150,
+                                  width: 150,
+                                  decoration: BoxDecoration(
+                                    color: Colors.green,
+                                    border: Border.all(
+                                      color: Colors.black,
+                                      width: 2.0,
+                                    ),
+                                    borderRadius: BorderRadius.circular(10),
+                                  ),
+                                  child: Center(
+                                    child: Text(
+                                      'GW NEW',
+                                      style: TextStyle(
+                                          color: Colors.white, fontSize: 20),
+                                    ),
+                                  ),
+                                ),
+                              ),
                             ),
-                          ),
+                          ],
                         ),
-                      ),
+                      ],
                     ),
-                    Padding(
-                      padding: const EdgeInsets.all(10.0),
-                      child: InkWell(
-                        onTap: () {
-                          USERDATA.PLANTNUMBER = '25700';
-                          USERDATA.PLANT = 'GW NEW';
-                          print(USERDATA.PLANTNUMBER);
-                          print(USERDATA.PLANT);
-                          if (USERDATA.ACTION == 'INCOMING') {
-                            CuPage = Page13();
-                            MainBodyContext.read<ChangePage_Bloc>()
-                                .add(ChangePage_nodrower());
-                          } else if (USERDATA.ACTION == 'AQC') {
-                            CuPage = Page16();
-                            MainBodyContext.read<ChangePage_Bloc>()
-                                .add(ChangePage_nodrower());
-                          }
-                        },
-                        child: Container(
-                          height: 150,
-                          width: 150,
-                          decoration: BoxDecoration(
-                            color: Colors.green,
-                            border: Border.all(
-                              color: Colors.black,
-                              width: 2.0,
-                            ),
-                            borderRadius: BorderRadius.circular(10),
-                          ),
-                          child: Center(
-                            child: Text(
-                              'GW NEW',
-                              style:
-                                  TextStyle(color: Colors.white, fontSize: 20),
-                            ),
-                          ),
-                        ),
-                      ),
-                    ),
-                  ],
+                  ),
                 ),
-              ],
-            ),
+              ),
+            ],
           ),
         ],
       ),

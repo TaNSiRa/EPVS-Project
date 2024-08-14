@@ -51,7 +51,7 @@ class _P01PROGRESSMAINState extends State<P01PROGRESSMAIN> {
             top: 10,
             left: 10,
             child: IconButton(
-              icon: Icon(Icons.arrow_back, size: 30),
+              icon: Icon(Icons.arrow_back_ios_new_rounded, size: 30),
               onPressed: () {
                 CuPage = Page10();
                 MainBodyContext.read<ChangePage_Bloc>()
@@ -81,7 +81,7 @@ class _P01PROGRESSMAINState extends State<P01PROGRESSMAIN> {
                   ),
                 ),
               ),
-              Row(children: [
+              Row(mainAxisAlignment: MainAxisAlignment.center, children: [
                 Container(
                     decoration: BoxDecoration(
                       border: Border.all(
@@ -304,6 +304,7 @@ class _P01PROGRESSMAINState extends State<P01PROGRESSMAIN> {
                 int transactionsCount9 = _getPlantTransactionsCount(plant, 9);
                 // print(transactionsCount1);
                 return Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     Container(
                         decoration: BoxDecoration(

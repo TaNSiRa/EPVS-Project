@@ -1,6 +1,9 @@
+import 'package:dio/dio.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../data/dummydata2.dart';
+import '../../data/global.dart';
+import '../../page/P4PROGRESS/P04PROGRESSVAR.dart';
 
 //-------------------------------------------------
 
@@ -37,31 +40,40 @@ class P04PROGRESSGETDATA_Bloc
     List<P04PROGRESSGETDATAclass> output = [];
     //-------------------------------------------------------------------------------------
     var input = dummydatainput2;
+    var now = DateTime.now();
+    final response = await Dio().post(
+      server2 + "datacentertest/getsap",
+      data: {
+        "BAPI_NAME": "ZPPIN011_OUT",
+        "TABLE_NAME": "PPORDER",
+        // "IMP_WERKS": "2100",
+        // "IMP_PRCTR": "21000",
+        "IMP_WERKS": USERDATA.BRANCHNUMBER.toString(),
+        "IMP_PRCTR": "",
+        // "LAST_DATE": "20240814"
+        "LAST_DATE":
+            "${now.year}${now.month > 9 ? "" : "0"}${now.month}${now.day}"
+      },
+    );
+    print(response.statusCode);
+    // print(response);
+    List<dynamic> data = response.data;
+    if (data.isNotEmpty) {
+      // Clear existing data before adding new data
+      P04PROGRESSVAR.GWNEWdata.clear();
+      P04PROGRESSVAR.GWOLDdata.clear();
 
-    // print(input.length);
-    // for (var i = 0; i < input.length; i++) {
-    //   output.add(P04PROGRESSGETDATAclass(
-    //     PLANT: savenull(input[i]['plant']),
-    //     STEP01: savenull(input[i]['step1']),
-    //     STEP02: savenull(input[i]['step2']),
-    //     STEP03: savenull(input[i]['step3']),
-    //     STEP04: savenull(input[i]['step4']),
-    //     STEP05: savenull(input[i]['step5']),
-    //     STEP06: savenull(input[i]['step6']),
-    //     STEP07: savenull(input[i]['step7']),
-    //     STEP08: savenull(input[i]['step8']),
-    //     STEP09: savenull(input[i]['step9']),
-    //   ));
-    // }
-    // List<P04PROGRESSGETDATAclass> datadummy = [
-
-    // ];
-
-    //-------------------------------------------------------------------------------------
-    // output = datadummy;
+      for (var item in data) {
+        if (item["PRCTR"] == "0000025700") {
+          P04PROGRESSVAR.GWNEWdata.add(item);
+        } else if (item["PRCTR"] == "0000025000") {
+          P04PROGRESSVAR.GWOLDdata.add(item);
+        }
+      }
+    }
 
     List<P04PROGRESSGETDATAclass> outputdata =
-        input.where((data) => data['location'] == 'GATEWAY').map((data) {
+        input.where((data) => data['location'] == 'GW').map((data) {
       return P04PROGRESSGETDATAclass(
         PLANT: savenull(data['plant']),
         ORDER: savenull(data['order']),

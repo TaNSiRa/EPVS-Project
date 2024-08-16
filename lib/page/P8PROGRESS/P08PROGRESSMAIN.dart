@@ -56,13 +56,12 @@ class _P08PROGRESSMAINBodyState extends State<P08PROGRESSMAINBody> {
             ),
           ),
           Expanded(
-            child: Center(
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Padding(
-                    padding: const EdgeInsets.all(10.0),
-                    child: MouseRegion(
+            child: SingleChildScrollView(
+              child: Center(
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    MouseRegion(
                       onEnter: (_) {
                         setState(() {
                           P08PROGRESSVAR.isHoveredHAndS = true;
@@ -74,6 +73,8 @@ class _P08PROGRESSMAINBodyState extends State<P08PROGRESSMAINBody> {
                         });
                       },
                       child: InkWell(
+                        overlayColor:
+                            MaterialStateProperty.all(Colors.transparent),
                         onTap: () {
                           setState(() {
                             P08PROGRESSVAR.isHoveredHAndS = false;
@@ -84,35 +85,52 @@ class _P08PROGRESSMAINBodyState extends State<P08PROGRESSMAINBody> {
                           MainBodyContext.read<ChangePage_Bloc>()
                               .add(ChangePage_nodrower());
                         },
-                        child: AnimatedContainer(
-                          duration: Duration(milliseconds: 300),
-                          height: P08PROGRESSVAR.isHoveredHAndS ? 220 : 200,
-                          width: P08PROGRESSVAR.isHoveredHAndS ? 220 : 200,
+                        child: Container(
                           decoration: BoxDecoration(
-                            color: P08PROGRESSVAR.isHoveredHAndS
-                                ? Colors.greenAccent
-                                : Colors.green,
                             border: Border.all(
-                              color: Colors.black,
-                              width: 2.0,
+                              color: P08PROGRESSVAR.isHoveredHAndS
+                                  ? Colors.yellowAccent.shade700
+                                  : Colors.redAccent.shade700,
+                              width: 3.0,
                             ),
-                            borderRadius: BorderRadius.circular(10),
+                            borderRadius: BorderRadius.circular(12.0),
                           ),
-                          child: Center(
-                            child: Text(
-                              'Heat & Surface',
-                              style:
-                                  TextStyle(color: Colors.white, fontSize: 25),
-                            ),
+                          padding: EdgeInsets.all(8.0),
+                          child: Column(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              Icon(
+                                Icons.factory,
+                                size: P08PROGRESSVAR.isHoveredHAndS ? 220 : 200,
+                                color: P08PROGRESSVAR.isHoveredHAndS
+                                    ? Colors.yellowAccent.shade700
+                                    : Colors.redAccent.shade700,
+                              ),
+                              ShaderMask(
+                                shaderCallback: (bounds) => LinearGradient(
+                                  colors: [
+                                    Colors.redAccent.shade700,
+                                    Colors.yellowAccent.shade700,
+                                  ],
+                                  begin: Alignment.topLeft,
+                                  end: Alignment.bottomRight,
+                                ).createShader(bounds),
+                                child: Text(
+                                  'HEAT & SURFACE',
+                                  style: TextStyle(
+                                    fontSize: 20.0,
+                                    fontWeight: FontWeight.bold,
+                                    color: Colors.white,
+                                  ),
+                                ),
+                              ),
+                            ],
                           ),
                         ),
                       ),
                     ),
-                  ),
-                  SizedBox(width: 10),
-                  Padding(
-                    padding: const EdgeInsets.all(10.0),
-                    child: MouseRegion(
+                    SizedBox(width: 50),
+                    MouseRegion(
                       onEnter: (_) {
                         setState(() {
                           P08PROGRESSVAR.isHoveredChem = true;
@@ -124,6 +142,8 @@ class _P08PROGRESSMAINBodyState extends State<P08PROGRESSMAINBody> {
                         });
                       },
                       child: InkWell(
+                        overlayColor:
+                            MaterialStateProperty.all(Colors.transparent),
                         onTap: () {
                           setState(() {
                             P08PROGRESSVAR.isHoveredChem = false;
@@ -134,32 +154,52 @@ class _P08PROGRESSMAINBodyState extends State<P08PROGRESSMAINBody> {
                           MainBodyContext.read<ChangePage_Bloc>()
                               .add(ChangePage_nodrower());
                         },
-                        child: AnimatedContainer(
-                          duration: Duration(milliseconds: 300),
-                          height: P08PROGRESSVAR.isHoveredChem ? 220 : 200,
-                          width: P08PROGRESSVAR.isHoveredChem ? 220 : 200,
+                        child: Container(
                           decoration: BoxDecoration(
-                            color: P08PROGRESSVAR.isHoveredChem
-                                ? Colors.greenAccent
-                                : Colors.green,
                             border: Border.all(
-                              color: Colors.black,
-                              width: 2.0,
+                              color: P08PROGRESSVAR.isHoveredChem
+                                  ? Colors.greenAccent
+                                  : Colors.green,
+                              width: 3.0,
                             ),
-                            borderRadius: BorderRadius.circular(10),
+                            borderRadius: BorderRadius.circular(12.0),
                           ),
-                          child: Center(
-                            child: Text(
-                              'CHEM',
-                              style:
-                                  TextStyle(color: Colors.white, fontSize: 25),
-                            ),
+                          padding: EdgeInsets.all(8.0),
+                          child: Column(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              Icon(
+                                Icons.science_rounded,
+                                size: P08PROGRESSVAR.isHoveredChem ? 220 : 200,
+                                color: P08PROGRESSVAR.isHoveredChem
+                                    ? Colors.greenAccent
+                                    : Colors.green,
+                              ),
+                              ShaderMask(
+                                shaderCallback: (bounds) => LinearGradient(
+                                  colors: [
+                                    Colors.greenAccent,
+                                    Colors.lightGreenAccent.shade400
+                                  ],
+                                  begin: Alignment.topLeft,
+                                  end: Alignment.bottomRight,
+                                ).createShader(bounds),
+                                child: Text(
+                                  'CHEMICAL',
+                                  style: TextStyle(
+                                    fontSize: 20.0,
+                                    fontWeight: FontWeight.bold,
+                                    color: Colors.white,
+                                  ),
+                                ),
+                              ),
+                            ],
                           ),
                         ),
                       ),
                     ),
-                  ),
-                ],
+                  ],
+                ),
               ),
             ),
           ),

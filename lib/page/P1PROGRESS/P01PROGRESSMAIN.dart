@@ -7,6 +7,7 @@ import '../../bloc/BlocEvent/07-07-P07PROGRESSGETDATA.dart';
 import '../../bloc/BlocEvent/ChangePageEvent.dart';
 import '../../data/global.dart';
 import '../../mainBody.dart';
+import '../page16.dart';
 import '../page7.dart';
 import 'P01PROGRESSVAR.dart';
 
@@ -457,47 +458,87 @@ class _P01PROGRESSMAINState extends State<P01PROGRESSMAIN> {
                         ),
                       ),
                     ),
-                    AbsorbPointer(
-                      absorbing:
-                          !step04Complete, // ถ้าไม่ครบจะทำให้ไม่สามารถกดได้
-                      child: InkWell(
-                        onTap: () {
-                          print(_data.value[0].LOCATION);
-                          print(_data.value[0].PLANT);
-                          if (step04Complete) {
-                            P01PROGRESSVAR.sendLocation =
-                                _data.value[0].LOCATION;
-                            P01PROGRESSVAR.sendPlant = _data.value[0].PLANT;
-                            P01PROGRESSVAR.changeStep = 'step4';
-                            print(P01PROGRESSVAR.changeStep);
-                            print(transactionsCount4.toString() +
-                                " transactions");
-                            CuPage = Page7();
-                            MainBodyContext.read<ChangePage_Bloc>()
-                                .add(ChangePage_nodrower());
-                          }
-                        },
-                        child: Container(
-                          decoration: BoxDecoration(
-                            color: step04Complete
-                                ? Colors.greenAccent
-                                : Colors.grey.shade500,
-                            border: Border.all(color: Colors.black),
-                            borderRadius: BorderRadius.circular(10),
-                          ),
-                          height: 80,
-                          width: 100,
-                          child: Center(
-                            child: Column(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              children: [
-                                Text(transactionsCount4.toString()),
-                                Text(
-                                  " transactions",
-                                  style: TextStyle(fontSize: 10),
-                                ),
-                              ],
-                            ),
+                    InkWell(
+                      onTap: (_data.value[0].PLANT == 'PHO' &&
+                                  P01PROGRESSVAR.PHOdata.length == 0) ||
+                              (_data.value[0].PLANT == 'GASNON' &&
+                                  P01PROGRESSVAR.GASNONdata.length == 0) ||
+                              (_data.value[0].PLANT == 'GASBOI' &&
+                                  P01PROGRESSVAR.GASBOIdata.length == 0) ||
+                              (_data.value[0].PLANT == 'ISN' &&
+                                  P01PROGRESSVAR.ISNdata.length == 0) ||
+                              (_data.value[0].PLANT == 'PAL' &&
+                                  P01PROGRESSVAR.PALdata.length == 0)
+                          ? null
+                          : () {
+                              // print(_data.value[0].PLANT);
+                              if (_data.value[0].PLANT == 'PHO') {
+                                USERDATA.PLANTNUMBER = '51000';
+                              } else if (_data.value[0].PLANT == 'GASNON') {
+                                USERDATA.PLANTNUMBER = '54000';
+                              } else if (_data.value[0].PLANT == 'GASBOI') {
+                                USERDATA.PLANTNUMBER = '54500';
+                              } else if (_data.value[0].PLANT == 'ISN') {
+                                USERDATA.PLANTNUMBER = '53000';
+                              } else if (_data.value[0].PLANT == 'PAL') {
+                                USERDATA.PLANTNUMBER = '52000';
+                              }
+                              USERDATA.PLANT = _data.value[0].PLANT;
+                              print(USERDATA.PLANT);
+                              CuPage = Page16();
+                              MainBodyContext.read<ChangePage_Bloc>()
+                                  .add(ChangePage_nodrower());
+                            },
+                      child: Container(
+                        decoration: BoxDecoration(
+                          color: (_data.value[0].PLANT == 'PHO' &&
+                                      P01PROGRESSVAR.PHOdata.length > 0) ||
+                                  (_data.value[0].PLANT == 'GASNON' &&
+                                      P01PROGRESSVAR.GASNONdata.length > 0) ||
+                                  (_data.value[0].PLANT == 'GASBOI' &&
+                                      P01PROGRESSVAR.GASBOIdata.length > 0) ||
+                                  (_data.value[0].PLANT == 'ISN' &&
+                                      P01PROGRESSVAR.ISNdata.length > 0) ||
+                                  (_data.value[0].PLANT == 'PAL' &&
+                                      P01PROGRESSVAR.PALdata.length > 0)
+                              ? Colors.greenAccent
+                              : Colors.grey.shade500,
+                          border: Border.all(color: Colors.black),
+                          borderRadius: BorderRadius.circular(10),
+                        ),
+                        height: 80,
+                        width: 100,
+                        child: Center(
+                          child: Column(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              Text(
+                                (() {
+                                  if (_data.value[0].PLANT == "PHO") {
+                                    return P01PROGRESSVAR.PHOdata.length
+                                        .toString();
+                                  } else if (_data.value[0].PLANT == "GASNON") {
+                                    return P01PROGRESSVAR.GASNONdata.length
+                                        .toString();
+                                  } else if (_data.value[0].PLANT == "GASBOI") {
+                                    return P01PROGRESSVAR.GASBOIdata.length
+                                        .toString();
+                                  } else if (_data.value[0].PLANT == "ISN") {
+                                    return P01PROGRESSVAR.ISNdata.length
+                                        .toString();
+                                  } else if (_data.value[0].PLANT == "PAL") {
+                                    return P01PROGRESSVAR.PALdata.length
+                                        .toString();
+                                  } else {
+                                    return "0";
+                                  }
+                                })(),
+                              ),
+                              Text(
+                                " transactions",
+                                style: TextStyle(fontSize: 10),
+                              ),
+                            ],
                           ),
                         ),
                       ),

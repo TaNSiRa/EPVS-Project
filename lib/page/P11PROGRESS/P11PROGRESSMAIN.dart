@@ -8,6 +8,9 @@ import 'package:newmaster/page/page8.dart';
 import '../../bloc/BlocEvent/ChangePageEvent.dart';
 import '../../mainBody.dart';
 import '../page1.dart';
+import '../page12.dart';
+import '../page14.dart';
+import '../page15.dart';
 import '../page2.dart';
 import '../page3.dart';
 import '../page4.dart';
@@ -87,6 +90,47 @@ class _P11PROGRESSMAINBodyState extends State<P11PROGRESSMAINBody> {
                           padding: const EdgeInsets.all(5.0),
                           child: InkWell(
                             onTap: () {
+                              USERDATA.ACTION = 'INCOMING';
+                              print(USERDATA.ACTION);
+                              // if (USERDATA.BRANCH == 'BP12') {
+                              //   CuPage = Page12();
+                              //   MainBodyContext.read<ChangePage_Bloc>()
+                              //       .add(ChangePage_nodrower());
+                              // } else if (USERDATA.BRANCH == 'GW') {
+                              //   CuPage = Page14();
+                              //   MainBodyContext.read<ChangePage_Bloc>()
+                              //       .add(ChangePage_nodrower());
+                              // } else if (USERDATA.BRANCH == 'ESIE1') {
+                              //   CuPage = Page15();
+                              //   MainBodyContext.read<ChangePage_Bloc>()
+                              //       .add(ChangePage_nodrower());
+                              // }
+                            },
+                            child: Container(
+                              height: 50,
+                              width: 400,
+                              decoration: BoxDecoration(
+                                color: Colors.red.shade900,
+                                border: Border.all(
+                                  color: Colors.black,
+                                  width: 2.0,
+                                ),
+                                borderRadius: BorderRadius.circular(10),
+                              ),
+                              child: Center(
+                                child: Text(
+                                  'INCOMING',
+                                  style: TextStyle(
+                                      color: Colors.white, fontSize: 20),
+                                ),
+                              ),
+                            ),
+                          ),
+                        ),
+                        Padding(
+                          padding: const EdgeInsets.all(5.0),
+                          child: InkWell(
+                            onTap: () {
                               // print(USERDATA.BRANCH);
                               // if (USERDATA.BRANCH == 'BP12') {
                               //   CuPage = Page2();
@@ -119,9 +163,19 @@ class _P11PROGRESSMAINBodyState extends State<P11PROGRESSMAINBody> {
                           padding: const EdgeInsets.all(5.0),
                           child: InkWell(
                             onTap: () {
-                              // print(USERDATA.BRANCH);
+                              print(USERDATA.BRANCH);
+                              USERDATA.ACTION = 'STATUS';
+                              print(USERDATA.ACTION);
                               // if (USERDATA.BRANCH == 'BP12') {
                               //   CuPage = Page2();
+                              //   MainBodyContext.read<ChangePage_Bloc>()
+                              //       .add(ChangePage_nodrower());
+                              // } else if (USERDATA.BRANCH == 'GW') {
+                              //   CuPage = Page4();
+                              //   MainBodyContext.read<ChangePage_Bloc>()
+                              //       .add(ChangePage_nodrower());
+                              // } else if (USERDATA.BRANCH == 'ESIE1') {
+                              //   CuPage = Page1();
                               //   MainBodyContext.read<ChangePage_Bloc>()
                               //       .add(ChangePage_nodrower());
                               // }
@@ -139,7 +193,7 @@ class _P11PROGRESSMAINBodyState extends State<P11PROGRESSMAINBody> {
                               ),
                               child: Center(
                                 child: Text(
-                                  'SCADA DATA',
+                                  'STATUS',
                                   style: TextStyle(
                                       color: Colors.white, fontSize: 20),
                                 ),
@@ -171,7 +225,7 @@ class _P11PROGRESSMAINBodyState extends State<P11PROGRESSMAINBody> {
                               ),
                               child: Center(
                                 child: Text(
-                                  'AQC',
+                                  'SCADA DATA',
                                   style: TextStyle(
                                       color: Colors.white, fontSize: 20),
                                 ),

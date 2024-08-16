@@ -1,6 +1,9 @@
+import 'package:dio/dio.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../data/dummydata2.dart';
+import '../../data/global.dart';
+import '../../page/P1PROGRESS/P01PROGRESSVAR.dart';
 
 //-------------------------------------------------
 
@@ -37,31 +40,49 @@ class P01PROGRESSGETDATA_Bloc
     List<P01PROGRESSGETDATAclass> output = [];
     //-------------------------------------------------------------------------------------
     var input = dummydatainput2;
+    var now = DateTime.now();
+    final response = await Dio().post(
+      server2 + "datacentertest/getsap",
+      data: {
+        "BAPI_NAME": "ZPPIN011_OUT",
+        "TABLE_NAME": "PPORDER",
+        // "IMP_WERKS": "2100",
+        // "IMP_PRCTR": "21000",
+        "IMP_WERKS": USERDATA.BRANCHNUMBER.toString(),
+        "IMP_PRCTR": "",
+        // "LAST_DATE": "20240814"
+        "LAST_DATE":
+            "${now.year}${now.month > 9 ? "" : "0"}${now.month}${now.day}"
+      },
+    );
+    print(response.statusCode);
+    // print(response);
+    List<dynamic> data = response.data;
+    if (data.isNotEmpty) {
+      // Clear existing data before adding new data
+      P01PROGRESSVAR.PHOdata.clear();
+      P01PROGRESSVAR.PALdata.clear();
+      P01PROGRESSVAR.GASNONdata.clear();
+      P01PROGRESSVAR.ISNdata.clear();
+      P01PROGRESSVAR.GASBOIdata.clear();
 
-    // print(input.length);
-    // for (var i = 0; i < input.length; i++) {
-    //   output.add(P01PROGRESSGETDATAclass(
-    //     PLANT: savenull(input[i]['plant']),
-    //     STEP01: savenull(input[i]['step1']),
-    //     STEP02: savenull(input[i]['step2']),
-    //     STEP03: savenull(input[i]['step3']),
-    //     STEP04: savenull(input[i]['step4']),
-    //     STEP05: savenull(input[i]['step5']),
-    //     STEP06: savenull(input[i]['step6']),
-    //     STEP07: savenull(input[i]['step7']),
-    //     STEP08: savenull(input[i]['step8']),
-    //     STEP09: savenull(input[i]['step9']),
-    //   ));
-    // }
-    // List<P01PROGRESSGETDATAclass> datadummy = [
-
-    // ];
-
-    //-------------------------------------------------------------------------------------
-    // output = datadummy;
+      for (var item in data) {
+        if (item["PRCTR"] == "0000051000") {
+          P01PROGRESSVAR.PHOdata.add(item);
+        } else if (item["PRCTR"] == "0000052000") {
+          P01PROGRESSVAR.PALdata.add(item);
+        } else if (item["PRCTR"] == "0000054000") {
+          P01PROGRESSVAR.GASNONdata.add(item);
+        } else if (item["PRCTR"] == "0000053000") {
+          P01PROGRESSVAR.ISNdata.add(item);
+        } else if (item["PRCTR"] == "0000054500") {
+          P01PROGRESSVAR.GASBOIdata.add(item);
+        }
+      }
+    }
 
     List<P01PROGRESSGETDATAclass> outputdata =
-        input.where((data) => data['location'] == 'HES').map((data) {
+        input.where((data) => data['location'] == 'ESIE1').map((data) {
       return P01PROGRESSGETDATAclass(
         PLANT: savenull(data['plant']),
         ORDER: savenull(data['order']),
@@ -95,7 +116,7 @@ class P01PROGRESSGETDATA_Bloc
 
     List<P01PROGRESSGETDATAclass> outputdata = input
         .where((data) =>
-            data['location'] == 'HES' &&
+            data['location'] == 'ESIE1' &&
             data['plant'] == 'YES' &&
             data['step01'] == 'YES')
         .map((data) {

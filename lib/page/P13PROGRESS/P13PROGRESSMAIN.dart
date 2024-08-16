@@ -11,6 +11,7 @@ import '../page12.dart';
 import '../page14.dart';
 import '../page15.dart';
 import '../page7.dart';
+import 'P13PROGRESSVAR.dart';
 
 class P13PROGRESSMAIN extends StatefulWidget {
   P13PROGRESSMAIN({
@@ -24,9 +25,6 @@ class P13PROGRESSMAIN extends StatefulWidget {
 }
 
 class _P13PROGRESSMAINState extends State<P13PROGRESSMAIN> {
-  String selectedColumn = 'MATCP';
-  String searchQuery = '';
-
   @override
   void initState() {
     super.initState();
@@ -37,27 +35,35 @@ class _P13PROGRESSMAINState extends State<P13PROGRESSMAIN> {
   Widget build(BuildContext context) {
     List<P13PROGRESSGETDATAclass> _datain = widget.data ?? [];
     List<P13PROGRESSGETDATAclass> filteredData = _datain.where((item) {
-      switch (selectedColumn) {
+      switch (P13PROGRESSVAR.selectedColumn) {
         case 'MATCP':
-          return item.MATCP.toLowerCase().contains(searchQuery.toLowerCase());
+          return item.MATCP
+              .toLowerCase()
+              .contains(P13PROGRESSVAR.searchQuery.toLowerCase());
         case 'CUST NAME':
           return item.CUST_FULL
               .toLowerCase()
-              .contains(searchQuery.toLowerCase());
+              .contains(P13PROGRESSVAR.searchQuery.toLowerCase());
         case 'PART NAME':
           return item.PARTNAME
               .toLowerCase()
-              .contains(searchQuery.toLowerCase());
+              .contains(P13PROGRESSVAR.searchQuery.toLowerCase());
         case 'PART NO':
-          return item.PART_NO.toLowerCase().contains(searchQuery.toLowerCase());
+          return item.PART_NO
+              .toLowerCase()
+              .contains(P13PROGRESSVAR.searchQuery.toLowerCase());
         case 'CHARG':
-          return item.CHARG.toLowerCase().contains(searchQuery.toLowerCase());
+          return item.CHARG
+              .toLowerCase()
+              .contains(P13PROGRESSVAR.searchQuery.toLowerCase());
         case 'CUST LOT':
           return item.CUST_LOT
               .toLowerCase()
-              .contains(searchQuery.toLowerCase());
+              .contains(P13PROGRESSVAR.searchQuery.toLowerCase());
         case 'QTY':
-          return item.QTY.toLowerCase().contains(searchQuery.toLowerCase());
+          return item.QTY
+              .toLowerCase()
+              .contains(P13PROGRESSVAR.searchQuery.toLowerCase());
         default:
           return false;
       }
@@ -126,10 +132,11 @@ class _P13PROGRESSMAINState extends State<P13PROGRESSMAIN> {
                                 height: 50,
                                 child: DropdownButtonHideUnderline(
                                   child: DropdownButton<String>(
-                                    value: selectedColumn,
+                                    value: P13PROGRESSVAR.selectedColumn,
                                     onChanged: (String? newValue) {
                                       setState(() {
-                                        selectedColumn = newValue!;
+                                        P13PROGRESSVAR.selectedColumn =
+                                            newValue!;
                                       });
                                     },
                                     items: <String>[
@@ -164,7 +171,7 @@ class _P13PROGRESSMAINState extends State<P13PROGRESSMAIN> {
                               child: TextField(
                                 onChanged: (value) {
                                   setState(() {
-                                    searchQuery = value;
+                                    P13PROGRESSVAR.searchQuery = value;
                                   });
                                 },
                                 decoration: InputDecoration(

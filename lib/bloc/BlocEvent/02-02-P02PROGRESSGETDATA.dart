@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../data/dummydata2.dart';
 import '../../data/global.dart';
+import '../../page/P2PROGRESS/P02PROGRESSVAR.dart';
 
 //-------------------------------------------------
 
@@ -22,7 +23,6 @@ class P02PROGRESSGETDATA_Bloc
     on<P02PROGRESSGETDATA_GET>((event, emit) {
       return _P02PROGRESSGETDATA_GET([], emit);
     });
-
     on<P02PROGRESSGETDATA_GET2>((event, emit) {
       return _P02PROGRESSGETDATA_GET2([], emit);
     });
@@ -39,20 +39,49 @@ class P02PROGRESSGETDATA_Bloc
     List<P02PROGRESSGETDATAclass> output = [];
     //-------------------------------------------------------------------------------------
     var input = dummydatainput2;
-    // final response = await Dio().post(
-    //   server + "getsap/getincomming_2",
-    //   data: {
-    //     "IMP_PRCTR": "24000",
-    //     "IMP_WERKS": "2100",
-    //     "LAST_DATE": "${'01'}-${'01'}-${'2024'}",
-    //     "LAST_TIME": "${'00'}:${'00'}:00",
-    //     // "LAST_DATE": "01-04-2024",
-    //     // "LAST_TIME": "19:00:08"
-    //   },
-    // );
+    var now = DateTime.now();
+    final response = await Dio().post(
+      server2 + "datacentertest/getsap",
+      data: {
+        "BAPI_NAME": "ZPPIN011_OUT",
+        "TABLE_NAME": "PPORDER",
+        // "IMP_WERKS": "2100",
+        // "IMP_PRCTR": "21000",
+        "IMP_WERKS": USERDATA.BRANCHNUMBER.toString(),
+        "IMP_PRCTR": "",
+        // "LAST_DATE": "20240814"
+        "LAST_DATE":
+            "${now.year}${now.month > 9 ? "" : "0"}${now.month}${now.day}"
+      },
+    );
+    print(response.statusCode);
+    // print(response);
+    List<dynamic> data = response.data;
+    if (data.isNotEmpty) {
+      // Clear existing data before adding new data
+      P02PROGRESSVAR.PHOdata.clear();
+      P02PROGRESSVAR.PALdata.clear();
+      P02PROGRESSVAR.GASdata.clear();
+      P02PROGRESSVAR.KNGdata.clear();
+      P02PROGRESSVAR.PVDdata.clear();
 
-    // print(response.statusCode);
-    // print(response.data);
+      for (var item in data) {
+        if (item["PRCTR"] == "0000021000") {
+          P02PROGRESSVAR.PHOdata.add(item);
+        } else if (item["PRCTR"] == "0000022000") {
+          P02PROGRESSVAR.PALdata.add(item);
+        } else if (item["PRCTR"] == "0000024000") {
+          P02PROGRESSVAR.GASdata.add(item);
+        } else if (item["PRCTR"] == "0000061000") {
+          P02PROGRESSVAR.KNGdata.add(item);
+        } else if (item["PRCTR"] == "0000062000") {
+          P02PROGRESSVAR.PVDdata.add(item);
+        }
+      }
+    }
+
+    // print(PHOdata);
+    // print(PHOdata.length);
 
     List<P02PROGRESSGETDATAclass> outputdata =
         input.where((data) => data['location'] == 'BP12').map((data) {
@@ -171,6 +200,7 @@ class P02PROGRESSGETDATAclass {
     this.STEP07 = '',
     this.STEP08 = '',
     this.STEP09 = '',
+    this.QC = '',
   });
 
   String PLANT;
@@ -190,6 +220,7 @@ class P02PROGRESSGETDATAclass {
   String STEP07;
   String STEP08;
   String STEP09;
+  String QC;
 }
 
 String savenull(input) {

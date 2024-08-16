@@ -25,3 +25,4 @@ class logindata {
 }
 
 String server = 'http://172.23.10.40:16714/';
+String server2 = 'http://172.23.10.34:14090/';

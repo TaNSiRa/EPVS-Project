@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:newmaster/page/page10.dart';
+import 'package:newmaster/page/page2.dart';
+import 'package:newmaster/page/page4.dart';
 import '../../bloc/BlocEvent/16-16-P16PROGRESSGETDATA.dart';
 import '../../bloc/BlocEvent/ChangePageEvent.dart';
 import '../../data/global.dart';
@@ -11,6 +13,7 @@ import '../page12.dart';
 import '../page14.dart';
 import '../page15.dart';
 import '../page7.dart';
+import 'P16PROGRESSVAR.dart';
 
 class P16PROGRESSMAIN extends StatefulWidget {
   P16PROGRESSMAIN({
@@ -24,9 +27,6 @@ class P16PROGRESSMAIN extends StatefulWidget {
 }
 
 class _P16PROGRESSMAINState extends State<P16PROGRESSMAIN> {
-  String selectedColumn = 'CUST NAME';
-  String searchQuery = '';
-
   @override
   void initState() {
     super.initState();
@@ -37,21 +37,31 @@ class _P16PROGRESSMAINState extends State<P16PROGRESSMAIN> {
   Widget build(BuildContext context) {
     List<P16PROGRESSGETDATAclass> _datain = widget.data ?? [];
     List<P16PROGRESSGETDATAclass> filteredData = _datain.where((item) {
-      switch (selectedColumn) {
+      switch (P16PROGRESSVAR.selectedColumn) {
+        case 'PO NO.':
+          return item.PO
+              .toLowerCase()
+              .contains(P16PROGRESSVAR.searchQuery.toLowerCase());
         case 'CUST NAME':
           return item.CUST_FULL
               .toLowerCase()
-              .contains(searchQuery.toLowerCase());
+              .contains(P16PROGRESSVAR.searchQuery.toLowerCase());
         case 'PART NAME':
           return item.PARTNAME
               .toLowerCase()
-              .contains(searchQuery.toLowerCase());
+              .contains(P16PROGRESSVAR.searchQuery.toLowerCase());
         case 'PART NO.':
-          return item.PARTNO.toLowerCase().contains(searchQuery.toLowerCase());
+          return item.PARTNO
+              .toLowerCase()
+              .contains(P16PROGRESSVAR.searchQuery.toLowerCase());
         case 'QTY':
-          return item.QTY.toLowerCase().contains(searchQuery.toLowerCase());
+          return item.QTY
+              .toLowerCase()
+              .contains(P16PROGRESSVAR.searchQuery.toLowerCase());
         case 'TPK LOT':
-          return item.TPKLOT.toLowerCase().contains(searchQuery.toLowerCase());
+          return item.TPKLOT
+              .toLowerCase()
+              .contains(P16PROGRESSVAR.searchQuery.toLowerCase());
         default:
           return false;
       }
@@ -67,15 +77,15 @@ class _P16PROGRESSMAINState extends State<P16PROGRESSMAIN> {
               icon: Icon(Icons.arrow_back_ios_new_rounded, size: 30),
               onPressed: () {
                 if (USERDATA.BRANCH == 'BP12') {
-                  CuPage = Page12();
+                  CuPage = Page2();
                   MainBodyContext.read<ChangePage_Bloc>()
                       .add(ChangePage_nodrower());
                 } else if (USERDATA.BRANCH == 'GW') {
-                  CuPage = Page14();
+                  CuPage = Page4();
                   MainBodyContext.read<ChangePage_Bloc>()
                       .add(ChangePage_nodrower());
                 } else if (USERDATA.BRANCH == 'ESIE1') {
-                  CuPage = Page15();
+                  CuPage = Page1();
                   MainBodyContext.read<ChangePage_Bloc>()
                       .add(ChangePage_nodrower());
                 }
@@ -120,13 +130,15 @@ class _P16PROGRESSMAINState extends State<P16PROGRESSMAIN> {
                                 height: 50,
                                 child: DropdownButtonHideUnderline(
                                   child: DropdownButton<String>(
-                                    value: selectedColumn,
+                                    value: P16PROGRESSVAR.selectedColumn,
                                     onChanged: (String? newValue) {
                                       setState(() {
-                                        selectedColumn = newValue!;
+                                        P16PROGRESSVAR.selectedColumn =
+                                            newValue!;
                                       });
                                     },
                                     items: <String>[
+                                      'PO NO.',
                                       'CUST NAME',
                                       'PART NAME',
                                       'PART NO.',
@@ -156,7 +168,7 @@ class _P16PROGRESSMAINState extends State<P16PROGRESSMAIN> {
                               child: TextField(
                                 onChanged: (value) {
                                   setState(() {
-                                    searchQuery = value;
+                                    P16PROGRESSVAR.searchQuery = value;
                                   });
                                 },
                                 decoration: InputDecoration(
@@ -173,11 +185,12 @@ class _P16PROGRESSMAINState extends State<P16PROGRESSMAIN> {
                           border: TableBorder.all(),
                           columnWidths: const {
                             0: FixedColumnWidth(50.0),
-                            1: FixedColumnWidth(300.0),
-                            2: FixedColumnWidth(200.0),
-                            3: FixedColumnWidth(160.0),
-                            4: FixedColumnWidth(80.0),
-                            5: FixedColumnWidth(100.0),
+                            1: FixedColumnWidth(100),
+                            2: FixedColumnWidth(300.0),
+                            3: FixedColumnWidth(200.0),
+                            4: FixedColumnWidth(160.0),
+                            5: FixedColumnWidth(80.0),
+                            6: FixedColumnWidth(100.0),
                           },
                           children: [
                             TableRow(
@@ -197,6 +210,31 @@ class _P16PROGRESSMAINState extends State<P16PROGRESSMAIN> {
                                             child: Center(
                                               child: Text(
                                                 'ID',
+                                                style: TextStyle(
+                                                    color: Colors.white),
+                                              ),
+                                            ),
+                                          ),
+                                        ),
+                                      ],
+                                    ),
+                                  ),
+                                ),
+                                TableCell(
+                                  child: SizedBox(
+                                    height: 50,
+                                    child: Stack(
+                                      children: [
+                                        Positioned(
+                                          top: 0,
+                                          left: 0,
+                                          right: 0,
+                                          height: 50,
+                                          child: Container(
+                                            color: Colors.blue,
+                                            child: Center(
+                                              child: Text(
+                                                'PO NO.',
                                                 style: TextStyle(
                                                     color: Colors.white),
                                               ),
@@ -343,6 +381,14 @@ class _P16PROGRESSMAINState extends State<P16PROGRESSMAIN> {
                                       height: 30,
                                       child: Center(
                                         child: Text(dataCount.toString()),
+                                      ),
+                                    ),
+                                  ),
+                                  TableCell(
+                                    child: SizedBox(
+                                      height: 30,
+                                      child: Center(
+                                        child: Text(item.PO),
                                       ),
                                     ),
                                   ),

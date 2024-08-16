@@ -5,4 +5,9 @@ class P01PROGRESSVAR {
   static String sendLocation = '';
   static String sendPlant = '';
   static String changeStep = '';
+  static List<dynamic> PHOdata = [];
+  static List<dynamic> PALdata = [];
+  static List<dynamic> GASNONdata = [];
+  static List<dynamic> ISNdata = [];
+  static List<dynamic> GASBOIdata = [];
 }

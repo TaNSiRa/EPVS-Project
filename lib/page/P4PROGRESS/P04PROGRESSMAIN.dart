@@ -1,12 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:newmaster/page/page10.dart';
+import 'package:newmaster/page/page16.dart';
 import '../../bloc/BlocEvent/04-04-P04PROGRESSGETDATA.dart';
 import '../../bloc/BlocEvent/ChangePageEvent.dart';
 import '../../data/global.dart';
 import '../../mainBody.dart';
 import '../P1PROGRESS/P01PROGRESSVAR.dart';
 import '../page7.dart';
+import 'P04PROGRESSVAR.dart';
 
 class P04PROGRESSMAIN extends StatefulWidget {
   P04PROGRESSMAIN({
@@ -453,47 +455,61 @@ class _P04PROGRESSMAINState extends State<P04PROGRESSMAIN> {
                         ),
                       ),
                     ),
-                    AbsorbPointer(
-                      absorbing:
-                          !step04Complete, // ถ้าไม่ครบจะทำให้ไม่สามารถกดได้
-                      child: InkWell(
-                        onTap: () {
-                          print(_data.value[0].LOCATION);
-                          print(_data.value[0].PLANT);
-                          if (step04Complete) {
-                            P01PROGRESSVAR.sendLocation =
-                                _data.value[0].LOCATION;
-                            P01PROGRESSVAR.sendPlant = _data.value[0].PLANT;
-                            P01PROGRESSVAR.changeStep = 'step4';
-                            print(P01PROGRESSVAR.changeStep);
-                            print(transactionsCount4.toString() +
-                                " transactions");
-                            CuPage = Page7();
-                            MainBodyContext.read<ChangePage_Bloc>()
-                                .add(ChangePage_nodrower());
-                          }
-                        },
-                        child: Container(
-                          decoration: BoxDecoration(
-                            color: step04Complete
-                                ? Colors.greenAccent
-                                : Colors.grey.shade500,
-                            border: Border.all(color: Colors.black),
-                            borderRadius: BorderRadius.circular(10),
-                          ),
-                          height: 80,
-                          width: 100,
-                          child: Center(
-                            child: Column(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              children: [
-                                Text(transactionsCount4.toString()),
-                                Text(
-                                  " transactions",
-                                  style: TextStyle(fontSize: 10),
-                                ),
-                              ],
-                            ),
+                    InkWell(
+                      onTap: (_data.value[0].PLANT == 'GWNEW' &&
+                                  P04PROGRESSVAR.GWNEWdata.length == 0) ||
+                              (_data.value[0].PLANT == 'GWOLD' &&
+                                  P04PROGRESSVAR.GWOLDdata.length == 0)
+                          ? null
+                          : () {
+                              // print(_data.value[0].PLANT);
+                              if (_data.value[0].PLANT == 'GWNEW') {
+                                USERDATA.PLANTNUMBER = '25700';
+                              } else if (_data.value[0].PLANT == 'GWOLD') {
+                                USERDATA.PLANTNUMBER = '25000';
+                              }
+                              USERDATA.PLANT = _data.value[0].PLANT;
+                              print(USERDATA.PLANT);
+                              CuPage = Page16();
+                              MainBodyContext.read<ChangePage_Bloc>()
+                                  .add(ChangePage_nodrower());
+                              print(USERDATA.PLANTNUMBER);
+                            },
+                      child: Container(
+                        decoration: BoxDecoration(
+                          color: (_data.value[0].PLANT == 'GWNEW' &&
+                                      P04PROGRESSVAR.GWNEWdata.length > 0) ||
+                                  (_data.value[0].PLANT == 'GWOLD' &&
+                                      P04PROGRESSVAR.GWOLDdata.length > 0)
+                              ? Colors.greenAccent
+                              : Colors.grey.shade500,
+                          border: Border.all(color: Colors.black),
+                          borderRadius: BorderRadius.circular(10),
+                        ),
+                        height: 80,
+                        width: 100,
+                        child: Center(
+                          child: Column(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              Text(
+                                (() {
+                                  if (_data.value[0].PLANT == "GWNEW") {
+                                    return P04PROGRESSVAR.GWNEWdata.length
+                                        .toString();
+                                  } else if (_data.value[0].PLANT == "GWOLD") {
+                                    return P04PROGRESSVAR.GWOLDdata.length
+                                        .toString();
+                                  } else {
+                                    return "0";
+                                  }
+                                })(),
+                              ),
+                              Text(
+                                " transactions",
+                                style: TextStyle(fontSize: 10),
+                              ),
+                            ],
                           ),
                         ),
                       ),

@@ -14,6 +14,7 @@ import '../page16.dart';
 import '../page2.dart';
 import '../page3.dart';
 import '../page4.dart';
+import 'P14PROGRESSVAR.dart';
 // import 'package:flutter_bloc/flutter_bloc.dart';
 
 // import '../bloc/cubit/NotificationEvent.dart';
@@ -92,79 +93,123 @@ class _P14PROGRESSMAINBodyState extends State<P14PROGRESSMAINBody> {
                           spacing: 10.0,
                           runSpacing: 10.0,
                           children: [
-                            Padding(
-                              padding: const EdgeInsets.all(10.0),
-                              child: InkWell(
-                                onTap: () {
-                                  USERDATA.PLANTNUMBER = PLANTNUMBER.GWOLD;
-                                  USERDATA.PLANT = 'GW OLD';
-                                  print(USERDATA.PLANT);
-                                  print(USERDATA.PLANTNUMBER);
-                                  if (USERDATA.ACTION == 'INCOMING') {
-                                    CuPage = Page13();
-                                    MainBodyContext.read<ChangePage_Bloc>()
-                                        .add(ChangePage_nodrower());
-                                  } else if (USERDATA.ACTION == 'AQC') {
-                                    CuPage = Page16();
-                                    MainBodyContext.read<ChangePage_Bloc>()
-                                        .add(ChangePage_nodrower());
-                                  }
-                                },
-                                child: Container(
-                                  height: 150,
-                                  width: 150,
-                                  decoration: BoxDecoration(
-                                    color: Colors.green,
-                                    border: Border.all(
-                                      color: Colors.black,
-                                      width: 2.0,
+                            MouseRegion(
+                              onEnter: (_) {
+                                setState(() {
+                                  P14PROGRESSVAR.isHoveredGWOLD = true;
+                                });
+                              },
+                              onExit: (_) {
+                                setState(() {
+                                  P14PROGRESSVAR.isHoveredGWOLD = false;
+                                });
+                              },
+                              child: Padding(
+                                padding: const EdgeInsets.all(10.0),
+                                child: InkWell(
+                                  onTap: () {
+                                    setState(() {
+                                      P14PROGRESSVAR.isHoveredGWOLD = false;
+                                    });
+                                    USERDATA.PLANTNUMBER = PLANTNUMBER.GWOLD;
+                                    USERDATA.PLANT = 'GW OLD';
+                                    print(USERDATA.PLANT);
+                                    print(USERDATA.PLANTNUMBER);
+                                    if (USERDATA.ACTION == 'INCOMING') {
+                                      CuPage = Page13();
+                                      MainBodyContext.read<ChangePage_Bloc>()
+                                          .add(ChangePage_nodrower());
+                                    } else if (USERDATA.ACTION == 'AQC') {
+                                      CuPage = Page16();
+                                      MainBodyContext.read<ChangePage_Bloc>()
+                                          .add(ChangePage_nodrower());
+                                    }
+                                  },
+                                  child: AnimatedContainer(
+                                    duration: Duration(milliseconds: 100),
+                                    height: P14PROGRESSVAR.isHoveredGWOLD
+                                        ? 170
+                                        : 150,
+                                    width: P14PROGRESSVAR.isHoveredGWOLD
+                                        ? 170
+                                        : 150,
+                                    decoration: BoxDecoration(
+                                      color: P14PROGRESSVAR.isHoveredGWOLD
+                                          ? Colors.greenAccent
+                                          : Colors.green,
+                                      border: Border.all(
+                                        color: Colors.black,
+                                        width: 2.0,
+                                      ),
+                                      borderRadius: BorderRadius.circular(10),
                                     ),
-                                    borderRadius: BorderRadius.circular(10),
-                                  ),
-                                  child: Center(
-                                    child: Text(
-                                      'GW OLD',
-                                      style: TextStyle(
-                                          color: Colors.white, fontSize: 20),
+                                    child: Center(
+                                      child: Text(
+                                        'GW OLD',
+                                        style: TextStyle(
+                                            color: Colors.white, fontSize: 20),
+                                      ),
                                     ),
                                   ),
                                 ),
                               ),
                             ),
-                            Padding(
-                              padding: const EdgeInsets.all(10.0),
-                              child: InkWell(
-                                onTap: () {
-                                  USERDATA.PLANTNUMBER = PLANTNUMBER.GWNEW;
-                                  USERDATA.PLANT = 'GW NEW';
-                                  print(USERDATA.PLANT);
-                                  print(USERDATA.PLANTNUMBER);
-                                  if (USERDATA.ACTION == 'INCOMING') {
-                                    CuPage = Page13();
-                                    MainBodyContext.read<ChangePage_Bloc>()
-                                        .add(ChangePage_nodrower());
-                                  } else if (USERDATA.ACTION == 'AQC') {
-                                    CuPage = Page16();
-                                    MainBodyContext.read<ChangePage_Bloc>()
-                                        .add(ChangePage_nodrower());
-                                  }
-                                },
-                                child: Container(
-                                  height: 150,
-                                  width: 150,
-                                  decoration: BoxDecoration(
-                                    color: Colors.green,
-                                    border: Border.all(
-                                      color: Colors.black,
-                                      width: 2.0,
+                            MouseRegion(
+                              onEnter: (_) {
+                                setState(() {
+                                  P14PROGRESSVAR.isHoveredGWNEW = true;
+                                });
+                              },
+                              onExit: (_) {
+                                setState(() {
+                                  P14PROGRESSVAR.isHoveredGWNEW = false;
+                                });
+                              },
+                              child: Padding(
+                                padding: const EdgeInsets.all(10.0),
+                                child: InkWell(
+                                  onTap: () {
+                                    setState(() {
+                                      P14PROGRESSVAR.isHoveredGWNEW = false;
+                                    });
+                                    USERDATA.PLANTNUMBER = PLANTNUMBER.GWNEW;
+                                    USERDATA.PLANT = 'GW NEW';
+                                    print(USERDATA.PLANT);
+                                    print(USERDATA.PLANTNUMBER);
+                                    if (USERDATA.ACTION == 'INCOMING') {
+                                      CuPage = Page13();
+                                      MainBodyContext.read<ChangePage_Bloc>()
+                                          .add(ChangePage_nodrower());
+                                    } else if (USERDATA.ACTION == 'AQC') {
+                                      CuPage = Page16();
+                                      MainBodyContext.read<ChangePage_Bloc>()
+                                          .add(ChangePage_nodrower());
+                                    }
+                                  },
+                                  child: AnimatedContainer(
+                                    duration: Duration(milliseconds: 100),
+                                    height: P14PROGRESSVAR.isHoveredGWNEW
+                                        ? 170
+                                        : 150,
+                                    width: P14PROGRESSVAR.isHoveredGWNEW
+                                        ? 170
+                                        : 150,
+                                    decoration: BoxDecoration(
+                                      color: P14PROGRESSVAR.isHoveredGWNEW
+                                          ? Colors.greenAccent
+                                          : Colors.green,
+                                      border: Border.all(
+                                        color: Colors.black,
+                                        width: 2.0,
+                                      ),
+                                      borderRadius: BorderRadius.circular(10),
                                     ),
-                                    borderRadius: BorderRadius.circular(10),
-                                  ),
-                                  child: Center(
-                                    child: Text(
-                                      'GW NEW',
-                                      style: TextStyle(
-                                          color: Colors.white, fontSize: 20),
+                                    child: Center(
+                                      child: Text(
+                                        'GW NEW',
+                                        style: TextStyle(
+                                            color: Colors.white, fontSize: 20),
+                                      ),
                                     ),
                                   ),
                                 ),

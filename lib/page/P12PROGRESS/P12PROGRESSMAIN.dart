@@ -14,6 +14,7 @@ import '../page1.dart';
 import '../page2.dart';
 import '../page3.dart';
 import '../page4.dart';
+import 'P12PROGRESSVAR.dart';
 // import 'package:flutter_bloc/flutter_bloc.dart';
 
 // import '../bloc/cubit/NotificationEvent.dart';
@@ -92,118 +93,178 @@ class _P12PROGRESSMAINBodyState extends State<P12PROGRESSMAINBody> {
                           spacing: 10.0,
                           runSpacing: 10.0,
                           children: [
-                            Padding(
-                              padding: const EdgeInsets.all(10.0),
-                              child: InkWell(
-                                onTap: () {
-                                  USERDATA.PLANTNUMBER = PLANTNUMBER.BPGAS;
-                                  USERDATA.PLANT = 'GAS';
-                                  print(USERDATA.PLANT);
-                                  print(USERDATA.PLANTNUMBER);
-                                  if (USERDATA.ACTION == 'INCOMING') {
-                                    CuPage = Page13();
-                                    MainBodyContext.read<ChangePage_Bloc>()
-                                        .add(ChangePage_nodrower());
-                                  } else if (USERDATA.ACTION == 'AQC') {
-                                    CuPage = Page16();
-                                    MainBodyContext.read<ChangePage_Bloc>()
-                                        .add(ChangePage_nodrower());
-                                  }
-                                },
-                                child: Container(
-                                  height: 150,
-                                  width: 150,
-                                  decoration: BoxDecoration(
-                                    color: Colors.green,
-                                    border: Border.all(
-                                      color: Colors.black,
-                                      width: 2.0,
+                            MouseRegion(
+                              onEnter: (_) {
+                                setState(() {
+                                  P12PROGRESSVAR.isHoveredGAS = true;
+                                });
+                              },
+                              onExit: (_) {
+                                setState(() {
+                                  P12PROGRESSVAR.isHoveredGAS = false;
+                                });
+                              },
+                              child: Padding(
+                                padding: const EdgeInsets.all(10.0),
+                                child: InkWell(
+                                  onTap: () {
+                                    setState(() {
+                                      P12PROGRESSVAR.isHoveredGAS = false;
+                                    });
+                                    USERDATA.PLANTNUMBER = PLANTNUMBER.BPGAS;
+                                    USERDATA.PLANT = 'GAS';
+                                    print(USERDATA.PLANT);
+                                    print(USERDATA.PLANTNUMBER);
+                                    if (USERDATA.ACTION == 'INCOMING') {
+                                      CuPage = Page13();
+                                      MainBodyContext.read<ChangePage_Bloc>()
+                                          .add(ChangePage_nodrower());
+                                    } else if (USERDATA.ACTION == 'AQC') {
+                                      CuPage = Page16();
+                                      MainBodyContext.read<ChangePage_Bloc>()
+                                          .add(ChangePage_nodrower());
+                                    }
+                                  },
+                                  child: AnimatedContainer(
+                                    duration: Duration(milliseconds: 100),
+                                    height:
+                                        P12PROGRESSVAR.isHoveredGAS ? 170 : 150,
+                                    width:
+                                        P12PROGRESSVAR.isHoveredGAS ? 170 : 150,
+                                    decoration: BoxDecoration(
+                                      color: P12PROGRESSVAR.isHoveredGAS
+                                          ? Colors.greenAccent
+                                          : Colors.green,
+                                      border: Border.all(
+                                        color: Colors.black,
+                                        width: 2.0,
+                                      ),
+                                      borderRadius: BorderRadius.circular(10),
                                     ),
-                                    borderRadius: BorderRadius.circular(10),
-                                  ),
-                                  child: Center(
-                                    child: Text(
-                                      'GAS',
-                                      style: TextStyle(
-                                          color: Colors.white, fontSize: 20),
-                                    ),
-                                  ),
-                                ),
-                              ),
-                            ),
-                            Padding(
-                              padding: const EdgeInsets.all(10.0),
-                              child: InkWell(
-                                onTap: () {
-                                  USERDATA.PLANTNUMBER = PLANTNUMBER.BPPHO;
-                                  USERDATA.PLANT = 'PHO';
-                                  print(USERDATA.PLANT);
-                                  print(USERDATA.PLANTNUMBER);
-                                  if (USERDATA.ACTION == 'INCOMING') {
-                                    CuPage = Page13();
-                                    MainBodyContext.read<ChangePage_Bloc>()
-                                        .add(ChangePage_nodrower());
-                                  } else if (USERDATA.ACTION == 'AQC') {
-                                    CuPage = Page16();
-                                    MainBodyContext.read<ChangePage_Bloc>()
-                                        .add(ChangePage_nodrower());
-                                  }
-                                },
-                                child: Container(
-                                  height: 150,
-                                  width: 150,
-                                  decoration: BoxDecoration(
-                                    color: Colors.green,
-                                    border: Border.all(
-                                      color: Colors.black,
-                                      width: 2.0,
-                                    ),
-                                    borderRadius: BorderRadius.circular(10),
-                                  ),
-                                  child: Center(
-                                    child: Text(
-                                      'PHO',
-                                      style: TextStyle(
-                                          color: Colors.white, fontSize: 20),
+                                    child: Center(
+                                      child: Text(
+                                        'GAS',
+                                        style: TextStyle(
+                                            color: Colors.white, fontSize: 20),
+                                      ),
                                     ),
                                   ),
                                 ),
                               ),
                             ),
-                            Padding(
-                              padding: const EdgeInsets.all(10.0),
-                              child: InkWell(
-                                onTap: () {
-                                  USERDATA.PLANTNUMBER = PLANTNUMBER.BPPAL;
-                                  USERDATA.PLANT = 'PAL';
-                                  print(USERDATA.PLANT);
-                                  print(USERDATA.PLANTNUMBER);
-                                  if (USERDATA.ACTION == 'INCOMING') {
-                                    CuPage = Page13();
-                                    MainBodyContext.read<ChangePage_Bloc>()
-                                        .add(ChangePage_nodrower());
-                                  } else if (USERDATA.ACTION == 'AQC') {
-                                    CuPage = Page16();
-                                    MainBodyContext.read<ChangePage_Bloc>()
-                                        .add(ChangePage_nodrower());
-                                  }
-                                },
-                                child: Container(
-                                  height: 150,
-                                  width: 150,
-                                  decoration: BoxDecoration(
-                                    color: Colors.green,
-                                    border: Border.all(
-                                      color: Colors.black,
-                                      width: 2.0,
+                            MouseRegion(
+                              onEnter: (_) {
+                                setState(() {
+                                  P12PROGRESSVAR.isHoveredPHO = true;
+                                });
+                              },
+                              onExit: (_) {
+                                setState(() {
+                                  P12PROGRESSVAR.isHoveredPHO = false;
+                                });
+                              },
+                              child: Padding(
+                                padding: const EdgeInsets.all(10.0),
+                                child: InkWell(
+                                  onTap: () {
+                                    setState(() {
+                                      P12PROGRESSVAR.isHoveredPHO = false;
+                                    });
+                                    USERDATA.PLANTNUMBER = PLANTNUMBER.BPPHO;
+                                    USERDATA.PLANT = 'PHO';
+                                    print(USERDATA.PLANT);
+                                    print(USERDATA.PLANTNUMBER);
+                                    if (USERDATA.ACTION == 'INCOMING') {
+                                      CuPage = Page13();
+                                      MainBodyContext.read<ChangePage_Bloc>()
+                                          .add(ChangePage_nodrower());
+                                    } else if (USERDATA.ACTION == 'AQC') {
+                                      CuPage = Page16();
+                                      MainBodyContext.read<ChangePage_Bloc>()
+                                          .add(ChangePage_nodrower());
+                                    }
+                                  },
+                                  child: AnimatedContainer(
+                                    duration: Duration(milliseconds: 100),
+                                    height:
+                                        P12PROGRESSVAR.isHoveredPHO ? 170 : 150,
+                                    width:
+                                        P12PROGRESSVAR.isHoveredPHO ? 170 : 150,
+                                    decoration: BoxDecoration(
+                                      color: P12PROGRESSVAR.isHoveredPHO
+                                          ? Colors.greenAccent
+                                          : Colors.green,
+                                      border: Border.all(
+                                        color: Colors.black,
+                                        width: 2.0,
+                                      ),
+                                      borderRadius: BorderRadius.circular(10),
                                     ),
-                                    borderRadius: BorderRadius.circular(10),
+                                    child: Center(
+                                      child: Text(
+                                        'PHO',
+                                        style: TextStyle(
+                                            color: Colors.white, fontSize: 20),
+                                      ),
+                                    ),
                                   ),
-                                  child: Center(
-                                    child: Text(
-                                      'PAL',
-                                      style: TextStyle(
-                                          color: Colors.white, fontSize: 20),
+                                ),
+                              ),
+                            ),
+                            MouseRegion(
+                              onEnter: (_) {
+                                setState(() {
+                                  P12PROGRESSVAR.isHoveredPAL = true;
+                                });
+                              },
+                              onExit: (_) {
+                                setState(() {
+                                  P12PROGRESSVAR.isHoveredPAL = false;
+                                });
+                              },
+                              child: Padding(
+                                padding: const EdgeInsets.all(10.0),
+                                child: InkWell(
+                                  onTap: () {
+                                    setState(() {
+                                      P12PROGRESSVAR.isHoveredPAL = false;
+                                    });
+                                    USERDATA.PLANTNUMBER = PLANTNUMBER.BPPAL;
+                                    USERDATA.PLANT = 'PAL';
+                                    print(USERDATA.PLANT);
+                                    print(USERDATA.PLANTNUMBER);
+                                    if (USERDATA.ACTION == 'INCOMING') {
+                                      CuPage = Page13();
+                                      MainBodyContext.read<ChangePage_Bloc>()
+                                          .add(ChangePage_nodrower());
+                                    } else if (USERDATA.ACTION == 'AQC') {
+                                      CuPage = Page16();
+                                      MainBodyContext.read<ChangePage_Bloc>()
+                                          .add(ChangePage_nodrower());
+                                    }
+                                  },
+                                  child: AnimatedContainer(
+                                    duration: Duration(milliseconds: 100),
+                                    height:
+                                        P12PROGRESSVAR.isHoveredPAL ? 170 : 150,
+                                    width:
+                                        P12PROGRESSVAR.isHoveredPAL ? 170 : 150,
+                                    decoration: BoxDecoration(
+                                      color: P12PROGRESSVAR.isHoveredPAL
+                                          ? Colors.greenAccent
+                                          : Colors.green,
+                                      border: Border.all(
+                                        color: Colors.black,
+                                        width: 2.0,
+                                      ),
+                                      borderRadius: BorderRadius.circular(10),
+                                    ),
+                                    child: Center(
+                                      child: Text(
+                                        'PAL',
+                                        style: TextStyle(
+                                            color: Colors.white, fontSize: 20),
+                                      ),
                                     ),
                                   ),
                                 ),
@@ -216,79 +277,119 @@ class _P12PROGRESSMAINBodyState extends State<P12PROGRESSMAINBody> {
                           spacing: 10.0,
                           runSpacing: 10.0,
                           children: [
-                            Padding(
-                              padding: const EdgeInsets.all(10.0),
-                              child: InkWell(
-                                onTap: () {
-                                  USERDATA.PLANTNUMBER = PLANTNUMBER.BPKNG;
-                                  USERDATA.PLANT = 'KNG';
-                                  print(USERDATA.PLANT);
-                                  print(USERDATA.PLANTNUMBER);
-                                  if (USERDATA.ACTION == 'INCOMING') {
-                                    CuPage = Page13();
-                                    MainBodyContext.read<ChangePage_Bloc>()
-                                        .add(ChangePage_nodrower());
-                                  } else if (USERDATA.ACTION == 'AQC') {
-                                    CuPage = Page16();
-                                    MainBodyContext.read<ChangePage_Bloc>()
-                                        .add(ChangePage_nodrower());
-                                  }
-                                },
-                                child: Container(
-                                  height: 150,
-                                  width: 150,
-                                  decoration: BoxDecoration(
-                                    color: Colors.green,
-                                    border: Border.all(
-                                      color: Colors.black,
-                                      width: 2.0,
+                            MouseRegion(
+                              onEnter: (_) {
+                                setState(() {
+                                  P12PROGRESSVAR.isHoveredKNG = true;
+                                });
+                              },
+                              onExit: (_) {
+                                setState(() {
+                                  P12PROGRESSVAR.isHoveredKNG = false;
+                                });
+                              },
+                              child: Padding(
+                                padding: const EdgeInsets.all(10.0),
+                                child: InkWell(
+                                  onTap: () {
+                                    setState(() {
+                                      P12PROGRESSVAR.isHoveredKNG = false;
+                                    });
+                                    USERDATA.PLANTNUMBER = PLANTNUMBER.BPKNG;
+                                    USERDATA.PLANT = 'KNG';
+                                    print(USERDATA.PLANT);
+                                    print(USERDATA.PLANTNUMBER);
+                                    if (USERDATA.ACTION == 'INCOMING') {
+                                      CuPage = Page13();
+                                      MainBodyContext.read<ChangePage_Bloc>()
+                                          .add(ChangePage_nodrower());
+                                    } else if (USERDATA.ACTION == 'AQC') {
+                                      CuPage = Page16();
+                                      MainBodyContext.read<ChangePage_Bloc>()
+                                          .add(ChangePage_nodrower());
+                                    }
+                                  },
+                                  child: AnimatedContainer(
+                                    duration: Duration(milliseconds: 100),
+                                    height:
+                                        P12PROGRESSVAR.isHoveredKNG ? 170 : 150,
+                                    width:
+                                        P12PROGRESSVAR.isHoveredKNG ? 170 : 150,
+                                    decoration: BoxDecoration(
+                                      color: P12PROGRESSVAR.isHoveredKNG
+                                          ? Colors.greenAccent
+                                          : Colors.green,
+                                      border: Border.all(
+                                        color: Colors.black,
+                                        width: 2.0,
+                                      ),
+                                      borderRadius: BorderRadius.circular(10),
                                     ),
-                                    borderRadius: BorderRadius.circular(10),
-                                  ),
-                                  child: Center(
-                                    child: Text(
-                                      'KNG',
-                                      style: TextStyle(
-                                          color: Colors.white, fontSize: 20),
+                                    child: Center(
+                                      child: Text(
+                                        'KNG',
+                                        style: TextStyle(
+                                            color: Colors.white, fontSize: 20),
+                                      ),
                                     ),
                                   ),
                                 ),
                               ),
                             ),
-                            Padding(
-                              padding: const EdgeInsets.all(10.0),
-                              child: InkWell(
-                                onTap: () {
-                                  USERDATA.PLANTNUMBER = PLANTNUMBER.BPPVD;
-                                  USERDATA.PLANT = 'PVD';
-                                  print(USERDATA.PLANT);
-                                  print(USERDATA.PLANTNUMBER);
-                                  if (USERDATA.ACTION == 'INCOMING') {
-                                    CuPage = Page13();
-                                    MainBodyContext.read<ChangePage_Bloc>()
-                                        .add(ChangePage_nodrower());
-                                  } else if (USERDATA.ACTION == 'AQC') {
-                                    CuPage = Page16();
-                                    MainBodyContext.read<ChangePage_Bloc>()
-                                        .add(ChangePage_nodrower());
-                                  }
-                                },
-                                child: Container(
-                                  height: 150,
-                                  width: 150,
-                                  decoration: BoxDecoration(
-                                    color: Colors.green,
-                                    border: Border.all(
-                                      color: Colors.black,
-                                      width: 2.0,
+                            MouseRegion(
+                              onEnter: (_) {
+                                setState(() {
+                                  P12PROGRESSVAR.isHoveredPVD = true;
+                                });
+                              },
+                              onExit: (_) {
+                                setState(() {
+                                  P12PROGRESSVAR.isHoveredPVD = false;
+                                });
+                              },
+                              child: Padding(
+                                padding: const EdgeInsets.all(10.0),
+                                child: InkWell(
+                                  onTap: () {
+                                    setState(() {
+                                      P12PROGRESSVAR.isHoveredPVD = false;
+                                    });
+                                    USERDATA.PLANTNUMBER = PLANTNUMBER.BPPVD;
+                                    USERDATA.PLANT = 'PVD';
+                                    print(USERDATA.PLANT);
+                                    print(USERDATA.PLANTNUMBER);
+                                    if (USERDATA.ACTION == 'INCOMING') {
+                                      CuPage = Page13();
+                                      MainBodyContext.read<ChangePage_Bloc>()
+                                          .add(ChangePage_nodrower());
+                                    } else if (USERDATA.ACTION == 'AQC') {
+                                      CuPage = Page16();
+                                      MainBodyContext.read<ChangePage_Bloc>()
+                                          .add(ChangePage_nodrower());
+                                    }
+                                  },
+                                  child: AnimatedContainer(
+                                    duration: Duration(milliseconds: 100),
+                                    height:
+                                        P12PROGRESSVAR.isHoveredPVD ? 170 : 150,
+                                    width:
+                                        P12PROGRESSVAR.isHoveredPVD ? 170 : 150,
+                                    decoration: BoxDecoration(
+                                      color: P12PROGRESSVAR.isHoveredPVD
+                                          ? Colors.greenAccent
+                                          : Colors.green,
+                                      border: Border.all(
+                                        color: Colors.black,
+                                        width: 2.0,
+                                      ),
+                                      borderRadius: BorderRadius.circular(10),
                                     ),
-                                    borderRadius: BorderRadius.circular(10),
-                                  ),
-                                  child: Center(
-                                    child: Text(
-                                      'PVD',
-                                      style: TextStyle(
-                                          color: Colors.white, fontSize: 20),
+                                    child: Center(
+                                      child: Text(
+                                        'PVD',
+                                        style: TextStyle(
+                                            color: Colors.white, fontSize: 20),
+                                      ),
                                     ),
                                   ),
                                 ),

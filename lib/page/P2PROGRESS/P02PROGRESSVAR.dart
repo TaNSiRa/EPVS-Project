@@ -7,4 +7,9 @@ class P02PROGRESSVAR {
   static List<dynamic> GASdata = [];
   static List<dynamic> KNGdata = [];
   static List<dynamic> PVDdata = [];
+  static bool isHoveredQCPHO = false;
+  static bool isHoveredQCGAS = false;
+  static bool isHoveredQCKNG = false;
+  static bool isHoveredQCPVD = false;
+  static bool isHoveredQCPAL = false;
 }

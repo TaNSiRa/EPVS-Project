@@ -115,7 +115,7 @@ class _P09PROGRESSMAINBodyState extends State<P09PROGRESSMAINBody> {
                                         .add(ChangePage_nodrower());
                                   },
                                   child: AnimatedContainer(
-                                    duration: Duration(milliseconds: 300),
+                                    duration: Duration(milliseconds: 100),
                                     height: P09PROGRESSVAR.isHoveredBP12
                                         ? 170
                                         : 150,
@@ -170,7 +170,7 @@ class _P09PROGRESSMAINBodyState extends State<P09PROGRESSMAINBody> {
                                         .add(ChangePage_nodrower());
                                   },
                                   child: AnimatedContainer(
-                                    duration: Duration(milliseconds: 300),
+                                    duration: Duration(milliseconds: 100),
                                     height:
                                         P09PROGRESSVAR.isHoveredGW ? 170 : 150,
                                     width:
@@ -223,7 +223,7 @@ class _P09PROGRESSMAINBodyState extends State<P09PROGRESSMAINBody> {
                                         .add(ChangePage_nodrower());
                                   },
                                   child: AnimatedContainer(
-                                    duration: Duration(milliseconds: 300),
+                                    duration: Duration(milliseconds: 100),
                                     height: P09PROGRESSVAR.isHoveredESIE1
                                         ? 170
                                         : 150,

@@ -10,4 +10,9 @@ class P01PROGRESSVAR {
   static List<dynamic> GASNONdata = [];
   static List<dynamic> ISNdata = [];
   static List<dynamic> GASBOIdata = [];
+  static bool isHoveredQCPHO = false;
+  static bool isHoveredQCGASNON = false;
+  static bool isHoveredQCGASBOI = false;
+  static bool isHoveredQCISN = false;
+  static bool isHoveredQCPAL = false;
 }

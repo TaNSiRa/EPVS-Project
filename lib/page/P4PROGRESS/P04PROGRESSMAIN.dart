@@ -455,61 +455,96 @@ class _P04PROGRESSMAINState extends State<P04PROGRESSMAIN> {
                         ),
                       ),
                     ),
-                    InkWell(
-                      onTap: (_data.value[0].PLANT == 'GWNEW' &&
-                                  P04PROGRESSVAR.GWNEWdata.length == 0) ||
-                              (_data.value[0].PLANT == 'GWOLD' &&
-                                  P04PROGRESSVAR.GWOLDdata.length == 0)
-                          ? null
-                          : () {
-                              // print(_data.value[0].PLANT);
+                    MouseRegion(
+                      onEnter: (_) {
+                        setState(() {
+                          if (_data.value[0].PLANT == 'GWNEW' &&
+                              P04PROGRESSVAR.GWNEWdata.length > 0) {
+                            P04PROGRESSVAR.isHoveredQCGWNEW = true;
+                          } else if (_data.value[0].PLANT == 'GWOLD' &&
+                              P04PROGRESSVAR.GWOLDdata.length > 0) {
+                            P04PROGRESSVAR.isHoveredQCGWOLD = true;
+                          }
+                        });
+                      },
+                      onExit: (_) {
+                        setState(() {
+                          P04PROGRESSVAR.isHoveredQCGWNEW = false;
+                          P04PROGRESSVAR.isHoveredQCGWOLD = false;
+                        });
+                      },
+                      child: InkWell(
+                        onTap: (_data.value[0].PLANT == 'GWNEW' &&
+                                    P04PROGRESSVAR.GWNEWdata.length == 0) ||
+                                (_data.value[0].PLANT == 'GWOLD' &&
+                                    P04PROGRESSVAR.GWOLDdata.length == 0)
+                            ? null
+                            : () {
+                                // print(_data.value[0].PLANT);
+                                if (_data.value[0].PLANT == 'GWNEW') {
+                                  USERDATA.PLANTNUMBER = PLANTNUMBER.GWNEW;
+                                } else if (_data.value[0].PLANT == 'GWOLD') {
+                                  USERDATA.PLANTNUMBER = PLANTNUMBER.GWOLD;
+                                }
+                                setState(() {
+                                  P04PROGRESSVAR.isHoveredQCGWNEW = false;
+                                  P04PROGRESSVAR.isHoveredQCGWOLD = false;
+                                });
+                                USERDATA.PLANT = _data.value[0].PLANT;
+                                print(USERDATA.PLANT);
+                                CuPage = Page16();
+                                MainBodyContext.read<ChangePage_Bloc>()
+                                    .add(ChangePage_nodrower());
+                                print(USERDATA.PLANTNUMBER);
+                              },
+                        child: Container(
+                          decoration: BoxDecoration(
+                            color: (() {
                               if (_data.value[0].PLANT == 'GWNEW') {
-                                USERDATA.PLANTNUMBER = PLANTNUMBER.GWNEW;
+                                return P04PROGRESSVAR.isHoveredQCGWNEW
+                                    ? Colors.lightGreenAccent.shade400
+                                    : (P04PROGRESSVAR.GWNEWdata.length > 0
+                                        ? Colors.greenAccent
+                                        : Colors.grey.shade500);
                               } else if (_data.value[0].PLANT == 'GWOLD') {
-                                USERDATA.PLANTNUMBER = PLANTNUMBER.GWOLD;
+                                return P04PROGRESSVAR.isHoveredQCGWOLD
+                                    ? Colors.lightGreenAccent.shade400
+                                    : (P04PROGRESSVAR.GWOLDdata.length > 0
+                                        ? Colors.greenAccent
+                                        : Colors.grey.shade500);
+                              } else {
+                                return Colors.grey.shade500;
                               }
-                              USERDATA.PLANT = _data.value[0].PLANT;
-                              print(USERDATA.PLANT);
-                              CuPage = Page16();
-                              MainBodyContext.read<ChangePage_Bloc>()
-                                  .add(ChangePage_nodrower());
-                              print(USERDATA.PLANTNUMBER);
-                            },
-                      child: Container(
-                        decoration: BoxDecoration(
-                          color: (_data.value[0].PLANT == 'GWNEW' &&
-                                      P04PROGRESSVAR.GWNEWdata.length > 0) ||
-                                  (_data.value[0].PLANT == 'GWOLD' &&
-                                      P04PROGRESSVAR.GWOLDdata.length > 0)
-                              ? Colors.greenAccent
-                              : Colors.grey.shade500,
-                          border: Border.all(color: Colors.black),
-                          borderRadius: BorderRadius.circular(10),
-                        ),
-                        height: 80,
-                        width: 100,
-                        child: Center(
-                          child: Column(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: [
-                              Text(
-                                (() {
-                                  if (_data.value[0].PLANT == "GWNEW") {
-                                    return P04PROGRESSVAR.GWNEWdata.length
-                                        .toString();
-                                  } else if (_data.value[0].PLANT == "GWOLD") {
-                                    return P04PROGRESSVAR.GWOLDdata.length
-                                        .toString();
-                                  } else {
-                                    return "0";
-                                  }
-                                })(),
-                              ),
-                              Text(
-                                " transactions",
-                                style: TextStyle(fontSize: 10),
-                              ),
-                            ],
+                            })(),
+                            border: Border.all(color: Colors.black),
+                            borderRadius: BorderRadius.circular(10),
+                          ),
+                          height: 80,
+                          width: 100,
+                          child: Center(
+                            child: Column(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                Text(
+                                  (() {
+                                    if (_data.value[0].PLANT == "GWNEW") {
+                                      return P04PROGRESSVAR.GWNEWdata.length
+                                          .toString();
+                                    } else if (_data.value[0].PLANT ==
+                                        "GWOLD") {
+                                      return P04PROGRESSVAR.GWOLDdata.length
+                                          .toString();
+                                    } else {
+                                      return "0";
+                                    }
+                                  })(),
+                                ),
+                                Text(
+                                  " transactions",
+                                  style: TextStyle(fontSize: 10),
+                                ),
+                              ],
+                            ),
                           ),
                         ),
                       ),

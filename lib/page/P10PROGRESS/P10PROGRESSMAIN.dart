@@ -15,6 +15,7 @@ import '../page2.dart';
 import '../page3.dart';
 import '../page4.dart';
 import '../page9.dart';
+import 'P10PROGRESSVAR.dart';
 // import 'package:flutter_bloc/flutter_bloc.dart';
 
 // import '../bloc/cubit/NotificationEvent.dart';
@@ -88,40 +89,61 @@ class _P10PROGRESSMAINBodyState extends State<P10PROGRESSMAINBody> {
                       children: [
                         Padding(
                           padding: const EdgeInsets.all(5.0),
-                          child: InkWell(
-                            onTap: () {
-                              USERDATA.ACTION = 'INCOMING';
-                              print(USERDATA.ACTION);
-                              if (USERDATA.BRANCH == 'BP12') {
-                                CuPage = Page12();
-                                MainBodyContext.read<ChangePage_Bloc>()
-                                    .add(ChangePage_nodrower());
-                              } else if (USERDATA.BRANCH == 'GW') {
-                                CuPage = Page14();
-                                MainBodyContext.read<ChangePage_Bloc>()
-                                    .add(ChangePage_nodrower());
-                              } else if (USERDATA.BRANCH == 'ESIE1') {
-                                CuPage = Page15();
-                                MainBodyContext.read<ChangePage_Bloc>()
-                                    .add(ChangePage_nodrower());
-                              }
+                          child: MouseRegion(
+                            onEnter: (_) {
+                              setState(() {
+                                P10PROGRESSVAR.isHoveredINCOMING = true;
+                              });
                             },
-                            child: Container(
-                              height: 50,
-                              width: 400,
-                              decoration: BoxDecoration(
-                                color: Colors.green,
-                                border: Border.all(
-                                  color: Colors.black,
-                                  width: 2.0,
+                            onExit: (_) {
+                              setState(() {
+                                P10PROGRESSVAR.isHoveredINCOMING = false;
+                              });
+                            },
+                            child: InkWell(
+                              onTap: () {
+                                setState(() {
+                                  P10PROGRESSVAR.isHoveredINCOMING = false;
+                                });
+                                USERDATA.ACTION = 'INCOMING';
+                                print(USERDATA.ACTION);
+                                if (USERDATA.BRANCH == 'BP12') {
+                                  CuPage = Page12();
+                                  MainBodyContext.read<ChangePage_Bloc>()
+                                      .add(ChangePage_nodrower());
+                                } else if (USERDATA.BRANCH == 'GW') {
+                                  CuPage = Page14();
+                                  MainBodyContext.read<ChangePage_Bloc>()
+                                      .add(ChangePage_nodrower());
+                                } else if (USERDATA.BRANCH == 'ESIE1') {
+                                  CuPage = Page15();
+                                  MainBodyContext.read<ChangePage_Bloc>()
+                                      .add(ChangePage_nodrower());
+                                }
+                              },
+                              child: AnimatedContainer(
+                                duration: Duration(milliseconds: 100),
+                                height:
+                                    P10PROGRESSVAR.isHoveredINCOMING ? 55 : 50,
+                                width: P10PROGRESSVAR.isHoveredINCOMING
+                                    ? 420
+                                    : 400,
+                                decoration: BoxDecoration(
+                                  color: P10PROGRESSVAR.isHoveredINCOMING
+                                      ? Colors.greenAccent
+                                      : Colors.green,
+                                  border: Border.all(
+                                    color: Colors.black,
+                                    width: 2.0,
+                                  ),
+                                  borderRadius: BorderRadius.circular(10),
                                 ),
-                                borderRadius: BorderRadius.circular(10),
-                              ),
-                              child: Center(
-                                child: Text(
-                                  'INCOMING',
-                                  style: TextStyle(
-                                      color: Colors.white, fontSize: 20),
+                                child: Center(
+                                  child: Text(
+                                    'INCOMING',
+                                    style: TextStyle(
+                                        color: Colors.white, fontSize: 20),
+                                  ),
                                 ),
                               ),
                             ),
@@ -129,33 +151,54 @@ class _P10PROGRESSMAINBodyState extends State<P10PROGRESSMAINBody> {
                         ),
                         Padding(
                           padding: const EdgeInsets.all(5.0),
-                          child: InkWell(
-                            onTap: () {
-                              USERDATA.ACTION = 'PLANNING';
-                              print(USERDATA.ACTION);
-                              // print(USERDATA.BRANCH);
-                              // if (USERDATA.BRANCH == 'BP12') {
-                              //   CuPage = Page2();
-                              //   MainBodyContext.read<ChangePage_Bloc>()
-                              //       .add(ChangePage_nodrower());
-                              // }
+                          child: MouseRegion(
+                            onEnter: (_) {
+                              setState(() {
+                                P10PROGRESSVAR.isHoveredPLANNING = true;
+                              });
                             },
-                            child: Container(
-                              height: 50,
-                              width: 400,
-                              decoration: BoxDecoration(
-                                color: Colors.red.shade900,
-                                border: Border.all(
-                                  color: Colors.black,
-                                  width: 2.0,
+                            onExit: (_) {
+                              setState(() {
+                                P10PROGRESSVAR.isHoveredPLANNING = false;
+                              });
+                            },
+                            child: InkWell(
+                              onTap: () {
+                                setState(() {
+                                  P10PROGRESSVAR.isHoveredPLANNING = false;
+                                });
+                                USERDATA.ACTION = 'PLANNING';
+                                print(USERDATA.ACTION);
+                                // print(USERDATA.BRANCH);
+                                // if (USERDATA.BRANCH == 'BP12') {
+                                //   CuPage = Page2();
+                                //   MainBodyContext.read<ChangePage_Bloc>()
+                                //       .add(ChangePage_nodrower());
+                                // }
+                              },
+                              child: AnimatedContainer(
+                                duration: Duration(milliseconds: 100),
+                                height:
+                                    P10PROGRESSVAR.isHoveredPLANNING ? 55 : 50,
+                                width: P10PROGRESSVAR.isHoveredPLANNING
+                                    ? 420
+                                    : 400,
+                                decoration: BoxDecoration(
+                                  color: P10PROGRESSVAR.isHoveredPLANNING
+                                      ? Colors.yellowAccent.shade700
+                                      : Colors.redAccent.shade700,
+                                  border: Border.all(
+                                    color: Colors.black,
+                                    width: 2.0,
+                                  ),
+                                  borderRadius: BorderRadius.circular(10),
                                 ),
-                                borderRadius: BorderRadius.circular(10),
-                              ),
-                              child: Center(
-                                child: Text(
-                                  'PLANNING',
-                                  style: TextStyle(
-                                      color: Colors.white, fontSize: 20),
+                                child: Center(
+                                  child: Text(
+                                    'PLANNING',
+                                    style: TextStyle(
+                                        color: Colors.white, fontSize: 20),
+                                  ),
                                 ),
                               ),
                             ),
@@ -163,40 +206,60 @@ class _P10PROGRESSMAINBodyState extends State<P10PROGRESSMAINBody> {
                         ),
                         Padding(
                           padding: const EdgeInsets.all(5.0),
-                          child: InkWell(
-                            onTap: () {
-                              USERDATA.ACTION = 'STATUS';
-                              print(USERDATA.ACTION);
-                              if (USERDATA.BRANCH == 'BP12') {
-                                CuPage = Page2();
-                                MainBodyContext.read<ChangePage_Bloc>()
-                                    .add(ChangePage_nodrower());
-                              } else if (USERDATA.BRANCH == 'GW') {
-                                CuPage = Page4();
-                                MainBodyContext.read<ChangePage_Bloc>()
-                                    .add(ChangePage_nodrower());
-                              } else if (USERDATA.BRANCH == 'ESIE1') {
-                                CuPage = Page1();
-                                MainBodyContext.read<ChangePage_Bloc>()
-                                    .add(ChangePage_nodrower());
-                              }
+                          child: MouseRegion(
+                            onEnter: (_) {
+                              setState(() {
+                                P10PROGRESSVAR.isHoveredSTATUS = true;
+                              });
                             },
-                            child: Container(
-                              height: 50,
-                              width: 400,
-                              decoration: BoxDecoration(
-                                color: Colors.green,
-                                border: Border.all(
-                                  color: Colors.black,
-                                  width: 2.0,
+                            onExit: (_) {
+                              setState(() {
+                                P10PROGRESSVAR.isHoveredSTATUS = false;
+                              });
+                            },
+                            child: InkWell(
+                              onTap: () {
+                                setState(() {
+                                  P10PROGRESSVAR.isHoveredSTATUS = false;
+                                });
+                                USERDATA.ACTION = 'STATUS';
+                                print(USERDATA.ACTION);
+                                if (USERDATA.BRANCH == 'BP12') {
+                                  CuPage = Page2();
+                                  MainBodyContext.read<ChangePage_Bloc>()
+                                      .add(ChangePage_nodrower());
+                                } else if (USERDATA.BRANCH == 'GW') {
+                                  CuPage = Page4();
+                                  MainBodyContext.read<ChangePage_Bloc>()
+                                      .add(ChangePage_nodrower());
+                                } else if (USERDATA.BRANCH == 'ESIE1') {
+                                  CuPage = Page1();
+                                  MainBodyContext.read<ChangePage_Bloc>()
+                                      .add(ChangePage_nodrower());
+                                }
+                              },
+                              child: AnimatedContainer(
+                                duration: Duration(milliseconds: 100),
+                                height:
+                                    P10PROGRESSVAR.isHoveredSTATUS ? 55 : 50,
+                                width:
+                                    P10PROGRESSVAR.isHoveredSTATUS ? 420 : 400,
+                                decoration: BoxDecoration(
+                                  color: P10PROGRESSVAR.isHoveredSTATUS
+                                      ? Colors.greenAccent
+                                      : Colors.green,
+                                  border: Border.all(
+                                    color: Colors.black,
+                                    width: 2.0,
+                                  ),
+                                  borderRadius: BorderRadius.circular(10),
                                 ),
-                                borderRadius: BorderRadius.circular(10),
-                              ),
-                              child: Center(
-                                child: Text(
-                                  'STATUS',
-                                  style: TextStyle(
-                                      color: Colors.white, fontSize: 20),
+                                child: Center(
+                                  child: Text(
+                                    'STATUS',
+                                    style: TextStyle(
+                                        color: Colors.white, fontSize: 20),
+                                  ),
                                 ),
                               ),
                             ),

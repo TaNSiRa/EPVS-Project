@@ -85,7 +85,8 @@ class _P08PROGRESSMAINBodyState extends State<P08PROGRESSMAINBody> {
                           MainBodyContext.read<ChangePage_Bloc>()
                               .add(ChangePage_nodrower());
                         },
-                        child: Container(
+                        child: AnimatedContainer(
+                          duration: Duration(milliseconds: 100),
                           decoration: BoxDecoration(
                             border: Border.all(
                               color: P08PROGRESSVAR.isHoveredHAndS
@@ -99,12 +100,46 @@ class _P08PROGRESSMAINBodyState extends State<P08PROGRESSMAINBody> {
                           child: Column(
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
-                              Icon(
-                                Icons.factory,
-                                size: P08PROGRESSVAR.isHoveredHAndS ? 200 : 200,
-                                color: P08PROGRESSVAR.isHoveredHAndS
-                                    ? Colors.yellowAccent.shade700
-                                    : Colors.redAccent.shade700,
+                              ShaderMask(
+                                shaderCallback: (bounds) => LinearGradient(
+                                  colors: [
+                                    Colors.white,
+                                    Colors.red,
+                                  ],
+                                  begin: Alignment.topCenter,
+                                  end: Alignment.bottomCenter,
+                                ).createShader(bounds),
+                                child: TweenAnimationBuilder<double>(
+                                  tween: Tween<double>(
+                                    begin: P08PROGRESSVAR.isHoveredHAndS
+                                        ? 200
+                                        : 220,
+                                    end: P08PROGRESSVAR.isHoveredHAndS
+                                        ? 220
+                                        : 200,
+                                  ),
+                                  duration: Duration(milliseconds: 100),
+                                  builder: (context, size, child) {
+                                    return TweenAnimationBuilder<Color?>(
+                                      tween: ColorTween(
+                                        begin: P08PROGRESSVAR.isHoveredHAndS
+                                            ? Colors.redAccent.shade700
+                                            : Colors.yellowAccent.shade700,
+                                        end: P08PROGRESSVAR.isHoveredHAndS
+                                            ? Colors.yellowAccent.shade700
+                                            : Colors.redAccent.shade700,
+                                      ),
+                                      duration: Duration(milliseconds: 100),
+                                      builder: (context, color, child) {
+                                        return Icon(
+                                          Icons.factory,
+                                          size: size,
+                                          color: color,
+                                        );
+                                      },
+                                    );
+                                  },
+                                ),
                               ),
                               ShaderMask(
                                 shaderCallback: (bounds) => LinearGradient(
@@ -148,13 +183,14 @@ class _P08PROGRESSMAINBodyState extends State<P08PROGRESSMAINBody> {
                           setState(() {
                             P08PROGRESSVAR.isHoveredChem = false;
                           });
-                          USERDATA.INSMASTER = 'CHEM';
+                          USERDATA.INSMASTER = 'CHEMICAL';
                           print(USERDATA.INSMASTER);
                           CuPage = Page11();
                           MainBodyContext.read<ChangePage_Bloc>()
                               .add(ChangePage_nodrower());
                         },
-                        child: Container(
+                        child: AnimatedContainer(
+                          duration: Duration(milliseconds: 100),
                           decoration: BoxDecoration(
                             border: Border.all(
                               color: P08PROGRESSVAR.isHoveredChem
@@ -168,18 +204,52 @@ class _P08PROGRESSMAINBodyState extends State<P08PROGRESSMAINBody> {
                           child: Column(
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
-                              Icon(
-                                Icons.science_rounded,
-                                size: P08PROGRESSVAR.isHoveredChem ? 200 : 200,
-                                color: P08PROGRESSVAR.isHoveredChem
-                                    ? Colors.greenAccent
-                                    : Colors.green,
+                              ShaderMask(
+                                shaderCallback: (bounds) => LinearGradient(
+                                  colors: [
+                                    Colors.white,
+                                    Colors.lightGreenAccent.shade400,
+                                  ],
+                                  begin: Alignment.topCenter,
+                                  end: Alignment.bottomCenter,
+                                ).createShader(bounds),
+                                child: TweenAnimationBuilder<double>(
+                                  tween: Tween<double>(
+                                    begin: P08PROGRESSVAR.isHoveredChem
+                                        ? 200
+                                        : 220,
+                                    end: P08PROGRESSVAR.isHoveredChem
+                                        ? 220
+                                        : 200,
+                                  ),
+                                  duration: Duration(milliseconds: 100),
+                                  builder: (context, size, child) {
+                                    return TweenAnimationBuilder<Color?>(
+                                      tween: ColorTween(
+                                        begin: P08PROGRESSVAR.isHoveredChem
+                                            ? Colors.greenAccent
+                                            : Colors.green,
+                                        end: P08PROGRESSVAR.isHoveredChem
+                                            ? Colors.greenAccent
+                                            : Colors.green,
+                                      ),
+                                      duration: Duration(milliseconds: 100),
+                                      builder: (context, color, child) {
+                                        return Icon(
+                                          Icons.science_rounded,
+                                          size: size,
+                                          color: color,
+                                        );
+                                      },
+                                    );
+                                  },
+                                ),
                               ),
                               ShaderMask(
                                 shaderCallback: (bounds) => LinearGradient(
                                   colors: [
-                                    Colors.greenAccent,
-                                    Colors.lightGreenAccent.shade400
+                                    Colors.green,
+                                    Colors.lightGreenAccent.shade400,
                                   ],
                                   begin: Alignment.topLeft,
                                   end: Alignment.bottomRight,

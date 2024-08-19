@@ -165,7 +165,6 @@ class _P10PROGRESSMAINBodyState extends State<P10PROGRESSMAINBody> {
                           padding: const EdgeInsets.all(5.0),
                           child: InkWell(
                             onTap: () {
-                              print(USERDATA.BRANCH);
                               USERDATA.ACTION = 'STATUS';
                               print(USERDATA.ACTION);
                               if (USERDATA.BRANCH == 'BP12') {

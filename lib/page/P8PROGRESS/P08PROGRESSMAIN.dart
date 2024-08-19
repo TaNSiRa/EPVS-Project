@@ -101,7 +101,7 @@ class _P08PROGRESSMAINBodyState extends State<P08PROGRESSMAINBody> {
                             children: [
                               Icon(
                                 Icons.factory,
-                                size: P08PROGRESSVAR.isHoveredHAndS ? 220 : 200,
+                                size: P08PROGRESSVAR.isHoveredHAndS ? 200 : 200,
                                 color: P08PROGRESSVAR.isHoveredHAndS
                                     ? Colors.yellowAccent.shade700
                                     : Colors.redAccent.shade700,
@@ -170,7 +170,7 @@ class _P08PROGRESSMAINBodyState extends State<P08PROGRESSMAINBody> {
                             children: [
                               Icon(
                                 Icons.science_rounded,
-                                size: P08PROGRESSVAR.isHoveredChem ? 220 : 200,
+                                size: P08PROGRESSVAR.isHoveredChem ? 200 : 200,
                                 color: P08PROGRESSVAR.isHoveredChem
                                     ? Colors.greenAccent
                                     : Colors.green,

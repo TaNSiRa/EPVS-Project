@@ -96,10 +96,10 @@ class _P12PROGRESSMAINBodyState extends State<P12PROGRESSMAINBody> {
                               padding: const EdgeInsets.all(10.0),
                               child: InkWell(
                                 onTap: () {
-                                  USERDATA.PLANTNUMBER = '24000';
+                                  USERDATA.PLANTNUMBER = PLANTNUMBER.BPGAS;
                                   USERDATA.PLANT = 'GAS';
-                                  print(USERDATA.PLANTNUMBER);
                                   print(USERDATA.PLANT);
+                                  print(USERDATA.PLANTNUMBER);
                                   if (USERDATA.ACTION == 'INCOMING') {
                                     CuPage = Page13();
                                     MainBodyContext.read<ChangePage_Bloc>()
@@ -135,10 +135,10 @@ class _P12PROGRESSMAINBodyState extends State<P12PROGRESSMAINBody> {
                               padding: const EdgeInsets.all(10.0),
                               child: InkWell(
                                 onTap: () {
-                                  USERDATA.PLANTNUMBER = '21000';
+                                  USERDATA.PLANTNUMBER = PLANTNUMBER.BPPHO;
                                   USERDATA.PLANT = 'PHO';
-                                  print(USERDATA.PLANTNUMBER);
                                   print(USERDATA.PLANT);
+                                  print(USERDATA.PLANTNUMBER);
                                   if (USERDATA.ACTION == 'INCOMING') {
                                     CuPage = Page13();
                                     MainBodyContext.read<ChangePage_Bloc>()
@@ -174,10 +174,10 @@ class _P12PROGRESSMAINBodyState extends State<P12PROGRESSMAINBody> {
                               padding: const EdgeInsets.all(10.0),
                               child: InkWell(
                                 onTap: () {
-                                  USERDATA.PLANTNUMBER = '22000';
+                                  USERDATA.PLANTNUMBER = PLANTNUMBER.BPPAL;
                                   USERDATA.PLANT = 'PAL';
-                                  print(USERDATA.PLANTNUMBER);
                                   print(USERDATA.PLANT);
+                                  print(USERDATA.PLANTNUMBER);
                                   if (USERDATA.ACTION == 'INCOMING') {
                                     CuPage = Page13();
                                     MainBodyContext.read<ChangePage_Bloc>()
@@ -220,10 +220,10 @@ class _P12PROGRESSMAINBodyState extends State<P12PROGRESSMAINBody> {
                               padding: const EdgeInsets.all(10.0),
                               child: InkWell(
                                 onTap: () {
-                                  USERDATA.PLANTNUMBER = '61000';
+                                  USERDATA.PLANTNUMBER = PLANTNUMBER.BPKNG;
                                   USERDATA.PLANT = 'KNG';
-                                  print(USERDATA.PLANTNUMBER);
                                   print(USERDATA.PLANT);
+                                  print(USERDATA.PLANTNUMBER);
                                   if (USERDATA.ACTION == 'INCOMING') {
                                     CuPage = Page13();
                                     MainBodyContext.read<ChangePage_Bloc>()
@@ -259,10 +259,10 @@ class _P12PROGRESSMAINBodyState extends State<P12PROGRESSMAINBody> {
                               padding: const EdgeInsets.all(10.0),
                               child: InkWell(
                                 onTap: () {
-                                  USERDATA.PLANTNUMBER = '62000';
+                                  USERDATA.PLANTNUMBER = PLANTNUMBER.BPPVD;
                                   USERDATA.PLANT = 'PVD';
-                                  print(USERDATA.PLANTNUMBER);
                                   print(USERDATA.PLANT);
+                                  print(USERDATA.PLANTNUMBER);
                                   if (USERDATA.ACTION == 'INCOMING') {
                                     CuPage = Page13();
                                     MainBodyContext.read<ChangePage_Bloc>()

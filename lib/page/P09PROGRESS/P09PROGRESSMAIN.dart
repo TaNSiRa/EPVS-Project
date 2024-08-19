@@ -107,7 +107,7 @@ class _P09PROGRESSMAINBodyState extends State<P09PROGRESSMAINBody> {
                                       P09PROGRESSVAR.isHoveredBP12 = false;
                                     });
                                     USERDATA.BRANCH = 'BP12';
-                                    USERDATA.BRANCHNUMBER = '2100';
+                                    USERDATA.BRANCHNUMBER = BRANCHNUMBER.BP;
                                     print(USERDATA.BRANCH);
                                     print(USERDATA.BRANCHNUMBER);
                                     CuPage = Page10();
@@ -162,7 +162,7 @@ class _P09PROGRESSMAINBodyState extends State<P09PROGRESSMAINBody> {
                                       P09PROGRESSVAR.isHoveredGW = false;
                                     });
                                     USERDATA.BRANCH = 'GW';
-                                    USERDATA.BRANCHNUMBER = '2200';
+                                    USERDATA.BRANCHNUMBER = BRANCHNUMBER.GW;
                                     print(USERDATA.BRANCH);
                                     print(USERDATA.BRANCHNUMBER);
                                     CuPage = Page10();
@@ -215,7 +215,7 @@ class _P09PROGRESSMAINBodyState extends State<P09PROGRESSMAINBody> {
                                       P09PROGRESSVAR.isHoveredESIE1 = false;
                                     });
                                     USERDATA.BRANCH = 'ESIE1';
-                                    USERDATA.BRANCHNUMBER = '2300';
+                                    USERDATA.BRANCHNUMBER = BRANCHNUMBER.ESIE1;
                                     print(USERDATA.BRANCH);
                                     print(USERDATA.BRANCHNUMBER);
                                     CuPage = Page10();

@@ -464,9 +464,9 @@ class _P04PROGRESSMAINState extends State<P04PROGRESSMAIN> {
                           : () {
                               // print(_data.value[0].PLANT);
                               if (_data.value[0].PLANT == 'GWNEW') {
-                                USERDATA.PLANTNUMBER = '25700';
+                                USERDATA.PLANTNUMBER = PLANTNUMBER.GWNEW;
                               } else if (_data.value[0].PLANT == 'GWOLD') {
-                                USERDATA.PLANTNUMBER = '25000';
+                                USERDATA.PLANTNUMBER = PLANTNUMBER.GWOLD;
                               }
                               USERDATA.PLANT = _data.value[0].PLANT;
                               print(USERDATA.PLANT);

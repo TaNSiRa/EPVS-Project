@@ -473,15 +473,15 @@ class _P01PROGRESSMAINState extends State<P01PROGRESSMAIN> {
                           : () {
                               // print(_data.value[0].PLANT);
                               if (_data.value[0].PLANT == 'PHO') {
-                                USERDATA.PLANTNUMBER = '51000';
+                                USERDATA.PLANTNUMBER = PLANTNUMBER.ESIE1PHO;
                               } else if (_data.value[0].PLANT == 'GASNON') {
-                                USERDATA.PLANTNUMBER = '54000';
+                                USERDATA.PLANTNUMBER = PLANTNUMBER.ESIE1GASNON;
                               } else if (_data.value[0].PLANT == 'GASBOI') {
-                                USERDATA.PLANTNUMBER = '54500';
+                                USERDATA.PLANTNUMBER = PLANTNUMBER.ESIE1GASBOI;
                               } else if (_data.value[0].PLANT == 'ISN') {
-                                USERDATA.PLANTNUMBER = '53000';
+                                USERDATA.PLANTNUMBER = PLANTNUMBER.ESIE1ISN;
                               } else if (_data.value[0].PLANT == 'PAL') {
-                                USERDATA.PLANTNUMBER = '52000';
+                                USERDATA.PLANTNUMBER = PLANTNUMBER.ESIE1PAL;
                               }
                               USERDATA.PLANT = _data.value[0].PLANT;
                               print(USERDATA.PLANT);

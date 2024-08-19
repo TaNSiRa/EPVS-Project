@@ -470,15 +470,15 @@ class _P02PROGRESSMAINState extends State<P02PROGRESSMAIN> {
                           : () {
                               // print(_data.value[0].PLANT);
                               if (_data.value[0].PLANT == 'PHO') {
-                                USERDATA.PLANTNUMBER = '21000';
+                                USERDATA.PLANTNUMBER = PLANTNUMBER.BPPHO;
                               } else if (_data.value[0].PLANT == 'GAS') {
-                                USERDATA.PLANTNUMBER = '24000';
+                                USERDATA.PLANTNUMBER = PLANTNUMBER.BPGAS;
                               } else if (_data.value[0].PLANT == 'KNG') {
-                                USERDATA.PLANTNUMBER = '61000';
+                                USERDATA.PLANTNUMBER = PLANTNUMBER.BPKNG;
                               } else if (_data.value[0].PLANT == 'PAL') {
-                                USERDATA.PLANTNUMBER = '22000';
+                                USERDATA.PLANTNUMBER = PLANTNUMBER.BPPAL;
                               } else if (_data.value[0].PLANT == 'PVD') {
-                                USERDATA.PLANTNUMBER = '62000';
+                                USERDATA.PLANTNUMBER = PLANTNUMBER.BPPVD;
                               }
                               USERDATA.PLANT = _data.value[0].PLANT;
                               print(USERDATA.PLANT);

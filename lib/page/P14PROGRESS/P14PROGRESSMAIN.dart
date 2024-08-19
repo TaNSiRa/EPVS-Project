@@ -96,10 +96,10 @@ class _P14PROGRESSMAINBodyState extends State<P14PROGRESSMAINBody> {
                               padding: const EdgeInsets.all(10.0),
                               child: InkWell(
                                 onTap: () {
-                                  USERDATA.PLANTNUMBER = '25000';
+                                  USERDATA.PLANTNUMBER = PLANTNUMBER.GWOLD;
                                   USERDATA.PLANT = 'GW OLD';
-                                  print(USERDATA.PLANTNUMBER);
                                   print(USERDATA.PLANT);
+                                  print(USERDATA.PLANTNUMBER);
                                   if (USERDATA.ACTION == 'INCOMING') {
                                     CuPage = Page13();
                                     MainBodyContext.read<ChangePage_Bloc>()
@@ -135,10 +135,10 @@ class _P14PROGRESSMAINBodyState extends State<P14PROGRESSMAINBody> {
                               padding: const EdgeInsets.all(10.0),
                               child: InkWell(
                                 onTap: () {
-                                  USERDATA.PLANTNUMBER = '25700';
+                                  USERDATA.PLANTNUMBER = PLANTNUMBER.GWNEW;
                                   USERDATA.PLANT = 'GW NEW';
-                                  print(USERDATA.PLANTNUMBER);
                                   print(USERDATA.PLANT);
+                                  print(USERDATA.PLANTNUMBER);
                                   if (USERDATA.ACTION == 'INCOMING') {
                                     CuPage = Page13();
                                     MainBodyContext.read<ChangePage_Bloc>()

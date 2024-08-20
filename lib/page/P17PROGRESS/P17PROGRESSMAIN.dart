@@ -58,6 +58,7 @@ class _P17PROGRESSMAINBodyState extends State<P17PROGRESSMAINBody> {
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
+              // First Dropdown
               SizedBox(
                 child: DropdownButtonHideUnderline(
                   child: DropdownButton<String>(
@@ -67,6 +68,7 @@ class _P17PROGRESSMAINBodyState extends State<P17PROGRESSMAINBody> {
                       setState(() {
                         P17PROGRESSVAR.FirstDropdown = newValue;
                         P17PROGRESSVAR.SecondDropdown = null;
+                        P17PROGRESSVAR.ThirdDropdown = null;
                       });
                     },
                     items:
@@ -81,6 +83,7 @@ class _P17PROGRESSMAINBodyState extends State<P17PROGRESSMAINBody> {
                 ),
               ),
               SizedBox(width: 20),
+              // Second Dropdown
               SizedBox(
                 child: DropdownButtonHideUnderline(
                   child: DropdownButton<String>(
@@ -89,11 +92,39 @@ class _P17PROGRESSMAINBodyState extends State<P17PROGRESSMAINBody> {
                     onChanged: (newValue) {
                       setState(() {
                         P17PROGRESSVAR.SecondDropdown = newValue;
+                        P17PROGRESSVAR.ThirdDropdown = null;
                       });
                     },
                     items: P17PROGRESSVAR.FirstDropdown != null
                         ? P17PROGRESSVAR
                             .dropdownItems[P17PROGRESSVAR.FirstDropdown]!
+                            .map((String value) {
+                            return DropdownMenuItem<String>(
+                              value: value,
+                              child: Text(value),
+                            );
+                          }).toList()
+                        : [],
+                    borderRadius: BorderRadius.all(Radius.circular(10)),
+                  ),
+                ),
+              ),
+              SizedBox(width: 20),
+              // Third Dropdown
+              SizedBox(
+                child: DropdownButtonHideUnderline(
+                  child: DropdownButton<String>(
+                    hint: Text('Select Third'),
+                    value: P17PROGRESSVAR.ThirdDropdown,
+                    onChanged: (newValue) {
+                      setState(() {
+                        P17PROGRESSVAR.ThirdDropdown = newValue;
+                      });
+                    },
+                    items: P17PROGRESSVAR.SecondDropdown != null
+                        ? P17PROGRESSVAR
+                            .getThirdDropdownItems(
+                                P17PROGRESSVAR.SecondDropdown!)
                             .map((String value) {
                             return DropdownMenuItem<String>(
                               value: value,

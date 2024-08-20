@@ -33,6 +33,7 @@ class _P16PROGRESSMAINState extends State<P16PROGRESSMAIN> {
   Widget build(BuildContext context) {
     P16PROGRESSMAINcontext = context;
     List<P16PROGRESSGETDATAclass> _datain = widget.data ?? [];
+    print(_datain);
     List<P16PROGRESSGETDATAclass> filteredData = _datain.where((item) {
       switch (P16PROGRESSVAR.selectedColumn) {
         case 'PO NO.':
@@ -176,6 +177,29 @@ class _P16PROGRESSMAINState extends State<P16PROGRESSMAIN> {
                                     hintText: 'Search...',
                                     prefixIcon: Icon(Icons.search),
                                     border: OutlineInputBorder(),
+                                  ),
+                                ),
+                              ),
+                              SizedBox(width: 10),
+                              SizedBox(
+                                width: 60,
+                                height: 50,
+                                child: ElevatedButton(
+                                  onPressed: () {
+                                    context
+                                        .read<P16PROGRESSGETDATA_Bloc>()
+                                        .add(P16PROGRESSGETDATA_GET());
+                                  },
+                                  style: ElevatedButton.styleFrom(
+                                    shape: RoundedRectangleBorder(
+                                      borderRadius:
+                                          BorderRadius.all(Radius.circular(30)),
+                                    ),
+                                  ),
+                                  child: const Icon(
+                                    Icons.refresh_rounded,
+                                    color: Colors.white,
+                                    size: 30,
                                   ),
                                 ),
                               ),

@@ -37,6 +37,7 @@ class _P13PROGRESSMAINState extends State<P13PROGRESSMAIN> {
   Widget build(BuildContext context) {
     P13PROGRESSMAINcontext = context;
     List<P13PROGRESSGETDATAclass> _datain = widget.data ?? [];
+    print(_datain);
     List<P13PROGRESSGETDATAclass> filteredData = _datain.where((item) {
       switch (P13PROGRESSVAR.selectedColumn) {
         case 'MATCP':
@@ -172,7 +173,7 @@ class _P13PROGRESSMAINState extends State<P13PROGRESSMAIN> {
                                   )),
                               SizedBox(width: 10),
                               SizedBox(
-                                width: 200,
+                                width: 150,
                                 height: 50,
                                 child: TextField(
                                   onChanged: (value) {
@@ -184,6 +185,29 @@ class _P13PROGRESSMAINState extends State<P13PROGRESSMAIN> {
                                     hintText: 'Search...',
                                     prefixIcon: Icon(Icons.search),
                                     border: OutlineInputBorder(),
+                                  ),
+                                ),
+                              ),
+                              SizedBox(width: 10),
+                              SizedBox(
+                                width: 60,
+                                height: 50,
+                                child: ElevatedButton(
+                                  onPressed: () {
+                                    context
+                                        .read<P13PROGRESSGETDATA_Bloc>()
+                                        .add(P13PROGRESSGETDATA_GET());
+                                  },
+                                  style: ElevatedButton.styleFrom(
+                                    shape: RoundedRectangleBorder(
+                                      borderRadius:
+                                          BorderRadius.all(Radius.circular(30)),
+                                    ),
+                                  ),
+                                  child: const Icon(
+                                    Icons.refresh_rounded,
+                                    color: Colors.white,
+                                    size: 30,
                                   ),
                                 ),
                               ),

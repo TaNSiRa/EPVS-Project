@@ -60,6 +60,18 @@ class _P02PROGRESSMAINState extends State<P02PROGRESSMAIN> {
               },
             ),
           ),
+          Positioned(
+            top: 10,
+            right: 50,
+            child: IconButton(
+              icon: Icon(Icons.refresh_rounded, size: 30),
+              onPressed: () {
+                context
+                    .read<P02PROGRESSGETDATA_Bloc>()
+                    .add(P02PROGRESSGETDATA_GET());
+              },
+            ),
+          ),
           Column(
             children: [
               Padding(

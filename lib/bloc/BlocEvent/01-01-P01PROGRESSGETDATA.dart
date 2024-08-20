@@ -1,9 +1,12 @@
 import 'package:dio/dio.dart';
+import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../data/dummydata2.dart';
 import '../../data/global.dart';
+import '../../page/P1PROGRESS/P01PROGRESSMAIN.dart';
 import '../../page/P1PROGRESS/P01PROGRESSVAR.dart';
+import '../../widget/common/Loading.dart';
 
 //-------------------------------------------------
 
@@ -37,6 +40,7 @@ class P01PROGRESSGETDATA_Bloc
 
   Future<void> _P01PROGRESSGETDATA_GET(List<P01PROGRESSGETDATAclass> toAdd,
       Emitter<List<P01PROGRESSGETDATAclass>> emit) async {
+    FreeLoading(P01PROGRESSMAINcontext);
     List<P01PROGRESSGETDATAclass> output = [];
     //-------------------------------------------------------------------------------------
     var input = dummydatainput2;
@@ -58,6 +62,7 @@ class P01PROGRESSGETDATA_Bloc
     print(response.statusCode);
     // print(response);
     List<dynamic> data = response.data;
+    Navigator.pop(P01PROGRESSMAINcontext);
     if (data.isNotEmpty) {
       // Clear existing data before adding new data
       P01PROGRESSVAR.PHOdata.clear();
@@ -103,7 +108,6 @@ class P01PROGRESSGETDATA_Bloc
         STEP09: savenull(data['step9']),
       );
     }).toList();
-
     output = outputdata;
     emit(output);
   }

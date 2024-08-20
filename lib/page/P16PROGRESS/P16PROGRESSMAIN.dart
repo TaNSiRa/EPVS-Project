@@ -1,19 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:newmaster/page/page10.dart';
 import 'package:newmaster/page/page2.dart';
 import 'package:newmaster/page/page4.dart';
 import '../../bloc/BlocEvent/16-16-P16PROGRESSGETDATA.dart';
 import '../../bloc/BlocEvent/ChangePageEvent.dart';
 import '../../data/global.dart';
 import '../../mainBody.dart';
-import '../P1PROGRESS/P01PROGRESSVAR.dart';
 import '../page1.dart';
-import '../page12.dart';
-import '../page14.dart';
-import '../page15.dart';
-import '../page7.dart';
 import 'P16PROGRESSVAR.dart';
+
+late BuildContext P16PROGRESSMAINcontext;
 
 class P16PROGRESSMAIN extends StatefulWidget {
   P16PROGRESSMAIN({
@@ -35,6 +31,7 @@ class _P16PROGRESSMAINState extends State<P16PROGRESSMAIN> {
 
   @override
   Widget build(BuildContext context) {
+    P16PROGRESSMAINcontext = context;
     List<P16PROGRESSGETDATAclass> _datain = widget.data ?? [];
     List<P16PROGRESSGETDATAclass> filteredData = _datain.where((item) {
       switch (P16PROGRESSVAR.selectedColumn) {
@@ -120,12 +117,15 @@ class _P16PROGRESSMAINState extends State<P16PROGRESSMAIN> {
                 SizedBox(height: 10),
                 Expanded(
                   child: SingleChildScrollView(
-                    child: Column(
-                      children: [
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.end,
-                          children: [
-                            SizedBox(
+                    scrollDirection: Axis.vertical,
+                    child: SingleChildScrollView(
+                      scrollDirection: Axis.horizontal,
+                      child: Column(
+                        children: [
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.end,
+                            children: [
+                              SizedBox(
                                 width: 150,
                                 height: 50,
                                 child: DropdownButtonHideUnderline(
@@ -160,288 +160,290 @@ class _P16PROGRESSMAINState extends State<P16PROGRESSMAIN> {
                                     borderRadius:
                                         BorderRadius.all(Radius.circular(10)),
                                   ),
-                                )),
-                            SizedBox(width: 10),
-                            SizedBox(
-                              width: 200,
-                              height: 50,
-                              child: TextField(
-                                onChanged: (value) {
-                                  setState(() {
-                                    P16PROGRESSVAR.searchQuery = value;
-                                  });
-                                },
-                                decoration: InputDecoration(
-                                  hintText: 'Search...',
-                                  prefixIcon: Icon(Icons.search),
-                                  border: OutlineInputBorder(),
                                 ),
                               ),
-                            ),
-                          ],
-                        ),
-                        SizedBox(height: 10),
-                        Table(
-                          border: TableBorder.all(),
-                          columnWidths: const {
-                            0: FixedColumnWidth(50.0),
-                            1: FixedColumnWidth(100),
-                            2: FixedColumnWidth(300.0),
-                            3: FixedColumnWidth(200.0),
-                            4: FixedColumnWidth(160.0),
-                            5: FixedColumnWidth(80.0),
-                            6: FixedColumnWidth(100.0),
-                          },
-                          children: [
-                            TableRow(
-                              children: [
-                                TableCell(
-                                  child: SizedBox(
-                                    height: 50,
-                                    child: Stack(
-                                      children: [
-                                        Positioned(
-                                          top: 0,
-                                          left: 0,
-                                          right: 0,
-                                          height: 50,
-                                          child: Container(
-                                            color: Colors.blue,
-                                            child: Center(
-                                              child: Text(
-                                                'ID',
-                                                style: TextStyle(
-                                                    color: Colors.white),
-                                              ),
-                                            ),
-                                          ),
-                                        ),
-                                      ],
-                                    ),
+                              SizedBox(width: 10),
+                              SizedBox(
+                                width: 200,
+                                height: 50,
+                                child: TextField(
+                                  onChanged: (value) {
+                                    setState(() {
+                                      P16PROGRESSVAR.searchQuery = value;
+                                    });
+                                  },
+                                  decoration: InputDecoration(
+                                    hintText: 'Search...',
+                                    prefixIcon: Icon(Icons.search),
+                                    border: OutlineInputBorder(),
                                   ),
                                 ),
-                                TableCell(
-                                  child: SizedBox(
-                                    height: 50,
-                                    child: Stack(
-                                      children: [
-                                        Positioned(
-                                          top: 0,
-                                          left: 0,
-                                          right: 0,
-                                          height: 50,
-                                          child: Container(
-                                            color: Colors.blue,
-                                            child: Center(
-                                              child: Text(
-                                                'PO NO.',
-                                                style: TextStyle(
-                                                    color: Colors.white),
-                                              ),
-                                            ),
-                                          ),
-                                        ),
-                                      ],
-                                    ),
-                                  ),
-                                ),
-                                TableCell(
-                                  child: SizedBox(
-                                    height: 50,
-                                    child: Stack(
-                                      children: [
-                                        Positioned(
-                                          top: 0,
-                                          left: 0,
-                                          right: 0,
-                                          height: 50,
-                                          child: Container(
-                                            color: Colors.blue,
-                                            child: Center(
-                                              child: Text(
-                                                'CUST NAME',
-                                                style: TextStyle(
-                                                    color: Colors.white),
-                                              ),
-                                            ),
-                                          ),
-                                        ),
-                                      ],
-                                    ),
-                                  ),
-                                ),
-                                TableCell(
-                                  child: SizedBox(
-                                    height: 50,
-                                    child: Stack(
-                                      children: [
-                                        Positioned(
-                                          top: 0,
-                                          left: 0,
-                                          right: 0,
-                                          height: 50,
-                                          child: Container(
-                                            color: Colors.blue,
-                                            child: Center(
-                                              child: Text(
-                                                'PART NAME',
-                                                style: TextStyle(
-                                                    color: Colors.white),
-                                              ),
-                                            ),
-                                          ),
-                                        ),
-                                      ],
-                                    ),
-                                  ),
-                                ),
-                                TableCell(
-                                  child: SizedBox(
-                                    height: 50,
-                                    child: Stack(
-                                      children: [
-                                        Positioned(
-                                          top: 0,
-                                          left: 0,
-                                          right: 0,
-                                          height: 50,
-                                          child: Container(
-                                            color: Colors.blue,
-                                            child: Center(
-                                              child: Text(
-                                                'PART NO.',
-                                                style: TextStyle(
-                                                    color: Colors.white),
-                                              ),
-                                            ),
-                                          ),
-                                        ),
-                                      ],
-                                    ),
-                                  ),
-                                ),
-                                TableCell(
-                                  child: SizedBox(
-                                    height: 50,
-                                    child: Stack(
-                                      children: [
-                                        Positioned(
-                                          top: 0,
-                                          left: 0,
-                                          right: 0,
-                                          height: 50,
-                                          child: Container(
-                                            color: Colors.blue,
-                                            child: Center(
-                                              child: Text(
-                                                'QTY',
-                                                style: TextStyle(
-                                                    color: Colors.white),
-                                              ),
-                                            ),
-                                          ),
-                                        ),
-                                      ],
-                                    ),
-                                  ),
-                                ),
-                                TableCell(
-                                  child: SizedBox(
-                                    height: 50,
-                                    child: Stack(
-                                      children: [
-                                        Positioned(
-                                          top: 0,
-                                          left: 0,
-                                          right: 0,
-                                          height: 50,
-                                          child: Container(
-                                            color: Colors.blue,
-                                            child: Center(
-                                              child: Text(
-                                                'TPK LOT',
-                                                style: TextStyle(
-                                                    color: Colors.white),
-                                              ),
-                                            ),
-                                          ),
-                                        ),
-                                      ],
-                                    ),
-                                  ),
-                                ),
-                              ],
-                            ),
-                            ...filteredData.map((item) {
-                              int dataCount = filteredData.indexOf(item) + 1;
-                              return TableRow(
+                              ),
+                            ],
+                          ),
+                          SizedBox(height: 10),
+                          Table(
+                            border: TableBorder.all(),
+                            columnWidths: const {
+                              0: FixedColumnWidth(50.0),
+                              1: FixedColumnWidth(100),
+                              2: FixedColumnWidth(300.0),
+                              3: FixedColumnWidth(200.0),
+                              4: FixedColumnWidth(160.0),
+                              5: FixedColumnWidth(80.0),
+                              6: FixedColumnWidth(100.0),
+                            },
+                            children: [
+                              TableRow(
                                 children: [
                                   TableCell(
                                     child: SizedBox(
-                                      height: 30,
-                                      child: Center(
-                                        child: Text(dataCount.toString()),
+                                      height: 50,
+                                      child: Stack(
+                                        children: [
+                                          Positioned(
+                                            top: 0,
+                                            left: 0,
+                                            right: 0,
+                                            height: 50,
+                                            child: Container(
+                                              color: Colors.blue,
+                                              child: Center(
+                                                child: Text(
+                                                  'ID',
+                                                  style: TextStyle(
+                                                      color: Colors.white),
+                                                ),
+                                              ),
+                                            ),
+                                          ),
+                                        ],
                                       ),
                                     ),
                                   ),
                                   TableCell(
                                     child: SizedBox(
-                                      height: 30,
-                                      child: Center(
-                                        child: Text(item.PO),
+                                      height: 50,
+                                      child: Stack(
+                                        children: [
+                                          Positioned(
+                                            top: 0,
+                                            left: 0,
+                                            right: 0,
+                                            height: 50,
+                                            child: Container(
+                                              color: Colors.blue,
+                                              child: Center(
+                                                child: Text(
+                                                  'PO NO.',
+                                                  style: TextStyle(
+                                                      color: Colors.white),
+                                                ),
+                                              ),
+                                            ),
+                                          ),
+                                        ],
                                       ),
                                     ),
                                   ),
                                   TableCell(
                                     child: SizedBox(
-                                      height: 30,
-                                      child: Align(
-                                        alignment: Alignment.centerLeft,
-                                        child: Text('  ' + item.CUST_FULL),
+                                      height: 50,
+                                      child: Stack(
+                                        children: [
+                                          Positioned(
+                                            top: 0,
+                                            left: 0,
+                                            right: 0,
+                                            height: 50,
+                                            child: Container(
+                                              color: Colors.blue,
+                                              child: Center(
+                                                child: Text(
+                                                  'CUST NAME',
+                                                  style: TextStyle(
+                                                      color: Colors.white),
+                                                ),
+                                              ),
+                                            ),
+                                          ),
+                                        ],
                                       ),
                                     ),
                                   ),
                                   TableCell(
                                     child: SizedBox(
-                                      height: 30,
-                                      child: Center(
-                                        child: Text(item.PARTNAME),
+                                      height: 50,
+                                      child: Stack(
+                                        children: [
+                                          Positioned(
+                                            top: 0,
+                                            left: 0,
+                                            right: 0,
+                                            height: 50,
+                                            child: Container(
+                                              color: Colors.blue,
+                                              child: Center(
+                                                child: Text(
+                                                  'PART NAME',
+                                                  style: TextStyle(
+                                                      color: Colors.white),
+                                                ),
+                                              ),
+                                            ),
+                                          ),
+                                        ],
                                       ),
                                     ),
                                   ),
                                   TableCell(
                                     child: SizedBox(
-                                      height: 30,
-                                      child: Center(
-                                        child: Text(item.PARTNO),
+                                      height: 50,
+                                      child: Stack(
+                                        children: [
+                                          Positioned(
+                                            top: 0,
+                                            left: 0,
+                                            right: 0,
+                                            height: 50,
+                                            child: Container(
+                                              color: Colors.blue,
+                                              child: Center(
+                                                child: Text(
+                                                  'PART NO.',
+                                                  style: TextStyle(
+                                                      color: Colors.white),
+                                                ),
+                                              ),
+                                            ),
+                                          ),
+                                        ],
                                       ),
                                     ),
                                   ),
                                   TableCell(
                                     child: SizedBox(
-                                      height: 30,
-                                      child: Center(
-                                        child: Text(item.QTY),
+                                      height: 50,
+                                      child: Stack(
+                                        children: [
+                                          Positioned(
+                                            top: 0,
+                                            left: 0,
+                                            right: 0,
+                                            height: 50,
+                                            child: Container(
+                                              color: Colors.blue,
+                                              child: Center(
+                                                child: Text(
+                                                  'QTY',
+                                                  style: TextStyle(
+                                                      color: Colors.white),
+                                                ),
+                                              ),
+                                            ),
+                                          ),
+                                        ],
                                       ),
                                     ),
                                   ),
                                   TableCell(
                                     child: SizedBox(
-                                      height: 30,
-                                      child: Center(
-                                        child: Text(item.TPKLOT),
+                                      height: 50,
+                                      child: Stack(
+                                        children: [
+                                          Positioned(
+                                            top: 0,
+                                            left: 0,
+                                            right: 0,
+                                            height: 50,
+                                            child: Container(
+                                              color: Colors.blue,
+                                              child: Center(
+                                                child: Text(
+                                                  'TPK LOT',
+                                                  style: TextStyle(
+                                                      color: Colors.white),
+                                                ),
+                                              ),
+                                            ),
+                                          ),
+                                        ],
                                       ),
                                     ),
                                   ),
                                 ],
-                              );
-                            }).toList(),
-                          ],
-                        ),
-                      ],
+                              ),
+                              ...filteredData.map((item) {
+                                int dataCount = filteredData.indexOf(item) + 1;
+                                return TableRow(
+                                  children: [
+                                    TableCell(
+                                      child: SizedBox(
+                                        height: 30,
+                                        child: Center(
+                                          child: Text(dataCount.toString()),
+                                        ),
+                                      ),
+                                    ),
+                                    TableCell(
+                                      child: SizedBox(
+                                        height: 30,
+                                        child: Center(
+                                          child: Text(item.PO),
+                                        ),
+                                      ),
+                                    ),
+                                    TableCell(
+                                      child: SizedBox(
+                                        height: 30,
+                                        child: Align(
+                                          alignment: Alignment.centerLeft,
+                                          child: Text('  ' + item.CUST_FULL),
+                                        ),
+                                      ),
+                                    ),
+                                    TableCell(
+                                      child: SizedBox(
+                                        height: 30,
+                                        child: Center(
+                                          child: Text(item.PARTNAME),
+                                        ),
+                                      ),
+                                    ),
+                                    TableCell(
+                                      child: SizedBox(
+                                        height: 30,
+                                        child: Center(
+                                          child: Text(item.PARTNO),
+                                        ),
+                                      ),
+                                    ),
+                                    TableCell(
+                                      child: SizedBox(
+                                        height: 30,
+                                        child: Center(
+                                          child: Text(item.QTY),
+                                        ),
+                                      ),
+                                    ),
+                                    TableCell(
+                                      child: SizedBox(
+                                        height: 30,
+                                        child: Center(
+                                          child: Text(item.TPKLOT),
+                                        ),
+                                      ),
+                                    ),
+                                  ],
+                                );
+                              }).toList(),
+                            ],
+                          ),
+                        ],
+                      ),
                     ),
                   ),
-                ),
+                )
               ],
             ),
           ),

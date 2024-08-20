@@ -1,8 +1,11 @@
 import 'package:dio/dio.dart';
+import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:newmaster/widget/common/Loading.dart';
 
 import '../../data/dummydata2.dart';
 import '../../data/global.dart';
+import '../../page/P4PROGRESS/P04PROGRESSMAIN.dart';
 import '../../page/P4PROGRESS/P04PROGRESSVAR.dart';
 
 //-------------------------------------------------
@@ -37,6 +40,7 @@ class P04PROGRESSGETDATA_Bloc
 
   Future<void> _P04PROGRESSGETDATA_GET(List<P04PROGRESSGETDATAclass> toAdd,
       Emitter<List<P04PROGRESSGETDATAclass>> emit) async {
+    FreeLoading(P04PROGRESSMAINcontext);
     List<P04PROGRESSGETDATAclass> output = [];
     //-------------------------------------------------------------------------------------
     var input = dummydatainput2;
@@ -58,6 +62,7 @@ class P04PROGRESSGETDATA_Bloc
     print(response.statusCode);
     // print(response);
     List<dynamic> data = response.data;
+    Navigator.pop(P04PROGRESSMAINcontext);
     if (data.isNotEmpty) {
       // Clear existing data before adding new data
       P04PROGRESSVAR.GWNEWdata.clear();

@@ -10,6 +10,8 @@ import '../P1PROGRESS/P01PROGRESSVAR.dart';
 import '../page7.dart';
 import 'P02PROGRESSVAR.dart';
 
+late BuildContext P02PROGRESSMAINcontext;
+
 class P02PROGRESSMAIN extends StatefulWidget {
   P02PROGRESSMAIN({
     super.key,
@@ -30,6 +32,7 @@ class _P02PROGRESSMAINState extends State<P02PROGRESSMAIN> {
 
   @override
   Widget build(BuildContext context) {
+    P02PROGRESSMAINcontext = context;
     List<P02PROGRESSGETDATAclass> _datain = widget.data ?? [];
 
     // Group data by PLANT

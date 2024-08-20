@@ -1,11 +1,10 @@
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:newmaster/page/P16PROGRESS/P16PROGRESSMAIN.dart';
 
-import '../../data/actualdata.dart';
-import '../../data/dummydata2.dart';
 import '../../data/global.dart';
-import '../../page/P2PROGRESS/P02PROGRESSVAR.dart';
+import '../../widget/common/Loading.dart';
 
 //-------------------------------------------------
 
@@ -36,69 +35,10 @@ class P16PROGRESSGETDATA_Bloc
       return _P16PROGRESSGETDATA_FLUSH([], emit);
     });
   }
-  // Future<void> _P16PROGRESSGETDATA_GET(List<P16PROGRESSGETDATAclass> toAdd,
-  //     Emitter<List<P16PROGRESSGETDATAclass>> emit) async {
-  //   List<P16PROGRESSGETDATAclass> output = [];
-
-  //   // ตรวจสอบว่า actualdata มีข้อมูลและมี key "Records"
-  //   if (actualdata != null && actualdata.containsKey("Records")) {
-  //     var databuff = actualdata["Records"];
-
-  //     // ตรวจสอบว่า databuff เป็น List
-  //     if (databuff is List) {
-  //       var input = databuff;
-  //       print(input);
-
-  //       List<P16PROGRESSGETDATAclass> outputdata = input.map((dataActual) {
-  //         return P16PROGRESSGETDATAclass(
-  //           PO: savenull(dataActual['PO']),
-  //           SEQ: savenull(dataActual['SEQ']),
-  //           DATSTA: savenull(dataActual['DATSTA']),
-  //           TIMSTA: savenull(dataActual['TIMSTA']),
-  //           MATCP: savenull(dataActual['CPMAT']),
-  //           MATFG: savenull(dataActual['FGMAT']),
-  //           STA: savenull(dataActual['STA']),
-  //           QTY: savenull(dataActual['QTYT']),
-  //           UNIT: savenull(dataActual['UNIT']),
-  //           CUST_SHORT: savenull(dataActual['CUSTNA']),
-  //           PARTNAME: savenull(dataActual['PARTNA']),
-  //           PRCTR: savenull(dataActual['PRCTR']),
-  //           MATNAME: savenull(dataActual['MATNA']),
-  //           PARTNO: savenull(dataActual['PARTNO']),
-  //           PROC: savenull(dataActual['PROC']),
-  //           STADATE: savenull(dataActual['STADATE']),
-  //           STATIME: savenull(dataActual['STATIME']),
-  //           FINDATE: savenull(dataActual['FINDATE']),
-  //           FINTIME: savenull(dataActual['FINTIME']),
-  //           PKSTADATE: savenull(dataActual['PKSTADATE']),
-  //           PKSTATIME: savenull(dataActual['PKSTATIME']),
-  //           PKFINDATE: savenull(dataActual['PKFINDATE']),
-  //           PKFINTIME: savenull(dataActual['PKFINTIME']),
-  //           WEIGHT_PC: savenull(dataActual['WEIGHT_PC']),
-  //           WEIGHT_JIG: savenull(dataActual['WEIGHT_JIG']),
-  //           ACT_QTY: savenull(dataActual['ACT_QTY']),
-  //           CUSLOTNO: savenull(dataActual['CUSLOTNO']),
-  //           STDTIME400: savenull(dataActual['STDTIME400']),
-  //           TPKLOT: savenull(dataActual['FG_CHARG']),
-  //           CUST_FULL: savenull(dataActual['CUST_FULLNM']),
-  //           MAT_INTEGRATE: savenull(dataActual['MAT_INTEGRATE']),
-  //           CUSLOTNO2: savenull(dataActual['CUSLOTNO2']),
-  //         );
-  //       }).toList();
-
-  //       output = outputdata;
-  //     } else {
-  //       print("Error: databuff is not a List");
-  //     }
-  //   } else {
-  //     print("Error: actualdata is null or does not contain 'Records'");
-  //   }
-
-  //   emit(output);
-  // }
 
   Future<void> _P16PROGRESSGETDATA_GET(List<P16PROGRESSGETDATAclass> toAdd,
       Emitter<List<P16PROGRESSGETDATAclass>> emit) async {
+    FreeLoading(P16PROGRESSMAINcontext);
     List<P16PROGRESSGETDATAclass> output = [];
     //-------------------------------------------------------------------------------------
     var now = DateTime.now();
@@ -117,6 +57,7 @@ class P16PROGRESSGETDATA_Bloc
       },
     );
     var input = [];
+    Navigator.pop(P16PROGRESSMAINcontext);
     if (response.statusCode == 200) {
       print(response.statusCode);
       // print(response.data);
@@ -163,6 +104,7 @@ class P16PROGRESSGETDATA_Bloc
       output = outputdata;
       emit(output);
     } else {
+      Navigator.pop(P16PROGRESSMAINcontext);
       print("where is my server");
       output = [];
       emit(output);

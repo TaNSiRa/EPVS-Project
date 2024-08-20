@@ -5,6 +5,8 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../data/actualdata.dart';
 import '../../data/dummydata2.dart';
 import '../../data/global.dart';
+import '../../page/P13PROGRESS/P13PROGRESSMAIN.dart';
+import '../../widget/common/Loading.dart';
 
 //-------------------------------------------------
 
@@ -38,6 +40,7 @@ class P13PROGRESSGETDATA_Bloc
 
   Future<void> _P13PROGRESSGETDATA_GET(List<P13PROGRESSGETDATAclass> toAdd,
       Emitter<List<P13PROGRESSGETDATAclass>> emit) async {
+    FreeLoading(P13PROGRESSMAINcontext);
     List<P13PROGRESSGETDATAclass> output = [];
     //-------------------------------------------------------------------------------------
     final response = await Dio().post(
@@ -55,6 +58,7 @@ class P13PROGRESSGETDATA_Bloc
     );
     var input = [];
     // var input = actualdata;
+    Navigator.pop(P13PROGRESSMAINcontext);
     if (response.statusCode == 200) {
       print(response.statusCode);
       // print(response.data);
@@ -91,6 +95,7 @@ class P13PROGRESSGETDATA_Bloc
       output = outputdata;
       emit(output);
     } else {
+      Navigator.pop(P13PROGRESSMAINcontext);
       print("where is my server");
       output = [];
       emit(output);

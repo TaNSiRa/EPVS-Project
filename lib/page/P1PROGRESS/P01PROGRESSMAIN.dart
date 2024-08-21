@@ -66,13 +66,34 @@ class _P01PROGRESSMAINState extends State<P01PROGRESSMAIN> {
           Positioned(
             top: 10,
             right: 50,
-            child: IconButton(
-              icon: Icon(Icons.refresh_rounded, size: 30),
-              onPressed: () {
-                context
-                    .read<P01PROGRESSGETDATA_Bloc>()
-                    .add(P01PROGRESSGETDATA_GET());
-              },
+            child: Column(
+              children: [
+                ElevatedButton(
+                  onPressed: () {
+                    context
+                        .read<P01PROGRESSGETDATA_Bloc>()
+                        .add(P01PROGRESSGETDATA_GET());
+                  },
+                  style: ElevatedButton.styleFrom(
+                    shape: const CircleBorder(),
+                    padding: const EdgeInsets.all(10),
+                    backgroundColor: Colors.black,
+                  ),
+                  child: const Icon(
+                    Icons.refresh_rounded,
+                    color: Colors.white,
+                    size: 30,
+                  ),
+                ),
+                SizedBox(height: 5),
+                Text(
+                  'Refresh',
+                  style: TextStyle(
+                      fontSize: 10,
+                      color: Colors.black,
+                      fontWeight: FontWeight.bold),
+                )
+              ],
             ),
           ),
           Column(
@@ -319,534 +340,553 @@ class _P01PROGRESSMAINState extends State<P01PROGRESSMAIN> {
                 int transactionsCount8 = _getPlantTransactionsCount(plant, 8);
                 int transactionsCount9 = _getPlantTransactionsCount(plant, 9);
                 // print(transactionsCount1);
-                return Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
+                return Column(
                   children: [
-                    Container(
-                        decoration: BoxDecoration(
-                          border: Border.all(color: Colors.black),
-                          borderRadius: BorderRadius.only(
-                            topRight: Radius.circular(10),
-                            bottomRight: Radius.circular(10),
-                          ),
-                          color: Colors.teal.shade500,
-                        ),
-                        height: 80,
-                        width: 100,
-                        child: Center(
-                            child: Text(
-                          plant,
-                          style: TextStyle(color: Colors.white),
-                        ))),
-                    AbsorbPointer(
-                      absorbing:
-                          !step01Complete, // ถ้าไม่ครบจะทำให้ไม่สามารถกดได้
-                      child: InkWell(
-                        onTap: () {
-                          print(_data.value[0].LOCATION);
-                          print(_data.value[0].PLANT);
-                          if (step01Complete) {
-                            P01PROGRESSVAR.sendLocation =
-                                _data.value[0].LOCATION;
-                            P01PROGRESSVAR.sendPlant = _data.value[0].PLANT;
-                            P01PROGRESSVAR.changeStep = 'step1';
-                            print(P01PROGRESSVAR.changeStep);
-                            print(transactionsCount1.toString() +
-                                " transactions");
-                            CuPage = Page7();
-                            MainBodyContext.read<ChangePage_Bloc>()
-                                .add(ChangePage_nodrower());
-                          }
-                        },
-                        child: Container(
-                          decoration: BoxDecoration(
-                            color: step01Complete
-                                ? Colors.greenAccent
-                                : Colors.grey.shade500,
-                            border: Border.all(color: Colors.black),
-                            borderRadius: BorderRadius.circular(10),
-                          ),
-                          height: 80,
-                          width: 100,
-                          child: Center(
-                            child: Column(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              children: [
-                                Text(transactionsCount1.toString()),
-                                Text(
-                                  " transactions",
-                                  style: TextStyle(fontSize: 10),
-                                ),
-                              ],
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Container(
+                            decoration: BoxDecoration(
+                              border: Border.all(color: Colors.black),
+                              borderRadius: BorderRadius.only(
+                                topRight: Radius.circular(0),
+                                bottomRight: Radius.circular(0),
+                              ),
+                              color: Colors.teal.shade500,
                             ),
-                          ),
-                        ),
-                      ),
-                    ),
-                    AbsorbPointer(
-                      absorbing:
-                          !step02Complete, // ถ้าไม่ครบจะทำให้ไม่สามารถกดได้
-                      child: InkWell(
-                        onTap: () {
-                          print(_data.value[0].LOCATION);
-                          print(_data.value[0].PLANT);
-                          if (step02Complete) {
-                            P01PROGRESSVAR.sendLocation =
-                                _data.value[0].LOCATION;
-                            P01PROGRESSVAR.sendPlant = _data.value[0].PLANT;
-                            P01PROGRESSVAR.changeStep = 'step2';
-                            print(P01PROGRESSVAR.changeStep);
-                            print(transactionsCount2.toString() +
-                                " transactions");
-                            CuPage = Page7();
-                            MainBodyContext.read<ChangePage_Bloc>()
-                                .add(ChangePage_nodrower());
-                          }
-                        },
-                        child: Container(
-                          decoration: BoxDecoration(
-                            color: step02Complete
-                                ? Colors.greenAccent
-                                : Colors.grey.shade500,
-                            border: Border.all(color: Colors.black),
-                            borderRadius: BorderRadius.circular(10),
-                          ),
-                          height: 80,
-                          width: 100,
-                          child: Center(
-                            child: Column(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              children: [
-                                Text(transactionsCount2.toString()),
-                                Text(
-                                  " transactions",
-                                  style: TextStyle(fontSize: 10),
-                                ),
-                              ],
-                            ),
-                          ),
-                        ),
-                      ),
-                    ),
-                    AbsorbPointer(
-                      absorbing:
-                          !step03Complete, // ถ้าไม่ครบจะทำให้ไม่สามารถกดได้
-                      child: InkWell(
-                        onTap: () {
-                          print(_data.value[0].LOCATION);
-                          print(_data.value[0].PLANT);
-                          if (step03Complete) {
-                            P01PROGRESSVAR.sendLocation =
-                                _data.value[0].LOCATION;
-                            P01PROGRESSVAR.sendPlant = _data.value[0].PLANT;
-                            P01PROGRESSVAR.changeStep = 'step3';
-                            print(P01PROGRESSVAR.changeStep);
-                            print(transactionsCount3.toString() +
-                                " transactions");
-                            CuPage = Page7();
-                            MainBodyContext.read<ChangePage_Bloc>()
-                                .add(ChangePage_nodrower());
-                          }
-                        },
-                        child: Container(
-                          decoration: BoxDecoration(
-                            color: step03Complete
-                                ? Colors.greenAccent
-                                : Colors.grey.shade500,
-                            border: Border.all(color: Colors.black),
-                            borderRadius: BorderRadius.circular(10),
-                          ),
-                          height: 80,
-                          width: 100,
-                          child: Center(
-                            child: Column(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              children: [
-                                Text(transactionsCount3.toString()),
-                                Text(
-                                  " transactions",
-                                  style: TextStyle(fontSize: 10),
-                                ),
-                              ],
-                            ),
-                          ),
-                        ),
-                      ),
-                    ),
-                    MouseRegion(
-                      onEnter: (_) {
-                        setState(() {
-                          if (_data.value[0].PLANT == 'PHO' &&
-                              P01PROGRESSVAR.PHOdata.length > 0) {
-                            P01PROGRESSVAR.isHoveredQCPHO = true;
-                          } else if (_data.value[0].PLANT == 'GASNON' &&
-                              P01PROGRESSVAR.GASNONdata.length > 0) {
-                            P01PROGRESSVAR.isHoveredQCGASNON = true;
-                          } else if (_data.value[0].PLANT == 'GASBOI' &&
-                              P01PROGRESSVAR.GASBOIdata.length > 0) {
-                            P01PROGRESSVAR.isHoveredQCGASBOI = true;
-                          } else if (_data.value[0].PLANT == 'ISN' &&
-                              P01PROGRESSVAR.ISNdata.length > 0) {
-                            P01PROGRESSVAR.isHoveredQCISN = true;
-                          } else if (_data.value[0].PLANT == 'PAL' &&
-                              P01PROGRESSVAR.PALdata.length > 0) {
-                            P01PROGRESSVAR.isHoveredQCPAL = true;
-                          }
-                        });
-                      },
-                      onExit: (_) {
-                        setState(() {
-                          P01PROGRESSVAR.isHoveredQCPHO = false;
-                          P01PROGRESSVAR.isHoveredQCGASNON = false;
-                          P01PROGRESSVAR.isHoveredQCGASBOI = false;
-                          P01PROGRESSVAR.isHoveredQCISN = false;
-                          P01PROGRESSVAR.isHoveredQCPAL = false;
-                        });
-                      },
-                      child: InkWell(
-                        onTap: (_data.value[0].PLANT == 'PHO' &&
-                                    P01PROGRESSVAR.PHOdata.length == 0) ||
-                                (_data.value[0].PLANT == 'GASNON' &&
-                                    P01PROGRESSVAR.GASNONdata.length == 0) ||
-                                (_data.value[0].PLANT == 'GASBOI' &&
-                                    P01PROGRESSVAR.GASBOIdata.length == 0) ||
-                                (_data.value[0].PLANT == 'ISN' &&
-                                    P01PROGRESSVAR.ISNdata.length == 0) ||
-                                (_data.value[0].PLANT == 'PAL' &&
-                                    P01PROGRESSVAR.PALdata.length == 0)
-                            ? null
-                            : () {
-                                if (_data.value[0].PLANT == 'PHO') {
-                                  USERDATA.PLANTNUMBER = PLANTNUMBER.ESIE1PHO;
-                                } else if (_data.value[0].PLANT == 'GASNON') {
-                                  USERDATA.PLANTNUMBER =
-                                      PLANTNUMBER.ESIE1GASNON;
-                                } else if (_data.value[0].PLANT == 'GASBOI') {
-                                  USERDATA.PLANTNUMBER =
-                                      PLANTNUMBER.ESIE1GASBOI;
-                                } else if (_data.value[0].PLANT == 'ISN') {
-                                  USERDATA.PLANTNUMBER = PLANTNUMBER.ESIE1ISN;
-                                } else if (_data.value[0].PLANT == 'PAL') {
-                                  USERDATA.PLANTNUMBER = PLANTNUMBER.ESIE1PAL;
-                                }
-                                setState(() {
-                                  P01PROGRESSVAR.isHoveredQCPHO = false;
-                                  P01PROGRESSVAR.isHoveredQCGASNON = false;
-                                  P01PROGRESSVAR.isHoveredQCGASBOI = false;
-                                  P01PROGRESSVAR.isHoveredQCISN = false;
-                                  P01PROGRESSVAR.isHoveredQCPAL = false;
-                                });
-                                USERDATA.PLANT = _data.value[0].PLANT;
-                                print(USERDATA.PLANT);
-                                CuPage = Page16();
+                            height: 80,
+                            width: 100,
+                            child: Center(
+                                child: Text(
+                              plant,
+                              style: TextStyle(
+                                  color: Colors.white,
+                                  fontSize: 20,
+                                  fontWeight: FontWeight.bold),
+                            ))),
+                        AbsorbPointer(
+                          absorbing:
+                              !step01Complete, // ถ้าไม่ครบจะทำให้ไม่สามารถกดได้
+                          child: InkWell(
+                            onTap: () {
+                              print(_data.value[0].LOCATION);
+                              print(_data.value[0].PLANT);
+                              if (step01Complete) {
+                                P01PROGRESSVAR.sendLocation =
+                                    _data.value[0].LOCATION;
+                                P01PROGRESSVAR.sendPlant = _data.value[0].PLANT;
+                                P01PROGRESSVAR.changeStep = 'step1';
+                                print(P01PROGRESSVAR.changeStep);
+                                print(transactionsCount1.toString() +
+                                    " transactions");
+                                CuPage = Page7();
                                 MainBodyContext.read<ChangePage_Bloc>()
                                     .add(ChangePage_nodrower());
-                              },
-                        child: Container(
-                          decoration: BoxDecoration(
-                            color: (() {
-                              if (_data.value[0].PLANT == 'PHO') {
-                                return P01PROGRESSVAR.isHoveredQCPHO
-                                    ? Colors.lightGreenAccent.shade400
-                                    : (P01PROGRESSVAR.PHOdata.length > 0
-                                        ? Colors.greenAccent
-                                        : Colors.grey.shade500);
-                              } else if (_data.value[0].PLANT == 'GASNON') {
-                                return P01PROGRESSVAR.isHoveredQCGASNON
-                                    ? Colors.lightGreenAccent.shade400
-                                    : (P01PROGRESSVAR.GASNONdata.length > 0
-                                        ? Colors.greenAccent
-                                        : Colors.grey.shade500);
-                              } else if (_data.value[0].PLANT == 'GASBOI') {
-                                return P01PROGRESSVAR.isHoveredQCGASBOI
-                                    ? Colors.lightGreenAccent.shade400
-                                    : (P01PROGRESSVAR.GASBOIdata.length > 0
-                                        ? Colors.greenAccent
-                                        : Colors.grey.shade500);
-                              } else if (_data.value[0].PLANT == 'ISN') {
-                                return P01PROGRESSVAR.isHoveredQCISN
-                                    ? Colors.lightGreenAccent.shade400
-                                    : (P01PROGRESSVAR.ISNdata.length > 0
-                                        ? Colors.greenAccent
-                                        : Colors.grey.shade500);
-                              } else if (_data.value[0].PLANT == 'PAL') {
-                                return P01PROGRESSVAR.isHoveredQCPAL
-                                    ? Colors.lightGreenAccent.shade400
-                                    : (P01PROGRESSVAR.PALdata.length > 0
-                                        ? Colors.greenAccent
-                                        : Colors.grey.shade500);
-                              } else {
-                                return Colors.grey.shade500;
                               }
-                            })(),
-                            border: Border.all(color: Colors.black),
-                            borderRadius: BorderRadius.circular(10),
+                            },
+                            child: Container(
+                              decoration: BoxDecoration(
+                                color: step01Complete
+                                    ? Colors.greenAccent
+                                    : Colors.grey.shade400,
+                                border: Border.all(color: Colors.black),
+                                borderRadius: BorderRadius.circular(0),
+                              ),
+                              height: 80,
+                              width: 100,
+                              child: Center(
+                                child: Column(
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  children: [
+                                    Text(transactionsCount1.toString()),
+                                    Text(
+                                      " transactions",
+                                      style: TextStyle(fontSize: 10),
+                                    ),
+                                  ],
+                                ),
+                              ),
+                            ),
                           ),
-                          height: 80,
-                          width: 100,
-                          child: Center(
-                            child: Column(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              children: [
-                                Text(
-                                  (() {
-                                    if (_data.value[0].PLANT == "PHO") {
-                                      return P01PROGRESSVAR.PHOdata.length
-                                          .toString();
+                        ),
+                        AbsorbPointer(
+                          absorbing:
+                              !step02Complete, // ถ้าไม่ครบจะทำให้ไม่สามารถกดได้
+                          child: InkWell(
+                            onTap: () {
+                              print(_data.value[0].LOCATION);
+                              print(_data.value[0].PLANT);
+                              if (step02Complete) {
+                                P01PROGRESSVAR.sendLocation =
+                                    _data.value[0].LOCATION;
+                                P01PROGRESSVAR.sendPlant = _data.value[0].PLANT;
+                                P01PROGRESSVAR.changeStep = 'step2';
+                                print(P01PROGRESSVAR.changeStep);
+                                print(transactionsCount2.toString() +
+                                    " transactions");
+                                CuPage = Page7();
+                                MainBodyContext.read<ChangePage_Bloc>()
+                                    .add(ChangePage_nodrower());
+                              }
+                            },
+                            child: Container(
+                              decoration: BoxDecoration(
+                                color: step02Complete
+                                    ? Colors.greenAccent
+                                    : Colors.grey.shade400,
+                                border: Border.all(color: Colors.black),
+                                borderRadius: BorderRadius.circular(0),
+                              ),
+                              height: 80,
+                              width: 100,
+                              child: Center(
+                                child: Column(
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  children: [
+                                    Text(transactionsCount2.toString()),
+                                    Text(
+                                      " transactions",
+                                      style: TextStyle(fontSize: 10),
+                                    ),
+                                  ],
+                                ),
+                              ),
+                            ),
+                          ),
+                        ),
+                        AbsorbPointer(
+                          absorbing:
+                              !step03Complete, // ถ้าไม่ครบจะทำให้ไม่สามารถกดได้
+                          child: InkWell(
+                            onTap: () {
+                              print(_data.value[0].LOCATION);
+                              print(_data.value[0].PLANT);
+                              if (step03Complete) {
+                                P01PROGRESSVAR.sendLocation =
+                                    _data.value[0].LOCATION;
+                                P01PROGRESSVAR.sendPlant = _data.value[0].PLANT;
+                                P01PROGRESSVAR.changeStep = 'step3';
+                                print(P01PROGRESSVAR.changeStep);
+                                print(transactionsCount3.toString() +
+                                    " transactions");
+                                CuPage = Page7();
+                                MainBodyContext.read<ChangePage_Bloc>()
+                                    .add(ChangePage_nodrower());
+                              }
+                            },
+                            child: Container(
+                              decoration: BoxDecoration(
+                                color: step03Complete
+                                    ? Colors.greenAccent
+                                    : Colors.grey.shade400,
+                                border: Border.all(color: Colors.black),
+                                borderRadius: BorderRadius.circular(0),
+                              ),
+                              height: 80,
+                              width: 100,
+                              child: Center(
+                                child: Column(
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  children: [
+                                    Text(transactionsCount3.toString()),
+                                    Text(
+                                      " transactions",
+                                      style: TextStyle(fontSize: 10),
+                                    ),
+                                  ],
+                                ),
+                              ),
+                            ),
+                          ),
+                        ),
+                        MouseRegion(
+                          onEnter: (_) {
+                            setState(() {
+                              if (_data.value[0].PLANT == 'PHO' &&
+                                  P01PROGRESSVAR.PHOdata.length > 0) {
+                                P01PROGRESSVAR.isHoveredQCPHO = true;
+                              } else if (_data.value[0].PLANT == 'GASNON' &&
+                                  P01PROGRESSVAR.GASNONdata.length > 0) {
+                                P01PROGRESSVAR.isHoveredQCGASNON = true;
+                              } else if (_data.value[0].PLANT == 'GASBOI' &&
+                                  P01PROGRESSVAR.GASBOIdata.length > 0) {
+                                P01PROGRESSVAR.isHoveredQCGASBOI = true;
+                              } else if (_data.value[0].PLANT == 'ISN' &&
+                                  P01PROGRESSVAR.ISNdata.length > 0) {
+                                P01PROGRESSVAR.isHoveredQCISN = true;
+                              } else if (_data.value[0].PLANT == 'PAL' &&
+                                  P01PROGRESSVAR.PALdata.length > 0) {
+                                P01PROGRESSVAR.isHoveredQCPAL = true;
+                              }
+                            });
+                          },
+                          onExit: (_) {
+                            setState(() {
+                              P01PROGRESSVAR.isHoveredQCPHO = false;
+                              P01PROGRESSVAR.isHoveredQCGASNON = false;
+                              P01PROGRESSVAR.isHoveredQCGASBOI = false;
+                              P01PROGRESSVAR.isHoveredQCISN = false;
+                              P01PROGRESSVAR.isHoveredQCPAL = false;
+                            });
+                          },
+                          child: InkWell(
+                            onTap: (_data.value[0].PLANT == 'PHO' &&
+                                        P01PROGRESSVAR.PHOdata.length == 0) ||
+                                    (_data.value[0].PLANT == 'GASNON' &&
+                                        P01PROGRESSVAR.GASNONdata.length ==
+                                            0) ||
+                                    (_data.value[0].PLANT == 'GASBOI' &&
+                                        P01PROGRESSVAR.GASBOIdata.length ==
+                                            0) ||
+                                    (_data.value[0].PLANT == 'ISN' &&
+                                        P01PROGRESSVAR.ISNdata.length == 0) ||
+                                    (_data.value[0].PLANT == 'PAL' &&
+                                        P01PROGRESSVAR.PALdata.length == 0)
+                                ? null
+                                : () {
+                                    if (_data.value[0].PLANT == 'PHO') {
+                                      USERDATA.PLANTNUMBER =
+                                          PLANTNUMBER.ESIE1PHO;
                                     } else if (_data.value[0].PLANT ==
-                                        "GASNON") {
-                                      return P01PROGRESSVAR.GASNONdata.length
-                                          .toString();
+                                        'GASNON') {
+                                      USERDATA.PLANTNUMBER =
+                                          PLANTNUMBER.ESIE1GASNON;
                                     } else if (_data.value[0].PLANT ==
-                                        "GASBOI") {
-                                      return P01PROGRESSVAR.GASBOIdata.length
-                                          .toString();
-                                    } else if (_data.value[0].PLANT == "ISN") {
-                                      return P01PROGRESSVAR.ISNdata.length
-                                          .toString();
-                                    } else if (_data.value[0].PLANT == "PAL") {
-                                      return P01PROGRESSVAR.PALdata.length
-                                          .toString();
-                                    } else {
-                                      return "0";
+                                        'GASBOI') {
+                                      USERDATA.PLANTNUMBER =
+                                          PLANTNUMBER.ESIE1GASBOI;
+                                    } else if (_data.value[0].PLANT == 'ISN') {
+                                      USERDATA.PLANTNUMBER =
+                                          PLANTNUMBER.ESIE1ISN;
+                                    } else if (_data.value[0].PLANT == 'PAL') {
+                                      USERDATA.PLANTNUMBER =
+                                          PLANTNUMBER.ESIE1PAL;
                                     }
-                                  })(),
+                                    setState(() {
+                                      P01PROGRESSVAR.isHoveredQCPHO = false;
+                                      P01PROGRESSVAR.isHoveredQCGASNON = false;
+                                      P01PROGRESSVAR.isHoveredQCGASBOI = false;
+                                      P01PROGRESSVAR.isHoveredQCISN = false;
+                                      P01PROGRESSVAR.isHoveredQCPAL = false;
+                                    });
+                                    USERDATA.PLANT = _data.value[0].PLANT;
+                                    print(USERDATA.PLANT);
+                                    CuPage = Page16();
+                                    MainBodyContext.read<ChangePage_Bloc>()
+                                        .add(ChangePage_nodrower());
+                                  },
+                            child: Container(
+                              decoration: BoxDecoration(
+                                color: (() {
+                                  if (_data.value[0].PLANT == 'PHO') {
+                                    return P01PROGRESSVAR.isHoveredQCPHO
+                                        ? Colors.lightGreenAccent.shade400
+                                        : (P01PROGRESSVAR.PHOdata.length > 0
+                                            ? Colors.greenAccent
+                                            : Colors.grey.shade400);
+                                  } else if (_data.value[0].PLANT == 'GASNON') {
+                                    return P01PROGRESSVAR.isHoveredQCGASNON
+                                        ? Colors.lightGreenAccent.shade400
+                                        : (P01PROGRESSVAR.GASNONdata.length > 0
+                                            ? Colors.greenAccent
+                                            : Colors.grey.shade400);
+                                  } else if (_data.value[0].PLANT == 'GASBOI') {
+                                    return P01PROGRESSVAR.isHoveredQCGASBOI
+                                        ? Colors.lightGreenAccent.shade400
+                                        : (P01PROGRESSVAR.GASBOIdata.length > 0
+                                            ? Colors.greenAccent
+                                            : Colors.grey.shade400);
+                                  } else if (_data.value[0].PLANT == 'ISN') {
+                                    return P01PROGRESSVAR.isHoveredQCISN
+                                        ? Colors.lightGreenAccent.shade400
+                                        : (P01PROGRESSVAR.ISNdata.length > 0
+                                            ? Colors.greenAccent
+                                            : Colors.grey.shade400);
+                                  } else if (_data.value[0].PLANT == 'PAL') {
+                                    return P01PROGRESSVAR.isHoveredQCPAL
+                                        ? Colors.lightGreenAccent.shade400
+                                        : (P01PROGRESSVAR.PALdata.length > 0
+                                            ? Colors.greenAccent
+                                            : Colors.grey.shade400);
+                                  } else {
+                                    return Colors.grey.shade400;
+                                  }
+                                })(),
+                                border: Border.all(color: Colors.black),
+                                borderRadius: BorderRadius.circular(0),
+                              ),
+                              height: 80,
+                              width: 100,
+                              child: Center(
+                                child: Column(
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  children: [
+                                    Text(
+                                      (() {
+                                        if (_data.value[0].PLANT == "PHO") {
+                                          return P01PROGRESSVAR.PHOdata.length
+                                              .toString();
+                                        } else if (_data.value[0].PLANT ==
+                                            "GASNON") {
+                                          return P01PROGRESSVAR
+                                              .GASNONdata.length
+                                              .toString();
+                                        } else if (_data.value[0].PLANT ==
+                                            "GASBOI") {
+                                          return P01PROGRESSVAR
+                                              .GASBOIdata.length
+                                              .toString();
+                                        } else if (_data.value[0].PLANT ==
+                                            "ISN") {
+                                          return P01PROGRESSVAR.ISNdata.length
+                                              .toString();
+                                        } else if (_data.value[0].PLANT ==
+                                            "PAL") {
+                                          return P01PROGRESSVAR.PALdata.length
+                                              .toString();
+                                        } else {
+                                          return "0";
+                                        }
+                                      })(),
+                                    ),
+                                    Text(
+                                      " transactions",
+                                      style: TextStyle(fontSize: 10),
+                                    ),
+                                  ],
                                 ),
-                                Text(
-                                  " transactions",
-                                  style: TextStyle(fontSize: 10),
-                                ),
-                              ],
+                              ),
                             ),
                           ),
                         ),
-                      ),
-                    ),
-                    AbsorbPointer(
-                      absorbing:
-                          !step05Complete, // ถ้าไม่ครบจะทำให้ไม่สามารถกดได้
-                      child: InkWell(
-                        onTap: () {
-                          print(_data.value[0].LOCATION);
-                          print(_data.value[0].PLANT);
-                          if (step05Complete) {
-                            P01PROGRESSVAR.sendLocation =
-                                _data.value[0].LOCATION;
-                            P01PROGRESSVAR.sendPlant = _data.value[0].PLANT;
-                            P01PROGRESSVAR.changeStep = 'step5';
-                            print(P01PROGRESSVAR.changeStep);
-                            print(transactionsCount5.toString() +
-                                " transactions");
-                            CuPage = Page7();
-                            MainBodyContext.read<ChangePage_Bloc>()
-                                .add(ChangePage_nodrower());
-                          }
-                        },
-                        child: Container(
-                          decoration: BoxDecoration(
-                            color: step05Complete
-                                ? Colors.greenAccent
-                                : Colors.grey.shade500,
-                            border: Border.all(color: Colors.black),
-                            borderRadius: BorderRadius.circular(10),
-                          ),
-                          height: 80,
-                          width: 100,
-                          child: Center(
-                            child: Column(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              children: [
-                                Text(transactionsCount5.toString()),
-                                Text(
-                                  " transactions",
-                                  style: TextStyle(fontSize: 10),
+                        AbsorbPointer(
+                          absorbing:
+                              !step05Complete, // ถ้าไม่ครบจะทำให้ไม่สามารถกดได้
+                          child: InkWell(
+                            onTap: () {
+                              print(_data.value[0].LOCATION);
+                              print(_data.value[0].PLANT);
+                              if (step05Complete) {
+                                P01PROGRESSVAR.sendLocation =
+                                    _data.value[0].LOCATION;
+                                P01PROGRESSVAR.sendPlant = _data.value[0].PLANT;
+                                P01PROGRESSVAR.changeStep = 'step5';
+                                print(P01PROGRESSVAR.changeStep);
+                                print(transactionsCount5.toString() +
+                                    " transactions");
+                                CuPage = Page7();
+                                MainBodyContext.read<ChangePage_Bloc>()
+                                    .add(ChangePage_nodrower());
+                              }
+                            },
+                            child: Container(
+                              decoration: BoxDecoration(
+                                color: step05Complete
+                                    ? Colors.greenAccent
+                                    : Colors.grey.shade400,
+                                border: Border.all(color: Colors.black),
+                                borderRadius: BorderRadius.circular(0),
+                              ),
+                              height: 80,
+                              width: 100,
+                              child: Center(
+                                child: Column(
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  children: [
+                                    Text(transactionsCount5.toString()),
+                                    Text(
+                                      " transactions",
+                                      style: TextStyle(fontSize: 10),
+                                    ),
+                                  ],
                                 ),
-                              ],
+                              ),
                             ),
                           ),
                         ),
-                      ),
-                    ),
-                    AbsorbPointer(
-                      absorbing:
-                          !step06Complete, // ถ้าไม่ครบจะทำให้ไม่สามารถกดได้
-                      child: InkWell(
-                        onTap: () {
-                          print(_data.value[0].LOCATION);
-                          print(_data.value[0].PLANT);
-                          if (step06Complete) {
-                            P01PROGRESSVAR.sendLocation =
-                                _data.value[0].LOCATION;
-                            P01PROGRESSVAR.sendPlant = _data.value[0].PLANT;
-                            P01PROGRESSVAR.changeStep = 'step6';
-                            print(P01PROGRESSVAR.changeStep);
-                            print(transactionsCount6.toString() +
-                                " transactions");
-                            CuPage = Page7();
-                            MainBodyContext.read<ChangePage_Bloc>()
-                                .add(ChangePage_nodrower());
-                          }
-                        },
-                        child: Container(
-                          decoration: BoxDecoration(
-                            color: step06Complete
-                                ? Colors.greenAccent
-                                : Colors.grey.shade500,
-                            border: Border.all(color: Colors.black),
-                            borderRadius: BorderRadius.circular(10),
-                          ),
-                          height: 80,
-                          width: 100,
-                          child: Center(
-                            child: Column(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              children: [
-                                Text(transactionsCount6.toString()),
-                                Text(
-                                  " transactions",
-                                  style: TextStyle(fontSize: 10),
+                        AbsorbPointer(
+                          absorbing:
+                              !step06Complete, // ถ้าไม่ครบจะทำให้ไม่สามารถกดได้
+                          child: InkWell(
+                            onTap: () {
+                              print(_data.value[0].LOCATION);
+                              print(_data.value[0].PLANT);
+                              if (step06Complete) {
+                                P01PROGRESSVAR.sendLocation =
+                                    _data.value[0].LOCATION;
+                                P01PROGRESSVAR.sendPlant = _data.value[0].PLANT;
+                                P01PROGRESSVAR.changeStep = 'step6';
+                                print(P01PROGRESSVAR.changeStep);
+                                print(transactionsCount6.toString() +
+                                    " transactions");
+                                CuPage = Page7();
+                                MainBodyContext.read<ChangePage_Bloc>()
+                                    .add(ChangePage_nodrower());
+                              }
+                            },
+                            child: Container(
+                              decoration: BoxDecoration(
+                                color: step06Complete
+                                    ? Colors.greenAccent
+                                    : Colors.grey.shade400,
+                                border: Border.all(color: Colors.black),
+                                borderRadius: BorderRadius.circular(0),
+                              ),
+                              height: 80,
+                              width: 100,
+                              child: Center(
+                                child: Column(
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  children: [
+                                    Text(transactionsCount6.toString()),
+                                    Text(
+                                      " transactions",
+                                      style: TextStyle(fontSize: 10),
+                                    ),
+                                  ],
                                 ),
-                              ],
+                              ),
                             ),
                           ),
                         ),
-                      ),
-                    ),
-                    AbsorbPointer(
-                      absorbing:
-                          !step07Complete, // ถ้าไม่ครบจะทำให้ไม่สามารถกดได้
-                      child: InkWell(
-                        onTap: () {
-                          print(_data.value[0].LOCATION);
-                          print(_data.value[0].PLANT);
-                          if (step07Complete) {
-                            P01PROGRESSVAR.sendLocation =
-                                _data.value[0].LOCATION;
-                            P01PROGRESSVAR.sendPlant = _data.value[0].PLANT;
-                            P01PROGRESSVAR.changeStep = 'step7';
-                            print(P01PROGRESSVAR.changeStep);
-                            print(transactionsCount7.toString() +
-                                " transactions");
-                            CuPage = Page7();
-                            MainBodyContext.read<ChangePage_Bloc>()
-                                .add(ChangePage_nodrower());
-                          }
-                        },
-                        child: Container(
-                          decoration: BoxDecoration(
-                            color: step07Complete
-                                ? Colors.greenAccent
-                                : Colors.grey.shade500,
-                            border: Border.all(color: Colors.black),
-                            borderRadius: BorderRadius.circular(10),
-                          ),
-                          height: 80,
-                          width: 100,
-                          child: Center(
-                            child: Column(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              children: [
-                                Text(transactionsCount7.toString()),
-                                Text(
-                                  " transactions",
-                                  style: TextStyle(fontSize: 10),
+                        AbsorbPointer(
+                          absorbing:
+                              !step07Complete, // ถ้าไม่ครบจะทำให้ไม่สามารถกดได้
+                          child: InkWell(
+                            onTap: () {
+                              print(_data.value[0].LOCATION);
+                              print(_data.value[0].PLANT);
+                              if (step07Complete) {
+                                P01PROGRESSVAR.sendLocation =
+                                    _data.value[0].LOCATION;
+                                P01PROGRESSVAR.sendPlant = _data.value[0].PLANT;
+                                P01PROGRESSVAR.changeStep = 'step7';
+                                print(P01PROGRESSVAR.changeStep);
+                                print(transactionsCount7.toString() +
+                                    " transactions");
+                                CuPage = Page7();
+                                MainBodyContext.read<ChangePage_Bloc>()
+                                    .add(ChangePage_nodrower());
+                              }
+                            },
+                            child: Container(
+                              decoration: BoxDecoration(
+                                color: step07Complete
+                                    ? Colors.greenAccent
+                                    : Colors.grey.shade400,
+                                border: Border.all(color: Colors.black),
+                                borderRadius: BorderRadius.circular(0),
+                              ),
+                              height: 80,
+                              width: 100,
+                              child: Center(
+                                child: Column(
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  children: [
+                                    Text(transactionsCount7.toString()),
+                                    Text(
+                                      " transactions",
+                                      style: TextStyle(fontSize: 10),
+                                    ),
+                                  ],
                                 ),
-                              ],
+                              ),
                             ),
                           ),
                         ),
-                      ),
-                    ),
-                    AbsorbPointer(
-                      absorbing:
-                          !step08Complete, // ถ้าไม่ครบจะทำให้ไม่สามารถกดได้
-                      child: InkWell(
-                        onTap: () {
-                          print(_data.value[0].LOCATION);
-                          print(_data.value[0].PLANT);
-                          if (step08Complete) {
-                            P01PROGRESSVAR.sendLocation =
-                                _data.value[0].LOCATION;
-                            P01PROGRESSVAR.sendPlant = _data.value[0].PLANT;
-                            P01PROGRESSVAR.changeStep = 'step8';
-                            print(P01PROGRESSVAR.changeStep);
-                            print(transactionsCount8.toString() +
-                                " transactions");
-                            CuPage = Page7();
-                            MainBodyContext.read<ChangePage_Bloc>()
-                                .add(ChangePage_nodrower());
-                          }
-                        },
-                        child: Container(
-                          decoration: BoxDecoration(
-                            color: step08Complete
-                                ? Colors.greenAccent
-                                : Colors.grey.shade500,
-                            border: Border.all(color: Colors.black),
-                            borderRadius: BorderRadius.circular(10),
-                          ),
-                          height: 80,
-                          width: 100,
-                          child: Center(
-                            child: Column(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              children: [
-                                Text(transactionsCount8.toString()),
-                                Text(
-                                  " transactions",
-                                  style: TextStyle(fontSize: 10),
+                        AbsorbPointer(
+                          absorbing:
+                              !step08Complete, // ถ้าไม่ครบจะทำให้ไม่สามารถกดได้
+                          child: InkWell(
+                            onTap: () {
+                              print(_data.value[0].LOCATION);
+                              print(_data.value[0].PLANT);
+                              if (step08Complete) {
+                                P01PROGRESSVAR.sendLocation =
+                                    _data.value[0].LOCATION;
+                                P01PROGRESSVAR.sendPlant = _data.value[0].PLANT;
+                                P01PROGRESSVAR.changeStep = 'step8';
+                                print(P01PROGRESSVAR.changeStep);
+                                print(transactionsCount8.toString() +
+                                    " transactions");
+                                CuPage = Page7();
+                                MainBodyContext.read<ChangePage_Bloc>()
+                                    .add(ChangePage_nodrower());
+                              }
+                            },
+                            child: Container(
+                              decoration: BoxDecoration(
+                                color: step08Complete
+                                    ? Colors.greenAccent
+                                    : Colors.grey.shade400,
+                                border: Border.all(color: Colors.black),
+                                borderRadius: BorderRadius.circular(0),
+                              ),
+                              height: 80,
+                              width: 100,
+                              child: Center(
+                                child: Column(
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  children: [
+                                    Text(transactionsCount8.toString()),
+                                    Text(
+                                      " transactions",
+                                      style: TextStyle(fontSize: 10),
+                                    ),
+                                  ],
                                 ),
-                              ],
+                              ),
                             ),
                           ),
                         ),
-                      ),
-                    ),
-                    AbsorbPointer(
-                      absorbing:
-                          !step09Complete, // ถ้าไม่ครบจะทำให้ไม่สามารถกดได้
-                      child: InkWell(
-                        onTap: () {
-                          print(_data.value[0].LOCATION);
-                          print(_data.value[0].PLANT);
-                          if (step09Complete) {
-                            P01PROGRESSVAR.sendLocation =
-                                _data.value[0].LOCATION;
-                            P01PROGRESSVAR.sendPlant = _data.value[0].PLANT;
-                            P01PROGRESSVAR.changeStep = 'step9';
-                            print(P01PROGRESSVAR.changeStep);
-                            print(transactionsCount9.toString() +
-                                " transactions");
-                            CuPage = Page7();
-                            MainBodyContext.read<ChangePage_Bloc>()
-                                .add(ChangePage_nodrower());
-                          }
-                        },
-                        child: Container(
-                          decoration: BoxDecoration(
-                            color: step09Complete
-                                ? Colors.greenAccent
-                                : Colors.grey.shade500,
-                            border: Border.all(color: Colors.black),
-                            borderRadius: BorderRadius.circular(10),
-                          ),
-                          height: 80,
-                          width: 100,
-                          child: Center(
-                            child: Column(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              children: [
-                                Text(transactionsCount9.toString()),
-                                Text(
-                                  " transactions",
-                                  style: TextStyle(fontSize: 10),
+                        AbsorbPointer(
+                          absorbing:
+                              !step09Complete, // ถ้าไม่ครบจะทำให้ไม่สามารถกดได้
+                          child: InkWell(
+                            onTap: () {
+                              print(_data.value[0].LOCATION);
+                              print(_data.value[0].PLANT);
+                              if (step09Complete) {
+                                P01PROGRESSVAR.sendLocation =
+                                    _data.value[0].LOCATION;
+                                P01PROGRESSVAR.sendPlant = _data.value[0].PLANT;
+                                P01PROGRESSVAR.changeStep = 'step9';
+                                print(P01PROGRESSVAR.changeStep);
+                                print(transactionsCount9.toString() +
+                                    " transactions");
+                                CuPage = Page7();
+                                MainBodyContext.read<ChangePage_Bloc>()
+                                    .add(ChangePage_nodrower());
+                              }
+                            },
+                            child: Container(
+                              decoration: BoxDecoration(
+                                color: step09Complete
+                                    ? Colors.greenAccent
+                                    : Colors.grey.shade400,
+                                border: Border.all(color: Colors.black),
+                                borderRadius: BorderRadius.circular(0),
+                              ),
+                              height: 80,
+                              width: 100,
+                              child: Center(
+                                child: Column(
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  children: [
+                                    Text(transactionsCount9.toString()),
+                                    Text(
+                                      " transactions",
+                                      style: TextStyle(fontSize: 10),
+                                    ),
+                                  ],
                                 ),
-                              ],
+                              ),
                             ),
                           ),
                         ),
-                      ),
+                      ],
                     ),
+                    SizedBox(height: 5),
                   ],
                 );
               }).toList()

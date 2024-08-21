@@ -132,7 +132,7 @@ class _P08PROGRESSMAINBodyState extends State<P08PROGRESSMAINBody> {
                                       duration: Duration(milliseconds: 100),
                                       builder: (context, color, child) {
                                         return Icon(
-                                          Icons.factory,
+                                          Icons.fireplace_rounded,
                                           size: size,
                                           color: color,
                                         );

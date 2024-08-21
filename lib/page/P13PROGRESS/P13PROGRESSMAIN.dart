@@ -190,25 +190,33 @@ class _P13PROGRESSMAINState extends State<P13PROGRESSMAIN> {
                               ),
                               SizedBox(width: 10),
                               SizedBox(
-                                width: 60,
-                                height: 50,
-                                child: ElevatedButton(
-                                  onPressed: () {
-                                    context
-                                        .read<P13PROGRESSGETDATA_Bloc>()
-                                        .add(P13PROGRESSGETDATA_GET());
-                                  },
-                                  style: ElevatedButton.styleFrom(
-                                    shape: RoundedRectangleBorder(
-                                      borderRadius:
-                                          BorderRadius.all(Radius.circular(30)),
+                                child: Column(
+                                  children: [
+                                    ElevatedButton(
+                                      onPressed: () {
+                                        context
+                                            .read<P13PROGRESSGETDATA_Bloc>()
+                                            .add(P13PROGRESSGETDATA_GET());
+                                      },
+                                      style: ElevatedButton.styleFrom(
+                                        shape: const CircleBorder(),
+                                        padding: const EdgeInsets.all(10),
+                                      ),
+                                      child: const Icon(
+                                        Icons.refresh_rounded,
+                                        color: Colors.white,
+                                        size: 30,
+                                      ),
                                     ),
-                                  ),
-                                  child: const Icon(
-                                    Icons.refresh_rounded,
-                                    color: Colors.white,
-                                    size: 30,
-                                  ),
+                                    SizedBox(height: 5),
+                                    Text(
+                                      'Refresh',
+                                      style: TextStyle(
+                                          fontSize: 10,
+                                          color: Colors.black,
+                                          fontWeight: FontWeight.bold),
+                                    )
+                                  ],
                                 ),
                               ),
                             ],

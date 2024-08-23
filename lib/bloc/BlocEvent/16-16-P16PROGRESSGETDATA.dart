@@ -1,9 +1,8 @@
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:newmaster/page/P16PROGRESS/P16PROGRESSMAIN.dart';
-
 import '../../data/global.dart';
+import '../../page/P16PROGRESS/P16PROGRESSMAIN.dart';
 import '../../widget/common/Loading.dart';
 
 //-------------------------------------------------
@@ -38,7 +37,7 @@ class P16PROGRESSGETDATA_Bloc
 
   Future<void> _P16PROGRESSGETDATA_GET(List<P16PROGRESSGETDATAclass> toAdd,
       Emitter<List<P16PROGRESSGETDATAclass>> emit) async {
-    FreeLoading(P16PROGRESSMAINcontext);
+    FreeLoadingTan(P16PROGRESSMAINcontext);
     List<P16PROGRESSGETDATAclass> output = [];
     //-------------------------------------------------------------------------------------
     var now = DateTime.now();

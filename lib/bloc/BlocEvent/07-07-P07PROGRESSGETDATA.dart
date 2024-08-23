@@ -1,5 +1,4 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
-import '../../page/P1PROGRESS/P01PROGRESSMAIN.dart';
 import '../../data/dummydata2.dart';
 import '../../page/P1PROGRESS/P01PROGRESSVAR.dart';
 

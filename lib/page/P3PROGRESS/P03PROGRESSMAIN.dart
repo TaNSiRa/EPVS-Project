@@ -1,11 +1,12 @@
+// ignore_for_file: prefer_const_constructors
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:newmaster/page/page10.dart';
 import '../../bloc/BlocEvent/03-03-P03PROGRESSGETDATA.dart';
 import '../../bloc/BlocEvent/ChangePageEvent.dart';
 import '../../data/global.dart';
 import '../../mainBody.dart';
 import '../P1PROGRESS/P01PROGRESSVAR.dart';
+import '../page10.dart';
 import '../page7.dart';
 
 class P03PROGRESSMAIN extends StatefulWidget {

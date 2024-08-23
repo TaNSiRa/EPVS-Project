@@ -1,21 +1,12 @@
 // ignore_for_file: prefer_const_constructors
-
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:newmaster/data/global.dart';
-import 'package:newmaster/page/page10.dart';
-import 'package:newmaster/page/page8.dart';
-
 import '../../bloc/BlocEvent/ChangePageEvent.dart';
+import '../../data/global.dart';
 import '../../mainBody.dart';
-import '../page1.dart';
-import '../page2.dart';
-import '../page3.dart';
-import '../page4.dart';
+import '../page10.dart';
+import '../page8.dart';
 import 'P09PROGRESSVAR.dart';
-// import 'package:flutter_bloc/flutter_bloc.dart';
-
-// import '../bloc/cubit/NotificationEvent.dart';
 
 class P09PROGRESSMAIN extends StatefulWidget {
   const P09PROGRESSMAIN({super.key});

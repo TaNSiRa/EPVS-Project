@@ -1,16 +1,11 @@
+// ignore_for_file: prefer_const_constructors
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:newmaster/page/page10.dart';
 import '../../bloc/BlocEvent/13-13-P13PROGRESSGETDATA.dart';
 import '../../bloc/BlocEvent/ChangePageEvent.dart';
 import '../../data/global.dart';
 import '../../mainBody.dart';
-import '../P1PROGRESS/P01PROGRESSVAR.dart';
-import '../page1.dart';
-import '../page12.dart';
-import '../page14.dart';
-import '../page15.dart';
-import '../page7.dart';
+import '../page10.dart';
 import 'P13PROGRESSVAR.dart';
 
 late BuildContext P13PROGRESSMAINcontext;
@@ -37,7 +32,6 @@ class _P13PROGRESSMAINState extends State<P13PROGRESSMAIN> {
   Widget build(BuildContext context) {
     P13PROGRESSMAINcontext = context;
     List<P13PROGRESSGETDATAclass> _datain = widget.data ?? [];
-    print(_datain);
     List<P13PROGRESSGETDATAclass> filteredData = _datain.where((item) {
       switch (P13PROGRESSVAR.selectedColumn) {
         case 'MATCP':
@@ -82,19 +76,9 @@ class _P13PROGRESSMAINState extends State<P13PROGRESSMAIN> {
             child: IconButton(
               icon: Icon(Icons.arrow_back_ios_new_rounded, size: 30),
               onPressed: () {
-                if (USERDATA.BRANCH == 'BP12') {
-                  CuPage = Page12();
-                  MainBodyContext.read<ChangePage_Bloc>()
-                      .add(ChangePage_nodrower());
-                } else if (USERDATA.BRANCH == 'GW') {
-                  CuPage = Page14();
-                  MainBodyContext.read<ChangePage_Bloc>()
-                      .add(ChangePage_nodrower());
-                } else if (USERDATA.BRANCH == 'ESIE1') {
-                  CuPage = Page15();
-                  MainBodyContext.read<ChangePage_Bloc>()
-                      .add(ChangePage_nodrower());
-                }
+                CuPage = Page10();
+                MainBodyContext.read<ChangePage_Bloc>()
+                    .add(ChangePage_nodrower());
               },
             ),
           ),

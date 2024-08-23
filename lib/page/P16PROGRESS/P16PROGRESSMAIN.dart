@@ -1,12 +1,13 @@
+// ignore_for_file: prefer_const_constructors
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:newmaster/page/page2.dart';
-import 'package:newmaster/page/page4.dart';
 import '../../bloc/BlocEvent/16-16-P16PROGRESSGETDATA.dart';
 import '../../bloc/BlocEvent/ChangePageEvent.dart';
 import '../../data/global.dart';
 import '../../mainBody.dart';
 import '../page1.dart';
+import '../page2.dart';
+import '../page4.dart';
 import 'P16PROGRESSVAR.dart';
 
 late BuildContext P16PROGRESSMAINcontext;
@@ -33,7 +34,6 @@ class _P16PROGRESSMAINState extends State<P16PROGRESSMAIN> {
   Widget build(BuildContext context) {
     P16PROGRESSMAINcontext = context;
     List<P16PROGRESSGETDATAclass> _datain = widget.data ?? [];
-    print(_datain);
     List<P16PROGRESSGETDATAclass> filteredData = _datain.where((item) {
       switch (P16PROGRESSVAR.selectedColumn) {
         case 'PO NO.':

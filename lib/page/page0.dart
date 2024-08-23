@@ -1,14 +1,6 @@
 import 'package:flutter/material.dart';
 import 'TEST.dart';
-import 'page1.dart';
-import 'page10.dart';
-import 'page11.dart';
-import 'page13.dart';
-import 'page17.dart';
-import 'page5.dart';
-import 'page7.dart';
 import 'page8.dart';
-import 'page9.dart';
 
 bool isChecked = false;
 

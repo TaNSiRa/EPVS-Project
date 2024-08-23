@@ -1,12 +1,11 @@
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:newmaster/widget/common/Loading.dart';
-
 import '../../data/dummydata2.dart';
 import '../../data/global.dart';
 import '../../page/P4PROGRESS/P04PROGRESSMAIN.dart';
 import '../../page/P4PROGRESS/P04PROGRESSVAR.dart';
+import '../../widget/common/Loading.dart';
 
 //-------------------------------------------------
 
@@ -40,7 +39,7 @@ class P04PROGRESSGETDATA_Bloc
 
   Future<void> _P04PROGRESSGETDATA_GET(List<P04PROGRESSGETDATAclass> toAdd,
       Emitter<List<P04PROGRESSGETDATAclass>> emit) async {
-    FreeLoading(P04PROGRESSMAINcontext);
+    FreeLoadingTan(P04PROGRESSMAINcontext);
     List<P04PROGRESSGETDATAclass> output = [];
     //-------------------------------------------------------------------------------------
     var input = dummydatainput2;

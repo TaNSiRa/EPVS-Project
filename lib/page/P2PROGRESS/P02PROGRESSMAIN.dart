@@ -1,12 +1,13 @@
+// ignore_for_file: prefer_const_constructors
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:newmaster/page/page10.dart';
-import 'package:newmaster/page/page16.dart';
 import '../../bloc/BlocEvent/02-02-P02PROGRESSGETDATA.dart';
 import '../../bloc/BlocEvent/ChangePageEvent.dart';
 import '../../data/global.dart';
 import '../../mainBody.dart';
 import '../P1PROGRESS/P01PROGRESSVAR.dart';
+import '../page10.dart';
+import '../page16.dart';
 import '../page7.dart';
 import 'P02PROGRESSVAR.dart';
 
@@ -320,7 +321,6 @@ class _P02PROGRESSMAINState extends State<P02PROGRESSMAIN> {
                 bool step01Complete = steps.any((step) => step.STEP01 == 'YES');
                 bool step02Complete = steps.any((step) => step.STEP02 == 'YES');
                 bool step03Complete = steps.any((step) => step.STEP03 == 'YES');
-                bool step04Complete = steps.any((step) => step.STEP04 == 'YES');
                 bool step05Complete = steps.any((step) => step.STEP05 == 'YES');
                 bool step06Complete = steps.any((step) => step.STEP06 == 'YES');
                 bool step07Complete = steps.any((step) => step.STEP07 == 'YES');
@@ -330,7 +330,6 @@ class _P02PROGRESSMAINState extends State<P02PROGRESSMAIN> {
                 int transactionsCount1 = _getPlantTransactionsCount(plant, 1);
                 int transactionsCount2 = _getPlantTransactionsCount(plant, 2);
                 int transactionsCount3 = _getPlantTransactionsCount(plant, 3);
-                int transactionsCount4 = _getPlantTransactionsCount(plant, 4);
                 int transactionsCount5 = _getPlantTransactionsCount(plant, 5);
                 int transactionsCount6 = _getPlantTransactionsCount(plant, 6);
                 int transactionsCount7 = _getPlantTransactionsCount(plant, 7);
@@ -873,7 +872,7 @@ class _P02PROGRESSMAINState extends State<P02PROGRESSMAIN> {
                         ),
                       ],
                     ),
-                    SizedBox(height: 5),
+                    // SizedBox(height: 5),
                   ],
                 );
               }).toList()

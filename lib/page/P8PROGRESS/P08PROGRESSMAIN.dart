@@ -1,11 +1,11 @@
+// ignore_for_file: prefer_const_constructors
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:newmaster/data/global.dart';
-import 'package:newmaster/page/page9.dart';
-
 import '../../bloc/BlocEvent/ChangePageEvent.dart';
+import '../../data/global.dart';
 import '../../mainBody.dart';
-import '../page11.dart';
+import '../page18.dart';
+import '../page9.dart';
 import 'P08PROGRESSVAR.dart';
 
 class P08PROGRESSMAIN extends StatefulWidget {
@@ -185,7 +185,7 @@ class _P08PROGRESSMAINBodyState extends State<P08PROGRESSMAINBody> {
                           });
                           USERDATA.INSMASTER = 'CHEMICAL';
                           print(USERDATA.INSMASTER);
-                          CuPage = Page11();
+                          CuPage = Page18();
                           MainBodyContext.read<ChangePage_Bloc>()
                               .add(ChangePage_nodrower());
                         },

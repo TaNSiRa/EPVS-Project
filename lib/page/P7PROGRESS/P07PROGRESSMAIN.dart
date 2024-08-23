@@ -1,7 +1,6 @@
 // ignore_for_file: prefer_const_constructors, no_leading_underscores_for_local_identifiers, must_be_immutable, file_names
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:newmaster/page/page10.dart';
 import '../../bloc/BlocEvent/07-07-P07PROGRESSGETDATA.dart';
 import '../../bloc/BlocEvent/ChangePageEvent.dart';
 import '../../data/global.dart';
@@ -10,7 +9,6 @@ import '../P1PROGRESS/P01PROGRESSVAR.dart';
 import '../page1.dart';
 import '../page2.dart';
 import '../page4.dart';
-import '../page9.dart';
 
 class P07PROGRESSMAIN extends StatefulWidget {
   P07PROGRESSMAIN({

@@ -1,7 +1,6 @@
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-
 import '../../data/dummydata2.dart';
 import '../../data/global.dart';
 import '../../page/P1PROGRESS/P01PROGRESSMAIN.dart';
@@ -40,7 +39,7 @@ class P01PROGRESSGETDATA_Bloc
 
   Future<void> _P01PROGRESSGETDATA_GET(List<P01PROGRESSGETDATAclass> toAdd,
       Emitter<List<P01PROGRESSGETDATAclass>> emit) async {
-    FreeLoading(P01PROGRESSMAINcontext);
+    FreeLoadingTan(P01PROGRESSMAINcontext);
     List<P01PROGRESSGETDATAclass> output = [];
     //-------------------------------------------------------------------------------------
     var input = dummydatainput2;

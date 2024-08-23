@@ -16,6 +16,10 @@ class USERDATA {
   static String BRANCHNUMBER = '';
   static String PLANT = '';
   static String PLANTNUMBER = '';
+  static String PLANTNAME = '';
+  static String TANK = '';
+  static String ORDER = '';
+  static String CONTEXT = '';
 }
 
 class logindata {

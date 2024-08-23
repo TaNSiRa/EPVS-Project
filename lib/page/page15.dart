@@ -1,8 +1,5 @@
 import 'package:flutter/material.dart';
 
-import 'P10PROGRESS/P10PROGRESSMAIN.dart';
-import 'P12PROGRESS/P12PROGRESSMAIN.dart';
-import 'P14PROGRESS/P14PROGRESSMAIN.dart';
 import 'P15PROGRESS/P15PROGRESSMAIN.dart';
 
 class Page15 extends StatelessWidget {

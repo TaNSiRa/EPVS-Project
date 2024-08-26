@@ -1,15 +1,22 @@
 // ignore_for_file: prefer_const_constructors
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import '../../bloc/BlocEvent/19-19-P19PROGRESSGETDATA.dart';
 import '../../bloc/BlocEvent/ChangePageEvent.dart';
 import '../../data/global.dart';
 import '../../mainBody.dart';
-import '../page13.dart';
 import '../page18.dart';
+import '../page26.dart';
 import 'P24PROGRESSVAR.dart';
 
+late BuildContext P19PROGRESSMAINcontext;
+
 class P24PROGRESSMAIN extends StatefulWidget {
-  const P24PROGRESSMAIN({super.key});
+  P24PROGRESSMAIN({
+    super.key,
+    this.data,
+  });
+  List<P19PROGRESSGETDATAclass>? data;
 
   @override
   State<P24PROGRESSMAIN> createState() => _P24PROGRESSMAINState();
@@ -17,21 +24,15 @@ class P24PROGRESSMAIN extends StatefulWidget {
 
 class _P24PROGRESSMAINState extends State<P24PROGRESSMAIN> {
   @override
-  Widget build(BuildContext context) {
-    return P24PROGRESSMAINBody();
+  void initState() {
+    super.initState();
+    context.read<P19PROGRESSGETDATA_Bloc>().add(P19PROGRESSGETDATA_GET());
   }
-}
 
-class P24PROGRESSMAINBody extends StatefulWidget {
-  const P24PROGRESSMAINBody({super.key});
-
-  @override
-  State<P24PROGRESSMAINBody> createState() => _P24PROGRESSMAINBodyState();
-}
-
-class _P24PROGRESSMAINBodyState extends State<P24PROGRESSMAINBody> {
   @override
   Widget build(BuildContext context) {
+    P19PROGRESSMAINcontext = context;
+    List<P19PROGRESSGETDATAclass> _datain = widget.data ?? [];
     return Scaffold(
       body: Stack(
         children: [
@@ -47,6 +48,39 @@ class _P24PROGRESSMAINBodyState extends State<P24PROGRESSMAINBody> {
               },
             ),
           ),
+          Positioned(
+            top: 10,
+            right: 50,
+            child: Column(
+              children: [
+                ElevatedButton(
+                  onPressed: () {
+                    context
+                        .read<P19PROGRESSGETDATA_Bloc>()
+                        .add(P19PROGRESSGETDATA_GET());
+                  },
+                  style: ElevatedButton.styleFrom(
+                    shape: const CircleBorder(),
+                    padding: const EdgeInsets.all(10),
+                    backgroundColor: Colors.black,
+                  ),
+                  child: const Icon(
+                    Icons.refresh_rounded,
+                    color: Colors.white,
+                    size: 30,
+                  ),
+                ),
+                SizedBox(height: 5),
+                Text(
+                  'Refresh',
+                  style: TextStyle(
+                      fontSize: 10,
+                      color: Colors.black,
+                      fontWeight: FontWeight.bold),
+                )
+              ],
+            ),
+          ),
           Column(
             children: [
               Padding(
@@ -59,7 +93,7 @@ class _P24PROGRESSMAINBodyState extends State<P24PROGRESSMAINBody> {
                       end: Alignment.bottomRight,
                     ).createShader(bounds),
                     child: Text(
-                      USERDATA.PLANT + ' : SELECT TANK',
+                      USERDATA.PLANTNAME + ' : SELECT TANK',
                       style: TextStyle(
                         fontSize: 20.0,
                         fontWeight: FontWeight.bold,
@@ -69,988 +103,1193 @@ class _P24PROGRESSMAINBodyState extends State<P24PROGRESSMAINBody> {
                   ),
                 ),
               ),
-              Expanded(
-                child: SingleChildScrollView(
-                  child: Center(
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Wrap(
-                          spacing: 10.0,
-                          runSpacing: 10.0,
-                          children: [
-                            MouseRegion(
-                              onEnter: (_) {
-                                setState(() {
-                                  P24PROGRESSVAR.isHoveredPM1 = true;
-                                });
-                              },
-                              onExit: (_) {
-                                setState(() {
-                                  P24PROGRESSVAR.isHoveredPM1 = false;
-                                });
-                              },
-                              child: Padding(
-                                padding: const EdgeInsets.all(10.0),
-                                child: InkWell(
-                                  onTap: () {
-                                    setState(() {
-                                      P24PROGRESSVAR.isHoveredPM1 = false;
-                                    });
-                                    // USERDATA.PLANTNUMBER = PLANTNUMBER.BPPM2;
-                                    USERDATA.TANK = 'LIQUIDPM1';
-                                    print(USERDATA.TANK);
-                                    print(USERDATA.PLANTNUMBER);
-                                    if (USERDATA.ACTION == 'INCOMING') {
-                                      CuPage = Page13();
+              ..._datain.map((_data) {
+                return Expanded(
+                  child: SingleChildScrollView(
+                    child: Center(
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Wrap(
+                            spacing: 10.0,
+                            runSpacing: 10.0,
+                            children: [
+                              MouseRegion(
+                                onEnter: (_) {
+                                  setState(() {
+                                    P24PROGRESSVAR.isHoveredPM1 = true;
+                                  });
+                                },
+                                onExit: (_) {
+                                  setState(() {
+                                    P24PROGRESSVAR.isHoveredPM1 = false;
+                                  });
+                                },
+                                child: Padding(
+                                  padding: const EdgeInsets.all(10.0),
+                                  child: InkWell(
+                                    onTap: () {
+                                      setState(() {
+                                        P24PROGRESSVAR.isHoveredPM1 = false;
+                                      });
+                                      USERDATA.TANK = 'PM1';
+                                      USERDATA.ORDER = _data.PM1ORDER;
+                                      print(USERDATA.TANK);
+                                      print(USERDATA.ORDER);
+                                      CuPage = Page26();
                                       MainBodyContext.read<ChangePage_Bloc>()
                                           .add(ChangePage_nodrower());
-                                    } else {}
-                                  },
-                                  child: AnimatedContainer(
-                                    duration: Duration(milliseconds: 100),
-                                    height:
-                                        P24PROGRESSVAR.isHoveredPM1 ? 170 : 150,
-                                    width:
-                                        P24PROGRESSVAR.isHoveredPM1 ? 170 : 150,
-                                    decoration: BoxDecoration(
-                                      color: P24PROGRESSVAR.isHoveredPM1
-                                          ? Colors.greenAccent
-                                          : Colors.green,
-                                      border: Border.all(
-                                        color: Colors.black,
-                                        width: 2.0,
+                                    },
+                                    child: AnimatedContainer(
+                                      duration: Duration(milliseconds: 100),
+                                      height: P24PROGRESSVAR.isHoveredPM1
+                                          ? 170
+                                          : 150,
+                                      width: P24PROGRESSVAR.isHoveredPM1
+                                          ? 170
+                                          : 150,
+                                      decoration: BoxDecoration(
+                                        color: P24PROGRESSVAR.isHoveredPM1
+                                            ? Colors.greenAccent
+                                            : Colors.green,
+                                        border: Border.all(
+                                          color: Colors.black,
+                                          width: 2.0,
+                                        ),
+                                        borderRadius: BorderRadius.circular(10),
                                       ),
-                                      borderRadius: BorderRadius.circular(10),
-                                    ),
-                                    child: Center(
-                                      child: Text(
-                                        'PM1',
-                                        style: TextStyle(
-                                            color: Colors.white, fontSize: 20),
+                                      child: Center(
+                                        child: Column(
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.spaceEvenly,
+                                          children: [
+                                            Text(
+                                              'TANK : PM1',
+                                              style: TextStyle(
+                                                  color: Colors.white,
+                                                  fontSize: 16),
+                                            ),
+                                            Text(
+                                              'Order : ' + _data.PM1ORDER,
+                                              style: TextStyle(
+                                                  color: Colors.white,
+                                                  fontSize: 16),
+                                            ),
+                                          ],
+                                        ),
                                       ),
                                     ),
                                   ),
                                 ),
                               ),
-                            ),
-                            MouseRegion(
-                              onEnter: (_) {
-                                setState(() {
-                                  P24PROGRESSVAR.isHoveredPM2 = true;
-                                });
-                              },
-                              onExit: (_) {
-                                setState(() {
-                                  P24PROGRESSVAR.isHoveredPM2 = false;
-                                });
-                              },
-                              child: Padding(
-                                padding: const EdgeInsets.all(10.0),
-                                child: InkWell(
-                                  onTap: () {
-                                    setState(() {
-                                      P24PROGRESSVAR.isHoveredPM2 = false;
-                                    });
-                                    // USERDATA.PLANTNUMBER = PLANTNUMBER.BPPM2;
-                                    USERDATA.TANK = 'LIQUIDPM2';
-                                    print(USERDATA.TANK);
-                                    print(USERDATA.PLANTNUMBER);
-                                    if (USERDATA.ACTION == 'INCOMING') {
-                                      CuPage = Page13();
+                              MouseRegion(
+                                onEnter: (_) {
+                                  setState(() {
+                                    P24PROGRESSVAR.isHoveredPM2 = true;
+                                  });
+                                },
+                                onExit: (_) {
+                                  setState(() {
+                                    P24PROGRESSVAR.isHoveredPM2 = false;
+                                  });
+                                },
+                                child: Padding(
+                                  padding: const EdgeInsets.all(10.0),
+                                  child: InkWell(
+                                    onTap: () {
+                                      setState(() {
+                                        P24PROGRESSVAR.isHoveredPM2 = false;
+                                      });
+                                      USERDATA.TANK = 'PM2';
+                                      USERDATA.ORDER = _data.PM2ORDER;
+                                      print(USERDATA.TANK);
+                                      print(USERDATA.ORDER);
+                                      CuPage = Page26();
                                       MainBodyContext.read<ChangePage_Bloc>()
                                           .add(ChangePage_nodrower());
-                                    } else {}
-                                  },
-                                  child: AnimatedContainer(
-                                    duration: Duration(milliseconds: 100),
-                                    height:
-                                        P24PROGRESSVAR.isHoveredPM2 ? 170 : 150,
-                                    width:
-                                        P24PROGRESSVAR.isHoveredPM2 ? 170 : 150,
-                                    decoration: BoxDecoration(
-                                      color: P24PROGRESSVAR.isHoveredPM2
-                                          ? Colors.greenAccent
-                                          : Colors.green,
-                                      border: Border.all(
-                                        color: Colors.black,
-                                        width: 2.0,
+                                    },
+                                    child: AnimatedContainer(
+                                      duration: Duration(milliseconds: 100),
+                                      height: P24PROGRESSVAR.isHoveredPM2
+                                          ? 170
+                                          : 150,
+                                      width: P24PROGRESSVAR.isHoveredPM2
+                                          ? 170
+                                          : 150,
+                                      decoration: BoxDecoration(
+                                        color: P24PROGRESSVAR.isHoveredPM2
+                                            ? Colors.greenAccent
+                                            : Colors.green,
+                                        border: Border.all(
+                                          color: Colors.black,
+                                          width: 2.0,
+                                        ),
+                                        borderRadius: BorderRadius.circular(10),
                                       ),
-                                      borderRadius: BorderRadius.circular(10),
-                                    ),
-                                    child: Center(
-                                      child: Text(
-                                        'PM2',
-                                        style: TextStyle(
-                                            color: Colors.white, fontSize: 20),
+                                      child: Center(
+                                        child: Column(
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.spaceEvenly,
+                                          children: [
+                                            Text(
+                                              'TANK : PM2',
+                                              style: TextStyle(
+                                                  color: Colors.white,
+                                                  fontSize: 16),
+                                            ),
+                                            Text(
+                                              'Order : ' + _data.PM2ORDER,
+                                              style: TextStyle(
+                                                  color: Colors.white,
+                                                  fontSize: 16),
+                                            ),
+                                          ],
+                                        ),
                                       ),
                                     ),
                                   ),
                                 ),
                               ),
-                            ),
-                            MouseRegion(
-                              onEnter: (_) {
-                                setState(() {
-                                  P24PROGRESSVAR.isHoveredPM3 = true;
-                                });
-                              },
-                              onExit: (_) {
-                                setState(() {
-                                  P24PROGRESSVAR.isHoveredPM3 = false;
-                                });
-                              },
-                              child: Padding(
-                                padding: const EdgeInsets.all(10.0),
-                                child: InkWell(
-                                  onTap: () {
-                                    setState(() {
-                                      P24PROGRESSVAR.isHoveredPM3 = false;
-                                    });
-                                    // USERDATA.PLANTNUMBER = PLANTNUMBER.BPPM3;
-                                    USERDATA.TANK = 'LIQUIDPM3';
-                                    print(USERDATA.TANK);
-                                    print(USERDATA.PLANTNUMBER);
-                                    if (USERDATA.ACTION == 'INCOMING') {
-                                      CuPage = Page13();
+                              MouseRegion(
+                                onEnter: (_) {
+                                  setState(() {
+                                    P24PROGRESSVAR.isHoveredPM3 = true;
+                                  });
+                                },
+                                onExit: (_) {
+                                  setState(() {
+                                    P24PROGRESSVAR.isHoveredPM3 = false;
+                                  });
+                                },
+                                child: Padding(
+                                  padding: const EdgeInsets.all(10.0),
+                                  child: InkWell(
+                                    onTap: () {
+                                      setState(() {
+                                        P24PROGRESSVAR.isHoveredPM3 = false;
+                                      });
+                                      USERDATA.TANK = 'PM3';
+                                      USERDATA.ORDER = _data.PM3ORDER;
+                                      print(USERDATA.TANK);
+                                      print(USERDATA.ORDER);
+                                      CuPage = Page26();
                                       MainBodyContext.read<ChangePage_Bloc>()
                                           .add(ChangePage_nodrower());
-                                    } else {}
-                                  },
-                                  child: AnimatedContainer(
-                                    duration: Duration(milliseconds: 100),
-                                    height:
-                                        P24PROGRESSVAR.isHoveredPM3 ? 170 : 150,
-                                    width:
-                                        P24PROGRESSVAR.isHoveredPM3 ? 170 : 150,
-                                    decoration: BoxDecoration(
-                                      color: P24PROGRESSVAR.isHoveredPM3
-                                          ? Colors.greenAccent
-                                          : Colors.green,
-                                      border: Border.all(
-                                        color: Colors.black,
-                                        width: 2.0,
+                                    },
+                                    child: AnimatedContainer(
+                                      duration: Duration(milliseconds: 100),
+                                      height: P24PROGRESSVAR.isHoveredPM3
+                                          ? 170
+                                          : 150,
+                                      width: P24PROGRESSVAR.isHoveredPM3
+                                          ? 170
+                                          : 150,
+                                      decoration: BoxDecoration(
+                                        color: P24PROGRESSVAR.isHoveredPM3
+                                            ? Colors.greenAccent
+                                            : Colors.green,
+                                        border: Border.all(
+                                          color: Colors.black,
+                                          width: 2.0,
+                                        ),
+                                        borderRadius: BorderRadius.circular(10),
                                       ),
-                                      borderRadius: BorderRadius.circular(10),
-                                    ),
-                                    child: Center(
-                                      child: Text(
-                                        'PM3',
-                                        style: TextStyle(
-                                            color: Colors.white, fontSize: 20),
+                                      child: Center(
+                                        child: Column(
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.spaceEvenly,
+                                          children: [
+                                            Text(
+                                              'TANK : PM3',
+                                              style: TextStyle(
+                                                  color: Colors.white,
+                                                  fontSize: 16),
+                                            ),
+                                            Text(
+                                              'Order : ' + _data.PM3ORDER,
+                                              style: TextStyle(
+                                                  color: Colors.white,
+                                                  fontSize: 16),
+                                            ),
+                                          ],
+                                        ),
                                       ),
                                     ),
                                   ),
                                 ),
                               ),
-                            ),
-                            MouseRegion(
-                              onEnter: (_) {
-                                setState(() {
-                                  P24PROGRESSVAR.isHoveredPM4 = true;
-                                });
-                              },
-                              onExit: (_) {
-                                setState(() {
-                                  P24PROGRESSVAR.isHoveredPM4 = false;
-                                });
-                              },
-                              child: Padding(
-                                padding: const EdgeInsets.all(10.0),
-                                child: InkWell(
-                                  onTap: () {
-                                    setState(() {
-                                      P24PROGRESSVAR.isHoveredPM4 = false;
-                                    });
-                                    // USERDATA.PLANTNUMBER = PLANTNUMBER.BPPM4;
-                                    USERDATA.TANK = 'LIQUIDPM4';
-                                    print(USERDATA.TANK);
-                                    print(USERDATA.PLANTNUMBER);
-                                    if (USERDATA.ACTION == 'INCOMING') {
-                                      CuPage = Page13();
+                              MouseRegion(
+                                onEnter: (_) {
+                                  setState(() {
+                                    P24PROGRESSVAR.isHoveredPM4 = true;
+                                  });
+                                },
+                                onExit: (_) {
+                                  setState(() {
+                                    P24PROGRESSVAR.isHoveredPM4 = false;
+                                  });
+                                },
+                                child: Padding(
+                                  padding: const EdgeInsets.all(10.0),
+                                  child: InkWell(
+                                    onTap: () {
+                                      setState(() {
+                                        P24PROGRESSVAR.isHoveredPM4 = false;
+                                      });
+                                      USERDATA.TANK = 'PM4';
+                                      USERDATA.ORDER = _data.PM4ORDER;
+                                      print(USERDATA.TANK);
+                                      print(USERDATA.ORDER);
+                                      CuPage = Page26();
                                       MainBodyContext.read<ChangePage_Bloc>()
                                           .add(ChangePage_nodrower());
-                                    } else {}
-                                  },
-                                  child: AnimatedContainer(
-                                    duration: Duration(milliseconds: 100),
-                                    height:
-                                        P24PROGRESSVAR.isHoveredPM4 ? 170 : 150,
-                                    width:
-                                        P24PROGRESSVAR.isHoveredPM4 ? 170 : 150,
-                                    decoration: BoxDecoration(
-                                      color: P24PROGRESSVAR.isHoveredPM4
-                                          ? Colors.greenAccent
-                                          : Colors.green,
-                                      border: Border.all(
-                                        color: Colors.black,
-                                        width: 2.0,
+                                    },
+                                    child: AnimatedContainer(
+                                      duration: Duration(milliseconds: 100),
+                                      height: P24PROGRESSVAR.isHoveredPM4
+                                          ? 170
+                                          : 150,
+                                      width: P24PROGRESSVAR.isHoveredPM4
+                                          ? 170
+                                          : 150,
+                                      decoration: BoxDecoration(
+                                        color: P24PROGRESSVAR.isHoveredPM4
+                                            ? Colors.greenAccent
+                                            : Colors.green,
+                                        border: Border.all(
+                                          color: Colors.black,
+                                          width: 2.0,
+                                        ),
+                                        borderRadius: BorderRadius.circular(10),
                                       ),
-                                      borderRadius: BorderRadius.circular(10),
-                                    ),
-                                    child: Center(
-                                      child: Text(
-                                        'PM4',
-                                        style: TextStyle(
-                                            color: Colors.white, fontSize: 20),
+                                      child: Center(
+                                        child: Column(
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.spaceEvenly,
+                                          children: [
+                                            Text(
+                                              'TANK : PM4',
+                                              style: TextStyle(
+                                                  color: Colors.white,
+                                                  fontSize: 16),
+                                            ),
+                                            Text(
+                                              'Order : ' + _data.PM4ORDER,
+                                              style: TextStyle(
+                                                  color: Colors.white,
+                                                  fontSize: 16),
+                                            ),
+                                          ],
+                                        ),
                                       ),
                                     ),
                                   ),
                                 ),
                               ),
-                            ),
-                            MouseRegion(
-                              onEnter: (_) {
-                                setState(() {
-                                  P24PROGRESSVAR.isHoveredPM5 = true;
-                                });
-                              },
-                              onExit: (_) {
-                                setState(() {
-                                  P24PROGRESSVAR.isHoveredPM5 = false;
-                                });
-                              },
-                              child: Padding(
-                                padding: const EdgeInsets.all(10.0),
-                                child: InkWell(
-                                  onTap: () {
-                                    setState(() {
-                                      P24PROGRESSVAR.isHoveredPM5 = false;
-                                    });
-                                    // USERDATA.PLANTNUMBER = PLANTNUMBER.BPPM4;
-                                    USERDATA.TANK = 'LIQUIDPM5';
-                                    print(USERDATA.TANK);
-                                    print(USERDATA.PLANTNUMBER);
-                                    if (USERDATA.ACTION == 'INCOMING') {
-                                      CuPage = Page13();
+                              MouseRegion(
+                                onEnter: (_) {
+                                  setState(() {
+                                    P24PROGRESSVAR.isHoveredPM5 = true;
+                                  });
+                                },
+                                onExit: (_) {
+                                  setState(() {
+                                    P24PROGRESSVAR.isHoveredPM5 = false;
+                                  });
+                                },
+                                child: Padding(
+                                  padding: const EdgeInsets.all(10.0),
+                                  child: InkWell(
+                                    onTap: () {
+                                      setState(() {
+                                        P24PROGRESSVAR.isHoveredPM5 = false;
+                                      });
+                                      USERDATA.TANK = 'PM5';
+                                      USERDATA.ORDER = _data.PM5ORDER;
+                                      print(USERDATA.TANK);
+                                      print(USERDATA.ORDER);
+                                      CuPage = Page26();
                                       MainBodyContext.read<ChangePage_Bloc>()
                                           .add(ChangePage_nodrower());
-                                    } else {}
-                                  },
-                                  child: AnimatedContainer(
-                                    duration: Duration(milliseconds: 100),
-                                    height:
-                                        P24PROGRESSVAR.isHoveredPM5 ? 170 : 150,
-                                    width:
-                                        P24PROGRESSVAR.isHoveredPM5 ? 170 : 150,
-                                    decoration: BoxDecoration(
-                                      color: P24PROGRESSVAR.isHoveredPM5
-                                          ? Colors.greenAccent
-                                          : Colors.green,
-                                      border: Border.all(
-                                        color: Colors.black,
-                                        width: 2.0,
+                                    },
+                                    child: AnimatedContainer(
+                                      duration: Duration(milliseconds: 100),
+                                      height: P24PROGRESSVAR.isHoveredPM5
+                                          ? 170
+                                          : 150,
+                                      width: P24PROGRESSVAR.isHoveredPM5
+                                          ? 170
+                                          : 150,
+                                      decoration: BoxDecoration(
+                                        color: P24PROGRESSVAR.isHoveredPM5
+                                            ? Colors.greenAccent
+                                            : Colors.green,
+                                        border: Border.all(
+                                          color: Colors.black,
+                                          width: 2.0,
+                                        ),
+                                        borderRadius: BorderRadius.circular(10),
                                       ),
-                                      borderRadius: BorderRadius.circular(10),
-                                    ),
-                                    child: Center(
-                                      child: Text(
-                                        'PM5',
-                                        style: TextStyle(
-                                            color: Colors.white, fontSize: 20),
+                                      child: Center(
+                                        child: Column(
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.spaceEvenly,
+                                          children: [
+                                            Text(
+                                              'TANK : PM5',
+                                              style: TextStyle(
+                                                  color: Colors.white,
+                                                  fontSize: 16),
+                                            ),
+                                            Text(
+                                              'Order : ' + _data.PM5ORDER,
+                                              style: TextStyle(
+                                                  color: Colors.white,
+                                                  fontSize: 16),
+                                            ),
+                                          ],
+                                        ),
                                       ),
                                     ),
                                   ),
                                 ),
                               ),
-                            ),
-                            MouseRegion(
-                              onEnter: (_) {
-                                setState(() {
-                                  P24PROGRESSVAR.isHoveredPM6 = true;
-                                });
-                              },
-                              onExit: (_) {
-                                setState(() {
-                                  P24PROGRESSVAR.isHoveredPM6 = false;
-                                });
-                              },
-                              child: Padding(
-                                padding: const EdgeInsets.all(10.0),
-                                child: InkWell(
-                                  onTap: () {
-                                    setState(() {
-                                      P24PROGRESSVAR.isHoveredPM6 = false;
-                                    });
-                                    // USERDATA.PLANTNUMBER = PLANTNUMBER.BPPM4;
-                                    USERDATA.TANK = 'LIQUIDPM6';
-                                    print(USERDATA.TANK);
-                                    print(USERDATA.PLANTNUMBER);
-                                    if (USERDATA.ACTION == 'INCOMING') {
-                                      CuPage = Page13();
+                              MouseRegion(
+                                onEnter: (_) {
+                                  setState(() {
+                                    P24PROGRESSVAR.isHoveredPM6 = true;
+                                  });
+                                },
+                                onExit: (_) {
+                                  setState(() {
+                                    P24PROGRESSVAR.isHoveredPM6 = false;
+                                  });
+                                },
+                                child: Padding(
+                                  padding: const EdgeInsets.all(10.0),
+                                  child: InkWell(
+                                    onTap: () {
+                                      setState(() {
+                                        P24PROGRESSVAR.isHoveredPM6 = false;
+                                      });
+                                      USERDATA.TANK = 'PM6';
+                                      USERDATA.ORDER = _data.PM6ORDER;
+                                      print(USERDATA.TANK);
+                                      print(USERDATA.ORDER);
+                                      CuPage = Page26();
                                       MainBodyContext.read<ChangePage_Bloc>()
                                           .add(ChangePage_nodrower());
-                                    } else {}
-                                  },
-                                  child: AnimatedContainer(
-                                    duration: Duration(milliseconds: 100),
-                                    height:
-                                        P24PROGRESSVAR.isHoveredPM6 ? 170 : 150,
-                                    width:
-                                        P24PROGRESSVAR.isHoveredPM6 ? 170 : 150,
-                                    decoration: BoxDecoration(
-                                      color: P24PROGRESSVAR.isHoveredPM6
-                                          ? Colors.greenAccent
-                                          : Colors.green,
-                                      border: Border.all(
-                                        color: Colors.black,
-                                        width: 2.0,
+                                    },
+                                    child: AnimatedContainer(
+                                      duration: Duration(milliseconds: 100),
+                                      height: P24PROGRESSVAR.isHoveredPM6
+                                          ? 170
+                                          : 150,
+                                      width: P24PROGRESSVAR.isHoveredPM6
+                                          ? 170
+                                          : 150,
+                                      decoration: BoxDecoration(
+                                        color: P24PROGRESSVAR.isHoveredPM6
+                                            ? Colors.greenAccent
+                                            : Colors.green,
+                                        border: Border.all(
+                                          color: Colors.black,
+                                          width: 2.0,
+                                        ),
+                                        borderRadius: BorderRadius.circular(10),
                                       ),
-                                      borderRadius: BorderRadius.circular(10),
-                                    ),
-                                    child: Center(
-                                      child: Text(
-                                        'PM6',
-                                        style: TextStyle(
-                                            color: Colors.white, fontSize: 20),
+                                      child: Center(
+                                        child: Column(
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.spaceEvenly,
+                                          children: [
+                                            Text(
+                                              'TANK : PM6',
+                                              style: TextStyle(
+                                                  color: Colors.white,
+                                                  fontSize: 16),
+                                            ),
+                                            Text(
+                                              'Order : ' + _data.PM6ORDER,
+                                              style: TextStyle(
+                                                  color: Colors.white,
+                                                  fontSize: 16),
+                                            ),
+                                          ],
+                                        ),
                                       ),
                                     ),
                                   ),
                                 ),
                               ),
-                            ),
-                          ],
-                        ),
-                        SizedBox(height: 10),
-                        Wrap(
-                          spacing: 10.0,
-                          runSpacing: 10.0,
-                          children: [
-                            MouseRegion(
-                              onEnter: (_) {
-                                setState(() {
-                                  P24PROGRESSVAR.isHoveredPM7 = true;
-                                });
-                              },
-                              onExit: (_) {
-                                setState(() {
-                                  P24PROGRESSVAR.isHoveredPM7 = false;
-                                });
-                              },
-                              child: Padding(
-                                padding: const EdgeInsets.all(10.0),
-                                child: InkWell(
-                                  onTap: () {
-                                    setState(() {
-                                      P24PROGRESSVAR.isHoveredPM7 = false;
-                                    });
-                                    // USERDATA.PLANTNUMBER = PLANTNUMBER.BPPM2;
-                                    USERDATA.TANK = 'LIQUIDPM7';
-                                    print(USERDATA.TANK);
-                                    print(USERDATA.PLANTNUMBER);
-                                    if (USERDATA.ACTION == 'INCOMING') {
-                                      CuPage = Page13();
+                            ],
+                          ),
+                          Wrap(
+                            spacing: 10.0,
+                            runSpacing: 10.0,
+                            children: [
+                              MouseRegion(
+                                onEnter: (_) {
+                                  setState(() {
+                                    P24PROGRESSVAR.isHoveredPM7 = true;
+                                  });
+                                },
+                                onExit: (_) {
+                                  setState(() {
+                                    P24PROGRESSVAR.isHoveredPM7 = false;
+                                  });
+                                },
+                                child: Padding(
+                                  padding: const EdgeInsets.all(10.0),
+                                  child: InkWell(
+                                    onTap: () {
+                                      setState(() {
+                                        P24PROGRESSVAR.isHoveredPM7 = false;
+                                      });
+                                      USERDATA.TANK = 'PM7';
+                                      USERDATA.ORDER = _data.PM7ORDER;
+                                      print(USERDATA.TANK);
+                                      print(USERDATA.ORDER);
+                                      CuPage = Page26();
                                       MainBodyContext.read<ChangePage_Bloc>()
                                           .add(ChangePage_nodrower());
-                                    } else {}
-                                  },
-                                  child: AnimatedContainer(
-                                    duration: Duration(milliseconds: 100),
-                                    height:
-                                        P24PROGRESSVAR.isHoveredPM7 ? 170 : 150,
-                                    width:
-                                        P24PROGRESSVAR.isHoveredPM7 ? 170 : 150,
-                                    decoration: BoxDecoration(
-                                      color: P24PROGRESSVAR.isHoveredPM7
-                                          ? Colors.greenAccent
-                                          : Colors.green,
-                                      border: Border.all(
-                                        color: Colors.black,
-                                        width: 2.0,
+                                    },
+                                    child: AnimatedContainer(
+                                      duration: Duration(milliseconds: 100),
+                                      height: P24PROGRESSVAR.isHoveredPM7
+                                          ? 170
+                                          : 150,
+                                      width: P24PROGRESSVAR.isHoveredPM7
+                                          ? 170
+                                          : 150,
+                                      decoration: BoxDecoration(
+                                        color: P24PROGRESSVAR.isHoveredPM7
+                                            ? Colors.greenAccent
+                                            : Colors.green,
+                                        border: Border.all(
+                                          color: Colors.black,
+                                          width: 2.0,
+                                        ),
+                                        borderRadius: BorderRadius.circular(10),
                                       ),
-                                      borderRadius: BorderRadius.circular(10),
-                                    ),
-                                    child: Center(
-                                      child: Text(
-                                        'PM7',
-                                        style: TextStyle(
-                                            color: Colors.white, fontSize: 20),
+                                      child: Center(
+                                        child: Column(
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.spaceEvenly,
+                                          children: [
+                                            Text(
+                                              'TANK : PM7',
+                                              style: TextStyle(
+                                                  color: Colors.white,
+                                                  fontSize: 16),
+                                            ),
+                                            Text(
+                                              'Order : ' + _data.PM7ORDER,
+                                              style: TextStyle(
+                                                  color: Colors.white,
+                                                  fontSize: 16),
+                                            ),
+                                          ],
+                                        ),
                                       ),
                                     ),
                                   ),
                                 ),
                               ),
-                            ),
-                            MouseRegion(
-                              onEnter: (_) {
-                                setState(() {
-                                  P24PROGRESSVAR.isHoveredPM8 = true;
-                                });
-                              },
-                              onExit: (_) {
-                                setState(() {
-                                  P24PROGRESSVAR.isHoveredPM8 = false;
-                                });
-                              },
-                              child: Padding(
-                                padding: const EdgeInsets.all(10.0),
-                                child: InkWell(
-                                  onTap: () {
-                                    setState(() {
-                                      P24PROGRESSVAR.isHoveredPM8 = false;
-                                    });
-                                    // USERDATA.PLANTNUMBER = PLANTNUMBER.BPPM2;
-                                    USERDATA.TANK = 'LIQUIDPM8';
-                                    print(USERDATA.TANK);
-                                    print(USERDATA.PLANTNUMBER);
-                                    if (USERDATA.ACTION == 'INCOMING') {
-                                      CuPage = Page13();
+                              MouseRegion(
+                                onEnter: (_) {
+                                  setState(() {
+                                    P24PROGRESSVAR.isHoveredPM8 = true;
+                                  });
+                                },
+                                onExit: (_) {
+                                  setState(() {
+                                    P24PROGRESSVAR.isHoveredPM8 = false;
+                                  });
+                                },
+                                child: Padding(
+                                  padding: const EdgeInsets.all(10.0),
+                                  child: InkWell(
+                                    onTap: () {
+                                      setState(() {
+                                        P24PROGRESSVAR.isHoveredPM8 = false;
+                                      });
+                                      USERDATA.TANK = 'PM8';
+                                      USERDATA.ORDER = _data.PM8ORDER;
+                                      print(USERDATA.TANK);
+                                      print(USERDATA.ORDER);
+                                      CuPage = Page26();
                                       MainBodyContext.read<ChangePage_Bloc>()
                                           .add(ChangePage_nodrower());
-                                    } else {}
-                                  },
-                                  child: AnimatedContainer(
-                                    duration: Duration(milliseconds: 100),
-                                    height:
-                                        P24PROGRESSVAR.isHoveredPM8 ? 170 : 150,
-                                    width:
-                                        P24PROGRESSVAR.isHoveredPM8 ? 170 : 150,
-                                    decoration: BoxDecoration(
-                                      color: P24PROGRESSVAR.isHoveredPM8
-                                          ? Colors.greenAccent
-                                          : Colors.green,
-                                      border: Border.all(
-                                        color: Colors.black,
-                                        width: 2.0,
+                                    },
+                                    child: AnimatedContainer(
+                                      duration: Duration(milliseconds: 100),
+                                      height: P24PROGRESSVAR.isHoveredPM8
+                                          ? 170
+                                          : 150,
+                                      width: P24PROGRESSVAR.isHoveredPM8
+                                          ? 170
+                                          : 150,
+                                      decoration: BoxDecoration(
+                                        color: P24PROGRESSVAR.isHoveredPM8
+                                            ? Colors.greenAccent
+                                            : Colors.green,
+                                        border: Border.all(
+                                          color: Colors.black,
+                                          width: 2.0,
+                                        ),
+                                        borderRadius: BorderRadius.circular(10),
                                       ),
-                                      borderRadius: BorderRadius.circular(10),
-                                    ),
-                                    child: Center(
-                                      child: Text(
-                                        'PM8',
-                                        style: TextStyle(
-                                            color: Colors.white, fontSize: 20),
+                                      child: Center(
+                                        child: Column(
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.spaceEvenly,
+                                          children: [
+                                            Text(
+                                              'TANK : PM8',
+                                              style: TextStyle(
+                                                  color: Colors.white,
+                                                  fontSize: 16),
+                                            ),
+                                            Text(
+                                              'Order : ' + _data.PM8ORDER,
+                                              style: TextStyle(
+                                                  color: Colors.white,
+                                                  fontSize: 16),
+                                            ),
+                                          ],
+                                        ),
                                       ),
                                     ),
                                   ),
                                 ),
                               ),
-                            ),
-                            MouseRegion(
-                              onEnter: (_) {
-                                setState(() {
-                                  P24PROGRESSVAR.isHoveredPM9 = true;
-                                });
-                              },
-                              onExit: (_) {
-                                setState(() {
-                                  P24PROGRESSVAR.isHoveredPM9 = false;
-                                });
-                              },
-                              child: Padding(
-                                padding: const EdgeInsets.all(10.0),
-                                child: InkWell(
-                                  onTap: () {
-                                    setState(() {
-                                      P24PROGRESSVAR.isHoveredPM9 = false;
-                                    });
-                                    // USERDATA.PLANTNUMBER = PLANTNUMBER.BPPM3;
-                                    USERDATA.TANK = 'LIQUIDPM9';
-                                    print(USERDATA.TANK);
-                                    print(USERDATA.PLANTNUMBER);
-                                    if (USERDATA.ACTION == 'INCOMING') {
-                                      CuPage = Page13();
+                              MouseRegion(
+                                onEnter: (_) {
+                                  setState(() {
+                                    P24PROGRESSVAR.isHoveredPM9 = true;
+                                  });
+                                },
+                                onExit: (_) {
+                                  setState(() {
+                                    P24PROGRESSVAR.isHoveredPM9 = false;
+                                  });
+                                },
+                                child: Padding(
+                                  padding: const EdgeInsets.all(10.0),
+                                  child: InkWell(
+                                    onTap: () {
+                                      setState(() {
+                                        P24PROGRESSVAR.isHoveredPM9 = false;
+                                      });
+                                      USERDATA.TANK = 'PM9';
+                                      USERDATA.ORDER = _data.PM9ORDER;
+                                      print(USERDATA.TANK);
+                                      print(USERDATA.ORDER);
+                                      CuPage = Page26();
                                       MainBodyContext.read<ChangePage_Bloc>()
                                           .add(ChangePage_nodrower());
-                                    } else {}
-                                  },
-                                  child: AnimatedContainer(
-                                    duration: Duration(milliseconds: 100),
-                                    height:
-                                        P24PROGRESSVAR.isHoveredPM9 ? 170 : 150,
-                                    width:
-                                        P24PROGRESSVAR.isHoveredPM9 ? 170 : 150,
-                                    decoration: BoxDecoration(
-                                      color: P24PROGRESSVAR.isHoveredPM9
-                                          ? Colors.greenAccent
-                                          : Colors.green,
-                                      border: Border.all(
-                                        color: Colors.black,
-                                        width: 2.0,
+                                    },
+                                    child: AnimatedContainer(
+                                      duration: Duration(milliseconds: 100),
+                                      height: P24PROGRESSVAR.isHoveredPM9
+                                          ? 170
+                                          : 150,
+                                      width: P24PROGRESSVAR.isHoveredPM9
+                                          ? 170
+                                          : 150,
+                                      decoration: BoxDecoration(
+                                        color: P24PROGRESSVAR.isHoveredPM9
+                                            ? Colors.greenAccent
+                                            : Colors.green,
+                                        border: Border.all(
+                                          color: Colors.black,
+                                          width: 2.0,
+                                        ),
+                                        borderRadius: BorderRadius.circular(10),
                                       ),
-                                      borderRadius: BorderRadius.circular(10),
-                                    ),
-                                    child: Center(
-                                      child: Text(
-                                        'PM9',
-                                        style: TextStyle(
-                                            color: Colors.white, fontSize: 20),
+                                      child: Center(
+                                        child: Column(
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.spaceEvenly,
+                                          children: [
+                                            Text(
+                                              'TANK : PM9',
+                                              style: TextStyle(
+                                                  color: Colors.white,
+                                                  fontSize: 16),
+                                            ),
+                                            Text(
+                                              'Order : ' + _data.PM9ORDER,
+                                              style: TextStyle(
+                                                  color: Colors.white,
+                                                  fontSize: 16),
+                                            ),
+                                          ],
+                                        ),
                                       ),
                                     ),
                                   ),
                                 ),
                               ),
-                            ),
-                            MouseRegion(
-                              onEnter: (_) {
-                                setState(() {
-                                  P24PROGRESSVAR.isHoveredPM10 = true;
-                                });
-                              },
-                              onExit: (_) {
-                                setState(() {
-                                  P24PROGRESSVAR.isHoveredPM10 = false;
-                                });
-                              },
-                              child: Padding(
-                                padding: const EdgeInsets.all(10.0),
-                                child: InkWell(
-                                  onTap: () {
-                                    setState(() {
-                                      P24PROGRESSVAR.isHoveredPM10 = false;
-                                    });
-                                    // USERDATA.PLANTNUMBER = PLANTNUMBER.BPPM4;
-                                    USERDATA.TANK = 'LIQUIDPM10';
-                                    print(USERDATA.TANK);
-                                    print(USERDATA.PLANTNUMBER);
-                                    if (USERDATA.ACTION == 'INCOMING') {
-                                      CuPage = Page13();
+                              MouseRegion(
+                                onEnter: (_) {
+                                  setState(() {
+                                    P24PROGRESSVAR.isHoveredPM10 = true;
+                                  });
+                                },
+                                onExit: (_) {
+                                  setState(() {
+                                    P24PROGRESSVAR.isHoveredPM10 = false;
+                                  });
+                                },
+                                child: Padding(
+                                  padding: const EdgeInsets.all(10.0),
+                                  child: InkWell(
+                                    onTap: () {
+                                      setState(() {
+                                        P24PROGRESSVAR.isHoveredPM10 = false;
+                                      });
+                                      USERDATA.TANK = 'PM10';
+                                      USERDATA.ORDER = _data.PM10ORDER;
+                                      print(USERDATA.TANK);
+                                      print(USERDATA.ORDER);
+                                      CuPage = Page26();
                                       MainBodyContext.read<ChangePage_Bloc>()
                                           .add(ChangePage_nodrower());
-                                    } else {}
-                                  },
-                                  child: AnimatedContainer(
-                                    duration: Duration(milliseconds: 100),
-                                    height: P24PROGRESSVAR.isHoveredPM10
-                                        ? 170
-                                        : 150,
-                                    width: P24PROGRESSVAR.isHoveredPM10
-                                        ? 170
-                                        : 150,
-                                    decoration: BoxDecoration(
-                                      color: P24PROGRESSVAR.isHoveredPM10
-                                          ? Colors.greenAccent
-                                          : Colors.green,
-                                      border: Border.all(
-                                        color: Colors.black,
-                                        width: 2.0,
+                                    },
+                                    child: AnimatedContainer(
+                                      duration: Duration(milliseconds: 100),
+                                      height: P24PROGRESSVAR.isHoveredPM10
+                                          ? 170
+                                          : 150,
+                                      width: P24PROGRESSVAR.isHoveredPM10
+                                          ? 170
+                                          : 150,
+                                      decoration: BoxDecoration(
+                                        color: P24PROGRESSVAR.isHoveredPM10
+                                            ? Colors.greenAccent
+                                            : Colors.green,
+                                        border: Border.all(
+                                          color: Colors.black,
+                                          width: 2.0,
+                                        ),
+                                        borderRadius: BorderRadius.circular(10),
                                       ),
-                                      borderRadius: BorderRadius.circular(10),
-                                    ),
-                                    child: Center(
-                                      child: Text(
-                                        'PM10',
-                                        style: TextStyle(
-                                            color: Colors.white, fontSize: 20),
+                                      child: Center(
+                                        child: Column(
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.spaceEvenly,
+                                          children: [
+                                            Text(
+                                              'TANK : PM10',
+                                              style: TextStyle(
+                                                  color: Colors.white,
+                                                  fontSize: 16),
+                                            ),
+                                            Text(
+                                              'Order : ' + _data.PM10ORDER,
+                                              style: TextStyle(
+                                                  color: Colors.white,
+                                                  fontSize: 16),
+                                            ),
+                                          ],
+                                        ),
                                       ),
                                     ),
                                   ),
                                 ),
                               ),
-                            ),
-                            MouseRegion(
-                              onEnter: (_) {
-                                setState(() {
-                                  P24PROGRESSVAR.isHoveredPM11 = true;
-                                });
-                              },
-                              onExit: (_) {
-                                setState(() {
-                                  P24PROGRESSVAR.isHoveredPM11 = false;
-                                });
-                              },
-                              child: Padding(
-                                padding: const EdgeInsets.all(10.0),
-                                child: InkWell(
-                                  onTap: () {
-                                    setState(() {
-                                      P24PROGRESSVAR.isHoveredPM11 = false;
-                                    });
-                                    // USERDATA.PLANTNUMBER = PLANTNUMBER.BPPM4;
-                                    USERDATA.TANK = 'LIQUIDPM11';
-                                    print(USERDATA.TANK);
-                                    print(USERDATA.PLANTNUMBER);
-                                    if (USERDATA.ACTION == 'INCOMING') {
-                                      CuPage = Page13();
+                              MouseRegion(
+                                onEnter: (_) {
+                                  setState(() {
+                                    P24PROGRESSVAR.isHoveredPM11 = true;
+                                  });
+                                },
+                                onExit: (_) {
+                                  setState(() {
+                                    P24PROGRESSVAR.isHoveredPM11 = false;
+                                  });
+                                },
+                                child: Padding(
+                                  padding: const EdgeInsets.all(10.0),
+                                  child: InkWell(
+                                    onTap: () {
+                                      setState(() {
+                                        P24PROGRESSVAR.isHoveredPM11 = false;
+                                      });
+                                      USERDATA.TANK = 'PM11';
+                                      USERDATA.ORDER = _data.PM11ORDER;
+                                      print(USERDATA.TANK);
+                                      print(USERDATA.ORDER);
+                                      CuPage = Page26();
                                       MainBodyContext.read<ChangePage_Bloc>()
                                           .add(ChangePage_nodrower());
-                                    } else {}
-                                  },
-                                  child: AnimatedContainer(
-                                    duration: Duration(milliseconds: 100),
-                                    height: P24PROGRESSVAR.isHoveredPM11
-                                        ? 170
-                                        : 150,
-                                    width: P24PROGRESSVAR.isHoveredPM11
-                                        ? 170
-                                        : 150,
-                                    decoration: BoxDecoration(
-                                      color: P24PROGRESSVAR.isHoveredPM11
-                                          ? Colors.greenAccent
-                                          : Colors.green,
-                                      border: Border.all(
-                                        color: Colors.black,
-                                        width: 2.0,
+                                    },
+                                    child: AnimatedContainer(
+                                      duration: Duration(milliseconds: 100),
+                                      height: P24PROGRESSVAR.isHoveredPM11
+                                          ? 170
+                                          : 150,
+                                      width: P24PROGRESSVAR.isHoveredPM11
+                                          ? 170
+                                          : 150,
+                                      decoration: BoxDecoration(
+                                        color: P24PROGRESSVAR.isHoveredPM11
+                                            ? Colors.greenAccent
+                                            : Colors.green,
+                                        border: Border.all(
+                                          color: Colors.black,
+                                          width: 2.0,
+                                        ),
+                                        borderRadius: BorderRadius.circular(10),
                                       ),
-                                      borderRadius: BorderRadius.circular(10),
-                                    ),
-                                    child: Center(
-                                      child: Text(
-                                        'PM11',
-                                        style: TextStyle(
-                                            color: Colors.white, fontSize: 20),
+                                      child: Center(
+                                        child: Column(
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.spaceEvenly,
+                                          children: [
+                                            Text(
+                                              'TANK : PM11',
+                                              style: TextStyle(
+                                                  color: Colors.white,
+                                                  fontSize: 16),
+                                            ),
+                                            Text(
+                                              'Order : ' + _data.PM11ORDER,
+                                              style: TextStyle(
+                                                  color: Colors.white,
+                                                  fontSize: 16),
+                                            ),
+                                          ],
+                                        ),
                                       ),
                                     ),
                                   ),
                                 ),
                               ),
-                            ),
-                            MouseRegion(
-                              onEnter: (_) {
-                                setState(() {
-                                  P24PROGRESSVAR.isHoveredPM12 = true;
-                                });
-                              },
-                              onExit: (_) {
-                                setState(() {
-                                  P24PROGRESSVAR.isHoveredPM12 = false;
-                                });
-                              },
-                              child: Padding(
-                                padding: const EdgeInsets.all(10.0),
-                                child: InkWell(
-                                  onTap: () {
-                                    setState(() {
-                                      P24PROGRESSVAR.isHoveredPM12 = false;
-                                    });
-                                    // USERDATA.PLANTNUMBER = PLANTNUMBER.BPPM4;
-                                    USERDATA.TANK = 'LIQUIDPM12';
-                                    print(USERDATA.TANK);
-                                    print(USERDATA.PLANTNUMBER);
-                                    if (USERDATA.ACTION == 'INCOMING') {
-                                      CuPage = Page13();
+                              MouseRegion(
+                                onEnter: (_) {
+                                  setState(() {
+                                    P24PROGRESSVAR.isHoveredPM12 = true;
+                                  });
+                                },
+                                onExit: (_) {
+                                  setState(() {
+                                    P24PROGRESSVAR.isHoveredPM12 = false;
+                                  });
+                                },
+                                child: Padding(
+                                  padding: const EdgeInsets.all(10.0),
+                                  child: InkWell(
+                                    onTap: () {
+                                      setState(() {
+                                        P24PROGRESSVAR.isHoveredPM12 = false;
+                                      });
+                                      USERDATA.TANK = 'PM12';
+                                      USERDATA.ORDER = _data.PM12ORDER;
+                                      print(USERDATA.TANK);
+                                      print(USERDATA.ORDER);
+                                      CuPage = Page26();
                                       MainBodyContext.read<ChangePage_Bloc>()
                                           .add(ChangePage_nodrower());
-                                    } else {}
-                                  },
-                                  child: AnimatedContainer(
-                                    duration: Duration(milliseconds: 100),
-                                    height: P24PROGRESSVAR.isHoveredPM12
-                                        ? 170
-                                        : 150,
-                                    width: P24PROGRESSVAR.isHoveredPM12
-                                        ? 170
-                                        : 150,
-                                    decoration: BoxDecoration(
-                                      color: P24PROGRESSVAR.isHoveredPM12
-                                          ? Colors.greenAccent
-                                          : Colors.green,
-                                      border: Border.all(
-                                        color: Colors.black,
-                                        width: 2.0,
+                                    },
+                                    child: AnimatedContainer(
+                                      duration: Duration(milliseconds: 100),
+                                      height: P24PROGRESSVAR.isHoveredPM12
+                                          ? 170
+                                          : 150,
+                                      width: P24PROGRESSVAR.isHoveredPM12
+                                          ? 170
+                                          : 150,
+                                      decoration: BoxDecoration(
+                                        color: P24PROGRESSVAR.isHoveredPM12
+                                            ? Colors.greenAccent
+                                            : Colors.green,
+                                        border: Border.all(
+                                          color: Colors.black,
+                                          width: 2.0,
+                                        ),
+                                        borderRadius: BorderRadius.circular(10),
                                       ),
-                                      borderRadius: BorderRadius.circular(10),
-                                    ),
-                                    child: Center(
-                                      child: Text(
-                                        'PM12',
-                                        style: TextStyle(
-                                            color: Colors.white, fontSize: 20),
+                                      child: Center(
+                                        child: Column(
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.spaceEvenly,
+                                          children: [
+                                            Text(
+                                              'TANK : PM12',
+                                              style: TextStyle(
+                                                  color: Colors.white,
+                                                  fontSize: 16),
+                                            ),
+                                            Text(
+                                              'Order : ' + _data.PM12ORDER,
+                                              style: TextStyle(
+                                                  color: Colors.white,
+                                                  fontSize: 16),
+                                            ),
+                                          ],
+                                        ),
                                       ),
                                     ),
                                   ),
                                 ),
                               ),
-                            ),
-                          ],
-                        ),
-                        SizedBox(height: 10),
-                        Wrap(
-                          spacing: 10.0,
-                          runSpacing: 10.0,
-                          children: [
-                            MouseRegion(
-                              onEnter: (_) {
-                                setState(() {
-                                  P24PROGRESSVAR.isHoveredPM13 = true;
-                                });
-                              },
-                              onExit: (_) {
-                                setState(() {
-                                  P24PROGRESSVAR.isHoveredPM13 = false;
-                                });
-                              },
-                              child: Padding(
-                                padding: const EdgeInsets.all(10.0),
-                                child: InkWell(
-                                  onTap: () {
-                                    setState(() {
-                                      P24PROGRESSVAR.isHoveredPM13 = false;
-                                    });
-                                    // USERDATA.PLANTNUMBER = PLANTNUMBER.BPPM2;
-                                    USERDATA.TANK = 'LIQUIDPM13';
-                                    print(USERDATA.TANK);
-                                    print(USERDATA.PLANTNUMBER);
-                                    if (USERDATA.ACTION == 'INCOMING') {
-                                      CuPage = Page13();
+                            ],
+                          ),
+                          Wrap(
+                            spacing: 10.0,
+                            runSpacing: 10.0,
+                            children: [
+                              MouseRegion(
+                                onEnter: (_) {
+                                  setState(() {
+                                    P24PROGRESSVAR.isHoveredPM13 = true;
+                                  });
+                                },
+                                onExit: (_) {
+                                  setState(() {
+                                    P24PROGRESSVAR.isHoveredPM13 = false;
+                                  });
+                                },
+                                child: Padding(
+                                  padding: const EdgeInsets.all(10.0),
+                                  child: InkWell(
+                                    onTap: () {
+                                      setState(() {
+                                        P24PROGRESSVAR.isHoveredPM13 = false;
+                                      });
+                                      USERDATA.TANK = 'PM13';
+                                      USERDATA.ORDER = _data.PM13ORDER;
+                                      print(USERDATA.TANK);
+                                      print(USERDATA.ORDER);
+                                      CuPage = Page26();
                                       MainBodyContext.read<ChangePage_Bloc>()
                                           .add(ChangePage_nodrower());
-                                    } else {}
-                                  },
-                                  child: AnimatedContainer(
-                                    duration: Duration(milliseconds: 100),
-                                    height: P24PROGRESSVAR.isHoveredPM13
-                                        ? 170
-                                        : 150,
-                                    width: P24PROGRESSVAR.isHoveredPM13
-                                        ? 170
-                                        : 150,
-                                    decoration: BoxDecoration(
-                                      color: P24PROGRESSVAR.isHoveredPM13
-                                          ? Colors.greenAccent
-                                          : Colors.green,
-                                      border: Border.all(
-                                        color: Colors.black,
-                                        width: 2.0,
+                                    },
+                                    child: AnimatedContainer(
+                                      duration: Duration(milliseconds: 100),
+                                      height: P24PROGRESSVAR.isHoveredPM13
+                                          ? 170
+                                          : 150,
+                                      width: P24PROGRESSVAR.isHoveredPM13
+                                          ? 170
+                                          : 150,
+                                      decoration: BoxDecoration(
+                                        color: P24PROGRESSVAR.isHoveredPM13
+                                            ? Colors.greenAccent
+                                            : Colors.green,
+                                        border: Border.all(
+                                          color: Colors.black,
+                                          width: 2.0,
+                                        ),
+                                        borderRadius: BorderRadius.circular(10),
                                       ),
-                                      borderRadius: BorderRadius.circular(10),
-                                    ),
-                                    child: Center(
-                                      child: Text(
-                                        'PM13',
-                                        style: TextStyle(
-                                            color: Colors.white, fontSize: 20),
+                                      child: Center(
+                                        child: Column(
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.spaceEvenly,
+                                          children: [
+                                            Text(
+                                              'TANK : PM13',
+                                              style: TextStyle(
+                                                  color: Colors.white,
+                                                  fontSize: 16),
+                                            ),
+                                            Text(
+                                              'Order : ' + _data.PM13ORDER,
+                                              style: TextStyle(
+                                                  color: Colors.white,
+                                                  fontSize: 16),
+                                            ),
+                                          ],
+                                        ),
                                       ),
                                     ),
                                   ),
                                 ),
                               ),
-                            ),
-                            MouseRegion(
-                              onEnter: (_) {
-                                setState(() {
-                                  P24PROGRESSVAR.isHoveredPM14 = true;
-                                });
-                              },
-                              onExit: (_) {
-                                setState(() {
-                                  P24PROGRESSVAR.isHoveredPM14 = false;
-                                });
-                              },
-                              child: Padding(
-                                padding: const EdgeInsets.all(10.0),
-                                child: InkWell(
-                                  onTap: () {
-                                    setState(() {
-                                      P24PROGRESSVAR.isHoveredPM14 = false;
-                                    });
-                                    // USERDATA.PLANTNUMBER = PLANTNUMBER.BPPM2;
-                                    USERDATA.TANK = 'LIQUIDPM14';
-                                    print(USERDATA.TANK);
-                                    print(USERDATA.PLANTNUMBER);
-                                    if (USERDATA.ACTION == 'INCOMING') {
-                                      CuPage = Page13();
+                              MouseRegion(
+                                onEnter: (_) {
+                                  setState(() {
+                                    P24PROGRESSVAR.isHoveredPM14 = true;
+                                  });
+                                },
+                                onExit: (_) {
+                                  setState(() {
+                                    P24PROGRESSVAR.isHoveredPM14 = false;
+                                  });
+                                },
+                                child: Padding(
+                                  padding: const EdgeInsets.all(10.0),
+                                  child: InkWell(
+                                    onTap: () {
+                                      setState(() {
+                                        P24PROGRESSVAR.isHoveredPM14 = false;
+                                      });
+                                      USERDATA.TANK = 'PM14';
+                                      USERDATA.ORDER = _data.PM14ORDER;
+                                      print(USERDATA.TANK);
+                                      print(USERDATA.ORDER);
+                                      CuPage = Page26();
                                       MainBodyContext.read<ChangePage_Bloc>()
                                           .add(ChangePage_nodrower());
-                                    } else {}
-                                  },
-                                  child: AnimatedContainer(
-                                    duration: Duration(milliseconds: 100),
-                                    height: P24PROGRESSVAR.isHoveredPM14
-                                        ? 170
-                                        : 150,
-                                    width: P24PROGRESSVAR.isHoveredPM14
-                                        ? 170
-                                        : 150,
-                                    decoration: BoxDecoration(
-                                      color: P24PROGRESSVAR.isHoveredPM14
-                                          ? Colors.greenAccent
-                                          : Colors.green,
-                                      border: Border.all(
-                                        color: Colors.black,
-                                        width: 2.0,
+                                    },
+                                    child: AnimatedContainer(
+                                      duration: Duration(milliseconds: 100),
+                                      height: P24PROGRESSVAR.isHoveredPM14
+                                          ? 170
+                                          : 150,
+                                      width: P24PROGRESSVAR.isHoveredPM14
+                                          ? 170
+                                          : 150,
+                                      decoration: BoxDecoration(
+                                        color: P24PROGRESSVAR.isHoveredPM14
+                                            ? Colors.greenAccent
+                                            : Colors.green,
+                                        border: Border.all(
+                                          color: Colors.black,
+                                          width: 2.0,
+                                        ),
+                                        borderRadius: BorderRadius.circular(10),
                                       ),
-                                      borderRadius: BorderRadius.circular(10),
-                                    ),
-                                    child: Center(
-                                      child: Text(
-                                        'PM14',
-                                        style: TextStyle(
-                                            color: Colors.white, fontSize: 20),
+                                      child: Center(
+                                        child: Column(
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.spaceEvenly,
+                                          children: [
+                                            Text(
+                                              'TANK : PM14',
+                                              style: TextStyle(
+                                                  color: Colors.white,
+                                                  fontSize: 16),
+                                            ),
+                                            Text(
+                                              'Order : ' + _data.PM14ORDER,
+                                              style: TextStyle(
+                                                  color: Colors.white,
+                                                  fontSize: 16),
+                                            ),
+                                          ],
+                                        ),
                                       ),
                                     ),
                                   ),
                                 ),
                               ),
-                            ),
-                            MouseRegion(
-                              onEnter: (_) {
-                                setState(() {
-                                  P24PROGRESSVAR.isHoveredPM15 = true;
-                                });
-                              },
-                              onExit: (_) {
-                                setState(() {
-                                  P24PROGRESSVAR.isHoveredPM15 = false;
-                                });
-                              },
-                              child: Padding(
-                                padding: const EdgeInsets.all(10.0),
-                                child: InkWell(
-                                  onTap: () {
-                                    setState(() {
-                                      P24PROGRESSVAR.isHoveredPM9 = false;
-                                    });
-                                    // USERDATA.PLANTNUMBER = PLANTNUMBER.BPPM3;
-                                    USERDATA.TANK = 'LIQUIDPM15';
-                                    print(USERDATA.TANK);
-                                    print(USERDATA.PLANTNUMBER);
-                                    if (USERDATA.ACTION == 'INCOMING') {
-                                      CuPage = Page13();
+                              MouseRegion(
+                                onEnter: (_) {
+                                  setState(() {
+                                    P24PROGRESSVAR.isHoveredPM15 = true;
+                                  });
+                                },
+                                onExit: (_) {
+                                  setState(() {
+                                    P24PROGRESSVAR.isHoveredPM15 = false;
+                                  });
+                                },
+                                child: Padding(
+                                  padding: const EdgeInsets.all(10.0),
+                                  child: InkWell(
+                                    onTap: () {
+                                      setState(() {
+                                        P24PROGRESSVAR.isHoveredPM15 = false;
+                                      });
+                                      USERDATA.TANK = 'PM15';
+                                      USERDATA.ORDER = _data.PM15ORDER;
+                                      print(USERDATA.TANK);
+                                      print(USERDATA.ORDER);
+                                      CuPage = Page26();
                                       MainBodyContext.read<ChangePage_Bloc>()
                                           .add(ChangePage_nodrower());
-                                    } else {}
-                                  },
-                                  child: AnimatedContainer(
-                                    duration: Duration(milliseconds: 100),
-                                    height: P24PROGRESSVAR.isHoveredPM15
-                                        ? 170
-                                        : 150,
-                                    width: P24PROGRESSVAR.isHoveredPM15
-                                        ? 170
-                                        : 150,
-                                    decoration: BoxDecoration(
-                                      color: P24PROGRESSVAR.isHoveredPM15
-                                          ? Colors.greenAccent
-                                          : Colors.green,
-                                      border: Border.all(
-                                        color: Colors.black,
-                                        width: 2.0,
+                                    },
+                                    child: AnimatedContainer(
+                                      duration: Duration(milliseconds: 100),
+                                      height: P24PROGRESSVAR.isHoveredPM15
+                                          ? 170
+                                          : 150,
+                                      width: P24PROGRESSVAR.isHoveredPM15
+                                          ? 170
+                                          : 150,
+                                      decoration: BoxDecoration(
+                                        color: P24PROGRESSVAR.isHoveredPM15
+                                            ? Colors.greenAccent
+                                            : Colors.green,
+                                        border: Border.all(
+                                          color: Colors.black,
+                                          width: 2.0,
+                                        ),
+                                        borderRadius: BorderRadius.circular(10),
                                       ),
-                                      borderRadius: BorderRadius.circular(10),
-                                    ),
-                                    child: Center(
-                                      child: Text(
-                                        'PM15',
-                                        style: TextStyle(
-                                            color: Colors.white, fontSize: 20),
+                                      child: Center(
+                                        child: Column(
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.spaceEvenly,
+                                          children: [
+                                            Text(
+                                              'TANK : PM15',
+                                              style: TextStyle(
+                                                  color: Colors.white,
+                                                  fontSize: 16),
+                                            ),
+                                            Text(
+                                              'Order : ' + _data.PM15ORDER,
+                                              style: TextStyle(
+                                                  color: Colors.white,
+                                                  fontSize: 16),
+                                            ),
+                                          ],
+                                        ),
                                       ),
                                     ),
                                   ),
                                 ),
                               ),
-                            ),
-                            MouseRegion(
-                              onEnter: (_) {
-                                setState(() {
-                                  P24PROGRESSVAR.isHoveredPM16 = true;
-                                });
-                              },
-                              onExit: (_) {
-                                setState(() {
-                                  P24PROGRESSVAR.isHoveredPM16 = false;
-                                });
-                              },
-                              child: Padding(
-                                padding: const EdgeInsets.all(10.0),
-                                child: InkWell(
-                                  onTap: () {
-                                    setState(() {
-                                      P24PROGRESSVAR.isHoveredPM16 = false;
-                                    });
-                                    // USERDATA.PLANTNUMBER = PLANTNUMBER.BPPM4;
-                                    USERDATA.TANK = 'LIQUIDPM16';
-                                    print(USERDATA.TANK);
-                                    print(USERDATA.PLANTNUMBER);
-                                    if (USERDATA.ACTION == 'INCOMING') {
-                                      CuPage = Page13();
+                              MouseRegion(
+                                onEnter: (_) {
+                                  setState(() {
+                                    P24PROGRESSVAR.isHoveredPM16 = true;
+                                  });
+                                },
+                                onExit: (_) {
+                                  setState(() {
+                                    P24PROGRESSVAR.isHoveredPM16 = false;
+                                  });
+                                },
+                                child: Padding(
+                                  padding: const EdgeInsets.all(10.0),
+                                  child: InkWell(
+                                    onTap: () {
+                                      setState(() {
+                                        P24PROGRESSVAR.isHoveredPM16 = false;
+                                      });
+                                      USERDATA.TANK = 'PM16';
+                                      USERDATA.ORDER = _data.PM16ORDER;
+                                      print(USERDATA.TANK);
+                                      print(USERDATA.ORDER);
+                                      CuPage = Page26();
                                       MainBodyContext.read<ChangePage_Bloc>()
                                           .add(ChangePage_nodrower());
-                                    } else {}
-                                  },
-                                  child: AnimatedContainer(
-                                    duration: Duration(milliseconds: 100),
-                                    height: P24PROGRESSVAR.isHoveredPM16
-                                        ? 170
-                                        : 150,
-                                    width: P24PROGRESSVAR.isHoveredPM16
-                                        ? 170
-                                        : 150,
-                                    decoration: BoxDecoration(
-                                      color: P24PROGRESSVAR.isHoveredPM16
-                                          ? Colors.greenAccent
-                                          : Colors.green,
-                                      border: Border.all(
-                                        color: Colors.black,
-                                        width: 2.0,
+                                    },
+                                    child: AnimatedContainer(
+                                      duration: Duration(milliseconds: 100),
+                                      height: P24PROGRESSVAR.isHoveredPM16
+                                          ? 170
+                                          : 150,
+                                      width: P24PROGRESSVAR.isHoveredPM16
+                                          ? 170
+                                          : 150,
+                                      decoration: BoxDecoration(
+                                        color: P24PROGRESSVAR.isHoveredPM16
+                                            ? Colors.greenAccent
+                                            : Colors.green,
+                                        border: Border.all(
+                                          color: Colors.black,
+                                          width: 2.0,
+                                        ),
+                                        borderRadius: BorderRadius.circular(10),
                                       ),
-                                      borderRadius: BorderRadius.circular(10),
-                                    ),
-                                    child: Center(
-                                      child: Text(
-                                        'PM16',
-                                        style: TextStyle(
-                                            color: Colors.white, fontSize: 20),
+                                      child: Center(
+                                        child: Column(
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.spaceEvenly,
+                                          children: [
+                                            Text(
+                                              'TANK : PM16',
+                                              style: TextStyle(
+                                                  color: Colors.white,
+                                                  fontSize: 16),
+                                            ),
+                                            Text(
+                                              'Order : ' + _data.PM16ORDER,
+                                              style: TextStyle(
+                                                  color: Colors.white,
+                                                  fontSize: 16),
+                                            ),
+                                          ],
+                                        ),
                                       ),
                                     ),
                                   ),
                                 ),
                               ),
-                            ),
-                            MouseRegion(
-                              onEnter: (_) {
-                                setState(() {
-                                  P24PROGRESSVAR.isHoveredPM17 = true;
-                                });
-                              },
-                              onExit: (_) {
-                                setState(() {
-                                  P24PROGRESSVAR.isHoveredPM17 = false;
-                                });
-                              },
-                              child: Padding(
-                                padding: const EdgeInsets.all(10.0),
-                                child: InkWell(
-                                  onTap: () {
-                                    setState(() {
-                                      P24PROGRESSVAR.isHoveredPM17 = false;
-                                    });
-                                    // USERDATA.PLANTNUMBER = PLANTNUMBER.BPPM4;
-                                    USERDATA.TANK = 'LIQUIDPM17';
-                                    print(USERDATA.TANK);
-                                    print(USERDATA.PLANTNUMBER);
-                                    if (USERDATA.ACTION == 'INCOMING') {
-                                      CuPage = Page13();
+                              MouseRegion(
+                                onEnter: (_) {
+                                  setState(() {
+                                    P24PROGRESSVAR.isHoveredPM17 = true;
+                                  });
+                                },
+                                onExit: (_) {
+                                  setState(() {
+                                    P24PROGRESSVAR.isHoveredPM17 = false;
+                                  });
+                                },
+                                child: Padding(
+                                  padding: const EdgeInsets.all(10.0),
+                                  child: InkWell(
+                                    onTap: () {
+                                      setState(() {
+                                        P24PROGRESSVAR.isHoveredPM17 = false;
+                                      });
+                                      USERDATA.TANK = 'PM17';
+                                      USERDATA.ORDER = _data.PM17ORDER;
+                                      print(USERDATA.TANK);
+                                      print(USERDATA.ORDER);
+                                      CuPage = Page26();
                                       MainBodyContext.read<ChangePage_Bloc>()
                                           .add(ChangePage_nodrower());
-                                    } else {}
-                                  },
-                                  child: AnimatedContainer(
-                                    duration: Duration(milliseconds: 100),
-                                    height: P24PROGRESSVAR.isHoveredPM17
-                                        ? 170
-                                        : 150,
-                                    width: P24PROGRESSVAR.isHoveredPM17
-                                        ? 170
-                                        : 150,
-                                    decoration: BoxDecoration(
-                                      color: P24PROGRESSVAR.isHoveredPM17
-                                          ? Colors.greenAccent
-                                          : Colors.green,
-                                      border: Border.all(
-                                        color: Colors.black,
-                                        width: 2.0,
+                                    },
+                                    child: AnimatedContainer(
+                                      duration: Duration(milliseconds: 100),
+                                      height: P24PROGRESSVAR.isHoveredPM17
+                                          ? 170
+                                          : 150,
+                                      width: P24PROGRESSVAR.isHoveredPM17
+                                          ? 170
+                                          : 150,
+                                      decoration: BoxDecoration(
+                                        color: P24PROGRESSVAR.isHoveredPM17
+                                            ? Colors.greenAccent
+                                            : Colors.green,
+                                        border: Border.all(
+                                          color: Colors.black,
+                                          width: 2.0,
+                                        ),
+                                        borderRadius: BorderRadius.circular(10),
                                       ),
-                                      borderRadius: BorderRadius.circular(10),
-                                    ),
-                                    child: Center(
-                                      child: Text(
-                                        'PM17',
-                                        style: TextStyle(
-                                            color: Colors.white, fontSize: 20),
+                                      child: Center(
+                                        child: Column(
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.spaceEvenly,
+                                          children: [
+                                            Text(
+                                              'TANK : PM17',
+                                              style: TextStyle(
+                                                  color: Colors.white,
+                                                  fontSize: 16),
+                                            ),
+                                            Text(
+                                              'Order : ' + _data.PM17ORDER,
+                                              style: TextStyle(
+                                                  color: Colors.white,
+                                                  fontSize: 16),
+                                            ),
+                                          ],
+                                        ),
                                       ),
                                     ),
                                   ),
                                 ),
                               ),
-                            ),
-                          ],
-                        ),
-                      ],
+                            ],
+                          ),
+                        ],
+                      ),
                     ),
                   ),
-                ),
-              ),
+                );
+              })
             ],
           ),
         ],

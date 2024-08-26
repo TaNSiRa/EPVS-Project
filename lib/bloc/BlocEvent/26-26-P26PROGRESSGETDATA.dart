@@ -53,7 +53,11 @@ class P26PROGRESSGETDATA_Bloc
       var databuff = response.data;
       input = databuff;
 
-      List<P26PROGRESSGETDATAclass> outputdata = input.map((dataActual) {
+      List<P26PROGRESSGETDATAclass> outputdata = input
+          .where((dataActual) =>
+              dataActual['StrChemical'] != 'END' &&
+              dataActual['StrBarcode'] != 'END')
+          .map((dataActual) {
         return P26PROGRESSGETDATAclass(
           ID: savenull(dataActual['ID']),
           TIMESTART: savenull(dataActual['RecordTimeStart']),

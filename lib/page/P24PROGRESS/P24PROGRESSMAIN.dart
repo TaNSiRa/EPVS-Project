@@ -126,7 +126,7 @@ class _P24PROGRESSMAINState extends State<P24PROGRESSMAIN> {
                                   });
                                 },
                                 child: Padding(
-                                  padding: const EdgeInsets.all(10.0),
+                                  padding: const EdgeInsets.all(8.0),
                                   child: InkWell(
                                     onTap: () {
                                       setState(() {
@@ -141,7 +141,7 @@ class _P24PROGRESSMAINState extends State<P24PROGRESSMAIN> {
                                           .add(ChangePage_nodrower());
                                     },
                                     child: AnimatedContainer(
-                                      duration: Duration(milliseconds: 100),
+                                      duration: Duration(milliseconds: 200),
                                       height: P24PROGRESSVAR.isHoveredPM1
                                           ? 170
                                           : 150,
@@ -149,31 +149,61 @@ class _P24PROGRESSMAINState extends State<P24PROGRESSMAIN> {
                                           ? 170
                                           : 150,
                                       decoration: BoxDecoration(
-                                        color: P24PROGRESSVAR.isHoveredPM1
-                                            ? Colors.greenAccent
-                                            : Colors.green,
+                                        gradient: LinearGradient(
+                                          colors: P24PROGRESSVAR.isHoveredPM1
+                                              ? [Colors.grey, Colors.blueGrey]
+                                              : [Colors.blue, Colors.lightBlue],
+                                          end: Alignment.bottomRight,
+                                        ),
                                         border: Border.all(
-                                          color: Colors.black,
+                                          color: Colors.black87,
                                           width: 2.0,
                                         ),
-                                        borderRadius: BorderRadius.circular(10),
+                                        boxShadow: [
+                                          BoxShadow(
+                                            color:
+                                                Colors.black.withOpacity(0.3),
+                                            spreadRadius: 2,
+                                            blurRadius: 5,
+                                            offset: Offset(2, 3),
+                                          ),
+                                        ],
+                                        borderRadius: BorderRadius.circular(15),
                                       ),
                                       child: Center(
                                         child: Column(
                                           mainAxisAlignment:
-                                              MainAxisAlignment.spaceEvenly,
+                                              MainAxisAlignment.center,
                                           children: [
                                             Text(
                                               'TANK : PM1',
                                               style: TextStyle(
-                                                  color: Colors.white,
-                                                  fontSize: 16),
+                                                color: Colors.white,
+                                                fontSize: 18,
+                                                fontWeight: FontWeight.bold,
+                                                shadows: [
+                                                  Shadow(
+                                                    blurRadius: 5.0,
+                                                    color: Colors.black45,
+                                                    offset: Offset(2, 2),
+                                                  ),
+                                                ],
+                                              ),
                                             ),
+                                            SizedBox(height: 8),
                                             Text(
-                                              'Order : ' + _data.PM1ORDER,
+                                              'Order : ${_data.PM1ORDER}',
                                               style: TextStyle(
-                                                  color: Colors.white,
-                                                  fontSize: 16),
+                                                color: Colors.white70,
+                                                fontSize: 16,
+                                                shadows: [
+                                                  Shadow(
+                                                    blurRadius: 5.0,
+                                                    color: Colors.black45,
+                                                    offset: Offset(2, 2),
+                                                  ),
+                                                ],
+                                              ),
                                             ),
                                           ],
                                         ),
@@ -194,7 +224,7 @@ class _P24PROGRESSMAINState extends State<P24PROGRESSMAIN> {
                                   });
                                 },
                                 child: Padding(
-                                  padding: const EdgeInsets.all(10.0),
+                                  padding: const EdgeInsets.all(8.0),
                                   child: InkWell(
                                     onTap: () {
                                       setState(() {
@@ -209,7 +239,7 @@ class _P24PROGRESSMAINState extends State<P24PROGRESSMAIN> {
                                           .add(ChangePage_nodrower());
                                     },
                                     child: AnimatedContainer(
-                                      duration: Duration(milliseconds: 100),
+                                      duration: Duration(milliseconds: 200),
                                       height: P24PROGRESSVAR.isHoveredPM2
                                           ? 170
                                           : 150,
@@ -217,31 +247,61 @@ class _P24PROGRESSMAINState extends State<P24PROGRESSMAIN> {
                                           ? 170
                                           : 150,
                                       decoration: BoxDecoration(
-                                        color: P24PROGRESSVAR.isHoveredPM2
-                                            ? Colors.greenAccent
-                                            : Colors.green,
+                                        gradient: LinearGradient(
+                                          colors: P24PROGRESSVAR.isHoveredPM2
+                                              ? [Colors.grey, Colors.blueGrey]
+                                              : [Colors.blue, Colors.lightBlue],
+                                          end: Alignment.bottomRight,
+                                        ),
                                         border: Border.all(
-                                          color: Colors.black,
+                                          color: Colors.black87,
                                           width: 2.0,
                                         ),
-                                        borderRadius: BorderRadius.circular(10),
+                                        boxShadow: [
+                                          BoxShadow(
+                                            color:
+                                                Colors.black.withOpacity(0.3),
+                                            spreadRadius: 2,
+                                            blurRadius: 5,
+                                            offset: Offset(2, 3),
+                                          ),
+                                        ],
+                                        borderRadius: BorderRadius.circular(15),
                                       ),
                                       child: Center(
                                         child: Column(
                                           mainAxisAlignment:
-                                              MainAxisAlignment.spaceEvenly,
+                                              MainAxisAlignment.center,
                                           children: [
                                             Text(
                                               'TANK : PM2',
                                               style: TextStyle(
-                                                  color: Colors.white,
-                                                  fontSize: 16),
+                                                color: Colors.white,
+                                                fontSize: 18,
+                                                fontWeight: FontWeight.bold,
+                                                shadows: [
+                                                  Shadow(
+                                                    blurRadius: 5.0,
+                                                    color: Colors.black45,
+                                                    offset: Offset(2, 2),
+                                                  ),
+                                                ],
+                                              ),
                                             ),
+                                            SizedBox(height: 8),
                                             Text(
-                                              'Order : ' + _data.PM2ORDER,
+                                              'Order : ${_data.PM2ORDER}',
                                               style: TextStyle(
-                                                  color: Colors.white,
-                                                  fontSize: 16),
+                                                color: Colors.white70,
+                                                fontSize: 16,
+                                                shadows: [
+                                                  Shadow(
+                                                    blurRadius: 5.0,
+                                                    color: Colors.black45,
+                                                    offset: Offset(2, 2),
+                                                  ),
+                                                ],
+                                              ),
                                             ),
                                           ],
                                         ),
@@ -262,7 +322,7 @@ class _P24PROGRESSMAINState extends State<P24PROGRESSMAIN> {
                                   });
                                 },
                                 child: Padding(
-                                  padding: const EdgeInsets.all(10.0),
+                                  padding: const EdgeInsets.all(8.0),
                                   child: InkWell(
                                     onTap: () {
                                       setState(() {
@@ -277,7 +337,7 @@ class _P24PROGRESSMAINState extends State<P24PROGRESSMAIN> {
                                           .add(ChangePage_nodrower());
                                     },
                                     child: AnimatedContainer(
-                                      duration: Duration(milliseconds: 100),
+                                      duration: Duration(milliseconds: 200),
                                       height: P24PROGRESSVAR.isHoveredPM3
                                           ? 170
                                           : 150,
@@ -285,31 +345,61 @@ class _P24PROGRESSMAINState extends State<P24PROGRESSMAIN> {
                                           ? 170
                                           : 150,
                                       decoration: BoxDecoration(
-                                        color: P24PROGRESSVAR.isHoveredPM3
-                                            ? Colors.greenAccent
-                                            : Colors.green,
+                                        gradient: LinearGradient(
+                                          colors: P24PROGRESSVAR.isHoveredPM3
+                                              ? [Colors.grey, Colors.blueGrey]
+                                              : [Colors.blue, Colors.lightBlue],
+                                          end: Alignment.bottomRight,
+                                        ),
                                         border: Border.all(
-                                          color: Colors.black,
+                                          color: Colors.black87,
                                           width: 2.0,
                                         ),
-                                        borderRadius: BorderRadius.circular(10),
+                                        boxShadow: [
+                                          BoxShadow(
+                                            color:
+                                                Colors.black.withOpacity(0.3),
+                                            spreadRadius: 2,
+                                            blurRadius: 5,
+                                            offset: Offset(2, 3),
+                                          ),
+                                        ],
+                                        borderRadius: BorderRadius.circular(15),
                                       ),
                                       child: Center(
                                         child: Column(
                                           mainAxisAlignment:
-                                              MainAxisAlignment.spaceEvenly,
+                                              MainAxisAlignment.center,
                                           children: [
                                             Text(
                                               'TANK : PM3',
                                               style: TextStyle(
-                                                  color: Colors.white,
-                                                  fontSize: 16),
+                                                color: Colors.white,
+                                                fontSize: 18,
+                                                fontWeight: FontWeight.bold,
+                                                shadows: [
+                                                  Shadow(
+                                                    blurRadius: 5.0,
+                                                    color: Colors.black45,
+                                                    offset: Offset(2, 2),
+                                                  ),
+                                                ],
+                                              ),
                                             ),
+                                            SizedBox(height: 8),
                                             Text(
-                                              'Order : ' + _data.PM3ORDER,
+                                              'Order : ${_data.PM3ORDER}',
                                               style: TextStyle(
-                                                  color: Colors.white,
-                                                  fontSize: 16),
+                                                color: Colors.white70,
+                                                fontSize: 16,
+                                                shadows: [
+                                                  Shadow(
+                                                    blurRadius: 5.0,
+                                                    color: Colors.black45,
+                                                    offset: Offset(2, 2),
+                                                  ),
+                                                ],
+                                              ),
                                             ),
                                           ],
                                         ),
@@ -330,7 +420,7 @@ class _P24PROGRESSMAINState extends State<P24PROGRESSMAIN> {
                                   });
                                 },
                                 child: Padding(
-                                  padding: const EdgeInsets.all(10.0),
+                                  padding: const EdgeInsets.all(8.0),
                                   child: InkWell(
                                     onTap: () {
                                       setState(() {
@@ -345,7 +435,7 @@ class _P24PROGRESSMAINState extends State<P24PROGRESSMAIN> {
                                           .add(ChangePage_nodrower());
                                     },
                                     child: AnimatedContainer(
-                                      duration: Duration(milliseconds: 100),
+                                      duration: Duration(milliseconds: 200),
                                       height: P24PROGRESSVAR.isHoveredPM4
                                           ? 170
                                           : 150,
@@ -353,31 +443,61 @@ class _P24PROGRESSMAINState extends State<P24PROGRESSMAIN> {
                                           ? 170
                                           : 150,
                                       decoration: BoxDecoration(
-                                        color: P24PROGRESSVAR.isHoveredPM4
-                                            ? Colors.greenAccent
-                                            : Colors.green,
+                                        gradient: LinearGradient(
+                                          colors: P24PROGRESSVAR.isHoveredPM4
+                                              ? [Colors.grey, Colors.blueGrey]
+                                              : [Colors.blue, Colors.lightBlue],
+                                          end: Alignment.bottomRight,
+                                        ),
                                         border: Border.all(
-                                          color: Colors.black,
+                                          color: Colors.black87,
                                           width: 2.0,
                                         ),
-                                        borderRadius: BorderRadius.circular(10),
+                                        boxShadow: [
+                                          BoxShadow(
+                                            color:
+                                                Colors.black.withOpacity(0.3),
+                                            spreadRadius: 2,
+                                            blurRadius: 5,
+                                            offset: Offset(2, 3),
+                                          ),
+                                        ],
+                                        borderRadius: BorderRadius.circular(15),
                                       ),
                                       child: Center(
                                         child: Column(
                                           mainAxisAlignment:
-                                              MainAxisAlignment.spaceEvenly,
+                                              MainAxisAlignment.center,
                                           children: [
                                             Text(
                                               'TANK : PM4',
                                               style: TextStyle(
-                                                  color: Colors.white,
-                                                  fontSize: 16),
+                                                color: Colors.white,
+                                                fontSize: 18,
+                                                fontWeight: FontWeight.bold,
+                                                shadows: [
+                                                  Shadow(
+                                                    blurRadius: 5.0,
+                                                    color: Colors.black45,
+                                                    offset: Offset(2, 2),
+                                                  ),
+                                                ],
+                                              ),
                                             ),
+                                            SizedBox(height: 8),
                                             Text(
-                                              'Order : ' + _data.PM4ORDER,
+                                              'Order : ${_data.PM4ORDER}',
                                               style: TextStyle(
-                                                  color: Colors.white,
-                                                  fontSize: 16),
+                                                color: Colors.white70,
+                                                fontSize: 16,
+                                                shadows: [
+                                                  Shadow(
+                                                    blurRadius: 5.0,
+                                                    color: Colors.black45,
+                                                    offset: Offset(2, 2),
+                                                  ),
+                                                ],
+                                              ),
                                             ),
                                           ],
                                         ),
@@ -398,7 +518,7 @@ class _P24PROGRESSMAINState extends State<P24PROGRESSMAIN> {
                                   });
                                 },
                                 child: Padding(
-                                  padding: const EdgeInsets.all(10.0),
+                                  padding: const EdgeInsets.all(8.0),
                                   child: InkWell(
                                     onTap: () {
                                       setState(() {
@@ -413,7 +533,7 @@ class _P24PROGRESSMAINState extends State<P24PROGRESSMAIN> {
                                           .add(ChangePage_nodrower());
                                     },
                                     child: AnimatedContainer(
-                                      duration: Duration(milliseconds: 100),
+                                      duration: Duration(milliseconds: 200),
                                       height: P24PROGRESSVAR.isHoveredPM5
                                           ? 170
                                           : 150,
@@ -421,31 +541,61 @@ class _P24PROGRESSMAINState extends State<P24PROGRESSMAIN> {
                                           ? 170
                                           : 150,
                                       decoration: BoxDecoration(
-                                        color: P24PROGRESSVAR.isHoveredPM5
-                                            ? Colors.greenAccent
-                                            : Colors.green,
+                                        gradient: LinearGradient(
+                                          colors: P24PROGRESSVAR.isHoveredPM5
+                                              ? [Colors.grey, Colors.blueGrey]
+                                              : [Colors.blue, Colors.lightBlue],
+                                          end: Alignment.bottomRight,
+                                        ),
                                         border: Border.all(
-                                          color: Colors.black,
+                                          color: Colors.black87,
                                           width: 2.0,
                                         ),
-                                        borderRadius: BorderRadius.circular(10),
+                                        boxShadow: [
+                                          BoxShadow(
+                                            color:
+                                                Colors.black.withOpacity(0.3),
+                                            spreadRadius: 2,
+                                            blurRadius: 5,
+                                            offset: Offset(2, 3),
+                                          ),
+                                        ],
+                                        borderRadius: BorderRadius.circular(15),
                                       ),
                                       child: Center(
                                         child: Column(
                                           mainAxisAlignment:
-                                              MainAxisAlignment.spaceEvenly,
+                                              MainAxisAlignment.center,
                                           children: [
                                             Text(
                                               'TANK : PM5',
                                               style: TextStyle(
-                                                  color: Colors.white,
-                                                  fontSize: 16),
+                                                color: Colors.white,
+                                                fontSize: 18,
+                                                fontWeight: FontWeight.bold,
+                                                shadows: [
+                                                  Shadow(
+                                                    blurRadius: 5.0,
+                                                    color: Colors.black45,
+                                                    offset: Offset(2, 2),
+                                                  ),
+                                                ],
+                                              ),
                                             ),
+                                            SizedBox(height: 8),
                                             Text(
-                                              'Order : ' + _data.PM5ORDER,
+                                              'Order : ${_data.PM5ORDER}',
                                               style: TextStyle(
-                                                  color: Colors.white,
-                                                  fontSize: 16),
+                                                color: Colors.white70,
+                                                fontSize: 16,
+                                                shadows: [
+                                                  Shadow(
+                                                    blurRadius: 5.0,
+                                                    color: Colors.black45,
+                                                    offset: Offset(2, 2),
+                                                  ),
+                                                ],
+                                              ),
                                             ),
                                           ],
                                         ),
@@ -466,7 +616,7 @@ class _P24PROGRESSMAINState extends State<P24PROGRESSMAIN> {
                                   });
                                 },
                                 child: Padding(
-                                  padding: const EdgeInsets.all(10.0),
+                                  padding: const EdgeInsets.all(8.0),
                                   child: InkWell(
                                     onTap: () {
                                       setState(() {
@@ -481,7 +631,7 @@ class _P24PROGRESSMAINState extends State<P24PROGRESSMAIN> {
                                           .add(ChangePage_nodrower());
                                     },
                                     child: AnimatedContainer(
-                                      duration: Duration(milliseconds: 100),
+                                      duration: Duration(milliseconds: 200),
                                       height: P24PROGRESSVAR.isHoveredPM6
                                           ? 170
                                           : 150,
@@ -489,31 +639,62 @@ class _P24PROGRESSMAINState extends State<P24PROGRESSMAIN> {
                                           ? 170
                                           : 150,
                                       decoration: BoxDecoration(
-                                        color: P24PROGRESSVAR.isHoveredPM6
-                                            ? Colors.greenAccent
-                                            : Colors.green,
+                                        gradient: LinearGradient(
+                                          colors: P24PROGRESSVAR.isHoveredPM6
+                                              ? [Colors.grey, Colors.blueGrey]
+                                              : [Colors.blue, Colors.lightBlue],
+                                          begin: Alignment.topLeft,
+                                          end: Alignment.bottomRight,
+                                        ),
                                         border: Border.all(
-                                          color: Colors.black,
+                                          color: Colors.black87,
                                           width: 2.0,
                                         ),
-                                        borderRadius: BorderRadius.circular(10),
+                                        boxShadow: [
+                                          BoxShadow(
+                                            color:
+                                                Colors.black.withOpacity(0.3),
+                                            spreadRadius: 2,
+                                            blurRadius: 5,
+                                            offset: Offset(2, 3),
+                                          ),
+                                        ],
+                                        borderRadius: BorderRadius.circular(15),
                                       ),
                                       child: Center(
                                         child: Column(
                                           mainAxisAlignment:
-                                              MainAxisAlignment.spaceEvenly,
+                                              MainAxisAlignment.center,
                                           children: [
                                             Text(
                                               'TANK : PM6',
                                               style: TextStyle(
-                                                  color: Colors.white,
-                                                  fontSize: 16),
+                                                color: Colors.white,
+                                                fontSize: 18,
+                                                fontWeight: FontWeight.bold,
+                                                shadows: [
+                                                  Shadow(
+                                                    blurRadius: 5.0,
+                                                    color: Colors.black45,
+                                                    offset: Offset(2, 2),
+                                                  ),
+                                                ],
+                                              ),
                                             ),
+                                            SizedBox(height: 8),
                                             Text(
-                                              'Order : ' + _data.PM6ORDER,
+                                              'Order : ${_data.PM6ORDER}',
                                               style: TextStyle(
-                                                  color: Colors.white,
-                                                  fontSize: 16),
+                                                color: Colors.white70,
+                                                fontSize: 16,
+                                                shadows: [
+                                                  Shadow(
+                                                    blurRadius: 5.0,
+                                                    color: Colors.black45,
+                                                    offset: Offset(2, 2),
+                                                  ),
+                                                ],
+                                              ),
                                             ),
                                           ],
                                         ),
@@ -540,7 +721,7 @@ class _P24PROGRESSMAINState extends State<P24PROGRESSMAIN> {
                                   });
                                 },
                                 child: Padding(
-                                  padding: const EdgeInsets.all(10.0),
+                                  padding: const EdgeInsets.all(8.0),
                                   child: InkWell(
                                     onTap: () {
                                       setState(() {
@@ -555,7 +736,7 @@ class _P24PROGRESSMAINState extends State<P24PROGRESSMAIN> {
                                           .add(ChangePage_nodrower());
                                     },
                                     child: AnimatedContainer(
-                                      duration: Duration(milliseconds: 100),
+                                      duration: Duration(milliseconds: 200),
                                       height: P24PROGRESSVAR.isHoveredPM7
                                           ? 170
                                           : 150,
@@ -563,31 +744,62 @@ class _P24PROGRESSMAINState extends State<P24PROGRESSMAIN> {
                                           ? 170
                                           : 150,
                                       decoration: BoxDecoration(
-                                        color: P24PROGRESSVAR.isHoveredPM7
-                                            ? Colors.greenAccent
-                                            : Colors.green,
+                                        gradient: LinearGradient(
+                                          colors: P24PROGRESSVAR.isHoveredPM7
+                                              ? [Colors.grey, Colors.blueGrey]
+                                              : [Colors.blue, Colors.lightBlue],
+                                          begin: Alignment.topLeft,
+                                          end: Alignment.bottomRight,
+                                        ),
                                         border: Border.all(
-                                          color: Colors.black,
+                                          color: Colors.black87,
                                           width: 2.0,
                                         ),
-                                        borderRadius: BorderRadius.circular(10),
+                                        boxShadow: [
+                                          BoxShadow(
+                                            color:
+                                                Colors.black.withOpacity(0.3),
+                                            spreadRadius: 2,
+                                            blurRadius: 5,
+                                            offset: Offset(2, 3),
+                                          ),
+                                        ],
+                                        borderRadius: BorderRadius.circular(15),
                                       ),
                                       child: Center(
                                         child: Column(
                                           mainAxisAlignment:
-                                              MainAxisAlignment.spaceEvenly,
+                                              MainAxisAlignment.center,
                                           children: [
                                             Text(
                                               'TANK : PM7',
                                               style: TextStyle(
-                                                  color: Colors.white,
-                                                  fontSize: 16),
+                                                color: Colors.white,
+                                                fontSize: 18,
+                                                fontWeight: FontWeight.bold,
+                                                shadows: [
+                                                  Shadow(
+                                                    blurRadius: 5.0,
+                                                    color: Colors.black45,
+                                                    offset: Offset(2, 2),
+                                                  ),
+                                                ],
+                                              ),
                                             ),
+                                            SizedBox(height: 8),
                                             Text(
-                                              'Order : ' + _data.PM7ORDER,
+                                              'Order : ${_data.PM7ORDER}',
                                               style: TextStyle(
-                                                  color: Colors.white,
-                                                  fontSize: 16),
+                                                color: Colors.white70,
+                                                fontSize: 16,
+                                                shadows: [
+                                                  Shadow(
+                                                    blurRadius: 5.0,
+                                                    color: Colors.black45,
+                                                    offset: Offset(2, 2),
+                                                  ),
+                                                ],
+                                              ),
                                             ),
                                           ],
                                         ),
@@ -608,7 +820,7 @@ class _P24PROGRESSMAINState extends State<P24PROGRESSMAIN> {
                                   });
                                 },
                                 child: Padding(
-                                  padding: const EdgeInsets.all(10.0),
+                                  padding: const EdgeInsets.all(8.0),
                                   child: InkWell(
                                     onTap: () {
                                       setState(() {
@@ -623,7 +835,7 @@ class _P24PROGRESSMAINState extends State<P24PROGRESSMAIN> {
                                           .add(ChangePage_nodrower());
                                     },
                                     child: AnimatedContainer(
-                                      duration: Duration(milliseconds: 100),
+                                      duration: Duration(milliseconds: 200),
                                       height: P24PROGRESSVAR.isHoveredPM8
                                           ? 170
                                           : 150,
@@ -631,31 +843,62 @@ class _P24PROGRESSMAINState extends State<P24PROGRESSMAIN> {
                                           ? 170
                                           : 150,
                                       decoration: BoxDecoration(
-                                        color: P24PROGRESSVAR.isHoveredPM8
-                                            ? Colors.greenAccent
-                                            : Colors.green,
+                                        gradient: LinearGradient(
+                                          colors: P24PROGRESSVAR.isHoveredPM8
+                                              ? [Colors.grey, Colors.blueGrey]
+                                              : [Colors.blue, Colors.lightBlue],
+                                          begin: Alignment.topLeft,
+                                          end: Alignment.bottomRight,
+                                        ),
                                         border: Border.all(
-                                          color: Colors.black,
+                                          color: Colors.black87,
                                           width: 2.0,
                                         ),
-                                        borderRadius: BorderRadius.circular(10),
+                                        boxShadow: [
+                                          BoxShadow(
+                                            color:
+                                                Colors.black.withOpacity(0.3),
+                                            spreadRadius: 2,
+                                            blurRadius: 5,
+                                            offset: Offset(2, 3),
+                                          ),
+                                        ],
+                                        borderRadius: BorderRadius.circular(15),
                                       ),
                                       child: Center(
                                         child: Column(
                                           mainAxisAlignment:
-                                              MainAxisAlignment.spaceEvenly,
+                                              MainAxisAlignment.center,
                                           children: [
                                             Text(
                                               'TANK : PM8',
                                               style: TextStyle(
-                                                  color: Colors.white,
-                                                  fontSize: 16),
+                                                color: Colors.white,
+                                                fontSize: 18,
+                                                fontWeight: FontWeight.bold,
+                                                shadows: [
+                                                  Shadow(
+                                                    blurRadius: 5.0,
+                                                    color: Colors.black45,
+                                                    offset: Offset(2, 2),
+                                                  ),
+                                                ],
+                                              ),
                                             ),
+                                            SizedBox(height: 8),
                                             Text(
-                                              'Order : ' + _data.PM8ORDER,
+                                              'Order : ${_data.PM8ORDER}',
                                               style: TextStyle(
-                                                  color: Colors.white,
-                                                  fontSize: 16),
+                                                color: Colors.white70,
+                                                fontSize: 16,
+                                                shadows: [
+                                                  Shadow(
+                                                    blurRadius: 5.0,
+                                                    color: Colors.black45,
+                                                    offset: Offset(2, 2),
+                                                  ),
+                                                ],
+                                              ),
                                             ),
                                           ],
                                         ),
@@ -676,7 +919,7 @@ class _P24PROGRESSMAINState extends State<P24PROGRESSMAIN> {
                                   });
                                 },
                                 child: Padding(
-                                  padding: const EdgeInsets.all(10.0),
+                                  padding: const EdgeInsets.all(8.0),
                                   child: InkWell(
                                     onTap: () {
                                       setState(() {
@@ -691,7 +934,7 @@ class _P24PROGRESSMAINState extends State<P24PROGRESSMAIN> {
                                           .add(ChangePage_nodrower());
                                     },
                                     child: AnimatedContainer(
-                                      duration: Duration(milliseconds: 100),
+                                      duration: Duration(milliseconds: 200),
                                       height: P24PROGRESSVAR.isHoveredPM9
                                           ? 170
                                           : 150,
@@ -699,31 +942,62 @@ class _P24PROGRESSMAINState extends State<P24PROGRESSMAIN> {
                                           ? 170
                                           : 150,
                                       decoration: BoxDecoration(
-                                        color: P24PROGRESSVAR.isHoveredPM9
-                                            ? Colors.greenAccent
-                                            : Colors.green,
+                                        gradient: LinearGradient(
+                                          colors: P24PROGRESSVAR.isHoveredPM9
+                                              ? [Colors.grey, Colors.blueGrey]
+                                              : [Colors.blue, Colors.lightBlue],
+                                          begin: Alignment.topLeft,
+                                          end: Alignment.bottomRight,
+                                        ),
                                         border: Border.all(
-                                          color: Colors.black,
+                                          color: Colors.black87,
                                           width: 2.0,
                                         ),
-                                        borderRadius: BorderRadius.circular(10),
+                                        boxShadow: [
+                                          BoxShadow(
+                                            color:
+                                                Colors.black.withOpacity(0.3),
+                                            spreadRadius: 2,
+                                            blurRadius: 5,
+                                            offset: Offset(2, 3),
+                                          ),
+                                        ],
+                                        borderRadius: BorderRadius.circular(15),
                                       ),
                                       child: Center(
                                         child: Column(
                                           mainAxisAlignment:
-                                              MainAxisAlignment.spaceEvenly,
+                                              MainAxisAlignment.center,
                                           children: [
                                             Text(
                                               'TANK : PM9',
                                               style: TextStyle(
-                                                  color: Colors.white,
-                                                  fontSize: 16),
+                                                color: Colors.white,
+                                                fontSize: 18,
+                                                fontWeight: FontWeight.bold,
+                                                shadows: [
+                                                  Shadow(
+                                                    blurRadius: 5.0,
+                                                    color: Colors.black45,
+                                                    offset: Offset(2, 2),
+                                                  ),
+                                                ],
+                                              ),
                                             ),
+                                            SizedBox(height: 8),
                                             Text(
-                                              'Order : ' + _data.PM9ORDER,
+                                              'Order : ${_data.PM9ORDER}',
                                               style: TextStyle(
-                                                  color: Colors.white,
-                                                  fontSize: 16),
+                                                color: Colors.white70,
+                                                fontSize: 16,
+                                                shadows: [
+                                                  Shadow(
+                                                    blurRadius: 5.0,
+                                                    color: Colors.black45,
+                                                    offset: Offset(2, 2),
+                                                  ),
+                                                ],
+                                              ),
                                             ),
                                           ],
                                         ),
@@ -744,7 +1018,7 @@ class _P24PROGRESSMAINState extends State<P24PROGRESSMAIN> {
                                   });
                                 },
                                 child: Padding(
-                                  padding: const EdgeInsets.all(10.0),
+                                  padding: const EdgeInsets.all(8.0),
                                   child: InkWell(
                                     onTap: () {
                                       setState(() {
@@ -759,7 +1033,7 @@ class _P24PROGRESSMAINState extends State<P24PROGRESSMAIN> {
                                           .add(ChangePage_nodrower());
                                     },
                                     child: AnimatedContainer(
-                                      duration: Duration(milliseconds: 100),
+                                      duration: Duration(milliseconds: 200),
                                       height: P24PROGRESSVAR.isHoveredPM10
                                           ? 170
                                           : 150,
@@ -767,31 +1041,62 @@ class _P24PROGRESSMAINState extends State<P24PROGRESSMAIN> {
                                           ? 170
                                           : 150,
                                       decoration: BoxDecoration(
-                                        color: P24PROGRESSVAR.isHoveredPM10
-                                            ? Colors.greenAccent
-                                            : Colors.green,
+                                        gradient: LinearGradient(
+                                          colors: P24PROGRESSVAR.isHoveredPM10
+                                              ? [Colors.grey, Colors.blueGrey]
+                                              : [Colors.blue, Colors.lightBlue],
+                                          begin: Alignment.topLeft,
+                                          end: Alignment.bottomRight,
+                                        ),
                                         border: Border.all(
-                                          color: Colors.black,
+                                          color: Colors.black87,
                                           width: 2.0,
                                         ),
-                                        borderRadius: BorderRadius.circular(10),
+                                        boxShadow: [
+                                          BoxShadow(
+                                            color:
+                                                Colors.black.withOpacity(0.3),
+                                            spreadRadius: 2,
+                                            blurRadius: 5,
+                                            offset: Offset(2, 3),
+                                          ),
+                                        ],
+                                        borderRadius: BorderRadius.circular(15),
                                       ),
                                       child: Center(
                                         child: Column(
                                           mainAxisAlignment:
-                                              MainAxisAlignment.spaceEvenly,
+                                              MainAxisAlignment.center,
                                           children: [
                                             Text(
                                               'TANK : PM10',
                                               style: TextStyle(
-                                                  color: Colors.white,
-                                                  fontSize: 16),
+                                                color: Colors.white,
+                                                fontSize: 18,
+                                                fontWeight: FontWeight.bold,
+                                                shadows: [
+                                                  Shadow(
+                                                    blurRadius: 5.0,
+                                                    color: Colors.black45,
+                                                    offset: Offset(2, 2),
+                                                  ),
+                                                ],
+                                              ),
                                             ),
+                                            SizedBox(height: 8),
                                             Text(
-                                              'Order : ' + _data.PM10ORDER,
+                                              'Order : ${_data.PM10ORDER}',
                                               style: TextStyle(
-                                                  color: Colors.white,
-                                                  fontSize: 16),
+                                                color: Colors.white70,
+                                                fontSize: 16,
+                                                shadows: [
+                                                  Shadow(
+                                                    blurRadius: 5.0,
+                                                    color: Colors.black45,
+                                                    offset: Offset(2, 2),
+                                                  ),
+                                                ],
+                                              ),
                                             ),
                                           ],
                                         ),
@@ -812,7 +1117,7 @@ class _P24PROGRESSMAINState extends State<P24PROGRESSMAIN> {
                                   });
                                 },
                                 child: Padding(
-                                  padding: const EdgeInsets.all(10.0),
+                                  padding: const EdgeInsets.all(8.0),
                                   child: InkWell(
                                     onTap: () {
                                       setState(() {
@@ -827,7 +1132,7 @@ class _P24PROGRESSMAINState extends State<P24PROGRESSMAIN> {
                                           .add(ChangePage_nodrower());
                                     },
                                     child: AnimatedContainer(
-                                      duration: Duration(milliseconds: 100),
+                                      duration: Duration(milliseconds: 200),
                                       height: P24PROGRESSVAR.isHoveredPM11
                                           ? 170
                                           : 150,
@@ -835,31 +1140,62 @@ class _P24PROGRESSMAINState extends State<P24PROGRESSMAIN> {
                                           ? 170
                                           : 150,
                                       decoration: BoxDecoration(
-                                        color: P24PROGRESSVAR.isHoveredPM11
-                                            ? Colors.greenAccent
-                                            : Colors.green,
+                                        gradient: LinearGradient(
+                                          colors: P24PROGRESSVAR.isHoveredPM11
+                                              ? [Colors.grey, Colors.blueGrey]
+                                              : [Colors.blue, Colors.lightBlue],
+                                          begin: Alignment.topLeft,
+                                          end: Alignment.bottomRight,
+                                        ),
                                         border: Border.all(
-                                          color: Colors.black,
+                                          color: Colors.black87,
                                           width: 2.0,
                                         ),
-                                        borderRadius: BorderRadius.circular(10),
+                                        boxShadow: [
+                                          BoxShadow(
+                                            color:
+                                                Colors.black.withOpacity(0.3),
+                                            spreadRadius: 2,
+                                            blurRadius: 5,
+                                            offset: Offset(2, 3),
+                                          ),
+                                        ],
+                                        borderRadius: BorderRadius.circular(15),
                                       ),
                                       child: Center(
                                         child: Column(
                                           mainAxisAlignment:
-                                              MainAxisAlignment.spaceEvenly,
+                                              MainAxisAlignment.center,
                                           children: [
                                             Text(
                                               'TANK : PM11',
                                               style: TextStyle(
-                                                  color: Colors.white,
-                                                  fontSize: 16),
+                                                color: Colors.white,
+                                                fontSize: 18,
+                                                fontWeight: FontWeight.bold,
+                                                shadows: [
+                                                  Shadow(
+                                                    blurRadius: 5.0,
+                                                    color: Colors.black45,
+                                                    offset: Offset(2, 2),
+                                                  ),
+                                                ],
+                                              ),
                                             ),
+                                            SizedBox(height: 8),
                                             Text(
-                                              'Order : ' + _data.PM11ORDER,
+                                              'Order : ${_data.PM11ORDER}',
                                               style: TextStyle(
-                                                  color: Colors.white,
-                                                  fontSize: 16),
+                                                color: Colors.white70,
+                                                fontSize: 16,
+                                                shadows: [
+                                                  Shadow(
+                                                    blurRadius: 5.0,
+                                                    color: Colors.black45,
+                                                    offset: Offset(2, 2),
+                                                  ),
+                                                ],
+                                              ),
                                             ),
                                           ],
                                         ),
@@ -880,7 +1216,7 @@ class _P24PROGRESSMAINState extends State<P24PROGRESSMAIN> {
                                   });
                                 },
                                 child: Padding(
-                                  padding: const EdgeInsets.all(10.0),
+                                  padding: const EdgeInsets.all(8.0),
                                   child: InkWell(
                                     onTap: () {
                                       setState(() {
@@ -895,7 +1231,7 @@ class _P24PROGRESSMAINState extends State<P24PROGRESSMAIN> {
                                           .add(ChangePage_nodrower());
                                     },
                                     child: AnimatedContainer(
-                                      duration: Duration(milliseconds: 100),
+                                      duration: Duration(milliseconds: 200),
                                       height: P24PROGRESSVAR.isHoveredPM12
                                           ? 170
                                           : 150,
@@ -903,31 +1239,62 @@ class _P24PROGRESSMAINState extends State<P24PROGRESSMAIN> {
                                           ? 170
                                           : 150,
                                       decoration: BoxDecoration(
-                                        color: P24PROGRESSVAR.isHoveredPM12
-                                            ? Colors.greenAccent
-                                            : Colors.green,
+                                        gradient: LinearGradient(
+                                          colors: P24PROGRESSVAR.isHoveredPM12
+                                              ? [Colors.grey, Colors.blueGrey]
+                                              : [Colors.blue, Colors.lightBlue],
+                                          begin: Alignment.topLeft,
+                                          end: Alignment.bottomRight,
+                                        ),
                                         border: Border.all(
-                                          color: Colors.black,
+                                          color: Colors.black87,
                                           width: 2.0,
                                         ),
-                                        borderRadius: BorderRadius.circular(10),
+                                        boxShadow: [
+                                          BoxShadow(
+                                            color:
+                                                Colors.black.withOpacity(0.3),
+                                            spreadRadius: 2,
+                                            blurRadius: 5,
+                                            offset: Offset(2, 3),
+                                          ),
+                                        ],
+                                        borderRadius: BorderRadius.circular(15),
                                       ),
                                       child: Center(
                                         child: Column(
                                           mainAxisAlignment:
-                                              MainAxisAlignment.spaceEvenly,
+                                              MainAxisAlignment.center,
                                           children: [
                                             Text(
                                               'TANK : PM12',
                                               style: TextStyle(
-                                                  color: Colors.white,
-                                                  fontSize: 16),
+                                                color: Colors.white,
+                                                fontSize: 18,
+                                                fontWeight: FontWeight.bold,
+                                                shadows: [
+                                                  Shadow(
+                                                    blurRadius: 5.0,
+                                                    color: Colors.black45,
+                                                    offset: Offset(2, 2),
+                                                  ),
+                                                ],
+                                              ),
                                             ),
+                                            SizedBox(height: 8),
                                             Text(
-                                              'Order : ' + _data.PM12ORDER,
+                                              'Order : ${_data.PM12ORDER}',
                                               style: TextStyle(
-                                                  color: Colors.white,
-                                                  fontSize: 16),
+                                                color: Colors.white70,
+                                                fontSize: 16,
+                                                shadows: [
+                                                  Shadow(
+                                                    blurRadius: 5.0,
+                                                    color: Colors.black45,
+                                                    offset: Offset(2, 2),
+                                                  ),
+                                                ],
+                                              ),
                                             ),
                                           ],
                                         ),
@@ -954,7 +1321,7 @@ class _P24PROGRESSMAINState extends State<P24PROGRESSMAIN> {
                                   });
                                 },
                                 child: Padding(
-                                  padding: const EdgeInsets.all(10.0),
+                                  padding: const EdgeInsets.all(8.0),
                                   child: InkWell(
                                     onTap: () {
                                       setState(() {
@@ -969,7 +1336,7 @@ class _P24PROGRESSMAINState extends State<P24PROGRESSMAIN> {
                                           .add(ChangePage_nodrower());
                                     },
                                     child: AnimatedContainer(
-                                      duration: Duration(milliseconds: 100),
+                                      duration: Duration(milliseconds: 200),
                                       height: P24PROGRESSVAR.isHoveredPM13
                                           ? 170
                                           : 150,
@@ -977,31 +1344,62 @@ class _P24PROGRESSMAINState extends State<P24PROGRESSMAIN> {
                                           ? 170
                                           : 150,
                                       decoration: BoxDecoration(
-                                        color: P24PROGRESSVAR.isHoveredPM13
-                                            ? Colors.greenAccent
-                                            : Colors.green,
+                                        gradient: LinearGradient(
+                                          colors: P24PROGRESSVAR.isHoveredPM13
+                                              ? [Colors.grey, Colors.blueGrey]
+                                              : [Colors.blue, Colors.lightBlue],
+                                          begin: Alignment.topLeft,
+                                          end: Alignment.bottomRight,
+                                        ),
                                         border: Border.all(
-                                          color: Colors.black,
+                                          color: Colors.black87,
                                           width: 2.0,
                                         ),
-                                        borderRadius: BorderRadius.circular(10),
+                                        boxShadow: [
+                                          BoxShadow(
+                                            color:
+                                                Colors.black.withOpacity(0.3),
+                                            spreadRadius: 2,
+                                            blurRadius: 5,
+                                            offset: Offset(2, 3),
+                                          ),
+                                        ],
+                                        borderRadius: BorderRadius.circular(15),
                                       ),
                                       child: Center(
                                         child: Column(
                                           mainAxisAlignment:
-                                              MainAxisAlignment.spaceEvenly,
+                                              MainAxisAlignment.center,
                                           children: [
                                             Text(
                                               'TANK : PM13',
                                               style: TextStyle(
-                                                  color: Colors.white,
-                                                  fontSize: 16),
+                                                color: Colors.white,
+                                                fontSize: 18,
+                                                fontWeight: FontWeight.bold,
+                                                shadows: [
+                                                  Shadow(
+                                                    blurRadius: 5.0,
+                                                    color: Colors.black45,
+                                                    offset: Offset(2, 2),
+                                                  ),
+                                                ],
+                                              ),
                                             ),
+                                            SizedBox(height: 8),
                                             Text(
-                                              'Order : ' + _data.PM13ORDER,
+                                              'Order : ${_data.PM13ORDER}',
                                               style: TextStyle(
-                                                  color: Colors.white,
-                                                  fontSize: 16),
+                                                color: Colors.white70,
+                                                fontSize: 16,
+                                                shadows: [
+                                                  Shadow(
+                                                    blurRadius: 5.0,
+                                                    color: Colors.black45,
+                                                    offset: Offset(2, 2),
+                                                  ),
+                                                ],
+                                              ),
                                             ),
                                           ],
                                         ),
@@ -1022,7 +1420,7 @@ class _P24PROGRESSMAINState extends State<P24PROGRESSMAIN> {
                                   });
                                 },
                                 child: Padding(
-                                  padding: const EdgeInsets.all(10.0),
+                                  padding: const EdgeInsets.all(8.0),
                                   child: InkWell(
                                     onTap: () {
                                       setState(() {
@@ -1037,7 +1435,7 @@ class _P24PROGRESSMAINState extends State<P24PROGRESSMAIN> {
                                           .add(ChangePage_nodrower());
                                     },
                                     child: AnimatedContainer(
-                                      duration: Duration(milliseconds: 100),
+                                      duration: Duration(milliseconds: 200),
                                       height: P24PROGRESSVAR.isHoveredPM14
                                           ? 170
                                           : 150,
@@ -1045,31 +1443,62 @@ class _P24PROGRESSMAINState extends State<P24PROGRESSMAIN> {
                                           ? 170
                                           : 150,
                                       decoration: BoxDecoration(
-                                        color: P24PROGRESSVAR.isHoveredPM14
-                                            ? Colors.greenAccent
-                                            : Colors.green,
+                                        gradient: LinearGradient(
+                                          colors: P24PROGRESSVAR.isHoveredPM14
+                                              ? [Colors.grey, Colors.blueGrey]
+                                              : [Colors.blue, Colors.lightBlue],
+                                          begin: Alignment.topLeft,
+                                          end: Alignment.bottomRight,
+                                        ),
                                         border: Border.all(
-                                          color: Colors.black,
+                                          color: Colors.black87,
                                           width: 2.0,
                                         ),
-                                        borderRadius: BorderRadius.circular(10),
+                                        boxShadow: [
+                                          BoxShadow(
+                                            color:
+                                                Colors.black.withOpacity(0.3),
+                                            spreadRadius: 2,
+                                            blurRadius: 5,
+                                            offset: Offset(2, 3),
+                                          ),
+                                        ],
+                                        borderRadius: BorderRadius.circular(15),
                                       ),
                                       child: Center(
                                         child: Column(
                                           mainAxisAlignment:
-                                              MainAxisAlignment.spaceEvenly,
+                                              MainAxisAlignment.center,
                                           children: [
                                             Text(
                                               'TANK : PM14',
                                               style: TextStyle(
-                                                  color: Colors.white,
-                                                  fontSize: 16),
+                                                color: Colors.white,
+                                                fontSize: 18,
+                                                fontWeight: FontWeight.bold,
+                                                shadows: [
+                                                  Shadow(
+                                                    blurRadius: 5.0,
+                                                    color: Colors.black45,
+                                                    offset: Offset(2, 2),
+                                                  ),
+                                                ],
+                                              ),
                                             ),
+                                            SizedBox(height: 8),
                                             Text(
-                                              'Order : ' + _data.PM14ORDER,
+                                              'Order : ${_data.PM14ORDER}',
                                               style: TextStyle(
-                                                  color: Colors.white,
-                                                  fontSize: 16),
+                                                color: Colors.white70,
+                                                fontSize: 16,
+                                                shadows: [
+                                                  Shadow(
+                                                    blurRadius: 5.0,
+                                                    color: Colors.black45,
+                                                    offset: Offset(2, 2),
+                                                  ),
+                                                ],
+                                              ),
                                             ),
                                           ],
                                         ),
@@ -1090,7 +1519,7 @@ class _P24PROGRESSMAINState extends State<P24PROGRESSMAIN> {
                                   });
                                 },
                                 child: Padding(
-                                  padding: const EdgeInsets.all(10.0),
+                                  padding: const EdgeInsets.all(8.0),
                                   child: InkWell(
                                     onTap: () {
                                       setState(() {
@@ -1105,7 +1534,7 @@ class _P24PROGRESSMAINState extends State<P24PROGRESSMAIN> {
                                           .add(ChangePage_nodrower());
                                     },
                                     child: AnimatedContainer(
-                                      duration: Duration(milliseconds: 100),
+                                      duration: Duration(milliseconds: 200),
                                       height: P24PROGRESSVAR.isHoveredPM15
                                           ? 170
                                           : 150,
@@ -1113,31 +1542,62 @@ class _P24PROGRESSMAINState extends State<P24PROGRESSMAIN> {
                                           ? 170
                                           : 150,
                                       decoration: BoxDecoration(
-                                        color: P24PROGRESSVAR.isHoveredPM15
-                                            ? Colors.greenAccent
-                                            : Colors.green,
+                                        gradient: LinearGradient(
+                                          colors: P24PROGRESSVAR.isHoveredPM15
+                                              ? [Colors.grey, Colors.blueGrey]
+                                              : [Colors.blue, Colors.lightBlue],
+                                          begin: Alignment.topLeft,
+                                          end: Alignment.bottomRight,
+                                        ),
                                         border: Border.all(
-                                          color: Colors.black,
+                                          color: Colors.black87,
                                           width: 2.0,
                                         ),
-                                        borderRadius: BorderRadius.circular(10),
+                                        boxShadow: [
+                                          BoxShadow(
+                                            color:
+                                                Colors.black.withOpacity(0.3),
+                                            spreadRadius: 2,
+                                            blurRadius: 5,
+                                            offset: Offset(2, 3),
+                                          ),
+                                        ],
+                                        borderRadius: BorderRadius.circular(15),
                                       ),
                                       child: Center(
                                         child: Column(
                                           mainAxisAlignment:
-                                              MainAxisAlignment.spaceEvenly,
+                                              MainAxisAlignment.center,
                                           children: [
                                             Text(
                                               'TANK : PM15',
                                               style: TextStyle(
-                                                  color: Colors.white,
-                                                  fontSize: 16),
+                                                color: Colors.white,
+                                                fontSize: 18,
+                                                fontWeight: FontWeight.bold,
+                                                shadows: [
+                                                  Shadow(
+                                                    blurRadius: 5.0,
+                                                    color: Colors.black45,
+                                                    offset: Offset(2, 2),
+                                                  ),
+                                                ],
+                                              ),
                                             ),
+                                            SizedBox(height: 8),
                                             Text(
-                                              'Order : ' + _data.PM15ORDER,
+                                              'Order : ${_data.PM15ORDER}',
                                               style: TextStyle(
-                                                  color: Colors.white,
-                                                  fontSize: 16),
+                                                color: Colors.white70,
+                                                fontSize: 16,
+                                                shadows: [
+                                                  Shadow(
+                                                    blurRadius: 5.0,
+                                                    color: Colors.black45,
+                                                    offset: Offset(2, 2),
+                                                  ),
+                                                ],
+                                              ),
                                             ),
                                           ],
                                         ),
@@ -1158,7 +1618,7 @@ class _P24PROGRESSMAINState extends State<P24PROGRESSMAIN> {
                                   });
                                 },
                                 child: Padding(
-                                  padding: const EdgeInsets.all(10.0),
+                                  padding: const EdgeInsets.all(8.0),
                                   child: InkWell(
                                     onTap: () {
                                       setState(() {
@@ -1173,7 +1633,7 @@ class _P24PROGRESSMAINState extends State<P24PROGRESSMAIN> {
                                           .add(ChangePage_nodrower());
                                     },
                                     child: AnimatedContainer(
-                                      duration: Duration(milliseconds: 100),
+                                      duration: Duration(milliseconds: 200),
                                       height: P24PROGRESSVAR.isHoveredPM16
                                           ? 170
                                           : 150,
@@ -1181,31 +1641,62 @@ class _P24PROGRESSMAINState extends State<P24PROGRESSMAIN> {
                                           ? 170
                                           : 150,
                                       decoration: BoxDecoration(
-                                        color: P24PROGRESSVAR.isHoveredPM16
-                                            ? Colors.greenAccent
-                                            : Colors.green,
+                                        gradient: LinearGradient(
+                                          colors: P24PROGRESSVAR.isHoveredPM16
+                                              ? [Colors.grey, Colors.blueGrey]
+                                              : [Colors.blue, Colors.lightBlue],
+                                          begin: Alignment.topLeft,
+                                          end: Alignment.bottomRight,
+                                        ),
                                         border: Border.all(
-                                          color: Colors.black,
+                                          color: Colors.black87,
                                           width: 2.0,
                                         ),
-                                        borderRadius: BorderRadius.circular(10),
+                                        boxShadow: [
+                                          BoxShadow(
+                                            color:
+                                                Colors.black.withOpacity(0.3),
+                                            spreadRadius: 2,
+                                            blurRadius: 5,
+                                            offset: Offset(2, 3),
+                                          ),
+                                        ],
+                                        borderRadius: BorderRadius.circular(15),
                                       ),
                                       child: Center(
                                         child: Column(
                                           mainAxisAlignment:
-                                              MainAxisAlignment.spaceEvenly,
+                                              MainAxisAlignment.center,
                                           children: [
                                             Text(
                                               'TANK : PM16',
                                               style: TextStyle(
-                                                  color: Colors.white,
-                                                  fontSize: 16),
+                                                color: Colors.white,
+                                                fontSize: 18,
+                                                fontWeight: FontWeight.bold,
+                                                shadows: [
+                                                  Shadow(
+                                                    blurRadius: 5.0,
+                                                    color: Colors.black45,
+                                                    offset: Offset(2, 2),
+                                                  ),
+                                                ],
+                                              ),
                                             ),
+                                            SizedBox(height: 8),
                                             Text(
-                                              'Order : ' + _data.PM16ORDER,
+                                              'Order : ${_data.PM16ORDER}',
                                               style: TextStyle(
-                                                  color: Colors.white,
-                                                  fontSize: 16),
+                                                color: Colors.white70,
+                                                fontSize: 16,
+                                                shadows: [
+                                                  Shadow(
+                                                    blurRadius: 5.0,
+                                                    color: Colors.black45,
+                                                    offset: Offset(2, 2),
+                                                  ),
+                                                ],
+                                              ),
                                             ),
                                           ],
                                         ),
@@ -1226,7 +1717,7 @@ class _P24PROGRESSMAINState extends State<P24PROGRESSMAIN> {
                                   });
                                 },
                                 child: Padding(
-                                  padding: const EdgeInsets.all(10.0),
+                                  padding: const EdgeInsets.all(8.0),
                                   child: InkWell(
                                     onTap: () {
                                       setState(() {
@@ -1241,7 +1732,7 @@ class _P24PROGRESSMAINState extends State<P24PROGRESSMAIN> {
                                           .add(ChangePage_nodrower());
                                     },
                                     child: AnimatedContainer(
-                                      duration: Duration(milliseconds: 100),
+                                      duration: Duration(milliseconds: 200),
                                       height: P24PROGRESSVAR.isHoveredPM17
                                           ? 170
                                           : 150,
@@ -1249,31 +1740,62 @@ class _P24PROGRESSMAINState extends State<P24PROGRESSMAIN> {
                                           ? 170
                                           : 150,
                                       decoration: BoxDecoration(
-                                        color: P24PROGRESSVAR.isHoveredPM17
-                                            ? Colors.greenAccent
-                                            : Colors.green,
+                                        gradient: LinearGradient(
+                                          colors: P24PROGRESSVAR.isHoveredPM17
+                                              ? [Colors.grey, Colors.blueGrey]
+                                              : [Colors.blue, Colors.lightBlue],
+                                          begin: Alignment.topLeft,
+                                          end: Alignment.bottomRight,
+                                        ),
                                         border: Border.all(
-                                          color: Colors.black,
+                                          color: Colors.black87,
                                           width: 2.0,
                                         ),
-                                        borderRadius: BorderRadius.circular(10),
+                                        boxShadow: [
+                                          BoxShadow(
+                                            color:
+                                                Colors.black.withOpacity(0.3),
+                                            spreadRadius: 2,
+                                            blurRadius: 5,
+                                            offset: Offset(2, 3),
+                                          ),
+                                        ],
+                                        borderRadius: BorderRadius.circular(15),
                                       ),
                                       child: Center(
                                         child: Column(
                                           mainAxisAlignment:
-                                              MainAxisAlignment.spaceEvenly,
+                                              MainAxisAlignment.center,
                                           children: [
                                             Text(
                                               'TANK : PM17',
                                               style: TextStyle(
-                                                  color: Colors.white,
-                                                  fontSize: 16),
+                                                color: Colors.white,
+                                                fontSize: 18,
+                                                fontWeight: FontWeight.bold,
+                                                shadows: [
+                                                  Shadow(
+                                                    blurRadius: 5.0,
+                                                    color: Colors.black45,
+                                                    offset: Offset(2, 2),
+                                                  ),
+                                                ],
+                                              ),
                                             ),
+                                            SizedBox(height: 8),
                                             Text(
-                                              'Order : ' + _data.PM17ORDER,
+                                              'Order : ${_data.PM17ORDER}',
                                               style: TextStyle(
-                                                  color: Colors.white,
-                                                  fontSize: 16),
+                                                color: Colors.white70,
+                                                fontSize: 16,
+                                                shadows: [
+                                                  Shadow(
+                                                    blurRadius: 5.0,
+                                                    color: Colors.black45,
+                                                    offset: Offset(2, 2),
+                                                  ),
+                                                ],
+                                              ),
                                             ),
                                           ],
                                         ),

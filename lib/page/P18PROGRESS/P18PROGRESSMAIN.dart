@@ -97,7 +97,7 @@ class _P18PROGRESSMAINBodyState extends State<P18PROGRESSMAINBody> {
                                 });
                               },
                               child: Padding(
-                                padding: const EdgeInsets.all(10.0),
+                                padding: const EdgeInsets.all(8.0),
                                 child: InkWell(
                                   onTap: () {
                                     setState(() {
@@ -112,7 +112,7 @@ class _P18PROGRESSMAINBodyState extends State<P18PROGRESSMAINBody> {
                                         .add(ChangePage_nodrower());
                                   },
                                   child: AnimatedContainer(
-                                    duration: Duration(milliseconds: 100),
+                                    duration: Duration(milliseconds: 200),
                                     height: P18PROGRESSVAR.isHoveredPREMIX
                                         ? 170
                                         : 150,
@@ -120,20 +120,45 @@ class _P18PROGRESSMAINBodyState extends State<P18PROGRESSMAINBody> {
                                         ? 170
                                         : 150,
                                     decoration: BoxDecoration(
-                                      color: P18PROGRESSVAR.isHoveredPREMIX
-                                          ? Colors.greenAccent
-                                          : Colors.green,
+                                      gradient: LinearGradient(
+                                        colors: P18PROGRESSVAR.isHoveredPREMIX
+                                            ? [
+                                                Colors.greenAccent,
+                                                Colors.lightGreen
+                                              ]
+                                            : [Colors.green, Colors.teal],
+                                        begin: Alignment.topLeft,
+                                        end: Alignment.bottomRight,
+                                      ),
                                       border: Border.all(
-                                        color: Colors.black,
+                                        color: Colors.black87,
                                         width: 2.0,
                                       ),
-                                      borderRadius: BorderRadius.circular(10),
+                                      boxShadow: [
+                                        BoxShadow(
+                                          color: Colors.black.withOpacity(0.3),
+                                          spreadRadius: 2,
+                                          blurRadius: 5,
+                                          offset: Offset(2, 3),
+                                        ),
+                                      ],
+                                      borderRadius: BorderRadius.circular(15),
                                     ),
                                     child: Center(
                                       child: Text(
                                         'PREMIX',
                                         style: TextStyle(
-                                            color: Colors.white, fontSize: 20),
+                                          color: Colors.white,
+                                          fontSize: 18,
+                                          fontWeight: FontWeight.bold,
+                                          shadows: [
+                                            Shadow(
+                                              blurRadius: 5.0,
+                                              color: Colors.black45,
+                                              offset: Offset(2, 2),
+                                            ),
+                                          ],
+                                        ),
                                       ),
                                     ),
                                   ),
@@ -152,7 +177,7 @@ class _P18PROGRESSMAINBodyState extends State<P18PROGRESSMAINBody> {
                                 });
                               },
                               child: Padding(
-                                padding: const EdgeInsets.all(10.0),
+                                padding: const EdgeInsets.all(8.0),
                                 child: InkWell(
                                   onTap: () {
                                     setState(() {
@@ -168,7 +193,7 @@ class _P18PROGRESSMAINBodyState extends State<P18PROGRESSMAINBody> {
                                         .add(ChangePage_nodrower());
                                   },
                                   child: AnimatedContainer(
-                                    duration: Duration(milliseconds: 100),
+                                    duration: Duration(milliseconds: 200),
                                     height: P18PROGRESSVAR.isHoveredCOILCOATING
                                         ? 170
                                         : 150,
@@ -176,20 +201,46 @@ class _P18PROGRESSMAINBodyState extends State<P18PROGRESSMAINBody> {
                                         ? 170
                                         : 150,
                                     decoration: BoxDecoration(
-                                      color: P18PROGRESSVAR.isHoveredCOILCOATING
-                                          ? Colors.greenAccent
-                                          : Colors.green,
+                                      gradient: LinearGradient(
+                                        colors:
+                                            P18PROGRESSVAR.isHoveredCOILCOATING
+                                                ? [
+                                                    Colors.redAccent,
+                                                    Colors.orangeAccent
+                                                  ]
+                                                : [Colors.red, Colors.orange],
+                                        begin: Alignment.topLeft,
+                                        end: Alignment.bottomRight,
+                                      ),
                                       border: Border.all(
-                                        color: Colors.black,
+                                        color: Colors.black87,
                                         width: 2.0,
                                       ),
-                                      borderRadius: BorderRadius.circular(10),
+                                      boxShadow: [
+                                        BoxShadow(
+                                          color: Colors.black.withOpacity(0.3),
+                                          spreadRadius: 2,
+                                          blurRadius: 5,
+                                          offset: Offset(2, 3),
+                                        ),
+                                      ],
+                                      borderRadius: BorderRadius.circular(15),
                                     ),
                                     child: Center(
                                       child: Text(
                                         'COILCOATING',
                                         style: TextStyle(
-                                            color: Colors.white, fontSize: 20),
+                                          color: Colors.white,
+                                          fontSize: 18,
+                                          fontWeight: FontWeight.bold,
+                                          shadows: [
+                                            Shadow(
+                                              blurRadius: 5.0,
+                                              color: Colors.black45,
+                                              offset: Offset(2, 2),
+                                            ),
+                                          ],
+                                        ),
                                       ),
                                     ),
                                   ),
@@ -208,7 +259,7 @@ class _P18PROGRESSMAINBodyState extends State<P18PROGRESSMAINBody> {
                                 });
                               },
                               child: Padding(
-                                padding: const EdgeInsets.all(10.0),
+                                padding: const EdgeInsets.all(8.0),
                                 child: InkWell(
                                   onTap: () {
                                     setState(() {
@@ -224,7 +275,7 @@ class _P18PROGRESSMAINBodyState extends State<P18PROGRESSMAINBody> {
                                         .add(ChangePage_nodrower());
                                   },
                                   child: AnimatedContainer(
-                                    duration: Duration(milliseconds: 100),
+                                    duration: Duration(milliseconds: 200),
                                     height: P18PROGRESSVAR.isHoveredHYDROPHILIC
                                         ? 170
                                         : 150,
@@ -232,20 +283,46 @@ class _P18PROGRESSMAINBodyState extends State<P18PROGRESSMAINBody> {
                                         ? 170
                                         : 150,
                                     decoration: BoxDecoration(
-                                      color: P18PROGRESSVAR.isHoveredHYDROPHILIC
-                                          ? Colors.greenAccent
-                                          : Colors.green,
+                                      gradient: LinearGradient(
+                                        colors:
+                                            P18PROGRESSVAR.isHoveredHYDROPHILIC
+                                                ? [
+                                                    Colors.lightBlueAccent,
+                                                    Colors.blueAccent
+                                                  ]
+                                                : [Colors.blue, Colors.indigo],
+                                        begin: Alignment.topLeft,
+                                        end: Alignment.bottomRight,
+                                      ),
                                       border: Border.all(
-                                        color: Colors.black,
+                                        color: Colors.black87,
                                         width: 2.0,
                                       ),
-                                      borderRadius: BorderRadius.circular(10),
+                                      boxShadow: [
+                                        BoxShadow(
+                                          color: Colors.black.withOpacity(0.3),
+                                          spreadRadius: 2,
+                                          blurRadius: 5,
+                                          offset: Offset(2, 3),
+                                        ),
+                                      ],
+                                      borderRadius: BorderRadius.circular(15),
                                     ),
                                     child: Center(
                                       child: Text(
                                         'HYDROPHILIC',
                                         style: TextStyle(
-                                            color: Colors.white, fontSize: 20),
+                                          color: Colors.white,
+                                          fontSize: 18,
+                                          fontWeight: FontWeight.bold,
+                                          shadows: [
+                                            Shadow(
+                                              blurRadius: 5.0,
+                                              color: Colors.black45,
+                                              offset: Offset(2, 2),
+                                            ),
+                                          ],
+                                        ),
                                       ),
                                     ),
                                   ),
@@ -264,7 +341,7 @@ class _P18PROGRESSMAINBodyState extends State<P18PROGRESSMAINBody> {
                                 });
                               },
                               child: Padding(
-                                padding: const EdgeInsets.all(10.0),
+                                padding: const EdgeInsets.all(8.0),
                                 child: InkWell(
                                   onTap: () {
                                     setState(() {
@@ -279,26 +356,51 @@ class _P18PROGRESSMAINBodyState extends State<P18PROGRESSMAINBody> {
                                         .add(ChangePage_nodrower());
                                   },
                                   child: AnimatedContainer(
-                                    duration: Duration(milliseconds: 100),
+                                    duration: Duration(milliseconds: 200),
                                     height:
                                         P18PROGRESSVAR.isHoveredPLX ? 170 : 150,
                                     width:
                                         P18PROGRESSVAR.isHoveredPLX ? 170 : 150,
                                     decoration: BoxDecoration(
-                                      color: P18PROGRESSVAR.isHoveredPLX
-                                          ? Colors.greenAccent
-                                          : Colors.green,
+                                      gradient: LinearGradient(
+                                        colors: P18PROGRESSVAR.isHoveredPLX
+                                            ? [
+                                                Colors.lightGreenAccent,
+                                                Colors.yellowAccent
+                                              ]
+                                            : [Colors.green, Colors.yellow],
+                                        begin: Alignment.topLeft,
+                                        end: Alignment.bottomRight,
+                                      ),
                                       border: Border.all(
-                                        color: Colors.black,
+                                        color: Colors.black87,
                                         width: 2.0,
                                       ),
-                                      borderRadius: BorderRadius.circular(10),
+                                      boxShadow: [
+                                        BoxShadow(
+                                          color: Colors.black.withOpacity(0.3),
+                                          spreadRadius: 2,
+                                          blurRadius: 5,
+                                          offset: Offset(2, 3),
+                                        ),
+                                      ],
+                                      borderRadius: BorderRadius.circular(15),
                                     ),
                                     child: Center(
                                       child: Text(
                                         'PL-X',
                                         style: TextStyle(
-                                            color: Colors.white, fontSize: 20),
+                                          color: Colors.white,
+                                          fontSize: 18,
+                                          fontWeight: FontWeight.bold,
+                                          shadows: [
+                                            Shadow(
+                                              blurRadius: 5.0,
+                                              color: Colors.black45,
+                                              offset: Offset(2, 2),
+                                            ),
+                                          ],
+                                        ),
                                       ),
                                     ),
                                   ),
@@ -324,7 +426,7 @@ class _P18PROGRESSMAINBodyState extends State<P18PROGRESSMAINBody> {
                                 });
                               },
                               child: Padding(
-                                padding: const EdgeInsets.all(10.0),
+                                padding: const EdgeInsets.all(8.0),
                                 child: InkWell(
                                   onTap: () {
                                     setState(() {
@@ -339,7 +441,7 @@ class _P18PROGRESSMAINBodyState extends State<P18PROGRESSMAINBody> {
                                         .add(ChangePage_nodrower());
                                   },
                                   child: AnimatedContainer(
-                                    duration: Duration(milliseconds: 100),
+                                    duration: Duration(milliseconds: 200),
                                     height: P18PROGRESSVAR.isHoveredPOWDER
                                         ? 170
                                         : 150,
@@ -347,20 +449,45 @@ class _P18PROGRESSMAINBodyState extends State<P18PROGRESSMAINBody> {
                                         ? 170
                                         : 150,
                                     decoration: BoxDecoration(
-                                      color: P18PROGRESSVAR.isHoveredPOWDER
-                                          ? Colors.greenAccent
-                                          : Colors.green,
+                                      gradient: LinearGradient(
+                                        colors: P18PROGRESSVAR.isHoveredPOWDER
+                                            ? [
+                                                Colors.pinkAccent,
+                                                Colors.purpleAccent
+                                              ]
+                                            : [Colors.pink, Colors.purple],
+                                        begin: Alignment.topLeft,
+                                        end: Alignment.bottomRight,
+                                      ),
                                       border: Border.all(
-                                        color: Colors.black,
+                                        color: Colors.black87,
                                         width: 2.0,
                                       ),
-                                      borderRadius: BorderRadius.circular(10),
+                                      boxShadow: [
+                                        BoxShadow(
+                                          color: Colors.black.withOpacity(0.3),
+                                          spreadRadius: 2,
+                                          blurRadius: 5,
+                                          offset: Offset(2, 3),
+                                        ),
+                                      ],
+                                      borderRadius: BorderRadius.circular(15),
                                     ),
                                     child: Center(
                                       child: Text(
                                         'POWDER',
                                         style: TextStyle(
-                                            color: Colors.white, fontSize: 20),
+                                          color: Colors.white,
+                                          fontSize: 18,
+                                          fontWeight: FontWeight.bold,
+                                          shadows: [
+                                            Shadow(
+                                              blurRadius: 5.0,
+                                              color: Colors.black45,
+                                              offset: Offset(2, 2),
+                                            ),
+                                          ],
+                                        ),
                                       ),
                                     ),
                                   ),
@@ -379,7 +506,7 @@ class _P18PROGRESSMAINBodyState extends State<P18PROGRESSMAINBody> {
                                 });
                               },
                               child: Padding(
-                                padding: const EdgeInsets.all(10.0),
+                                padding: const EdgeInsets.all(8.0),
                                 child: InkWell(
                                   onTap: () {
                                     setState(() {
@@ -394,7 +521,7 @@ class _P18PROGRESSMAINBodyState extends State<P18PROGRESSMAINBody> {
                                         .add(ChangePage_nodrower());
                                   },
                                   child: AnimatedContainer(
-                                    duration: Duration(milliseconds: 100),
+                                    duration: Duration(milliseconds: 200),
                                     height: P18PROGRESSVAR.isHoveredLIQUID
                                         ? 170
                                         : 150,
@@ -402,20 +529,42 @@ class _P18PROGRESSMAINBodyState extends State<P18PROGRESSMAINBody> {
                                         ? 170
                                         : 150,
                                     decoration: BoxDecoration(
-                                      color: P18PROGRESSVAR.isHoveredLIQUID
-                                          ? Colors.greenAccent
-                                          : Colors.green,
+                                      gradient: LinearGradient(
+                                        colors: P18PROGRESSVAR.isHoveredLIQUID
+                                            ? [Colors.grey, Colors.blueGrey]
+                                            : [Colors.blue, Colors.lightBlue],
+                                        begin: Alignment.topLeft,
+                                        end: Alignment.bottomRight,
+                                      ),
                                       border: Border.all(
-                                        color: Colors.black,
+                                        color: Colors.black87,
                                         width: 2.0,
                                       ),
-                                      borderRadius: BorderRadius.circular(10),
+                                      boxShadow: [
+                                        BoxShadow(
+                                          color: Colors.black.withOpacity(0.3),
+                                          spreadRadius: 2,
+                                          blurRadius: 5,
+                                          offset: Offset(2, 3),
+                                        ),
+                                      ],
+                                      borderRadius: BorderRadius.circular(15),
                                     ),
                                     child: Center(
                                       child: Text(
                                         'LIQUID',
                                         style: TextStyle(
-                                            color: Colors.white, fontSize: 20),
+                                          color: Colors.white,
+                                          fontSize: 18,
+                                          fontWeight: FontWeight.bold,
+                                          shadows: [
+                                            Shadow(
+                                              blurRadius: 5.0,
+                                              color: Colors.black45,
+                                              offset: Offset(2, 2),
+                                            ),
+                                          ],
+                                        ),
                                       ),
                                     ),
                                   ),
@@ -434,7 +583,7 @@ class _P18PROGRESSMAINBodyState extends State<P18PROGRESSMAINBody> {
                                 });
                               },
                               child: Padding(
-                                padding: const EdgeInsets.all(10.0),
+                                padding: const EdgeInsets.all(8.0),
                                 child: InkWell(
                                   onTap: () {
                                     setState(() {
@@ -449,7 +598,7 @@ class _P18PROGRESSMAINBodyState extends State<P18PROGRESSMAINBody> {
                                         .add(ChangePage_nodrower());
                                   },
                                   child: AnimatedContainer(
-                                    duration: Duration(milliseconds: 100),
+                                    duration: Duration(milliseconds: 200),
                                     height: P18PROGRESSVAR.isHoveredNOXRUST
                                         ? 170
                                         : 150,
@@ -457,20 +606,45 @@ class _P18PROGRESSMAINBodyState extends State<P18PROGRESSMAINBody> {
                                         ? 170
                                         : 150,
                                     decoration: BoxDecoration(
-                                      color: P18PROGRESSVAR.isHoveredNOXRUST
-                                          ? Colors.greenAccent
-                                          : Colors.green,
+                                      gradient: LinearGradient(
+                                        colors: P18PROGRESSVAR.isHoveredNOXRUST
+                                            ? [
+                                                Colors.limeAccent,
+                                                Colors.cyanAccent
+                                              ]
+                                            : [Colors.lime, Colors.cyan],
+                                        begin: Alignment.topLeft,
+                                        end: Alignment.bottomRight,
+                                      ),
                                       border: Border.all(
-                                        color: Colors.black,
+                                        color: Colors.black87,
                                         width: 2.0,
                                       ),
-                                      borderRadius: BorderRadius.circular(10),
+                                      boxShadow: [
+                                        BoxShadow(
+                                          color: Colors.black.withOpacity(0.3),
+                                          spreadRadius: 2,
+                                          blurRadius: 5,
+                                          offset: Offset(2, 3),
+                                        ),
+                                      ],
+                                      borderRadius: BorderRadius.circular(15),
                                     ),
                                     child: Center(
                                       child: Text(
                                         'NOXRUST',
                                         style: TextStyle(
-                                            color: Colors.white, fontSize: 20),
+                                          color: Colors.white,
+                                          fontSize: 20,
+                                          fontWeight: FontWeight.bold,
+                                          shadows: [
+                                            Shadow(
+                                              blurRadius: 5.0,
+                                              color: Colors.black45,
+                                              offset: Offset(2, 2),
+                                            ),
+                                          ],
+                                        ),
                                       ),
                                     ),
                                   ),

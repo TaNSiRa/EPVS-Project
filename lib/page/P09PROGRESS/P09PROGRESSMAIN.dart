@@ -92,42 +92,71 @@ class _P09PROGRESSMAINBodyState extends State<P09PROGRESSMAINBody> {
                                     P09PROGRESSVAR.isHoveredBP12 = false;
                                   });
                                 },
-                                child: InkWell(
-                                  onTap: () {
-                                    setState(() {
-                                      P09PROGRESSVAR.isHoveredBP12 = false;
-                                    });
-                                    USERDATA.BRANCH = 'BP12';
-                                    USERDATA.BRANCHNUMBER = BRANCHNUMBER.BP;
-                                    print(USERDATA.BRANCH);
-                                    print(USERDATA.BRANCHNUMBER);
-                                    CuPage = Page10();
-                                    MainBodyContext.read<ChangePage_Bloc>()
-                                        .add(ChangePage_nodrower());
-                                  },
-                                  child: AnimatedContainer(
-                                    duration: Duration(milliseconds: 100),
-                                    height: P09PROGRESSVAR.isHoveredBP12
-                                        ? 170
-                                        : 150,
-                                    width: P09PROGRESSVAR.isHoveredBP12
-                                        ? 170
-                                        : 150,
-                                    decoration: BoxDecoration(
-                                      color: P09PROGRESSVAR.isHoveredBP12
-                                          ? Colors.greenAccent
-                                          : Colors.green,
-                                      border: Border.all(
-                                        color: Colors.black,
-                                        width: 2.0,
+                                child: Padding(
+                                  padding: const EdgeInsets.all(8.0),
+                                  child: InkWell(
+                                    onTap: () {
+                                      setState(() {
+                                        P09PROGRESSVAR.isHoveredBP12 = false;
+                                      });
+                                      USERDATA.BRANCH = 'BP12';
+                                      USERDATA.BRANCHNUMBER = BRANCHNUMBER.BP;
+                                      print(USERDATA.BRANCH);
+                                      print(USERDATA.BRANCHNUMBER);
+                                      CuPage = Page10();
+                                      MainBodyContext.read<ChangePage_Bloc>()
+                                          .add(ChangePage_nodrower());
+                                    },
+                                    child: AnimatedContainer(
+                                      duration: Duration(milliseconds: 200),
+                                      height: P09PROGRESSVAR.isHoveredBP12
+                                          ? 170
+                                          : 150,
+                                      width: P09PROGRESSVAR.isHoveredBP12
+                                          ? 170
+                                          : 150,
+                                      decoration: BoxDecoration(
+                                        gradient: LinearGradient(
+                                          colors: P09PROGRESSVAR.isHoveredBP12
+                                              ? [
+                                                  Colors.greenAccent,
+                                                  Colors.lightGreen
+                                                ]
+                                              : [Colors.green, Colors.teal],
+                                          begin: Alignment.topLeft,
+                                          end: Alignment.bottomRight,
+                                        ),
+                                        border: Border.all(
+                                          color: Colors.black87,
+                                          width: 2.0,
+                                        ),
+                                        boxShadow: [
+                                          BoxShadow(
+                                            color:
+                                                Colors.black.withOpacity(0.3),
+                                            spreadRadius: 2,
+                                            blurRadius: 5,
+                                            offset: Offset(2, 3),
+                                          ),
+                                        ],
+                                        borderRadius: BorderRadius.circular(15),
                                       ),
-                                      borderRadius: BorderRadius.circular(10),
-                                    ),
-                                    child: Center(
-                                      child: Text(
-                                        'BP12',
-                                        style: TextStyle(
-                                            color: Colors.white, fontSize: 20),
+                                      child: Center(
+                                        child: Text(
+                                          'BP12',
+                                          style: TextStyle(
+                                            color: Colors.white,
+                                            fontSize: 18,
+                                            fontWeight: FontWeight.bold,
+                                            shadows: [
+                                              Shadow(
+                                                blurRadius: 5.0,
+                                                color: Colors.black45,
+                                                offset: Offset(2, 2),
+                                              ),
+                                            ],
+                                          ),
+                                        ),
                                       ),
                                     ),
                                   ),
@@ -147,40 +176,71 @@ class _P09PROGRESSMAINBodyState extends State<P09PROGRESSMAINBody> {
                                     P09PROGRESSVAR.isHoveredGW = false;
                                   });
                                 },
-                                child: InkWell(
-                                  onTap: () {
-                                    setState(() {
-                                      P09PROGRESSVAR.isHoveredGW = false;
-                                    });
-                                    USERDATA.BRANCH = 'GW';
-                                    USERDATA.BRANCHNUMBER = BRANCHNUMBER.GW;
-                                    print(USERDATA.BRANCH);
-                                    print(USERDATA.BRANCHNUMBER);
-                                    CuPage = Page10();
-                                    MainBodyContext.read<ChangePage_Bloc>()
-                                        .add(ChangePage_nodrower());
-                                  },
-                                  child: AnimatedContainer(
-                                    duration: Duration(milliseconds: 100),
-                                    height:
-                                        P09PROGRESSVAR.isHoveredGW ? 170 : 150,
-                                    width:
-                                        P09PROGRESSVAR.isHoveredGW ? 170 : 150,
-                                    decoration: BoxDecoration(
-                                      color: P09PROGRESSVAR.isHoveredGW
-                                          ? Colors.greenAccent
-                                          : Colors.green,
-                                      border: Border.all(
-                                        color: Colors.black,
-                                        width: 2.0,
+                                child: Padding(
+                                  padding: const EdgeInsets.all(8.0),
+                                  child: InkWell(
+                                    onTap: () {
+                                      setState(() {
+                                        P09PROGRESSVAR.isHoveredGW = false;
+                                      });
+                                      USERDATA.BRANCH = 'GW';
+                                      USERDATA.BRANCHNUMBER = BRANCHNUMBER.GW;
+                                      print(USERDATA.BRANCH);
+                                      print(USERDATA.BRANCHNUMBER);
+                                      CuPage = Page10();
+                                      MainBodyContext.read<ChangePage_Bloc>()
+                                          .add(ChangePage_nodrower());
+                                    },
+                                    child: AnimatedContainer(
+                                      duration: Duration(milliseconds: 200),
+                                      height: P09PROGRESSVAR.isHoveredGW
+                                          ? 170
+                                          : 150,
+                                      width: P09PROGRESSVAR.isHoveredGW
+                                          ? 170
+                                          : 150,
+                                      decoration: BoxDecoration(
+                                        gradient: LinearGradient(
+                                          colors: P09PROGRESSVAR.isHoveredGW
+                                              ? [
+                                                  Colors.redAccent,
+                                                  Colors.orangeAccent
+                                                ]
+                                              : [Colors.red, Colors.orange],
+                                          begin: Alignment.topLeft,
+                                          end: Alignment.bottomRight,
+                                        ),
+                                        border: Border.all(
+                                          color: Colors.black87,
+                                          width: 2.0,
+                                        ),
+                                        boxShadow: [
+                                          BoxShadow(
+                                            color:
+                                                Colors.black.withOpacity(0.3),
+                                            spreadRadius: 2,
+                                            blurRadius: 5,
+                                            offset: Offset(2, 3),
+                                          ),
+                                        ],
+                                        borderRadius: BorderRadius.circular(15),
                                       ),
-                                      borderRadius: BorderRadius.circular(10),
-                                    ),
-                                    child: Center(
-                                      child: Text(
-                                        'GW',
-                                        style: TextStyle(
-                                            color: Colors.white, fontSize: 20),
+                                      child: Center(
+                                        child: Text(
+                                          'GW',
+                                          style: TextStyle(
+                                            color: Colors.white,
+                                            fontSize: 18,
+                                            fontWeight: FontWeight.bold,
+                                            shadows: [
+                                              Shadow(
+                                                blurRadius: 5.0,
+                                                color: Colors.black45,
+                                                offset: Offset(2, 2),
+                                              ),
+                                            ],
+                                          ),
+                                        ),
                                       ),
                                     ),
                                   ),
@@ -200,42 +260,72 @@ class _P09PROGRESSMAINBodyState extends State<P09PROGRESSMAINBody> {
                                     P09PROGRESSVAR.isHoveredESIE1 = false;
                                   });
                                 },
-                                child: InkWell(
-                                  onTap: () {
-                                    setState(() {
-                                      P09PROGRESSVAR.isHoveredESIE1 = false;
-                                    });
-                                    USERDATA.BRANCH = 'ESIE1';
-                                    USERDATA.BRANCHNUMBER = BRANCHNUMBER.ESIE1;
-                                    print(USERDATA.BRANCH);
-                                    print(USERDATA.BRANCHNUMBER);
-                                    CuPage = Page10();
-                                    MainBodyContext.read<ChangePage_Bloc>()
-                                        .add(ChangePage_nodrower());
-                                  },
-                                  child: AnimatedContainer(
-                                    duration: Duration(milliseconds: 100),
-                                    height: P09PROGRESSVAR.isHoveredESIE1
-                                        ? 170
-                                        : 150,
-                                    width: P09PROGRESSVAR.isHoveredESIE1
-                                        ? 170
-                                        : 150,
-                                    decoration: BoxDecoration(
-                                      color: P09PROGRESSVAR.isHoveredESIE1
-                                          ? Colors.greenAccent
-                                          : Colors.green,
-                                      border: Border.all(
-                                        color: Colors.black,
-                                        width: 2.0,
+                                child: Padding(
+                                  padding: const EdgeInsets.all(8.0),
+                                  child: InkWell(
+                                    onTap: () {
+                                      setState(() {
+                                        P09PROGRESSVAR.isHoveredESIE1 = false;
+                                      });
+                                      USERDATA.BRANCH = 'ESIE1';
+                                      USERDATA.BRANCHNUMBER =
+                                          BRANCHNUMBER.ESIE1;
+                                      print(USERDATA.BRANCH);
+                                      print(USERDATA.BRANCHNUMBER);
+                                      CuPage = Page10();
+                                      MainBodyContext.read<ChangePage_Bloc>()
+                                          .add(ChangePage_nodrower());
+                                    },
+                                    child: AnimatedContainer(
+                                      duration: Duration(milliseconds: 200),
+                                      height: P09PROGRESSVAR.isHoveredESIE1
+                                          ? 170
+                                          : 150,
+                                      width: P09PROGRESSVAR.isHoveredESIE1
+                                          ? 170
+                                          : 150,
+                                      decoration: BoxDecoration(
+                                        gradient: LinearGradient(
+                                          colors: P09PROGRESSVAR.isHoveredESIE1
+                                              ? [
+                                                  Colors.lightBlueAccent,
+                                                  Colors.blueAccent
+                                                ]
+                                              : [Colors.blue, Colors.indigo],
+                                          begin: Alignment.topLeft,
+                                          end: Alignment.bottomRight,
+                                        ),
+                                        border: Border.all(
+                                          color: Colors.black87,
+                                          width: 2.0,
+                                        ),
+                                        boxShadow: [
+                                          BoxShadow(
+                                            color:
+                                                Colors.black.withOpacity(0.3),
+                                            spreadRadius: 2,
+                                            blurRadius: 5,
+                                            offset: Offset(2, 3),
+                                          ),
+                                        ],
+                                        borderRadius: BorderRadius.circular(15),
                                       ),
-                                      borderRadius: BorderRadius.circular(10),
-                                    ),
-                                    child: Center(
-                                      child: Text(
-                                        'ESIE1',
-                                        style: TextStyle(
-                                            color: Colors.white, fontSize: 20),
+                                      child: Center(
+                                        child: Text(
+                                          'ESIE1',
+                                          style: TextStyle(
+                                            color: Colors.white,
+                                            fontSize: 18,
+                                            fontWeight: FontWeight.bold,
+                                            shadows: [
+                                              Shadow(
+                                                blurRadius: 5.0,
+                                                color: Colors.black45,
+                                                offset: Offset(2, 2),
+                                              ),
+                                            ],
+                                          ),
+                                        ),
                                       ),
                                     ),
                                   ),

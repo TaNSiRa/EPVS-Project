@@ -86,7 +86,7 @@ class _P08PROGRESSMAINBodyState extends State<P08PROGRESSMAINBody> {
                               .add(ChangePage_nodrower());
                         },
                         child: AnimatedContainer(
-                          duration: Duration(milliseconds: 100),
+                          duration: Duration(milliseconds: 200),
                           decoration: BoxDecoration(
                             border: Border.all(
                               color: P08PROGRESSVAR.isHoveredHAndS
@@ -118,7 +118,7 @@ class _P08PROGRESSMAINBodyState extends State<P08PROGRESSMAINBody> {
                                         ? 220
                                         : 200,
                                   ),
-                                  duration: Duration(milliseconds: 100),
+                                  duration: Duration(milliseconds: 200),
                                   builder: (context, size, child) {
                                     return TweenAnimationBuilder<Color?>(
                                       tween: ColorTween(
@@ -129,7 +129,7 @@ class _P08PROGRESSMAINBodyState extends State<P08PROGRESSMAINBody> {
                                             ? Colors.yellowAccent.shade700
                                             : Colors.redAccent.shade700,
                                       ),
-                                      duration: Duration(milliseconds: 100),
+                                      duration: Duration(milliseconds: 200),
                                       builder: (context, color, child) {
                                         return Icon(
                                           Icons.fireplace_rounded,
@@ -190,7 +190,7 @@ class _P08PROGRESSMAINBodyState extends State<P08PROGRESSMAINBody> {
                               .add(ChangePage_nodrower());
                         },
                         child: AnimatedContainer(
-                          duration: Duration(milliseconds: 100),
+                          duration: Duration(milliseconds: 200),
                           decoration: BoxDecoration(
                             border: Border.all(
                               color: P08PROGRESSVAR.isHoveredChem
@@ -222,7 +222,7 @@ class _P08PROGRESSMAINBodyState extends State<P08PROGRESSMAINBody> {
                                         ? 220
                                         : 200,
                                   ),
-                                  duration: Duration(milliseconds: 100),
+                                  duration: Duration(milliseconds: 200),
                                   builder: (context, size, child) {
                                     return TweenAnimationBuilder<Color?>(
                                       tween: ColorTween(
@@ -233,7 +233,7 @@ class _P08PROGRESSMAINBodyState extends State<P08PROGRESSMAINBody> {
                                             ? Colors.greenAccent
                                             : Colors.green,
                                       ),
-                                      duration: Duration(milliseconds: 100),
+                                      duration: Duration(milliseconds: 200),
                                       builder: (context, color, child) {
                                         return Icon(
                                           Icons.science_rounded,

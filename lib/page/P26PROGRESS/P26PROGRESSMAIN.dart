@@ -419,72 +419,91 @@ class _P26PROGRESSMAINState extends State<P26PROGRESSMAIN> {
                                   ],
                                 );
                               }).toList(),
-                              TableRow(
-                                children: [
-                                  TableCell(
-                                    child: SizedBox(
-                                      height: 30,
-                                      child: Container(
-                                        child: Text(''),
-                                        color: Colors.black,
-                                      ),
+                            ],
+                          ),
+                          Row(
+                            children: [
+                              Container(
+                                height: 30,
+                                width: 349.5,
+                              ),
+                              Container(
+                                height: 30,
+                                width: 100,
+                                decoration: BoxDecoration(
+                                  color: Colors.yellow.shade100,
+                                  border: Border(
+                                    left: BorderSide(
+                                      color: Colors.black,
+                                      width: 1.0,
+                                    ),
+                                    bottom: BorderSide(
+                                      color: Colors.black,
+                                      width: 1.0,
                                     ),
                                   ),
-                                  TableCell(
-                                    child: SizedBox(
-                                      height: 30,
-                                      child: Container(
-                                        child: Text(''),
-                                        color: Colors.black,
-                                      ),
+                                ),
+                                child: Center(
+                                  child: Text(
+                                    'TOTAL',
+                                    style:
+                                        TextStyle(fontWeight: FontWeight.bold),
+                                  ),
+                                ),
+                              ),
+                              Container(
+                                height: 30,
+                                width: 100,
+                                decoration: BoxDecoration(
+                                  color: Colors.yellow.shade100,
+                                  border: Border(
+                                    left: BorderSide(
+                                      color: Colors.black,
+                                      width: 1.0,
+                                    ),
+                                    bottom: BorderSide(
+                                      color: Colors.black,
+                                      width: 1.0,
                                     ),
                                   ),
-                                  TableCell(
-                                    child: Container(
-                                      height: 30,
-                                      color: Colors
-                                          .yellow.shade100, // กำหนดสีพื้นหลัง
-                                      child: Center(
-                                        child: Text(
-                                          'TOTAL',
-                                          style: TextStyle(
-                                            fontWeight: FontWeight.bold,
-                                          ),
-                                        ),
-                                      ),
+                                ),
+                                child: Center(
+                                  child: Text(
+                                    totalSP.toStringAsFixed(1),
+                                    style: TextStyle(
+                                      fontWeight: FontWeight.bold,
                                     ),
                                   ),
-                                  TableCell(
-                                    child: Container(
-                                      height: 30,
-                                      color: Colors
-                                          .yellow.shade100, // กำหนดสีพื้นหลัง
-                                      child: Center(
-                                        child: Text(
-                                          totalSP.toStringAsFixed(1),
-                                          style: TextStyle(
-                                            fontWeight: FontWeight.bold,
-                                          ),
-                                        ),
-                                      ),
+                                ),
+                              ),
+                              Container(
+                                height: 30,
+                                width: 100.5,
+                                decoration: BoxDecoration(
+                                  color: Colors.yellow.shade100,
+                                  border: Border(
+                                    left: BorderSide(
+                                      color: Colors.black,
+                                      width: 1.0,
+                                    ),
+                                    right: BorderSide(
+                                      color: Colors.black,
+                                      width: 1.0,
+                                    ),
+                                    bottom: BorderSide(
+                                      color: Colors.black,
+                                      width: 1.0,
                                     ),
                                   ),
-                                  TableCell(
-                                    child: Container(
-                                      height: 30,
-                                      color: Colors
-                                          .yellow.shade100, // กำหนดสีพื้นหลัง
-                                      child: Center(
-                                        child: Text(
-                                          totalActual.toStringAsFixed(1),
-                                          style: TextStyle(
-                                            fontWeight: FontWeight.bold,
-                                          ),
-                                        ),
-                                      ),
+                                ),
+                                child: Center(
+                                  child: Text(
+                                    totalActual.toStringAsFixed(1),
+                                    style: TextStyle(
+                                      fontWeight: FontWeight.bold,
                                     ),
                                   ),
-                                ],
+                                ),
                               ),
                             ],
                           ),

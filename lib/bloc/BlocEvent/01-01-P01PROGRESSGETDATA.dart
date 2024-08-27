@@ -115,37 +115,37 @@ class P01PROGRESSGETDATA_Bloc
       Emitter<List<P01PROGRESSGETDATAclass>> emit) async {
     List<P01PROGRESSGETDATAclass> output = [];
     //-------------------------------------------------------------------------------------
-    var input = dummydatainput2;
+    // var input = dummydatainput2;
 
-    List<P01PROGRESSGETDATAclass> outputdata = input
-        .where((data) =>
-            data['location'] == 'ESIE1' &&
-            data['plant'] == 'YES' &&
-            data['step01'] == 'YES')
-        .map((data) {
-      return P01PROGRESSGETDATAclass(
-        PLANT: savenull(data['plant']),
-        ORDER: savenull(data['order']),
-        MAT: savenull(data['mat']),
-        LOCATION: savenull(data['location']),
-        LOT: savenull(data['lot']),
-        CUSTOMER: savenull(data['customer']),
-        PARTNO: savenull(data['partno']),
-        PARTNAME: savenull(data['partname']),
-        STEP01: savenull(data['step1']),
-        STEP02: savenull(data['step2']),
-        STEP03: savenull(data['step3']),
-        STEP04: savenull(data['step4']),
-        STEP05: savenull(data['step5']),
-        STEP06: savenull(data['step6']),
-        STEP07: savenull(data['step7']),
-        STEP08: savenull(data['step8']),
-        STEP09: savenull(data['step9']),
-      );
-    }).toList();
+    // List<P01PROGRESSGETDATAclass> outputdata = input
+    //     .where((data) =>
+    //         data['location'] == 'ESIE1' &&
+    //         data['plant'] == 'YES' &&
+    //         data['step01'] == 'YES')
+    //     .map((data) {
+    //   return P01PROGRESSGETDATAclass(
+    //     PLANT: savenull(data['plant']),
+    //     ORDER: savenull(data['order']),
+    //     MAT: savenull(data['mat']),
+    //     LOCATION: savenull(data['location']),
+    //     LOT: savenull(data['lot']),
+    //     CUSTOMER: savenull(data['customer']),
+    //     PARTNO: savenull(data['partno']),
+    //     PARTNAME: savenull(data['partname']),
+    //     STEP01: savenull(data['step1']),
+    //     STEP02: savenull(data['step2']),
+    //     STEP03: savenull(data['step3']),
+    //     STEP04: savenull(data['step4']),
+    //     STEP05: savenull(data['step5']),
+    //     STEP06: savenull(data['step6']),
+    //     STEP07: savenull(data['step7']),
+    //     STEP08: savenull(data['step8']),
+    //     STEP09: savenull(data['step9']),
+    //   );
+    // }).toList();
 
-    output = outputdata;
-    emit(output);
+    // output = outputdata;
+    // emit(output);
   }
 
   Future<void> _P01PROGRESSGETDATA_GET3(List<P01PROGRESSGETDATAclass> toAdd,

@@ -113,16 +113,12 @@ class _P26PROGRESSMAINState extends State<P26PROGRESSMAIN> {
                 Center(
                   child: ShaderMask(
                     shaderCallback: (bounds) => LinearGradient(
-                      colors: [Colors.blueAccent, Colors.lightBlueAccent],
+                      colors: const [Colors.blueAccent, Colors.lightBlueAccent],
                       begin: Alignment.topLeft,
                       end: Alignment.bottomRight,
                     ).createShader(bounds),
                     child: Text(
-                      USERDATA.PLANTNAME +
-                          ' : ' +
-                          USERDATA.TANK +
-                          ' : ' +
-                          USERDATA.ORDER,
+                      '${USERDATA.PLANTNAME} : ${USERDATA.TANK} : ${USERDATA.ORDER}',
                       style: TextStyle(
                         fontSize: 20.0,
                         fontWeight: FontWeight.bold,
@@ -385,7 +381,7 @@ class _P26PROGRESSMAINState extends State<P26PROGRESSMAIN> {
                                         height: 30,
                                         child: Align(
                                           alignment: Alignment.centerLeft,
-                                          child: Text('  ' + item.CHEMICALNAME),
+                                          child: Text('  ${item.CHEMICALNAME}'),
                                         ),
                                       ),
                                     ),
@@ -414,12 +410,12 @@ class _P26PROGRESSMAINState extends State<P26PROGRESSMAIN> {
                                     ),
                                   ],
                                 );
-                              }).toList(),
+                              }),
                             ],
                           ),
                           Row(
                             children: [
-                              Container(
+                              SizedBox(
                                 height: 30,
                                 width: 349.5,
                               ),

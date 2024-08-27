@@ -54,7 +54,7 @@ class _P06PROGRESSMAINBodyState extends State<P06PROGRESSMAINBody> {
           child: Center(
             child: ShaderMask(
               shaderCallback: (bounds) => LinearGradient(
-                colors: [Colors.blueAccent, Colors.lightBlueAccent],
+                colors: const [Colors.blueAccent, Colors.lightBlueAccent],
                 begin: Alignment.topLeft,
                 end: Alignment.bottomRight,
               ).createShader(bounds),
@@ -142,15 +142,15 @@ class _P06PROGRESSMAINBodyState extends State<P06PROGRESSMAINBody> {
                   SizedBox(height: 5),
                   ElevatedButton(
                     onPressed: () {},
-                    child: Text('Change Password'),
                     style: ElevatedButton.styleFrom(
+                      foregroundColor: Colors.white,
+                      backgroundColor: Colors.red,
                       minimumSize: Size(260, 45),
                       shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(10.0),
                       ),
-                      primary: Colors.red,
-                      onPrimary: Colors.white,
                     ),
+                    child: Text('Change Password'),
                   ),
                 ],
               ),

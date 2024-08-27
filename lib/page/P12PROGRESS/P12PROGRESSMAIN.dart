@@ -55,15 +55,12 @@ class _P12PROGRESSMAINBodyState extends State<P12PROGRESSMAINBody> {
                 child: Center(
                   child: ShaderMask(
                     shaderCallback: (bounds) => LinearGradient(
-                      colors: [Colors.blueAccent, Colors.lightBlueAccent],
+                      colors: const [Colors.blueAccent, Colors.lightBlueAccent],
                       begin: Alignment.topLeft,
                       end: Alignment.bottomRight,
                     ).createShader(bounds),
                     child: Text(
-                      USERDATA.BRANCH +
-                          ' : ' +
-                          USERDATA.ACTION +
-                          ' : SELECT PLANT',
+                      '${USERDATA.BRANCH} : ${USERDATA.ACTION} : SELECT PLANT',
                       style: TextStyle(
                         fontSize: 20.0,
                         fontWeight: FontWeight.bold,

@@ -63,7 +63,7 @@ class _P03PROGRESSMAINState extends State<P03PROGRESSMAIN> {
                 child: Center(
                   child: ShaderMask(
                     shaderCallback: (bounds) => LinearGradient(
-                      colors: [Colors.blueAccent, Colors.lightBlueAccent],
+                      colors: const [Colors.blueAccent, Colors.lightBlueAccent],
                       begin: Alignment.topLeft,
                       end: Alignment.bottomRight,
                     ).createShader(bounds),
@@ -332,8 +332,7 @@ class _P03PROGRESSMAINState extends State<P03PROGRESSMAIN> {
                             P01PROGRESSVAR.sendPlant = _data.value[0].PLANT;
                             P01PROGRESSVAR.changeStep = 'step1';
                             print(P01PROGRESSVAR.changeStep);
-                            print(transactionsCount1.toString() +
-                                " transactions");
+                            print("$transactionsCount1 transactions");
                             CuPage = Page7();
                             MainBodyContext.read<ChangePage_Bloc>()
                                 .add(ChangePage_nodrower());
@@ -377,8 +376,7 @@ class _P03PROGRESSMAINState extends State<P03PROGRESSMAIN> {
                             P01PROGRESSVAR.sendPlant = _data.value[0].PLANT;
                             P01PROGRESSVAR.changeStep = 'step2';
                             print(P01PROGRESSVAR.changeStep);
-                            print(transactionsCount2.toString() +
-                                " transactions");
+                            print("$transactionsCount2 transactions");
                             CuPage = Page7();
                             MainBodyContext.read<ChangePage_Bloc>()
                                 .add(ChangePage_nodrower());
@@ -422,8 +420,7 @@ class _P03PROGRESSMAINState extends State<P03PROGRESSMAIN> {
                             P01PROGRESSVAR.sendPlant = _data.value[0].PLANT;
                             P01PROGRESSVAR.changeStep = 'step3';
                             print(P01PROGRESSVAR.changeStep);
-                            print(transactionsCount3.toString() +
-                                " transactions");
+                            print("$transactionsCount3 transactions");
                             CuPage = Page7();
                             MainBodyContext.read<ChangePage_Bloc>()
                                 .add(ChangePage_nodrower());
@@ -467,8 +464,7 @@ class _P03PROGRESSMAINState extends State<P03PROGRESSMAIN> {
                             P01PROGRESSVAR.sendPlant = _data.value[0].PLANT;
                             P01PROGRESSVAR.changeStep = 'step4';
                             print(P01PROGRESSVAR.changeStep);
-                            print(transactionsCount4.toString() +
-                                " transactions");
+                            print("$transactionsCount4 transactions");
                             CuPage = Page7();
                             MainBodyContext.read<ChangePage_Bloc>()
                                 .add(ChangePage_nodrower());
@@ -512,8 +508,7 @@ class _P03PROGRESSMAINState extends State<P03PROGRESSMAIN> {
                             P01PROGRESSVAR.sendPlant = _data.value[0].PLANT;
                             P01PROGRESSVAR.changeStep = 'step5';
                             print(P01PROGRESSVAR.changeStep);
-                            print(transactionsCount5.toString() +
-                                " transactions");
+                            print("$transactionsCount5 transactions");
                             CuPage = Page7();
                             MainBodyContext.read<ChangePage_Bloc>()
                                 .add(ChangePage_nodrower());
@@ -557,8 +552,7 @@ class _P03PROGRESSMAINState extends State<P03PROGRESSMAIN> {
                             P01PROGRESSVAR.sendPlant = _data.value[0].PLANT;
                             P01PROGRESSVAR.changeStep = 'step6';
                             print(P01PROGRESSVAR.changeStep);
-                            print(transactionsCount6.toString() +
-                                " transactions");
+                            print("$transactionsCount6 transactions");
                             CuPage = Page7();
                             MainBodyContext.read<ChangePage_Bloc>()
                                 .add(ChangePage_nodrower());
@@ -602,8 +596,7 @@ class _P03PROGRESSMAINState extends State<P03PROGRESSMAIN> {
                             P01PROGRESSVAR.sendPlant = _data.value[0].PLANT;
                             P01PROGRESSVAR.changeStep = 'step7';
                             print(P01PROGRESSVAR.changeStep);
-                            print(transactionsCount7.toString() +
-                                " transactions");
+                            print("$transactionsCount7 transactions");
                             CuPage = Page7();
                             MainBodyContext.read<ChangePage_Bloc>()
                                 .add(ChangePage_nodrower());
@@ -647,8 +640,7 @@ class _P03PROGRESSMAINState extends State<P03PROGRESSMAIN> {
                             P01PROGRESSVAR.sendPlant = _data.value[0].PLANT;
                             P01PROGRESSVAR.changeStep = 'step8';
                             print(P01PROGRESSVAR.changeStep);
-                            print(transactionsCount8.toString() +
-                                " transactions");
+                            print("$transactionsCount8 transactions");
                             CuPage = Page7();
                             MainBodyContext.read<ChangePage_Bloc>()
                                 .add(ChangePage_nodrower());
@@ -692,8 +684,7 @@ class _P03PROGRESSMAINState extends State<P03PROGRESSMAIN> {
                             P01PROGRESSVAR.sendPlant = _data.value[0].PLANT;
                             P01PROGRESSVAR.changeStep = 'step9';
                             print(P01PROGRESSVAR.changeStep);
-                            print(transactionsCount9.toString() +
-                                " transactions");
+                            print("$transactionsCount9 transactions");
                             CuPage = Page7();
                             MainBodyContext.read<ChangePage_Bloc>()
                                 .add(ChangePage_nodrower());
@@ -737,8 +728,7 @@ class _P03PROGRESSMAINState extends State<P03PROGRESSMAIN> {
                             P01PROGRESSVAR.sendPlant = _data.value[0].PLANT;
                             P01PROGRESSVAR.changeStep = 'step6';
                             print(P01PROGRESSVAR.changeStep);
-                            print(transactionsCount6.toString() +
-                                " transactions");
+                            print("$transactionsCount6 transactions");
                             CuPage = Page7();
                             MainBodyContext.read<ChangePage_Bloc>()
                                 .add(ChangePage_nodrower());
@@ -760,8 +750,7 @@ class _P03PROGRESSMAINState extends State<P03PROGRESSMAIN> {
                               children: [
                                 Text("1200"),
                                 Text(
-                                  transactionsCount6.toString() +
-                                      " transactions",
+                                  "$transactionsCount6 transactions",
                                   style: TextStyle(fontSize: 10),
                                 ),
                               ],
@@ -783,8 +772,7 @@ class _P03PROGRESSMAINState extends State<P03PROGRESSMAIN> {
                             P01PROGRESSVAR.sendPlant = _data.value[0].PLANT;
                             P01PROGRESSVAR.changeStep = 'step7';
                             print(P01PROGRESSVAR.changeStep);
-                            print(transactionsCount7.toString() +
-                                " transactions");
+                            print("$transactionsCount7 transactions");
                             CuPage = Page7();
                             MainBodyContext.read<ChangePage_Bloc>()
                                 .add(ChangePage_nodrower());
@@ -806,8 +794,7 @@ class _P03PROGRESSMAINState extends State<P03PROGRESSMAIN> {
                               children: [
                                 Text("1400"),
                                 Text(
-                                  transactionsCount7.toString() +
-                                      " transactions",
+                                  "$transactionsCount7 transactions",
                                   style: TextStyle(fontSize: 10),
                                 ),
                               ],
@@ -829,8 +816,7 @@ class _P03PROGRESSMAINState extends State<P03PROGRESSMAIN> {
                             P01PROGRESSVAR.sendPlant = _data.value[0].PLANT;
                             P01PROGRESSVAR.changeStep = 'step8';
                             print(P01PROGRESSVAR.changeStep);
-                            print(transactionsCount8.toString() +
-                                " transactions");
+                            print("$transactionsCount8 transactions");
                             CuPage = Page7();
                             MainBodyContext.read<ChangePage_Bloc>()
                                 .add(ChangePage_nodrower());
@@ -852,8 +838,7 @@ class _P03PROGRESSMAINState extends State<P03PROGRESSMAIN> {
                               children: [
                                 Text("1600"),
                                 Text(
-                                  transactionsCount8.toString() +
-                                      " transactions",
+                                  "$transactionsCount8 transactions",
                                   style: TextStyle(fontSize: 10),
                                 ),
                               ],
@@ -875,8 +860,7 @@ class _P03PROGRESSMAINState extends State<P03PROGRESSMAIN> {
                             P01PROGRESSVAR.sendPlant = _data.value[0].PLANT;
                             P01PROGRESSVAR.changeStep = 'step9';
                             print(P01PROGRESSVAR.changeStep);
-                            print(transactionsCount9.toString() +
-                                " transactions");
+                            print("$transactionsCount9 transactions");
                             CuPage = Page7();
                             MainBodyContext.read<ChangePage_Bloc>()
                                 .add(ChangePage_nodrower());
@@ -898,8 +882,7 @@ class _P03PROGRESSMAINState extends State<P03PROGRESSMAIN> {
                               children: [
                                 Text("1800"),
                                 Text(
-                                  transactionsCount9.toString() +
-                                      " transactions",
+                                  "$transactionsCount9 transactions",
                                   style: TextStyle(fontSize: 10),
                                 ),
                               ],
@@ -910,7 +893,7 @@ class _P03PROGRESSMAINState extends State<P03PROGRESSMAIN> {
                     ),
                   ],
                 );
-              }).toList()
+              })
             ],
           ),
         ],

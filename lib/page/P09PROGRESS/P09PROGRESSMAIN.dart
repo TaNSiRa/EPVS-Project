@@ -54,12 +54,12 @@ class _P09PROGRESSMAINBodyState extends State<P09PROGRESSMAINBody> {
                 child: Center(
                   child: ShaderMask(
                     shaderCallback: (bounds) => LinearGradient(
-                      colors: [Colors.blueAccent, Colors.lightBlueAccent],
+                      colors: const [Colors.blueAccent, Colors.lightBlueAccent],
                       begin: Alignment.topLeft,
                       end: Alignment.bottomRight,
                     ).createShader(bounds),
                     child: Text(
-                      USERDATA.INSMASTER + ' : SELECT BRANCH',
+                      '${USERDATA.INSMASTER} : SELECT BRANCH',
                       style: TextStyle(
                         fontSize: 20.0,
                         fontWeight: FontWeight.bold,
@@ -148,7 +148,7 @@ class _P09PROGRESSMAINBodyState extends State<P09PROGRESSMAINBody> {
                                             color: Colors.white,
                                             fontSize: 18,
                                             fontWeight: FontWeight.bold,
-                                            shadows: [
+                                            shadows: const [
                                               Shadow(
                                                 blurRadius: 5.0,
                                                 color: Colors.black45,
@@ -232,7 +232,7 @@ class _P09PROGRESSMAINBodyState extends State<P09PROGRESSMAINBody> {
                                             color: Colors.white,
                                             fontSize: 18,
                                             fontWeight: FontWeight.bold,
-                                            shadows: [
+                                            shadows: const [
                                               Shadow(
                                                 blurRadius: 5.0,
                                                 color: Colors.black45,
@@ -317,7 +317,7 @@ class _P09PROGRESSMAINBodyState extends State<P09PROGRESSMAINBody> {
                                             color: Colors.white,
                                             fontSize: 18,
                                             fontWeight: FontWeight.bold,
-                                            shadows: [
+                                            shadows: const [
                                               Shadow(
                                                 blurRadius: 5.0,
                                                 color: Colors.black45,

@@ -68,7 +68,7 @@ class _P07PROGRESSMAINState extends State<P07PROGRESSMAIN> {
                       end: Alignment.bottomRight,
                     ).createShader(bounds),
                     child: Text(
-                      P01PROGRESSVAR.sendLocation + ' : PROGRESS',
+                      '${P01PROGRESSVAR.sendLocation} : PROGRESS',
                       style: TextStyle(
                         fontSize: 20.0,
                         fontWeight: FontWeight.bold,

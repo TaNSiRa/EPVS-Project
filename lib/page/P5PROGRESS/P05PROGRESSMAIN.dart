@@ -79,7 +79,7 @@ class _P05PROGRESSMAINBodyState extends State<P05PROGRESSMAINBody> {
           child: Center(
             child: ShaderMask(
               shaderCallback: (bounds) => LinearGradient(
-                colors: [Colors.blueAccent, Colors.lightBlueAccent],
+                colors: const [Colors.blueAccent, Colors.lightBlueAccent],
                 begin: Alignment.topLeft,
                 end: Alignment.bottomRight,
               ).createShader(bounds),

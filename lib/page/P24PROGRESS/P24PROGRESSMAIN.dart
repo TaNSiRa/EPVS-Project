@@ -88,7 +88,7 @@ class _P24PROGRESSMAINState extends State<P24PROGRESSMAIN> {
                 child: Center(
                   child: ShaderMask(
                     shaderCallback: (bounds) => LinearGradient(
-                      colors: [Colors.blueAccent, Colors.lightBlueAccent],
+                      colors: const [Colors.blueAccent, Colors.lightBlueAccent],
                       begin: Alignment.topLeft,
                       end: Alignment.bottomRight,
                     ).createShader(bounds),
@@ -181,7 +181,7 @@ class _P24PROGRESSMAINState extends State<P24PROGRESSMAIN> {
                                                 color: Colors.white,
                                                 fontSize: 18,
                                                 fontWeight: FontWeight.bold,
-                                                shadows: [
+                                                shadows: const [
                                                   Shadow(
                                                     blurRadius: 5.0,
                                                     color: Colors.black45,
@@ -196,7 +196,7 @@ class _P24PROGRESSMAINState extends State<P24PROGRESSMAIN> {
                                               style: TextStyle(
                                                 color: Colors.white70,
                                                 fontSize: 16,
-                                                shadows: [
+                                                shadows: const [
                                                   Shadow(
                                                     blurRadius: 5.0,
                                                     color: Colors.black45,
@@ -279,7 +279,7 @@ class _P24PROGRESSMAINState extends State<P24PROGRESSMAIN> {
                                                 color: Colors.white,
                                                 fontSize: 18,
                                                 fontWeight: FontWeight.bold,
-                                                shadows: [
+                                                shadows: const [
                                                   Shadow(
                                                     blurRadius: 5.0,
                                                     color: Colors.black45,
@@ -294,7 +294,7 @@ class _P24PROGRESSMAINState extends State<P24PROGRESSMAIN> {
                                               style: TextStyle(
                                                 color: Colors.white70,
                                                 fontSize: 16,
-                                                shadows: [
+                                                shadows: const [
                                                   Shadow(
                                                     blurRadius: 5.0,
                                                     color: Colors.black45,
@@ -377,7 +377,7 @@ class _P24PROGRESSMAINState extends State<P24PROGRESSMAIN> {
                                                 color: Colors.white,
                                                 fontSize: 18,
                                                 fontWeight: FontWeight.bold,
-                                                shadows: [
+                                                shadows: const [
                                                   Shadow(
                                                     blurRadius: 5.0,
                                                     color: Colors.black45,
@@ -392,7 +392,7 @@ class _P24PROGRESSMAINState extends State<P24PROGRESSMAIN> {
                                               style: TextStyle(
                                                 color: Colors.white70,
                                                 fontSize: 16,
-                                                shadows: [
+                                                shadows: const [
                                                   Shadow(
                                                     blurRadius: 5.0,
                                                     color: Colors.black45,
@@ -475,7 +475,7 @@ class _P24PROGRESSMAINState extends State<P24PROGRESSMAIN> {
                                                 color: Colors.white,
                                                 fontSize: 18,
                                                 fontWeight: FontWeight.bold,
-                                                shadows: [
+                                                shadows: const [
                                                   Shadow(
                                                     blurRadius: 5.0,
                                                     color: Colors.black45,
@@ -490,7 +490,7 @@ class _P24PROGRESSMAINState extends State<P24PROGRESSMAIN> {
                                               style: TextStyle(
                                                 color: Colors.white70,
                                                 fontSize: 16,
-                                                shadows: [
+                                                shadows: const [
                                                   Shadow(
                                                     blurRadius: 5.0,
                                                     color: Colors.black45,
@@ -573,7 +573,7 @@ class _P24PROGRESSMAINState extends State<P24PROGRESSMAIN> {
                                                 color: Colors.white,
                                                 fontSize: 18,
                                                 fontWeight: FontWeight.bold,
-                                                shadows: [
+                                                shadows: const [
                                                   Shadow(
                                                     blurRadius: 5.0,
                                                     color: Colors.black45,
@@ -588,7 +588,7 @@ class _P24PROGRESSMAINState extends State<P24PROGRESSMAIN> {
                                               style: TextStyle(
                                                 color: Colors.white70,
                                                 fontSize: 16,
-                                                shadows: [
+                                                shadows: const [
                                                   Shadow(
                                                     blurRadius: 5.0,
                                                     color: Colors.black45,
@@ -672,7 +672,7 @@ class _P24PROGRESSMAINState extends State<P24PROGRESSMAIN> {
                                                 color: Colors.white,
                                                 fontSize: 18,
                                                 fontWeight: FontWeight.bold,
-                                                shadows: [
+                                                shadows: const [
                                                   Shadow(
                                                     blurRadius: 5.0,
                                                     color: Colors.black45,
@@ -687,7 +687,7 @@ class _P24PROGRESSMAINState extends State<P24PROGRESSMAIN> {
                                               style: TextStyle(
                                                 color: Colors.white70,
                                                 fontSize: 16,
-                                                shadows: [
+                                                shadows: const [
                                                   Shadow(
                                                     blurRadius: 5.0,
                                                     color: Colors.black45,
@@ -777,7 +777,7 @@ class _P24PROGRESSMAINState extends State<P24PROGRESSMAIN> {
                                                 color: Colors.white,
                                                 fontSize: 18,
                                                 fontWeight: FontWeight.bold,
-                                                shadows: [
+                                                shadows: const [
                                                   Shadow(
                                                     blurRadius: 5.0,
                                                     color: Colors.black45,
@@ -792,7 +792,7 @@ class _P24PROGRESSMAINState extends State<P24PROGRESSMAIN> {
                                               style: TextStyle(
                                                 color: Colors.white70,
                                                 fontSize: 16,
-                                                shadows: [
+                                                shadows: const [
                                                   Shadow(
                                                     blurRadius: 5.0,
                                                     color: Colors.black45,
@@ -876,7 +876,7 @@ class _P24PROGRESSMAINState extends State<P24PROGRESSMAIN> {
                                                 color: Colors.white,
                                                 fontSize: 18,
                                                 fontWeight: FontWeight.bold,
-                                                shadows: [
+                                                shadows: const [
                                                   Shadow(
                                                     blurRadius: 5.0,
                                                     color: Colors.black45,
@@ -891,7 +891,7 @@ class _P24PROGRESSMAINState extends State<P24PROGRESSMAIN> {
                                               style: TextStyle(
                                                 color: Colors.white70,
                                                 fontSize: 16,
-                                                shadows: [
+                                                shadows: const [
                                                   Shadow(
                                                     blurRadius: 5.0,
                                                     color: Colors.black45,
@@ -975,7 +975,7 @@ class _P24PROGRESSMAINState extends State<P24PROGRESSMAIN> {
                                                 color: Colors.white,
                                                 fontSize: 18,
                                                 fontWeight: FontWeight.bold,
-                                                shadows: [
+                                                shadows: const [
                                                   Shadow(
                                                     blurRadius: 5.0,
                                                     color: Colors.black45,
@@ -990,7 +990,7 @@ class _P24PROGRESSMAINState extends State<P24PROGRESSMAIN> {
                                               style: TextStyle(
                                                 color: Colors.white70,
                                                 fontSize: 16,
-                                                shadows: [
+                                                shadows: const [
                                                   Shadow(
                                                     blurRadius: 5.0,
                                                     color: Colors.black45,
@@ -1074,7 +1074,7 @@ class _P24PROGRESSMAINState extends State<P24PROGRESSMAIN> {
                                                 color: Colors.white,
                                                 fontSize: 18,
                                                 fontWeight: FontWeight.bold,
-                                                shadows: [
+                                                shadows: const [
                                                   Shadow(
                                                     blurRadius: 5.0,
                                                     color: Colors.black45,
@@ -1089,7 +1089,7 @@ class _P24PROGRESSMAINState extends State<P24PROGRESSMAIN> {
                                               style: TextStyle(
                                                 color: Colors.white70,
                                                 fontSize: 16,
-                                                shadows: [
+                                                shadows: const [
                                                   Shadow(
                                                     blurRadius: 5.0,
                                                     color: Colors.black45,
@@ -1173,7 +1173,7 @@ class _P24PROGRESSMAINState extends State<P24PROGRESSMAIN> {
                                                 color: Colors.white,
                                                 fontSize: 18,
                                                 fontWeight: FontWeight.bold,
-                                                shadows: [
+                                                shadows: const [
                                                   Shadow(
                                                     blurRadius: 5.0,
                                                     color: Colors.black45,
@@ -1188,7 +1188,7 @@ class _P24PROGRESSMAINState extends State<P24PROGRESSMAIN> {
                                               style: TextStyle(
                                                 color: Colors.white70,
                                                 fontSize: 16,
-                                                shadows: [
+                                                shadows: const [
                                                   Shadow(
                                                     blurRadius: 5.0,
                                                     color: Colors.black45,
@@ -1272,7 +1272,7 @@ class _P24PROGRESSMAINState extends State<P24PROGRESSMAIN> {
                                                 color: Colors.white,
                                                 fontSize: 18,
                                                 fontWeight: FontWeight.bold,
-                                                shadows: [
+                                                shadows: const [
                                                   Shadow(
                                                     blurRadius: 5.0,
                                                     color: Colors.black45,
@@ -1287,7 +1287,7 @@ class _P24PROGRESSMAINState extends State<P24PROGRESSMAIN> {
                                               style: TextStyle(
                                                 color: Colors.white70,
                                                 fontSize: 16,
-                                                shadows: [
+                                                shadows: const [
                                                   Shadow(
                                                     blurRadius: 5.0,
                                                     color: Colors.black45,
@@ -1377,7 +1377,7 @@ class _P24PROGRESSMAINState extends State<P24PROGRESSMAIN> {
                                                 color: Colors.white,
                                                 fontSize: 18,
                                                 fontWeight: FontWeight.bold,
-                                                shadows: [
+                                                shadows: const [
                                                   Shadow(
                                                     blurRadius: 5.0,
                                                     color: Colors.black45,
@@ -1392,7 +1392,7 @@ class _P24PROGRESSMAINState extends State<P24PROGRESSMAIN> {
                                               style: TextStyle(
                                                 color: Colors.white70,
                                                 fontSize: 16,
-                                                shadows: [
+                                                shadows: const [
                                                   Shadow(
                                                     blurRadius: 5.0,
                                                     color: Colors.black45,
@@ -1476,7 +1476,7 @@ class _P24PROGRESSMAINState extends State<P24PROGRESSMAIN> {
                                                 color: Colors.white,
                                                 fontSize: 18,
                                                 fontWeight: FontWeight.bold,
-                                                shadows: [
+                                                shadows: const [
                                                   Shadow(
                                                     blurRadius: 5.0,
                                                     color: Colors.black45,
@@ -1491,7 +1491,7 @@ class _P24PROGRESSMAINState extends State<P24PROGRESSMAIN> {
                                               style: TextStyle(
                                                 color: Colors.white70,
                                                 fontSize: 16,
-                                                shadows: [
+                                                shadows: const [
                                                   Shadow(
                                                     blurRadius: 5.0,
                                                     color: Colors.black45,
@@ -1575,7 +1575,7 @@ class _P24PROGRESSMAINState extends State<P24PROGRESSMAIN> {
                                                 color: Colors.white,
                                                 fontSize: 18,
                                                 fontWeight: FontWeight.bold,
-                                                shadows: [
+                                                shadows: const [
                                                   Shadow(
                                                     blurRadius: 5.0,
                                                     color: Colors.black45,
@@ -1590,7 +1590,7 @@ class _P24PROGRESSMAINState extends State<P24PROGRESSMAIN> {
                                               style: TextStyle(
                                                 color: Colors.white70,
                                                 fontSize: 16,
-                                                shadows: [
+                                                shadows: const [
                                                   Shadow(
                                                     blurRadius: 5.0,
                                                     color: Colors.black45,
@@ -1674,7 +1674,7 @@ class _P24PROGRESSMAINState extends State<P24PROGRESSMAIN> {
                                                 color: Colors.white,
                                                 fontSize: 18,
                                                 fontWeight: FontWeight.bold,
-                                                shadows: [
+                                                shadows: const [
                                                   Shadow(
                                                     blurRadius: 5.0,
                                                     color: Colors.black45,
@@ -1689,7 +1689,7 @@ class _P24PROGRESSMAINState extends State<P24PROGRESSMAIN> {
                                               style: TextStyle(
                                                 color: Colors.white70,
                                                 fontSize: 16,
-                                                shadows: [
+                                                shadows: const [
                                                   Shadow(
                                                     blurRadius: 5.0,
                                                     color: Colors.black45,
@@ -1773,7 +1773,7 @@ class _P24PROGRESSMAINState extends State<P24PROGRESSMAIN> {
                                                 color: Colors.white,
                                                 fontSize: 18,
                                                 fontWeight: FontWeight.bold,
-                                                shadows: [
+                                                shadows: const [
                                                   Shadow(
                                                     blurRadius: 5.0,
                                                     color: Colors.black45,
@@ -1788,7 +1788,7 @@ class _P24PROGRESSMAINState extends State<P24PROGRESSMAIN> {
                                               style: TextStyle(
                                                 color: Colors.white70,
                                                 fontSize: 16,
-                                                shadows: [
+                                                shadows: const [
                                                   Shadow(
                                                     blurRadius: 5.0,
                                                     color: Colors.black45,

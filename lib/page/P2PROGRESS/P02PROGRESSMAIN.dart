@@ -101,7 +101,7 @@ class _P02PROGRESSMAINState extends State<P02PROGRESSMAIN> {
                 child: Center(
                   child: ShaderMask(
                     shaderCallback: (bounds) => LinearGradient(
-                      colors: [Colors.blueAccent, Colors.lightBlueAccent],
+                      colors: const [Colors.blueAccent, Colors.lightBlueAccent],
                       begin: Alignment.topLeft,
                       end: Alignment.bottomRight,
                     ).createShader(bounds),
@@ -373,8 +373,7 @@ class _P02PROGRESSMAINState extends State<P02PROGRESSMAIN> {
                                 P01PROGRESSVAR.sendPlant = _data.value[0].PLANT;
                                 P01PROGRESSVAR.changeStep = 'step1';
                                 print(P01PROGRESSVAR.changeStep);
-                                print(transactionsCount1.toString() +
-                                    " transactions");
+                                print("$transactionsCount1 transactions");
                                 CuPage = Page7();
                                 MainBodyContext.read<ChangePage_Bloc>()
                                     .add(ChangePage_nodrower());
@@ -418,8 +417,7 @@ class _P02PROGRESSMAINState extends State<P02PROGRESSMAIN> {
                                 P01PROGRESSVAR.sendPlant = _data.value[0].PLANT;
                                 P01PROGRESSVAR.changeStep = 'step2';
                                 print(P01PROGRESSVAR.changeStep);
-                                print(transactionsCount2.toString() +
-                                    " transactions");
+                                print("$transactionsCount2 transactions");
                                 CuPage = Page7();
                                 MainBodyContext.read<ChangePage_Bloc>()
                                     .add(ChangePage_nodrower());
@@ -463,8 +461,7 @@ class _P02PROGRESSMAINState extends State<P02PROGRESSMAIN> {
                                 P01PROGRESSVAR.sendPlant = _data.value[0].PLANT;
                                 P01PROGRESSVAR.changeStep = 'step3';
                                 print(P01PROGRESSVAR.changeStep);
-                                print(transactionsCount3.toString() +
-                                    " transactions");
+                                print("$transactionsCount3 transactions");
                                 CuPage = Page7();
                                 MainBodyContext.read<ChangePage_Bloc>()
                                     .add(ChangePage_nodrower());
@@ -499,19 +496,19 @@ class _P02PROGRESSMAINState extends State<P02PROGRESSMAIN> {
                           onEnter: (_) {
                             setState(() {
                               if (_data.value[0].PLANT == 'PHO' &&
-                                  P02PROGRESSVAR.PHOdata.length > 0) {
+                                  P02PROGRESSVAR.PHOdata.isNotEmpty) {
                                 P02PROGRESSVAR.isHoveredQCPHO = true;
                               } else if (_data.value[0].PLANT == 'GAS' &&
-                                  P02PROGRESSVAR.GASdata.length > 0) {
+                                  P02PROGRESSVAR.GASdata.isNotEmpty) {
                                 P02PROGRESSVAR.isHoveredQCGAS = true;
                               } else if (_data.value[0].PLANT == 'KNG' &&
-                                  P02PROGRESSVAR.KNGdata.length > 0) {
+                                  P02PROGRESSVAR.KNGdata.isNotEmpty) {
                                 P02PROGRESSVAR.isHoveredQCKNG = true;
                               } else if (_data.value[0].PLANT == 'PAL' &&
-                                  P02PROGRESSVAR.PALdata.length > 0) {
+                                  P02PROGRESSVAR.PALdata.isNotEmpty) {
                                 P02PROGRESSVAR.isHoveredQCPAL = true;
                               } else if (_data.value[0].PLANT == 'PVD' &&
-                                  P02PROGRESSVAR.PVDdata.length > 0) {
+                                  P02PROGRESSVAR.PVDdata.isNotEmpty) {
                                 P02PROGRESSVAR.isHoveredQCPVD = true;
                               }
                             });
@@ -527,15 +524,15 @@ class _P02PROGRESSMAINState extends State<P02PROGRESSMAIN> {
                           },
                           child: InkWell(
                             onTap: (_data.value[0].PLANT == 'PHO' &&
-                                        P02PROGRESSVAR.PHOdata.length == 0) ||
+                                        P02PROGRESSVAR.PHOdata.isEmpty) ||
                                     (_data.value[0].PLANT == 'GAS' &&
-                                        P02PROGRESSVAR.GASdata.length == 0) ||
+                                        P02PROGRESSVAR.GASdata.isEmpty) ||
                                     (_data.value[0].PLANT == 'KNG' &&
-                                        P02PROGRESSVAR.KNGdata.length == 0) ||
+                                        P02PROGRESSVAR.KNGdata.isEmpty) ||
                                     (_data.value[0].PLANT == 'PAL' &&
-                                        P02PROGRESSVAR.PALdata.length == 0) ||
+                                        P02PROGRESSVAR.PALdata.isEmpty) ||
                                     (_data.value[0].PLANT == 'PVD' &&
-                                        P02PROGRESSVAR.PVDdata.length == 0)
+                                        P02PROGRESSVAR.PVDdata.isEmpty)
                                 ? null
                                 : () {
                                     // print(_data.value[0].PLANT);
@@ -569,31 +566,31 @@ class _P02PROGRESSMAINState extends State<P02PROGRESSMAIN> {
                                   if (_data.value[0].PLANT == 'PHO') {
                                     return P02PROGRESSVAR.isHoveredQCPHO
                                         ? Colors.lightGreenAccent.shade400
-                                        : (P02PROGRESSVAR.PHOdata.length > 0
+                                        : (P02PROGRESSVAR.PHOdata.isNotEmpty
                                             ? Colors.greenAccent
                                             : Colors.grey.shade400);
                                   } else if (_data.value[0].PLANT == 'GAS') {
                                     return P02PROGRESSVAR.isHoveredQCGAS
                                         ? Colors.lightGreenAccent.shade400
-                                        : (P02PROGRESSVAR.GASdata.length > 0
+                                        : (P02PROGRESSVAR.GASdata.isNotEmpty
                                             ? Colors.greenAccent
                                             : Colors.grey.shade400);
                                   } else if (_data.value[0].PLANT == 'KNG') {
                                     return P02PROGRESSVAR.isHoveredQCKNG
                                         ? Colors.lightGreenAccent.shade400
-                                        : (P02PROGRESSVAR.KNGdata.length > 0
+                                        : (P02PROGRESSVAR.KNGdata.isNotEmpty
                                             ? Colors.greenAccent
                                             : Colors.grey.shade400);
                                   } else if (_data.value[0].PLANT == 'PAL') {
                                     return P02PROGRESSVAR.isHoveredQCPAL
                                         ? Colors.lightGreenAccent.shade400
-                                        : (P02PROGRESSVAR.PALdata.length > 0
+                                        : (P02PROGRESSVAR.PALdata.isNotEmpty
                                             ? Colors.greenAccent
                                             : Colors.grey.shade400);
                                   } else if (_data.value[0].PLANT == 'PVD') {
                                     return P02PROGRESSVAR.isHoveredQCPVD
                                         ? Colors.lightGreenAccent.shade400
-                                        : (P02PROGRESSVAR.PVDdata.length > 0
+                                        : (P02PROGRESSVAR.PVDdata.isNotEmpty
                                             ? Colors.greenAccent
                                             : Colors.grey.shade400);
                                   } else {
@@ -658,8 +655,7 @@ class _P02PROGRESSMAINState extends State<P02PROGRESSMAIN> {
                                 P01PROGRESSVAR.sendPlant = _data.value[0].PLANT;
                                 P01PROGRESSVAR.changeStep = 'step5';
                                 print(P01PROGRESSVAR.changeStep);
-                                print(transactionsCount5.toString() +
-                                    " transactions");
+                                print("$transactionsCount5 transactions");
                                 CuPage = Page7();
                                 MainBodyContext.read<ChangePage_Bloc>()
                                     .add(ChangePage_nodrower());
@@ -703,8 +699,7 @@ class _P02PROGRESSMAINState extends State<P02PROGRESSMAIN> {
                                 P01PROGRESSVAR.sendPlant = _data.value[0].PLANT;
                                 P01PROGRESSVAR.changeStep = 'step6';
                                 print(P01PROGRESSVAR.changeStep);
-                                print(transactionsCount6.toString() +
-                                    " transactions");
+                                print("$transactionsCount6 transactions");
                                 CuPage = Page7();
                                 MainBodyContext.read<ChangePage_Bloc>()
                                     .add(ChangePage_nodrower());
@@ -748,8 +743,7 @@ class _P02PROGRESSMAINState extends State<P02PROGRESSMAIN> {
                                 P01PROGRESSVAR.sendPlant = _data.value[0].PLANT;
                                 P01PROGRESSVAR.changeStep = 'step7';
                                 print(P01PROGRESSVAR.changeStep);
-                                print(transactionsCount7.toString() +
-                                    " transactions");
+                                print("$transactionsCount7 transactions");
                                 CuPage = Page7();
                                 MainBodyContext.read<ChangePage_Bloc>()
                                     .add(ChangePage_nodrower());
@@ -793,8 +787,7 @@ class _P02PROGRESSMAINState extends State<P02PROGRESSMAIN> {
                                 P01PROGRESSVAR.sendPlant = _data.value[0].PLANT;
                                 P01PROGRESSVAR.changeStep = 'step8';
                                 print(P01PROGRESSVAR.changeStep);
-                                print(transactionsCount8.toString() +
-                                    " transactions");
+                                print("$transactionsCount8 transactions");
                                 CuPage = Page7();
                                 MainBodyContext.read<ChangePage_Bloc>()
                                     .add(ChangePage_nodrower());
@@ -838,8 +831,7 @@ class _P02PROGRESSMAINState extends State<P02PROGRESSMAIN> {
                                 P01PROGRESSVAR.sendPlant = _data.value[0].PLANT;
                                 P01PROGRESSVAR.changeStep = 'step9';
                                 print(P01PROGRESSVAR.changeStep);
-                                print(transactionsCount9.toString() +
-                                    " transactions");
+                                print("$transactionsCount9 transactions");
                                 CuPage = Page7();
                                 MainBodyContext.read<ChangePage_Bloc>()
                                     .add(ChangePage_nodrower());
@@ -875,7 +867,7 @@ class _P02PROGRESSMAINState extends State<P02PROGRESSMAIN> {
                     // SizedBox(height: 5),
                   ],
                 );
-              }).toList()
+              })
             ],
           ),
         ],

@@ -89,16 +89,12 @@ class _P13PROGRESSMAINState extends State<P13PROGRESSMAIN> {
                 Center(
                   child: ShaderMask(
                     shaderCallback: (bounds) => LinearGradient(
-                      colors: [Colors.blueAccent, Colors.lightBlueAccent],
+                      colors: const [Colors.blueAccent, Colors.lightBlueAccent],
                       begin: Alignment.topLeft,
                       end: Alignment.bottomRight,
                     ).createShader(bounds),
                     child: Text(
-                      USERDATA.BRANCH +
-                          ' : ' +
-                          USERDATA.ACTION +
-                          ' : ' +
-                          USERDATA.PLANT,
+                      '${USERDATA.BRANCH} : ${USERDATA.ACTION} : ${USERDATA.PLANT}',
                       style: TextStyle(
                         fontSize: 20.0,
                         fontWeight: FontWeight.bold,
@@ -448,7 +444,7 @@ class _P13PROGRESSMAINState extends State<P13PROGRESSMAIN> {
                                         height: 30,
                                         child: Align(
                                           alignment: Alignment.centerLeft,
-                                          child: Text('  ' + item.CUST_FULL),
+                                          child: Text('  ${item.CUST_FULL}'),
                                         ),
                                       ),
                                     ),
@@ -494,7 +490,7 @@ class _P13PROGRESSMAINState extends State<P13PROGRESSMAIN> {
                                     ),
                                   ],
                                 );
-                              }).toList(),
+                              }),
                             ],
                           ),
                         ],

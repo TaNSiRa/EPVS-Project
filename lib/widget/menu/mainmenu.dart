@@ -109,11 +109,11 @@ class Data_Menu_mainmenu extends StatelessWidget {
           page: Page8(),
           Lv: 1,
         ),
-        // menu_normal(
-        //   name: "Change Password",
-        //   page: Page6(),
-        //   Lv: 1,
-        // ),
+        menu_normal(
+          name: "Change Password",
+          page: Page6(),
+          Lv: 1,
+        ),
         menu_logout(
           name: "Logout",
         ),

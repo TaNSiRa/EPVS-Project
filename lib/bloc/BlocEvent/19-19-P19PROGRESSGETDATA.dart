@@ -1,10 +1,6 @@
 import 'package:dio/dio.dart';
-import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../data/global.dart';
-import '../../page/P19PROGRESS/P19PROGRESSMAIN.dart';
-import '../../widget/common/Loading.dart';
-
 //-------------------------------------------------
 
 abstract class P19PROGRESSGETDATA_Event {}

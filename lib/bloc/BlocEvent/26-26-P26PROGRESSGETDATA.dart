@@ -40,7 +40,6 @@ class P26PROGRESSGETDATA_Bloc
     FreeLoadingTan(P26PROGRESSMAINcontext);
     List<P26PROGRESSGETDATAclass> output = [];
     //-------------------------------------------------------------------------------------
-    var now = DateTime.now();
     final response = await Dio().post(
       server2 + "datacentertest/getsoi8order",
       data: {"PLANT": USERDATA.PLANT, "ORDER": USERDATA.ORDER},

@@ -113,7 +113,7 @@ class P01PROGRESSGETDATA_Bloc
 
   Future<void> _P01PROGRESSGETDATA_GET2(List<P01PROGRESSGETDATAclass> toAdd,
       Emitter<List<P01PROGRESSGETDATAclass>> emit) async {
-    List<P01PROGRESSGETDATAclass> output = [];
+    // List<P01PROGRESSGETDATAclass> output = [];
     //-------------------------------------------------------------------------------------
     // var input = dummydatainput2;
 

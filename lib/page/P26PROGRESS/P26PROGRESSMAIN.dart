@@ -1,21 +1,17 @@
-// ignore_for_file: prefer_const_constructors
+// ignore_for_file: prefer_const_constructors, must_be_immutable
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../bloc/BlocEvent/26-26-P26PROGRESSGETDATA.dart';
 import '../../bloc/BlocEvent/ChangePageEvent.dart';
 import '../../data/global.dart';
 import '../../mainBody.dart';
-import '../page1.dart';
-import '../page18.dart';
 import '../page19.dart';
-import '../page2.dart';
 import '../page20.dart';
 import '../page21.dart';
 import '../page22.dart';
 import '../page23.dart';
 import '../page24.dart';
 import '../page25.dart';
-import '../page4.dart';
 import 'P26PROGRESSVAR.dart';
 
 late BuildContext P26PROGRESSMAINcontext;

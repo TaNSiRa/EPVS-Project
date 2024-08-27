@@ -45,7 +45,7 @@ class P04PROGRESSGETDATA_Bloc
     var input = dummydatainput2;
     var now = DateTime.now();
     final response = await Dio().post(
-      server2 + "datacentertest/getsap",
+      "${server2}datacentertest/getsap",
       data: {
         "BAPI_NAME": "ZPPIN011_OUT",
         "TABLE_NAME": "PPORDER",

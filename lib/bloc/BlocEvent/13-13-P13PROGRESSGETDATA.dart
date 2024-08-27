@@ -41,7 +41,7 @@ class P13PROGRESSGETDATA_Bloc
     List<P13PROGRESSGETDATAclass> output = [];
     //-------------------------------------------------------------------------------------
     final response = await Dio().post(
-      server + "getsap/getincomming_2",
+      "${server}getsap/getincomming_2",
       data: {
         "IMP_WERKS": USERDATA.BRANCHNUMBER.toString(),
         "IMP_PRCTR": USERDATA.PLANTNUMBER.toString(),

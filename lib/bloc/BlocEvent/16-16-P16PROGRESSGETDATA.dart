@@ -42,7 +42,7 @@ class P16PROGRESSGETDATA_Bloc
     //-------------------------------------------------------------------------------------
     var now = DateTime.now();
     final response = await Dio().post(
-      server2 + "datacentertest/getsap",
+      "${server2}datacentertest/getsap",
       data: {
         "BAPI_NAME": "ZPPIN011_OUT",
         "TABLE_NAME": "PPORDER",

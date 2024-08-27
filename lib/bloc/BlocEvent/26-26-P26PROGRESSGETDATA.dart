@@ -41,7 +41,7 @@ class P26PROGRESSGETDATA_Bloc
     List<P26PROGRESSGETDATAclass> output = [];
     //-------------------------------------------------------------------------------------
     final response = await Dio().post(
-      server2 + "datacentertest/getsoi8order",
+      "${server2}datacentertest/getsoi8order",
       data: {"PLANT": USERDATA.PLANT, "ORDER": USERDATA.ORDER},
     );
     var input = [];

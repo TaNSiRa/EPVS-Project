@@ -37,7 +37,7 @@ class P19PROGRESSGETDATA_Bloc
     List<P19PROGRESSGETDATAclass> output = [];
     //-------------------------------------------------------------------------------------
     final response = await Dio().post(
-      server2 + "datacentertest/getsoi8set",
+      "${server2}datacentertest/getsoi8set",
       data: {"PLANT": USERDATA.PLANT},
     );
     var input = [];

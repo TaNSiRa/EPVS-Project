@@ -334,7 +334,7 @@ class _P26PROGRESSMAINState extends State<P26PROGRESSMAIN> {
                                               color: Colors.blue,
                                               child: Center(
                                                 child: Text(
-                                                  'SP.(Kg)',
+                                                  'SP.(kg)',
                                                   style: TextStyle(
                                                       color: Colors.white),
                                                 ),
@@ -359,7 +359,7 @@ class _P26PROGRESSMAINState extends State<P26PROGRESSMAIN> {
                                               color: Colors.blue,
                                               child: Center(
                                                 child: Text(
-                                                  'ACTUAL(KG)',
+                                                  'ACTUAL(kg)',
                                                   style: TextStyle(
                                                       color: Colors.white),
                                                 ),

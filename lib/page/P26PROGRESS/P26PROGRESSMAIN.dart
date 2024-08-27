@@ -48,11 +48,11 @@ class _P26PROGRESSMAINState extends State<P26PROGRESSMAIN> {
           return item.BARCODE
               .toLowerCase()
               .contains(P26PROGRESSVAR.searchQuery.toLowerCase());
-        case 'SP.(Kg)':
+        case 'SP.(kg)':
           return item.SP
               .toLowerCase()
               .contains(P26PROGRESSVAR.searchQuery.toLowerCase());
-        case 'ACTUAL(KG)':
+        case 'ACTUAL(kg)':
           return item.ACTUAL
               .toLowerCase()
               .contains(P26PROGRESSVAR.searchQuery.toLowerCase());
@@ -157,8 +157,8 @@ class _P26PROGRESSMAINState extends State<P26PROGRESSMAIN> {
                                     items: <String>[
                                       'CHEMICAL',
                                       'BARCODE',
-                                      'SP.(Kg)',
-                                      'ACTUAL(KG)',
+                                      'SP.(kg)',
+                                      'ACTUAL(kg)',
                                     ].map<DropdownMenuItem<String>>(
                                         (String value) {
                                       return DropdownMenuItem<String>(
@@ -330,7 +330,7 @@ class _P26PROGRESSMAINState extends State<P26PROGRESSMAIN> {
                                               color: Colors.blue,
                                               child: Center(
                                                 child: Text(
-                                                  'SP.(kg)',
+                                                  'SP. (kg)',
                                                   style: TextStyle(
                                                       color: Colors.white),
                                                 ),
@@ -355,7 +355,7 @@ class _P26PROGRESSMAINState extends State<P26PROGRESSMAIN> {
                                               color: Colors.blue,
                                               child: Center(
                                                 child: Text(
-                                                  'ACTUAL(kg)',
+                                                  'ACTUAL (kg)',
                                                   style: TextStyle(
                                                       color: Colors.white),
                                                 ),

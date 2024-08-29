@@ -45,7 +45,6 @@ class P26PROGRESSGETDATA_Bloc
       data: {"PLANT": USERDATA.PLANT, "ORDER": USERDATA.ORDER},
     );
     var input = [];
-    Navigator.pop(P26PROGRESSMAINcontext);
     if (response.statusCode == 200) {
       print(response.statusCode);
       // print(response.data);
@@ -74,11 +73,11 @@ class P26PROGRESSGETDATA_Bloc
           DTDATE: savenull(dataActual['dtDate']),
         );
       }).toList();
+      Navigator.pop(P26PROGRESSMAINcontext);
 
       output = outputdata;
       emit(output);
     } else {
-      Navigator.pop(P26PROGRESSMAINcontext);
       print("where is my server");
       output = [];
       emit(output);

@@ -1,15 +1,13 @@
 // ignore_for_file: prefer_const_constructors, must_be_immutable
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import '../../bloc/BlocEvent/19-19-P19PROGRESSGETDATA.dart';
+import '../../bloc/BlocEvent/P19-P25ORDERFROMPLANT.dart';
 import '../../bloc/BlocEvent/ChangePageEvent.dart';
 import '../../data/global.dart';
 import '../../mainBody.dart';
 import '../page18.dart';
 import '../page26.dart';
 import 'P22PROGRESSVAR.dart';
-
-late BuildContext P22PROGRESSMAINcontext;
 
 class P22PROGRESSMAIN extends StatefulWidget {
   P22PROGRESSMAIN({
@@ -31,7 +29,7 @@ class _P22PROGRESSMAINState extends State<P22PROGRESSMAIN> {
 
   @override
   Widget build(BuildContext context) {
-    P22PROGRESSMAINcontext = context;
+    CONTEXTFORUSEPAGE19TO25.LOADINGcontext = context;
     List<P19PROGRESSGETDATAclass> _datain = widget.data ?? [];
     return Scaffold(
       body: Stack(

@@ -1,6 +1,8 @@
 import 'package:dio/dio.dart';
+import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../data/global.dart';
+import '../../widget/common/Loading.dart';
 //-------------------------------------------------
 
 abstract class P19PROGRESSGETDATA_Event {}
@@ -33,7 +35,7 @@ class P19PROGRESSGETDATA_Bloc
 
   Future<void> _P19PROGRESSGETDATA_GET(List<P19PROGRESSGETDATAclass> toAdd,
       Emitter<List<P19PROGRESSGETDATAclass>> emit) async {
-    // FreeLoadingTan(P19PROGRESSMAINcontext);
+    FreeLoadingTan(CONTEXTFORUSEPAGE19TO25.LOADINGcontext);
     List<P19PROGRESSGETDATAclass> output = [];
     //-------------------------------------------------------------------------------------
     final response = await Dio().post(
@@ -72,9 +74,9 @@ class P19PROGRESSGETDATA_Bloc
       }).toList();
 
       output = outputdata;
+      Navigator.pop(CONTEXTFORUSEPAGE19TO25.LOADINGcontext);
       emit(output);
     } else {
-      // Navigator.pop(P19PROGRESSMAINcontext);
       print("where is my server");
       output = [];
       emit(output);

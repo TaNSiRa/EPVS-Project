@@ -49,5 +49,9 @@ class BRANCHNUMBER {
   static String ESIE1 = '2300';
 }
 
+class CONTEXTFORUSEPAGE19TO25 {
+  static late BuildContext LOADINGcontext;
+}
+
 String server = 'http://172.23.10.40:16714/';
 String server2 = 'http://172.23.10.34:14090/';

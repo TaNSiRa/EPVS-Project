@@ -37,7 +37,16 @@ class _P26PROGRESSMAINState extends State<P26PROGRESSMAIN> {
   @override
   Widget build(BuildContext context) {
     P26PROGRESSMAINcontext = context;
-    List<P26PROGRESSGETDATAclass> _datain = widget.data ?? [];
+    List<P26PROGRESSGETDATAclass> _datain =
+        widget.data?.reversed.toList() ?? [];
+    // List<P26PROGRESSGETDATAclass> _datain = _datainp.toSet().toList();
+    final ids = Set();
+    _datain.retainWhere((x) =>
+        ids.add(x.CHEMICALNAME) |
+        ids.add(x.BARCODE) |
+        ids.add(x.SP) |
+        ids.add(x.ACTUAL));
+
     List<P26PROGRESSGETDATAclass> filteredData = _datain.where((item) {
       switch (P26PROGRESSVAR.selectedColumn) {
         case 'CHEMICAL':

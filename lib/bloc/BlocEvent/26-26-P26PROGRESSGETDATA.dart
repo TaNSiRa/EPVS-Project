@@ -47,7 +47,7 @@ class P26PROGRESSGETDATA_Bloc
     var input = [];
     if (response.statusCode == 200) {
       print(response.statusCode);
-      print(response.data);
+      // print(response.data);
       var databuff = response.data;
       input = databuff;
 

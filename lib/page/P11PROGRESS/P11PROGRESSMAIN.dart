@@ -4,6 +4,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../bloc/BlocEvent/ChangePageEvent.dart';
 import '../../data/global.dart';
 import '../../mainBody.dart';
+import '../page18.dart';
 import '../page8.dart';
 import 'P11PROGRESSVAR.dart';
 
@@ -196,67 +197,6 @@ class _P11PROGRESSMAINBodyState extends State<P11PROGRESSMAINBody> {
                           child: MouseRegion(
                             onEnter: (_) {
                               setState(() {
-                                P11PROGRESSVAR.isHoveredSTATUS = true;
-                              });
-                            },
-                            onExit: (_) {
-                              setState(() {
-                                P11PROGRESSVAR.isHoveredSTATUS = false;
-                              });
-                            },
-                            child: InkWell(
-                              onTap: () {
-                                setState(() {
-                                  P11PROGRESSVAR.isHoveredSTATUS = false;
-                                });
-                                USERDATA.ACTION = 'STATUS';
-                                print(USERDATA.ACTION);
-                                // if (USERDATA.BRANCH == 'BP12') {
-                                //   CuPage = Page2();
-                                //   MainBodyContext.read<ChangePage_Bloc>()
-                                //       .add(ChangePage_nodrower());
-                                // } else if (USERDATA.BRANCH == 'GW') {
-                                //   CuPage = Page4();
-                                //   MainBodyContext.read<ChangePage_Bloc>()
-                                //       .add(ChangePage_nodrower());
-                                // } else if (USERDATA.BRANCH == 'ESIE1') {
-                                //   CuPage = Page1();
-                                //   MainBodyContext.read<ChangePage_Bloc>()
-                                //       .add(ChangePage_nodrower());
-                                // }
-                              },
-                              child: AnimatedContainer(
-                                duration: Duration(milliseconds: 100),
-                                height:
-                                    P11PROGRESSVAR.isHoveredSTATUS ? 55 : 50,
-                                width:
-                                    P11PROGRESSVAR.isHoveredSTATUS ? 420 : 400,
-                                decoration: BoxDecoration(
-                                  color: P11PROGRESSVAR.isHoveredSTATUS
-                                      ? Colors.yellowAccent.shade700
-                                      : Colors.redAccent.shade700,
-                                  border: Border.all(
-                                    color: Colors.black,
-                                    width: 2.0,
-                                  ),
-                                  borderRadius: BorderRadius.circular(10),
-                                ),
-                                child: Center(
-                                  child: Text(
-                                    'STATUS',
-                                    style: TextStyle(
-                                        color: Colors.white, fontSize: 20),
-                                  ),
-                                ),
-                              ),
-                            ),
-                          ),
-                        ),
-                        Padding(
-                          padding: const EdgeInsets.all(5.0),
-                          child: MouseRegion(
-                            onEnter: (_) {
-                              setState(() {
                                 P11PROGRESSVAR.isHoveredSCADADATA = true;
                               });
                             },
@@ -305,7 +245,58 @@ class _P11PROGRESSMAINBodyState extends State<P11PROGRESSMAINBody> {
                                 ),
                                 child: Center(
                                   child: Text(
-                                    'SCADA DATA',
+                                    'RAW MATERIAL PREPARATION',
+                                    style: TextStyle(
+                                        color: Colors.white, fontSize: 20),
+                                  ),
+                                ),
+                              ),
+                            ),
+                          ),
+                        ),
+                        Padding(
+                          padding: const EdgeInsets.all(5.0),
+                          child: MouseRegion(
+                            onEnter: (_) {
+                              setState(() {
+                                P11PROGRESSVAR.isHoveredSTATUS = true;
+                              });
+                            },
+                            onExit: (_) {
+                              setState(() {
+                                P11PROGRESSVAR.isHoveredSTATUS = false;
+                              });
+                            },
+                            child: InkWell(
+                              onTap: () {
+                                setState(() {
+                                  P11PROGRESSVAR.isHoveredSTATUS = false;
+                                });
+                                USERDATA.ACTION = 'STATUS';
+                                print(USERDATA.ACTION);
+                                CuPage = Page18();
+                                MainBodyContext.read<ChangePage_Bloc>()
+                                    .add(ChangePage_nodrower());
+                              },
+                              child: AnimatedContainer(
+                                duration: Duration(milliseconds: 100),
+                                height:
+                                    P11PROGRESSVAR.isHoveredSTATUS ? 55 : 50,
+                                width:
+                                    P11PROGRESSVAR.isHoveredSTATUS ? 420 : 400,
+                                decoration: BoxDecoration(
+                                  color: P11PROGRESSVAR.isHoveredSTATUS
+                                      ? Colors.greenAccent
+                                      : Colors.green,
+                                  border: Border.all(
+                                    color: Colors.black,
+                                    width: 2.0,
+                                  ),
+                                  borderRadius: BorderRadius.circular(10),
+                                ),
+                                child: Center(
+                                  child: Text(
+                                    'STATUS',
                                     style: TextStyle(
                                         color: Colors.white, fontSize: 20),
                                   ),

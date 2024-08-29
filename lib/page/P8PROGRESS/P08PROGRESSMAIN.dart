@@ -4,6 +4,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../bloc/BlocEvent/ChangePageEvent.dart';
 import '../../data/global.dart';
 import '../../mainBody.dart';
+import '../page11.dart';
 import '../page18.dart';
 import '../page9.dart';
 import 'P08PROGRESSVAR.dart';
@@ -185,7 +186,7 @@ class _P08PROGRESSMAINBodyState extends State<P08PROGRESSMAINBody> {
                           });
                           USERDATA.INSMASTER = 'CHEMICAL';
                           print(USERDATA.INSMASTER);
-                          CuPage = Page18();
+                          CuPage = Page11();
                           MainBodyContext.read<ChangePage_Bloc>()
                               .add(ChangePage_nodrower());
                         },

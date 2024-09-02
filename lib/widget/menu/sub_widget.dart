@@ -35,26 +35,20 @@ class menu_normal extends StatelessWidget {
             ),
             Align(
               alignment: Alignment.center,
-              child: Container(
-                  height: 24,
-                  width: 24,
-                  decoration: BoxDecoration(
-                    color: Colors.redAccent.shade400,
-                    // image: DecorationImage(
-                    //   image: AssetImage(""),
-                    //   fit: BoxFit.fitWidth,
-                    // ),
-                    //borderRadius: BorderRadius.all(Radius.circular(24.0)),
-                  )),
+              child: Icon(
+                Icons.chevron_right_rounded,
+                size: 24,
+                color: Colors.green,
+              ),
             ),
             Container(
               child: Align(
                 alignment: Alignment.centerLeft,
                 child: Text(
-                  "   " + _name,
+                  "  " + _name,
                   style: TextStyle(
                     fontFamily: 'Mitr',
-                    color: Colors.white,
+                    color: Colors.black,
                     fontSize: 14,
                     fontWeight: FontWeight.w300,
                     fontStyle: FontStyle.normal,

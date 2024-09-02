@@ -56,24 +56,16 @@ class Logo2 extends StatelessWidget {
         },
         child: Container(
           height: 40,
-          width: 80,
-          color: Colors.white,
-
-          child: Padding(
-            padding: const EdgeInsetsDirectional.all(1),
-            child: Container(
-              height: 35,
-              decoration: BoxDecoration(
-                color: Colors.white,
-                image: DecorationImage(
-                  image: AssetImage("assets/images/logo_tpk.png"),
-                  fit: BoxFit.fitHeight,
-                ),
-              ),
-            ),
+          width: 40,
+          decoration: BoxDecoration(
+            color: Colors.white,
+            borderRadius: BorderRadius.circular(8),
           ),
-
-          //color: Colors.white,
+          child: Icon(
+            Icons.menu_rounded,
+            size: 30,
+            color: Colors.black,
+          ),
         ),
       ),
     );
@@ -147,12 +139,11 @@ class Icon_profile extends StatelessWidget {
       onLongPress: () {
         LoginContext.read<Login_Bloc>().add(Logout());
       },
-      child: Container(
-          width: 24,
-          height: 24,
-          decoration: new BoxDecoration(
-              borderRadius: BorderRadius.circular(8),
-              color: Colors.brown.shade300)),
+      child: Icon(
+        Icons.logout,
+        size: 24,
+        color: Colors.white,
+      ),
     );
   }
 }

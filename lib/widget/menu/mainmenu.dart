@@ -31,11 +31,19 @@ class _MainMenuState extends State<MainMenu> {
     //---------------------------------------------------------------
 
     return Container(
-      height: (MediaQuery.of(context).size.height),
-      // width: MediaQuery.of(context).size.width,
+      height: MediaQuery.of(context).size.height,
       width: 200,
-      color: const Color(0xff0b1327),
-      //color: Colors.red,
+      decoration: BoxDecoration(
+        color: Colors.white,
+        borderRadius: BorderRadius.only(
+          topRight: Radius.circular(20.0),
+          bottomRight: Radius.circular(20.0),
+        ),
+        border: Border.all(
+          color: Colors.black,
+          width: 1.0,
+        ),
+      ),
       child: ListView(
         children: [
           Center(
@@ -63,8 +71,8 @@ class Data_Menu_mainmenu extends StatelessWidget {
         Align(
             alignment: Alignment.center,
             child: Container(
-                height: 40,
-                width: 180,
+                height: 60,
+                width: 200,
                 color: Colors.white,
                 child: Padding(
                   padding: const EdgeInsetsDirectional.all(1),
@@ -79,26 +87,7 @@ class Data_Menu_mainmenu extends StatelessWidget {
                     ),
                   ),
                 ))),
-        // menu_normal(
-        //   name: "HES",
-        //   page: Page1(),
-        //   Lv: 1,
-        // ),
-        // menu_normal(
-        //   name: "BP12",
-        //   page: Page2(),
-        //   Lv: 1,
-        // ),
-        // menu_normal(
-        //   name: "BP8",
-        //   page: Page3(),
-        //   Lv: 1,
-        // ),
-        // menu_normal(
-        //   name: "GATEWAY",
-        //   page: Page4(),
-        //   Lv: 1,
-        // ),
+        SizedBox(height: 10),
         menu_normal(
           name: "SELECT PROGRESS",
           page: Page8(),
@@ -134,14 +123,14 @@ class Logomenu extends StatelessWidget {
     return Container(
       height: 40,
       width: 80,
-      color: Colors.white,
+      color: Colors.black,
 
       child: Padding(
         padding: const EdgeInsetsDirectional.all(1),
         child: Container(
           height: 35,
           decoration: const BoxDecoration(
-            color: Colors.white,
+            color: Colors.black,
             image: DecorationImage(
               image: AssetImage("assets/images/logo_tpk.png"),
               fit: BoxFit.fitHeight,
@@ -150,7 +139,7 @@ class Logomenu extends StatelessWidget {
         ),
       ),
 
-      //color: Colors.white,
+      //color: Colors.black,
     );
   }
 }
@@ -186,7 +175,7 @@ class menu_logout extends StatelessWidget {
                 width: 24,
                 child: const Icon(
                   Icons.logout,
-                  color: Colors.white,
+                  color: Colors.black,
                   // size: 30.0,
                 ),
                 // decoration: BoxDecoration(
@@ -206,7 +195,7 @@ class menu_logout extends StatelessWidget {
                 "   " + _name,
                 style: const TextStyle(
                   fontFamily: 'Mitr',
-                  color: Colors.white,
+                  color: Colors.black,
                   fontSize: 14,
                   fontWeight: FontWeight.w300,
                   fontStyle: FontStyle.normal,

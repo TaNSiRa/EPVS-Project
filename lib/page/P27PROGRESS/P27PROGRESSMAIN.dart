@@ -263,7 +263,7 @@ class _P27PROGRESSMAINState extends State<P27PROGRESSMAIN> {
                             height: 50,
                             width: 900,
                             decoration: BoxDecoration(
-                              // color: Colors.yellow.shade100,
+                              color: Colors.blue.shade900,
                               border: Border(
                                 top: BorderSide(),
                                 left: BorderSide(),
@@ -274,7 +274,9 @@ class _P27PROGRESSMAINState extends State<P27PROGRESSMAIN> {
                               child: Text(
                                 "บริษัท ไทยปาร์คเกอร์ไรซิ่ง จำกัด",
                                 style: TextStyle(
-                                    fontWeight: FontWeight.bold, fontSize: 20),
+                                    fontWeight: FontWeight.bold,
+                                    fontSize: 20,
+                                    color: Colors.white),
                               ),
                             ),
                           ),
@@ -282,7 +284,7 @@ class _P27PROGRESSMAINState extends State<P27PROGRESSMAIN> {
                             height: 30,
                             width: 900,
                             decoration: BoxDecoration(
-                              // color: Colors.yellow.shade100,
+                              // color: Colors.blue.shade900,
                               border: Border(
                                 top: BorderSide(),
                                 left: BorderSide(),
@@ -292,7 +294,9 @@ class _P27PROGRESSMAINState extends State<P27PROGRESSMAIN> {
                             child: Center(
                               child: Text(
                                 "ตารางการผลิตต่อวัน",
-                                style: TextStyle(fontWeight: FontWeight.bold),
+                                style: TextStyle(
+                                    fontWeight: FontWeight.bold,
+                                    color: Colors.black),
                               ),
                             ),
                           ),
@@ -300,7 +304,7 @@ class _P27PROGRESSMAINState extends State<P27PROGRESSMAIN> {
                             height: 30,
                             width: 900,
                             decoration: BoxDecoration(
-                              // color: Colors.yellow.shade100,
+                              // color: Colors.blue.shade900,
                               border: Border(
                                 top: BorderSide(),
                                 left: BorderSide(),
@@ -310,7 +314,9 @@ class _P27PROGRESSMAINState extends State<P27PROGRESSMAIN> {
                             child: Center(
                               child: Text(
                                 "วันที่ : $formattedDate",
-                                style: TextStyle(fontWeight: FontWeight.bold),
+                                style: TextStyle(
+                                    fontWeight: FontWeight.bold,
+                                    color: Colors.black),
                               ),
                             ),
                           ),

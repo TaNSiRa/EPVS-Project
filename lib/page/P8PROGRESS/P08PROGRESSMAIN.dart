@@ -57,218 +57,222 @@ class _P08PROGRESSMAINBodyState extends State<P08PROGRESSMAINBody> {
           ),
           Expanded(
             child: SingleChildScrollView(
-              child: Center(
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    MouseRegion(
-                      onEnter: (_) {
-                        setState(() {
-                          P08PROGRESSVAR.isHoveredHAndS = true;
-                        });
-                      },
-                      onExit: (_) {
-                        setState(() {
-                          P08PROGRESSVAR.isHoveredHAndS = false;
-                        });
-                      },
-                      child: InkWell(
-                        overlayColor:
-                            MaterialStateProperty.all(Colors.transparent),
-                        onTap: () {
+              scrollDirection: Axis.vertical,
+              child: SingleChildScrollView(
+                scrollDirection: Axis.horizontal,
+                child: Center(
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      MouseRegion(
+                        onEnter: (_) {
+                          setState(() {
+                            P08PROGRESSVAR.isHoveredHAndS = true;
+                          });
+                        },
+                        onExit: (_) {
                           setState(() {
                             P08PROGRESSVAR.isHoveredHAndS = false;
                           });
-                          USERDATA.INSMASTER = 'H&S';
-                          print(USERDATA.INSMASTER);
-                          CuPage = Page9();
-                          MainBodyContext.read<ChangePage_Bloc>()
-                              .add(ChangePage_nodrower());
                         },
-                        child: AnimatedContainer(
-                          duration: Duration(milliseconds: 200),
-                          decoration: BoxDecoration(
-                            border: Border.all(
-                              color: P08PROGRESSVAR.isHoveredHAndS
-                                  ? Colors.yellowAccent.shade700
-                                  : Colors.redAccent.shade700,
-                              width: 3.0,
+                        child: InkWell(
+                          overlayColor:
+                              MaterialStateProperty.all(Colors.transparent),
+                          onTap: () {
+                            setState(() {
+                              P08PROGRESSVAR.isHoveredHAndS = false;
+                            });
+                            USERDATA.INSMASTER = 'H&S';
+                            print(USERDATA.INSMASTER);
+                            CuPage = Page9();
+                            MainBodyContext.read<ChangePage_Bloc>()
+                                .add(ChangePage_nodrower());
+                          },
+                          child: AnimatedContainer(
+                            duration: Duration(milliseconds: 200),
+                            decoration: BoxDecoration(
+                              border: Border.all(
+                                color: P08PROGRESSVAR.isHoveredHAndS
+                                    ? Colors.yellowAccent.shade700
+                                    : Colors.redAccent.shade700,
+                                width: 3.0,
+                              ),
+                              borderRadius: BorderRadius.circular(12.0),
                             ),
-                            borderRadius: BorderRadius.circular(12.0),
-                          ),
-                          padding: EdgeInsets.all(8.0),
-                          child: Column(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: [
-                              ShaderMask(
-                                shaderCallback: (bounds) => LinearGradient(
-                                  colors: const [
-                                    Colors.white,
-                                    Colors.red,
-                                  ],
-                                  begin: Alignment.topCenter,
-                                  end: Alignment.bottomCenter,
-                                ).createShader(bounds),
-                                child: TweenAnimationBuilder<double>(
-                                  tween: Tween<double>(
-                                    begin: P08PROGRESSVAR.isHoveredHAndS
-                                        ? 200
-                                        : 220,
-                                    end: P08PROGRESSVAR.isHoveredHAndS
-                                        ? 220
-                                        : 200,
-                                  ),
-                                  duration: Duration(milliseconds: 200),
-                                  builder: (context, size, child) {
-                                    return TweenAnimationBuilder<Color?>(
-                                      tween: ColorTween(
-                                        begin: P08PROGRESSVAR.isHoveredHAndS
-                                            ? Colors.redAccent.shade700
-                                            : Colors.yellowAccent.shade700,
-                                        end: P08PROGRESSVAR.isHoveredHAndS
-                                            ? Colors.yellowAccent.shade700
-                                            : Colors.redAccent.shade700,
-                                      ),
-                                      duration: Duration(milliseconds: 200),
-                                      builder: (context, color, child) {
-                                        return Icon(
-                                          Icons.fireplace_rounded,
-                                          size: size,
-                                          color: color,
-                                        );
-                                      },
-                                    );
-                                  },
-                                ),
-                              ),
-                              ShaderMask(
-                                shaderCallback: (bounds) => LinearGradient(
-                                  colors: [
-                                    Colors.redAccent.shade700,
-                                    Colors.yellowAccent.shade700,
-                                  ],
-                                  begin: Alignment.topLeft,
-                                  end: Alignment.bottomRight,
-                                ).createShader(bounds),
-                                child: Text(
-                                  'HEAT & SURFACE',
-                                  style: TextStyle(
-                                    fontSize: 20.0,
-                                    fontWeight: FontWeight.bold,
-                                    color: Colors.white,
+                            padding: EdgeInsets.all(8.0),
+                            child: Column(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                ShaderMask(
+                                  shaderCallback: (bounds) => LinearGradient(
+                                    colors: const [
+                                      Colors.white,
+                                      Colors.red,
+                                    ],
+                                    begin: Alignment.topCenter,
+                                    end: Alignment.bottomCenter,
+                                  ).createShader(bounds),
+                                  child: TweenAnimationBuilder<double>(
+                                    tween: Tween<double>(
+                                      begin: P08PROGRESSVAR.isHoveredHAndS
+                                          ? 200
+                                          : 220,
+                                      end: P08PROGRESSVAR.isHoveredHAndS
+                                          ? 220
+                                          : 200,
+                                    ),
+                                    duration: Duration(milliseconds: 200),
+                                    builder: (context, size, child) {
+                                      return TweenAnimationBuilder<Color?>(
+                                        tween: ColorTween(
+                                          begin: P08PROGRESSVAR.isHoveredHAndS
+                                              ? Colors.redAccent.shade700
+                                              : Colors.yellowAccent.shade700,
+                                          end: P08PROGRESSVAR.isHoveredHAndS
+                                              ? Colors.yellowAccent.shade700
+                                              : Colors.redAccent.shade700,
+                                        ),
+                                        duration: Duration(milliseconds: 200),
+                                        builder: (context, color, child) {
+                                          return Icon(
+                                            Icons.fireplace_rounded,
+                                            size: size,
+                                            color: color,
+                                          );
+                                        },
+                                      );
+                                    },
                                   ),
                                 ),
-                              ),
-                            ],
+                                ShaderMask(
+                                  shaderCallback: (bounds) => LinearGradient(
+                                    colors: [
+                                      Colors.redAccent.shade700,
+                                      Colors.yellowAccent.shade700,
+                                    ],
+                                    begin: Alignment.topLeft,
+                                    end: Alignment.bottomRight,
+                                  ).createShader(bounds),
+                                  child: Text(
+                                    'HEAT & SURFACE',
+                                    style: TextStyle(
+                                      fontSize: 20.0,
+                                      fontWeight: FontWeight.bold,
+                                      color: Colors.white,
+                                    ),
+                                  ),
+                                ),
+                              ],
+                            ),
                           ),
                         ),
                       ),
-                    ),
-                    SizedBox(width: 50),
-                    MouseRegion(
-                      onEnter: (_) {
-                        setState(() {
-                          P08PROGRESSVAR.isHoveredChem = true;
-                        });
-                      },
-                      onExit: (_) {
-                        setState(() {
-                          P08PROGRESSVAR.isHoveredChem = false;
-                        });
-                      },
-                      child: InkWell(
-                        overlayColor:
-                            MaterialStateProperty.all(Colors.transparent),
-                        onTap: () {
+                      SizedBox(width: 50),
+                      MouseRegion(
+                        onEnter: (_) {
+                          setState(() {
+                            P08PROGRESSVAR.isHoveredChem = true;
+                          });
+                        },
+                        onExit: (_) {
                           setState(() {
                             P08PROGRESSVAR.isHoveredChem = false;
                           });
-                          USERDATA.INSMASTER = 'CHEMICAL';
-                          print(USERDATA.INSMASTER);
-                          CuPage = Page11();
-                          MainBodyContext.read<ChangePage_Bloc>()
-                              .add(ChangePage_nodrower());
                         },
-                        child: AnimatedContainer(
-                          duration: Duration(milliseconds: 200),
-                          decoration: BoxDecoration(
-                            border: Border.all(
-                              color: P08PROGRESSVAR.isHoveredChem
-                                  ? Colors.greenAccent
-                                  : Colors.green,
-                              width: 3.0,
+                        child: InkWell(
+                          overlayColor:
+                              MaterialStateProperty.all(Colors.transparent),
+                          onTap: () {
+                            setState(() {
+                              P08PROGRESSVAR.isHoveredChem = false;
+                            });
+                            USERDATA.INSMASTER = 'CHEMICAL';
+                            print(USERDATA.INSMASTER);
+                            CuPage = Page11();
+                            MainBodyContext.read<ChangePage_Bloc>()
+                                .add(ChangePage_nodrower());
+                          },
+                          child: AnimatedContainer(
+                            duration: Duration(milliseconds: 200),
+                            decoration: BoxDecoration(
+                              border: Border.all(
+                                color: P08PROGRESSVAR.isHoveredChem
+                                    ? Colors.greenAccent
+                                    : Colors.green,
+                                width: 3.0,
+                              ),
+                              borderRadius: BorderRadius.circular(12.0),
                             ),
-                            borderRadius: BorderRadius.circular(12.0),
-                          ),
-                          padding: EdgeInsets.all(8.0),
-                          child: Column(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: [
-                              ShaderMask(
-                                shaderCallback: (bounds) => LinearGradient(
-                                  colors: [
-                                    Colors.white,
-                                    Colors.lightGreenAccent.shade400,
-                                  ],
-                                  begin: Alignment.topCenter,
-                                  end: Alignment.bottomCenter,
-                                ).createShader(bounds),
-                                child: TweenAnimationBuilder<double>(
-                                  tween: Tween<double>(
-                                    begin: P08PROGRESSVAR.isHoveredChem
-                                        ? 200
-                                        : 220,
-                                    end: P08PROGRESSVAR.isHoveredChem
-                                        ? 220
-                                        : 200,
-                                  ),
-                                  duration: Duration(milliseconds: 200),
-                                  builder: (context, size, child) {
-                                    return TweenAnimationBuilder<Color?>(
-                                      tween: ColorTween(
-                                        begin: P08PROGRESSVAR.isHoveredChem
-                                            ? Colors.greenAccent
-                                            : Colors.green,
-                                        end: P08PROGRESSVAR.isHoveredChem
-                                            ? Colors.greenAccent
-                                            : Colors.green,
-                                      ),
-                                      duration: Duration(milliseconds: 200),
-                                      builder: (context, color, child) {
-                                        return Icon(
-                                          Icons.science_rounded,
-                                          size: size,
-                                          color: color,
-                                        );
-                                      },
-                                    );
-                                  },
-                                ),
-                              ),
-                              ShaderMask(
-                                shaderCallback: (bounds) => LinearGradient(
-                                  colors: [
-                                    Colors.green,
-                                    Colors.lightGreenAccent.shade400,
-                                  ],
-                                  begin: Alignment.topLeft,
-                                  end: Alignment.bottomRight,
-                                ).createShader(bounds),
-                                child: Text(
-                                  'CHEMICAL',
-                                  style: TextStyle(
-                                    fontSize: 20.0,
-                                    fontWeight: FontWeight.bold,
-                                    color: Colors.white,
+                            padding: EdgeInsets.all(8.0),
+                            child: Column(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                ShaderMask(
+                                  shaderCallback: (bounds) => LinearGradient(
+                                    colors: [
+                                      Colors.white,
+                                      Colors.lightGreenAccent.shade400,
+                                    ],
+                                    begin: Alignment.topCenter,
+                                    end: Alignment.bottomCenter,
+                                  ).createShader(bounds),
+                                  child: TweenAnimationBuilder<double>(
+                                    tween: Tween<double>(
+                                      begin: P08PROGRESSVAR.isHoveredChem
+                                          ? 200
+                                          : 220,
+                                      end: P08PROGRESSVAR.isHoveredChem
+                                          ? 220
+                                          : 200,
+                                    ),
+                                    duration: Duration(milliseconds: 200),
+                                    builder: (context, size, child) {
+                                      return TweenAnimationBuilder<Color?>(
+                                        tween: ColorTween(
+                                          begin: P08PROGRESSVAR.isHoveredChem
+                                              ? Colors.greenAccent
+                                              : Colors.green,
+                                          end: P08PROGRESSVAR.isHoveredChem
+                                              ? Colors.greenAccent
+                                              : Colors.green,
+                                        ),
+                                        duration: Duration(milliseconds: 200),
+                                        builder: (context, color, child) {
+                                          return Icon(
+                                            Icons.science_rounded,
+                                            size: size,
+                                            color: color,
+                                          );
+                                        },
+                                      );
+                                    },
                                   ),
                                 ),
-                              ),
-                            ],
+                                ShaderMask(
+                                  shaderCallback: (bounds) => LinearGradient(
+                                    colors: [
+                                      Colors.green,
+                                      Colors.lightGreenAccent.shade400,
+                                    ],
+                                    begin: Alignment.topLeft,
+                                    end: Alignment.bottomRight,
+                                  ).createShader(bounds),
+                                  child: Text(
+                                    'CHEMICAL',
+                                    style: TextStyle(
+                                      fontSize: 20.0,
+                                      fontWeight: FontWeight.bold,
+                                      color: Colors.white,
+                                    ),
+                                  ),
+                                ),
+                              ],
+                            ),
                           ),
                         ),
                       ),
-                    ),
-                  ],
+                    ],
+                  ),
                 ),
               ),
             ),

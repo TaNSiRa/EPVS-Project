@@ -4,6 +4,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../bloc/BlocEvent/ChangePageEvent.dart';
 import '../../data/global.dart';
 import '../../mainBody.dart';
+import '../page11.dart';
 import '../page19.dart';
 import '../page20.dart';
 import '../page21.dart';
@@ -11,7 +12,6 @@ import '../page22.dart';
 import '../page23.dart';
 import '../page24.dart';
 import '../page25.dart';
-import '../page8.dart';
 import 'P18PROGRESSVAR.dart';
 
 class P18PROGRESSMAIN extends StatefulWidget {
@@ -47,7 +47,7 @@ class _P18PROGRESSMAINBodyState extends State<P18PROGRESSMAINBody> {
             child: IconButton(
               icon: Icon(Icons.arrow_back_ios_new_rounded, size: 30),
               onPressed: () {
-                CuPage = Page8();
+                CuPage = Page11();
                 MainBodyContext.read<ChangePage_Bloc>()
                     .add(ChangePage_nodrower());
               },

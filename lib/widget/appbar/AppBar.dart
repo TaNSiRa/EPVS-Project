@@ -43,7 +43,6 @@ class _App_BarState extends State<App_Bar> {
   }
 
   ///###################################################################################
-
 }
 
 class Logo2 extends StatelessWidget {
@@ -92,11 +91,11 @@ class Logo1 extends StatelessWidget {
       child: Container(
         color: Color(0xff0b1327),
         child: Text(
-          "Thaiparker",
+          "Enterprise Process Visualization System (EPVS)",
           style: TextStyle(
             fontFamily: 'Mitr',
             color: Colors.white,
-            fontSize: 26,
+            fontSize: 24,
             fontWeight: FontWeight.w400,
             fontStyle: FontStyle.normal,
             letterSpacing: 0,

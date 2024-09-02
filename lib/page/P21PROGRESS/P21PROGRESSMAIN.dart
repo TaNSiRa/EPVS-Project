@@ -5,8 +5,10 @@ import '../../bloc/BlocEvent/P19-P25ORDERFROMPLANT.dart';
 import '../../bloc/BlocEvent/ChangePageEvent.dart';
 import '../../data/global.dart';
 import '../../mainBody.dart';
+import '../page10.dart';
 import '../page18.dart';
 import '../page26.dart';
+import '../page8.dart';
 import 'P21PROGRESSVAR.dart';
 
 class P21PROGRESSMAIN extends StatefulWidget {
@@ -44,6 +46,85 @@ class _P21PROGRESSMAINState extends State<P21PROGRESSMAIN> {
                 MainBodyContext.read<ChangePage_Bloc>()
                     .add(ChangePage_nodrower());
               },
+            ),
+          ),
+          Positioned(
+            top: 20,
+            left: 40,
+            child: TextButton(
+              onPressed: () {
+                CuPage = Page8();
+                MainBodyContext.read<ChangePage_Bloc>()
+                    .add(ChangePage_nodrower());
+              },
+              child: Text(
+                'SELECT PROGRESS',
+                style: TextStyle(
+                  fontSize: 10,
+                  color: Colors.black,
+                  decoration: TextDecoration.underline,
+                ),
+              ),
+            ),
+          ),
+          Positioned(
+            top: 20,
+            left: 137,
+            child: Text(
+              '/',
+              style: TextStyle(
+                fontSize: 20,
+                color: Colors.black,
+              ),
+            ),
+          ),
+          Positioned(
+            top: 20,
+            left: 135,
+            child: TextButton(
+              onPressed: () {
+                CuPage = Page10();
+                MainBodyContext.read<ChangePage_Bloc>()
+                    .add(ChangePage_nodrower());
+              },
+              child: Text(
+                'SELECT ACTION',
+                style: TextStyle(
+                  fontSize: 10,
+                  color: Colors.black,
+                  decoration: TextDecoration.underline,
+                ),
+              ),
+            ),
+          ),
+          Positioned(
+            top: 20,
+            left: 217,
+            child: Text(
+              '/',
+              style: TextStyle(
+                fontSize: 20,
+                color: Colors.black,
+              ),
+            ),
+          ),
+          Positioned(
+            top: 20,
+            left: 215,
+            child: TextButton(
+              onPressed: () {
+                CuPage = Page18();
+                MainBodyContext.read<ChangePage_Bloc>()
+                    .add(ChangePage_nodrower());
+              },
+              child: Text(
+                'SELECT PLANT',
+                style: TextStyle(
+                  fontSize: 10,
+                  color: Colors.black,
+                  decoration: TextDecoration.underline,
+                ),
+              ),
             ),
           ),
           Positioned(

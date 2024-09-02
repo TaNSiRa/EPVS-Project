@@ -6,8 +6,11 @@ import '../../bloc/BlocEvent/ChangePageEvent.dart';
 import '../../data/global.dart';
 import '../../mainBody.dart';
 import '../page1.dart';
+import '../page10.dart';
 import '../page2.dart';
 import '../page4.dart';
+import '../page8.dart';
+import '../page9.dart';
 import 'P16PROGRESSVAR.dart';
 
 late BuildContext P16PROGRESSMAINcontext;
@@ -88,6 +91,125 @@ class _P16PROGRESSMAINState extends State<P16PROGRESSMAIN> {
                       .add(ChangePage_nodrower());
                 }
               },
+            ),
+          ),
+          Positioned(
+            top: 20,
+            left: 40,
+            child: TextButton(
+              onPressed: () {
+                CuPage = Page8();
+                MainBodyContext.read<ChangePage_Bloc>()
+                    .add(ChangePage_nodrower());
+              },
+              child: Text(
+                'SELECT PROGRESS',
+                style: TextStyle(
+                  fontSize: 10,
+                  color: Colors.black,
+                  decoration: TextDecoration.underline,
+                ),
+              ),
+            ),
+          ),
+          Positioned(
+            top: 20,
+            left: 137,
+            child: Text(
+              '/',
+              style: TextStyle(
+                fontSize: 20,
+                color: Colors.black,
+              ),
+            ),
+          ),
+          Positioned(
+            top: 20,
+            left: 135,
+            child: TextButton(
+              onPressed: () {
+                CuPage = Page9();
+                MainBodyContext.read<ChangePage_Bloc>()
+                    .add(ChangePage_nodrower());
+              },
+              child: Text(
+                'SELECT BRANCH',
+                style: TextStyle(
+                  fontSize: 10,
+                  color: Colors.black,
+                  decoration: TextDecoration.underline,
+                ),
+              ),
+            ),
+          ),
+          Positioned(
+            top: 20,
+            left: 221,
+            child: Text(
+              '/',
+              style: TextStyle(
+                fontSize: 20,
+                color: Colors.black,
+              ),
+            ),
+          ),
+          Positioned(
+            top: 20,
+            left: 219,
+            child: TextButton(
+              onPressed: () {
+                CuPage = Page10();
+                MainBodyContext.read<ChangePage_Bloc>()
+                    .add(ChangePage_nodrower());
+              },
+              child: Text(
+                'SELECT ACTION',
+                style: TextStyle(
+                  fontSize: 10,
+                  color: Colors.black,
+                  decoration: TextDecoration.underline,
+                ),
+              ),
+            ),
+          ),
+          Positioned(
+            top: 20,
+            left: 302,
+            child: Text(
+              '/',
+              style: TextStyle(
+                fontSize: 20,
+                color: Colors.black,
+              ),
+            ),
+          ),
+          Positioned(
+            top: 20,
+            left: 300,
+            child: TextButton(
+              onPressed: () {
+                if (USERDATA.BRANCH == 'BP12') {
+                  CuPage = Page2();
+                  MainBodyContext.read<ChangePage_Bloc>()
+                      .add(ChangePage_nodrower());
+                } else if (USERDATA.BRANCH == 'GW') {
+                  CuPage = Page4();
+                  MainBodyContext.read<ChangePage_Bloc>()
+                      .add(ChangePage_nodrower());
+                } else if (USERDATA.BRANCH == 'ESIE1') {
+                  CuPage = Page1();
+                  MainBodyContext.read<ChangePage_Bloc>()
+                      .add(ChangePage_nodrower());
+                }
+              },
+              child: Text(
+                '${USERDATA.BRANCH} : PROGRESS',
+                style: TextStyle(
+                  fontSize: 10,
+                  color: Colors.black,
+                  decoration: TextDecoration.underline,
+                ),
+              ),
             ),
           ),
           Padding(

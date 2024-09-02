@@ -54,7 +54,7 @@ class P02PROGRESSGETDATA_Bloc
         "IMP_PRCTR": "",
         // "LAST_DATE": "20240814"
         "LAST_DATE":
-            "${now.year}${now.month > 9 ? "" : "0"}${now.month}${now.day}"
+            "${now.year}${now.month > 9 ? "" : "0"}${now.month}${now.day > 9 ? "" : "0"}${now.day}"
       },
     );
     print(response.statusCode);

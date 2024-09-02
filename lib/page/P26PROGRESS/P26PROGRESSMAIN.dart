@@ -5,6 +5,8 @@ import '../../bloc/BlocEvent/26-26-P26PROGRESSGETDATA.dart';
 import '../../bloc/BlocEvent/ChangePageEvent.dart';
 import '../../data/global.dart';
 import '../../mainBody.dart';
+import '../page10.dart';
+import '../page18.dart';
 import '../page19.dart';
 import '../page20.dart';
 import '../page21.dart';
@@ -12,6 +14,7 @@ import '../page22.dart';
 import '../page23.dart';
 import '../page24.dart';
 import '../page25.dart';
+import '../page8.dart';
 import 'P26PROGRESSVAR.dart';
 
 late BuildContext P26PROGRESSMAINcontext;
@@ -113,6 +116,115 @@ class _P26PROGRESSMAINState extends State<P26PROGRESSMAIN> {
                       .add(ChangePage_nodrower());
                 }
               },
+            ),
+          ),
+          Positioned(
+            top: 20,
+            left: 40,
+            child: TextButton(
+              onPressed: () {
+                CuPage = Page8();
+                MainBodyContext.read<ChangePage_Bloc>()
+                    .add(ChangePage_nodrower());
+              },
+              child: Text(
+                'SELECT PROGRESS',
+                style: TextStyle(
+                  fontSize: 10,
+                  color: Colors.black,
+                  decoration: TextDecoration.underline,
+                ),
+              ),
+            ),
+          ),
+          Positioned(
+            top: 20,
+            left: 137,
+            child: Text(
+              '/',
+              style: TextStyle(
+                fontSize: 20,
+                color: Colors.black,
+              ),
+            ),
+          ),
+          Positioned(
+            top: 20,
+            left: 135,
+            child: TextButton(
+              onPressed: () {
+                CuPage = Page10();
+                MainBodyContext.read<ChangePage_Bloc>()
+                    .add(ChangePage_nodrower());
+              },
+              child: Text(
+                'SELECT ACTION',
+                style: TextStyle(
+                  fontSize: 10,
+                  color: Colors.black,
+                  decoration: TextDecoration.underline,
+                ),
+              ),
+            ),
+          ),
+          Positioned(
+            top: 20,
+            left: 217,
+            child: Text(
+              '/',
+              style: TextStyle(
+                fontSize: 20,
+                color: Colors.black,
+              ),
+            ),
+          ),
+          Positioned(
+            top: 20,
+            left: 215,
+            child: TextButton(
+              onPressed: () {
+                CuPage = Page18();
+                MainBodyContext.read<ChangePage_Bloc>()
+                    .add(ChangePage_nodrower());
+              },
+              child: Text(
+                'SELECT PLANT',
+                style: TextStyle(
+                  fontSize: 10,
+                  color: Colors.black,
+                  decoration: TextDecoration.underline,
+                ),
+              ),
+            ),
+          ),
+          Positioned(
+            top: 20,
+            left: 293,
+            child: Text(
+              '/',
+              style: TextStyle(
+                fontSize: 20,
+                color: Colors.black,
+              ),
+            ),
+          ),
+          Positioned(
+            top: 20,
+            left: 291,
+            child: TextButton(
+              onPressed: () {
+                CuPage = Page19();
+                MainBodyContext.read<ChangePage_Bloc>()
+                    .add(ChangePage_nodrower());
+              },
+              child: Text(
+                'SELECT TANK',
+                style: TextStyle(
+                  fontSize: 10,
+                  color: Colors.black,
+                  decoration: TextDecoration.underline,
+                ),
+              ),
             ),
           ),
           Padding(

@@ -48,6 +48,25 @@ class _P11PROGRESSMAINBodyState extends State<P11PROGRESSMAINBody> {
               },
             ),
           ),
+          Positioned(
+            top: 20,
+            left: 40,
+            child: TextButton(
+              onPressed: () {
+                CuPage = Page8();
+                MainBodyContext.read<ChangePage_Bloc>()
+                    .add(ChangePage_nodrower());
+              },
+              child: Text(
+                'SELECT PROGRESS',
+                style: TextStyle(
+                  fontSize: 10,
+                  color: Colors.black,
+                  decoration: TextDecoration.underline,
+                ),
+              ),
+            ),
+          ),
           Column(
             children: [
               Padding(
@@ -60,7 +79,7 @@ class _P11PROGRESSMAINBodyState extends State<P11PROGRESSMAINBody> {
                       end: Alignment.bottomRight,
                     ).createShader(bounds),
                     child: Text(
-                      'SELECT ACTION',
+                      '${USERDATA.INSMASTER} : SELECT ACTION',
                       style: TextStyle(
                         fontSize: 20.0,
                         fontWeight: FontWeight.bold,

@@ -1,8 +1,6 @@
-import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../data/dummydataplanning.dart';
-import '../../data/global.dart';
 import '../../page/P27PROGRESS/P27PROGRESSMAIN.dart';
 import '../../widget/common/Loading.dart';
 

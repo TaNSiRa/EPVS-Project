@@ -12,6 +12,7 @@ import '../page22.dart';
 import '../page23.dart';
 import '../page24.dart';
 import '../page25.dart';
+import '../page8.dart';
 import 'P18PROGRESSVAR.dart';
 
 class P18PROGRESSMAIN extends StatefulWidget {
@@ -51,6 +52,55 @@ class _P18PROGRESSMAINBodyState extends State<P18PROGRESSMAINBody> {
                 MainBodyContext.read<ChangePage_Bloc>()
                     .add(ChangePage_nodrower());
               },
+            ),
+          ),
+          Positioned(
+            top: 20,
+            left: 40,
+            child: TextButton(
+              onPressed: () {
+                CuPage = Page8();
+                MainBodyContext.read<ChangePage_Bloc>()
+                    .add(ChangePage_nodrower());
+              },
+              child: Text(
+                'SELECT PROGRESS',
+                style: TextStyle(
+                  fontSize: 10,
+                  color: Colors.black,
+                  decoration: TextDecoration.underline,
+                ),
+              ),
+            ),
+          ),
+          Positioned(
+            top: 20,
+            left: 137,
+            child: Text(
+              '/',
+              style: TextStyle(
+                fontSize: 20,
+                color: Colors.black,
+              ),
+            ),
+          ),
+          Positioned(
+            top: 20,
+            left: 135,
+            child: TextButton(
+              onPressed: () {
+                CuPage = Page11();
+                MainBodyContext.read<ChangePage_Bloc>()
+                    .add(ChangePage_nodrower());
+              },
+              child: Text(
+                'SELECT ACTION',
+                style: TextStyle(
+                  fontSize: 10,
+                  color: Colors.black,
+                  decoration: TextDecoration.underline,
+                ),
+              ),
             ),
           ),
           Column(

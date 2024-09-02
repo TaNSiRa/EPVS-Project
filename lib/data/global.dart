@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
 import '../page/page0.dart';
 
 String token = '';
@@ -52,6 +53,9 @@ class BRANCHNUMBER {
 class CONTEXTFORUSEPAGE19TO25 {
   static late BuildContext LOADINGcontext;
 }
+
+var now = DateTime.now();
+String formattedDate = DateFormat('dd-MMM-yy').format(now);
 
 String server = 'http://172.23.10.40:16714/';
 String server2 = 'http://172.23.10.34:14090/';

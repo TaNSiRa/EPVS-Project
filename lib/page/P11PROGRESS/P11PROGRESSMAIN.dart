@@ -5,6 +5,7 @@ import '../../bloc/BlocEvent/ChangePageEvent.dart';
 import '../../data/global.dart';
 import '../../mainBody.dart';
 import '../page18.dart';
+import '../page27.dart';
 import '../page8.dart';
 import 'P11PROGRESSVAR.dart';
 
@@ -157,12 +158,9 @@ class _P11PROGRESSMAINBodyState extends State<P11PROGRESSMAINBody> {
                                 });
                                 USERDATA.ACTION = 'PLANNING';
                                 print(USERDATA.ACTION);
-                                // print(USERDATA.BRANCH);
-                                // if (USERDATA.BRANCH == 'BP12') {
-                                //   CuPage = Page2();
-                                //   MainBodyContext.read<ChangePage_Bloc>()
-                                //       .add(ChangePage_nodrower());
-                                // }
+                                CuPage = Page27();
+                                MainBodyContext.read<ChangePage_Bloc>()
+                                    .add(ChangePage_nodrower());
                               },
                               child: AnimatedContainer(
                                 duration: Duration(milliseconds: 100),
@@ -173,8 +171,8 @@ class _P11PROGRESSMAINBodyState extends State<P11PROGRESSMAINBody> {
                                     : 400,
                                 decoration: BoxDecoration(
                                   color: P11PROGRESSVAR.isHoveredPLANNING
-                                      ? Colors.yellowAccent.shade700
-                                      : Colors.redAccent.shade700,
+                                      ? Colors.greenAccent
+                                      : Colors.green,
                                   border: Border.all(
                                     color: Colors.black,
                                     width: 2.0,
@@ -210,7 +208,7 @@ class _P11PROGRESSMAINBodyState extends State<P11PROGRESSMAINBody> {
                                 setState(() {
                                   P11PROGRESSVAR.isHoveredSCADADATA = false;
                                 });
-                                USERDATA.ACTION = 'STATUS';
+                                USERDATA.ACTION = 'RAW MATERIAL PREPARATION';
                                 print(USERDATA.ACTION);
                                 // if (USERDATA.BRANCH == 'BP12') {
                                 //   CuPage = Page2();

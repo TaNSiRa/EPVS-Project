@@ -5,7 +5,6 @@ import '../../bloc/BlocEvent/ChangePageEvent.dart';
 import '../../data/global.dart';
 import '../../mainBody.dart';
 import '../page11.dart';
-import '../page18.dart';
 import '../page9.dart';
 import 'P08PROGRESSVAR.dart';
 

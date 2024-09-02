@@ -110,7 +110,7 @@ class Data_Menu_mainmenu extends StatelessWidget {
           Lv: 1,
         ),
         menu_normal(
-          name: "Change Password",
+          name: "CHANGE PASSWORD",
           page: Page6(),
           Lv: 1,
         ),

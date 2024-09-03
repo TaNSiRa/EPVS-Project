@@ -54,12 +54,12 @@ class P01PROGRESSGETDATA_Bloc
         "IMP_WERKS": USERDATA.BRANCHNUMBER.toString(),
         "IMP_PRCTR": "",
         // "LAST_DATE": "20240814"
-        "LAST_DATE":
-            "${now.year}${now.month > 9 ? "" : "0"}${now.month}${now.day > 9 ? "" : "0"}${now.day}"
+        "LAST_DATE": formattedDate1
       },
     );
+    print(formattedDate1);
     print(response.statusCode);
-    print(response.data);
+    // print(response.data);
     List<dynamic> data = response.data;
     Navigator.pop(P01PROGRESSMAINcontext);
     if (data.isNotEmpty) {

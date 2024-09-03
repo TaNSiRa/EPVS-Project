@@ -51,8 +51,7 @@ class P16PROGRESSGETDATA_Bloc
         "IMP_WERKS": USERDATA.BRANCHNUMBER.toString(),
         "IMP_PRCTR": USERDATA.PLANTNUMBER.toString(),
         // "LAST_DATE": "20240814"
-        "LAST_DATE":
-            "${now.year}${now.month > 9 ? "" : "0"}${now.month}${now.day > 9 ? "" : "0"}${now.day}"
+        "LAST_DATE": formattedDate1
       },
     );
     var input = [];

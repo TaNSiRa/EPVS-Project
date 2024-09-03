@@ -40,7 +40,6 @@ class P16PROGRESSGETDATA_Bloc
     FreeLoadingTan(P16PROGRESSMAINcontext);
     List<P16PROGRESSGETDATAclass> output = [];
     //-------------------------------------------------------------------------------------
-    var now = DateTime.now();
     final response = await Dio().post(
       "${server2}datacentertest/getsap",
       data: {

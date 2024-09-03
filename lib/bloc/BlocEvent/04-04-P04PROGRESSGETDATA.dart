@@ -43,7 +43,6 @@ class P04PROGRESSGETDATA_Bloc
     List<P04PROGRESSGETDATAclass> output = [];
     //-------------------------------------------------------------------------------------
     var input = dummydatainput2;
-    var now = DateTime.now();
     final response = await Dio().post(
       "${server2}datacentertest/getsap",
       data: {

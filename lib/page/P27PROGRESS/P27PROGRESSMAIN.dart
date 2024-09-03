@@ -151,7 +151,6 @@ class _P27PROGRESSMAINState extends State<P27PROGRESSMAIN> {
                           Row(
                             mainAxisAlignment: MainAxisAlignment.end,
                             children: [
-                              SizedBox(width: 10),
                               ComInputTextTan(
                                 sPlaceholder: "Search...",
                                 isSideIcon: true,

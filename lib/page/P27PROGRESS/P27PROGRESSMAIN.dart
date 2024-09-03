@@ -5,6 +5,7 @@ import '../../bloc/BlocEvent/27-27-P27PROGRESSGETDATA.dart';
 import '../../bloc/BlocEvent/ChangePageEvent.dart';
 import '../../data/global.dart';
 import '../../mainBody.dart';
+import '../../widget/common/ComInputTextTan.dart';
 import '../page10.dart';
 import '../page11.dart';
 import '../page8.dart';
@@ -28,46 +29,25 @@ class _P27PROGRESSMAINState extends State<P27PROGRESSMAIN> {
   void initState() {
     super.initState();
     context.read<P27PROGRESSGETDATA_Bloc>().add(P27PROGRESSGETDATA_GET());
+    P27PROGRESSVAR.iscontrol = true;
+    P27PROGRESSVAR.SEARCH = '';
   }
 
   @override
   Widget build(BuildContext context) {
     P27PROGRESSMAINcontext = context;
     List<P27PROGRESSGETDATAclass> _datain = widget.data?.toList() ?? [];
-    // List<P27PROGRESSGETDATAclass> _datain = _datainp.toSet().toList();
-    // final ids = Set();
-    // _datain.retainWhere((x) =>
-    //     ids.add(x.CHEMICALNAME) |
-    //     ids.add(x.BARCODE) |
-    //     ids.add(x.SP) |
-    //     ids.add(x.ACTUAL));
-
-    List<P27PROGRESSGETDATAclass> filteredData = _datain.where((item) {
-      switch (P27PROGRESSVAR.selectedColumn) {
-        case 'LOT.NO':
-          return item.LOT
-              .toLowerCase()
-              .contains(P27PROGRESSVAR.searchQuery.toLowerCase());
-        case 'CHEMICAL':
-          return item.CHMNAME
-              .toLowerCase()
-              .contains(P27PROGRESSVAR.searchQuery.toLowerCase());
-        case 'Tank No.':
-          return item.TANK
-              .toLowerCase()
-              .contains(P27PROGRESSVAR.searchQuery.toLowerCase());
-        case 'Mixer No.':
-          return item.MIXER
-              .toLowerCase()
-              .contains(P27PROGRESSVAR.searchQuery.toLowerCase());
-        case 'ภาชนะที่บรรจุ':
-          return item.PACKAGING
-              .toLowerCase()
-              .contains(P27PROGRESSVAR.searchQuery.toLowerCase());
-        default:
-          return false;
+    List<P27PROGRESSGETDATAclass> _datasearch = [];
+    for (int i = 0; i < _datain.length; i++) {
+      if (_datain[i].LOT.toLowerCase().contains(P27PROGRESSVAR.SEARCH) ||
+          _datain[i].CHMNAME.toLowerCase().contains(P27PROGRESSVAR.SEARCH) ||
+          _datain[i].QTY.toLowerCase().contains(P27PROGRESSVAR.SEARCH) ||
+          _datain[i].TANK.toLowerCase().contains(P27PROGRESSVAR.SEARCH) ||
+          _datain[i].MIXER.toLowerCase().contains(P27PROGRESSVAR.SEARCH) ||
+          _datain[i].PACKAGING.toLowerCase().contains(P27PROGRESSVAR.SEARCH)) {
+        _datasearch.add(_datain[i]);
       }
-    }).toList();
+    }
 
     return Scaffold(
       body: Stack(
@@ -171,57 +151,120 @@ class _P27PROGRESSMAINState extends State<P27PROGRESSMAIN> {
                           Row(
                             mainAxisAlignment: MainAxisAlignment.end,
                             children: [
-                              SizedBox(
-                                width: 150,
-                                height: 50,
-                                child: DropdownButtonHideUnderline(
-                                  child: DropdownButton<String>(
-                                    value: P27PROGRESSVAR.selectedColumn,
-                                    onChanged: (String? newValue) {
-                                      setState(() {
-                                        P27PROGRESSVAR.selectedColumn =
-                                            newValue!;
-                                      });
-                                    },
-                                    items: <String>[
-                                      'LOT.NO',
-                                      'CHEMICAL',
-                                      'Tank No.',
-                                      'Mixer No.',
-                                      'ภาชนะที่บรรจุ',
-                                    ].map<DropdownMenuItem<String>>(
-                                        (String value) {
-                                      return DropdownMenuItem<String>(
-                                        value: value,
-                                        child: Row(
-                                          children: [
-                                            Icon(Icons.data_usage_rounded,
-                                                color: Colors.blue),
-                                            SizedBox(width: 10),
-                                            Text(value),
-                                          ],
-                                        ),
-                                      );
-                                    }).toList(),
-                                    borderRadius:
-                                        BorderRadius.all(Radius.circular(10)),
-                                  ),
-                                ),
-                              ),
                               SizedBox(width: 10),
-                              SizedBox(
-                                width: 200,
-                                height: 50,
-                                child: TextField(
-                                  onChanged: (value) {
+                              ComInputTextTan(
+                                sPlaceholder: "Search...",
+                                isSideIcon: true,
+                                height: 40,
+                                width: 400,
+                                isContr: P27PROGRESSVAR.iscontrol,
+                                fnContr: (input) {
+                                  P27PROGRESSVAR.iscontrol = input;
+                                },
+                                sValue: P27PROGRESSVAR.SEARCH,
+                                returnfunc: (String s) {
+                                  setState(() {
+                                    P27PROGRESSVAR.SEARCH = s;
+                                  });
+                                },
+                              ),
+                              MouseRegion(
+                                onEnter: (_) {
+                                  setState(() {
+                                    P27PROGRESSVAR.isHoveredClear = true;
+                                  });
+                                },
+                                onExit: (_) {
+                                  setState(() {
+                                    P27PROGRESSVAR.isHoveredClear = false;
+                                  });
+                                },
+                                child: InkWell(
+                                  overlayColor: MaterialStateProperty.all(
+                                      Colors.transparent),
+                                  onTap: () {
                                     setState(() {
-                                      P27PROGRESSVAR.searchQuery = value;
+                                      P27PROGRESSVAR.isHoveredClear = false;
+                                      P27PROGRESSVAR.iscontrol = true;
+                                      P27PROGRESSVAR.SEARCH = '';
                                     });
                                   },
-                                  decoration: InputDecoration(
-                                    hintText: 'Search...',
-                                    prefixIcon: Icon(Icons.search),
-                                    border: OutlineInputBorder(),
+                                  child: AnimatedContainer(
+                                    duration: Duration(milliseconds: 200),
+                                    decoration: BoxDecoration(
+                                      border: Border.all(
+                                        color: P27PROGRESSVAR.isHoveredClear
+                                            ? Colors.yellowAccent.shade700
+                                            : Colors.redAccent.shade700,
+                                        width: 3.0,
+                                      ),
+                                      borderRadius: BorderRadius.circular(12.0),
+                                    ),
+                                    padding: EdgeInsets.all(8.0),
+                                    child: Column(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.center,
+                                      children: [
+                                        ShaderMask(
+                                          shaderCallback: (bounds) =>
+                                              LinearGradient(
+                                            colors: const [
+                                              Colors.white,
+                                              Colors.red,
+                                            ],
+                                            begin: Alignment.topCenter,
+                                            end: Alignment.bottomCenter,
+                                          ).createShader(bounds),
+                                          child: TweenAnimationBuilder<double>(
+                                            tween: Tween<double>(
+                                              begin:
+                                                  P27PROGRESSVAR.isHoveredClear
+                                                      ? 15
+                                                      : 17,
+                                              end: P27PROGRESSVAR.isHoveredClear
+                                                  ? 17
+                                                  : 15,
+                                            ),
+                                            duration:
+                                                Duration(milliseconds: 200),
+                                            builder: (context, size, child) {
+                                              return TweenAnimationBuilder<
+                                                  Color?>(
+                                                tween: ColorTween(
+                                                  begin: P27PROGRESSVAR
+                                                          .isHoveredClear
+                                                      ? Colors
+                                                          .redAccent.shade700
+                                                      : Colors.yellowAccent
+                                                          .shade700,
+                                                  end:
+                                                      P27PROGRESSVAR
+                                                              .isHoveredClear
+                                                          ? Colors.yellowAccent
+                                                              .shade700
+                                                          : Colors.redAccent
+                                                              .shade700,
+                                                ),
+                                                duration:
+                                                    Duration(milliseconds: 200),
+                                                builder:
+                                                    (context, color, child) {
+                                                  return Text(
+                                                    'CLEAR',
+                                                    style: TextStyle(
+                                                      fontSize: size,
+                                                      color: color,
+                                                      fontWeight:
+                                                          FontWeight.bold,
+                                                    ),
+                                                  );
+                                                },
+                                              );
+                                            },
+                                          ),
+                                        ),
+                                      ],
+                                    ),
                                   ),
                                 ),
                               ),
@@ -509,7 +552,7 @@ class _P27PROGRESSMAINState extends State<P27PROGRESSMAIN> {
                                   ),
                                 ],
                               ),
-                              if (filteredData
+                              if (_datasearch
                                   .any((item) => item.PLANT == 'noxrust'))
                                 Column(
                                   children: [
@@ -543,7 +586,7 @@ class _P27PROGRESSMAINState extends State<P27PROGRESSMAIN> {
                                         4: FixedColumnWidth(200.0),
                                       },
                                       children: [
-                                        ...filteredData
+                                        ..._datasearch
                                             .where((item) =>
                                                 item.PLANT == 'noxrust')
                                             .map((item) {
@@ -637,7 +680,7 @@ class _P27PROGRESSMAINState extends State<P27PROGRESSMAIN> {
                                     ),
                                   ],
                                 ),
-                              if (filteredData
+                              if (_datasearch
                                   .any((item) => item.PLANT == 'Chemical'))
                                 Column(
                                   children: [
@@ -671,7 +714,7 @@ class _P27PROGRESSMAINState extends State<P27PROGRESSMAIN> {
                                         4: FixedColumnWidth(200.0),
                                       },
                                       children: [
-                                        ...filteredData
+                                        ..._datasearch
                                             .where((item) =>
                                                 item.PLANT == 'Chemical')
                                             .map((item) {

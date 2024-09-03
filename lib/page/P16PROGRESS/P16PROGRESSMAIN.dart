@@ -5,6 +5,7 @@ import '../../bloc/BlocEvent/16-16-P16PROGRESSGETDATA.dart';
 import '../../bloc/BlocEvent/ChangePageEvent.dart';
 import '../../data/global.dart';
 import '../../mainBody.dart';
+import '../../widget/common/ComInputTextTan.dart';
 import '../page1.dart';
 import '../page10.dart';
 import '../page2.dart';
@@ -31,42 +32,25 @@ class _P16PROGRESSMAINState extends State<P16PROGRESSMAIN> {
   void initState() {
     super.initState();
     context.read<P16PROGRESSGETDATA_Bloc>().add(P16PROGRESSGETDATA_GET());
+    P16PROGRESSVAR.iscontrol = true;
+    P16PROGRESSVAR.SEARCH = '';
   }
 
   @override
   Widget build(BuildContext context) {
     P16PROGRESSMAINcontext = context;
     List<P16PROGRESSGETDATAclass> _datain = widget.data ?? [];
-    List<P16PROGRESSGETDATAclass> filteredData = _datain.where((item) {
-      switch (P16PROGRESSVAR.selectedColumn) {
-        case 'PO NO.':
-          return item.PO
-              .toLowerCase()
-              .contains(P16PROGRESSVAR.searchQuery.toLowerCase());
-        case 'CUST NAME':
-          return item.CUST_FULL
-              .toLowerCase()
-              .contains(P16PROGRESSVAR.searchQuery.toLowerCase());
-        case 'PART NAME':
-          return item.PARTNAME
-              .toLowerCase()
-              .contains(P16PROGRESSVAR.searchQuery.toLowerCase());
-        case 'PART NO.':
-          return item.PARTNO
-              .toLowerCase()
-              .contains(P16PROGRESSVAR.searchQuery.toLowerCase());
-        case 'QTY':
-          return item.QTY
-              .toLowerCase()
-              .contains(P16PROGRESSVAR.searchQuery.toLowerCase());
-        case 'TPK LOT':
-          return item.TPKLOT
-              .toLowerCase()
-              .contains(P16PROGRESSVAR.searchQuery.toLowerCase());
-        default:
-          return false;
+    List<P16PROGRESSGETDATAclass> _datasearch = [];
+    for (int i = 0; i < _datain.length; i++) {
+      if (_datain[i].PO.toLowerCase().contains(P16PROGRESSVAR.SEARCH) ||
+          _datain[i].CUST_FULL.toLowerCase().contains(P16PROGRESSVAR.SEARCH) ||
+          _datain[i].PARTNAME.toLowerCase().contains(P16PROGRESSVAR.SEARCH) ||
+          _datain[i].PARTNO.toLowerCase().contains(P16PROGRESSVAR.SEARCH) ||
+          _datain[i].QTY.toLowerCase().contains(P16PROGRESSVAR.SEARCH) ||
+          _datain[i].TPKLOT.toLowerCase().contains(P16PROGRESSVAR.SEARCH)) {
+        _datasearch.add(_datain[i]);
       }
-    }).toList();
+    }
 
     return Scaffold(
       body: Stack(
@@ -244,57 +228,119 @@ class _P16PROGRESSMAINState extends State<P16PROGRESSMAIN> {
                           Row(
                             mainAxisAlignment: MainAxisAlignment.end,
                             children: [
-                              SizedBox(
-                                width: 150,
-                                height: 50,
-                                child: DropdownButtonHideUnderline(
-                                  child: DropdownButton<String>(
-                                    value: P16PROGRESSVAR.selectedColumn,
-                                    onChanged: (String? newValue) {
-                                      setState(() {
-                                        P16PROGRESSVAR.selectedColumn =
-                                            newValue!;
-                                      });
-                                    },
-                                    items: <String>[
-                                      'PO NO.',
-                                      'CUST NAME',
-                                      'PART NAME',
-                                      'PART NO.',
-                                      'TPK LOT',
-                                    ].map<DropdownMenuItem<String>>(
-                                        (String value) {
-                                      return DropdownMenuItem<String>(
-                                        value: value,
-                                        child: Row(
-                                          children: [
-                                            Icon(Icons.data_usage_rounded,
-                                                color: Colors.blue),
-                                            SizedBox(width: 10),
-                                            Text(value),
-                                          ],
-                                        ),
-                                      );
-                                    }).toList(),
-                                    borderRadius:
-                                        BorderRadius.all(Radius.circular(10)),
-                                  ),
-                                ),
+                              ComInputTextTan(
+                                sPlaceholder: "Search...",
+                                isSideIcon: true,
+                                height: 40,
+                                width: 400,
+                                isContr: P16PROGRESSVAR.iscontrol,
+                                fnContr: (input) {
+                                  P16PROGRESSVAR.iscontrol = input;
+                                },
+                                sValue: P16PROGRESSVAR.SEARCH,
+                                returnfunc: (String s) {
+                                  setState(() {
+                                    P16PROGRESSVAR.SEARCH = s;
+                                  });
+                                },
                               ),
-                              SizedBox(width: 10),
-                              SizedBox(
-                                width: 200,
-                                height: 50,
-                                child: TextField(
-                                  onChanged: (value) {
+                              MouseRegion(
+                                onEnter: (_) {
+                                  setState(() {
+                                    P16PROGRESSVAR.isHoveredClear = true;
+                                  });
+                                },
+                                onExit: (_) {
+                                  setState(() {
+                                    P16PROGRESSVAR.isHoveredClear = false;
+                                  });
+                                },
+                                child: InkWell(
+                                  overlayColor: MaterialStateProperty.all(
+                                      Colors.transparent),
+                                  onTap: () {
                                     setState(() {
-                                      P16PROGRESSVAR.searchQuery = value;
+                                      P16PROGRESSVAR.isHoveredClear = false;
+                                      P16PROGRESSVAR.iscontrol = true;
+                                      P16PROGRESSVAR.SEARCH = '';
                                     });
                                   },
-                                  decoration: InputDecoration(
-                                    hintText: 'Search...',
-                                    prefixIcon: Icon(Icons.search),
-                                    border: OutlineInputBorder(),
+                                  child: AnimatedContainer(
+                                    duration: Duration(milliseconds: 200),
+                                    decoration: BoxDecoration(
+                                      border: Border.all(
+                                        color: P16PROGRESSVAR.isHoveredClear
+                                            ? Colors.yellowAccent.shade700
+                                            : Colors.redAccent.shade700,
+                                        width: 3.0,
+                                      ),
+                                      borderRadius: BorderRadius.circular(12.0),
+                                    ),
+                                    padding: EdgeInsets.all(8.0),
+                                    child: Column(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.center,
+                                      children: [
+                                        ShaderMask(
+                                          shaderCallback: (bounds) =>
+                                              LinearGradient(
+                                            colors: const [
+                                              Colors.white,
+                                              Colors.red,
+                                            ],
+                                            begin: Alignment.topCenter,
+                                            end: Alignment.bottomCenter,
+                                          ).createShader(bounds),
+                                          child: TweenAnimationBuilder<double>(
+                                            tween: Tween<double>(
+                                              begin:
+                                                  P16PROGRESSVAR.isHoveredClear
+                                                      ? 15
+                                                      : 17,
+                                              end: P16PROGRESSVAR.isHoveredClear
+                                                  ? 17
+                                                  : 15,
+                                            ),
+                                            duration:
+                                                Duration(milliseconds: 200),
+                                            builder: (context, size, child) {
+                                              return TweenAnimationBuilder<
+                                                  Color?>(
+                                                tween: ColorTween(
+                                                  begin: P16PROGRESSVAR
+                                                          .isHoveredClear
+                                                      ? Colors
+                                                          .redAccent.shade700
+                                                      : Colors.yellowAccent
+                                                          .shade700,
+                                                  end:
+                                                      P16PROGRESSVAR
+                                                              .isHoveredClear
+                                                          ? Colors.yellowAccent
+                                                              .shade700
+                                                          : Colors.redAccent
+                                                              .shade700,
+                                                ),
+                                                duration:
+                                                    Duration(milliseconds: 200),
+                                                builder:
+                                                    (context, color, child) {
+                                                  return Text(
+                                                    'CLEAR',
+                                                    style: TextStyle(
+                                                      fontSize: size,
+                                                      color: color,
+                                                      fontWeight:
+                                                          FontWeight.bold,
+                                                    ),
+                                                  );
+                                                },
+                                              );
+                                            },
+                                          ),
+                                        ),
+                                      ],
+                                    ),
                                   ),
                                 ),
                               ),
@@ -523,8 +569,8 @@ class _P16PROGRESSMAINState extends State<P16PROGRESSMAIN> {
                                   ),
                                 ],
                               ),
-                              ...filteredData.map((item) {
-                                int dataCount = filteredData.indexOf(item) + 1;
+                              ..._datasearch.map((item) {
+                                int dataCount = _datasearch.indexOf(item) + 1;
                                 return TableRow(
                                   children: [
                                     TableCell(

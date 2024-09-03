@@ -5,6 +5,7 @@ import '../../bloc/BlocEvent/26-26-P26PROGRESSGETDATA.dart';
 import '../../bloc/BlocEvent/ChangePageEvent.dart';
 import '../../data/global.dart';
 import '../../mainBody.dart';
+import '../../widget/common/ComInputTextTan.dart';
 import '../page10.dart';
 import '../page18.dart';
 import '../page19.dart';
@@ -35,6 +36,8 @@ class _P26PROGRESSMAINState extends State<P26PROGRESSMAIN> {
   void initState() {
     super.initState();
     context.read<P26PROGRESSGETDATA_Bloc>().add(P26PROGRESSGETDATA_GET());
+    P26PROGRESSVAR.iscontrol = true;
+    P26PROGRESSVAR.SEARCH = '';
   }
 
   @override
@@ -42,7 +45,7 @@ class _P26PROGRESSMAINState extends State<P26PROGRESSMAIN> {
     P26PROGRESSMAINcontext = context;
     List<P26PROGRESSGETDATAclass> _datain =
         widget.data?.reversed.toList() ?? [];
-    // List<P26PROGRESSGETDATAclass> _datain = _datainp.toSet().toList();
+
     final ids = Set();
     _datain.retainWhere((x) =>
         ids.add(x.CHEMICALNAME) |
@@ -50,32 +53,22 @@ class _P26PROGRESSMAINState extends State<P26PROGRESSMAIN> {
         ids.add(x.SP) |
         ids.add(x.ACTUAL));
 
-    List<P26PROGRESSGETDATAclass> filteredData = _datain.where((item) {
-      switch (P26PROGRESSVAR.selectedColumn) {
-        case 'CHEMICAL':
-          return item.CHEMICALNAME
+    List<P26PROGRESSGETDATAclass> _datasearch = [];
+    for (int i = 0; i < _datain.length; i++) {
+      if (_datain[i]
+              .CHEMICALNAME
               .toLowerCase()
-              .contains(P26PROGRESSVAR.searchQuery.toLowerCase());
-        case 'BARCODE':
-          return item.BARCODE
-              .toLowerCase()
-              .contains(P26PROGRESSVAR.searchQuery.toLowerCase());
-        case 'SP.(kg)':
-          return item.SP
-              .toLowerCase()
-              .contains(P26PROGRESSVAR.searchQuery.toLowerCase());
-        case 'ACTUAL(kg)':
-          return item.ACTUAL
-              .toLowerCase()
-              .contains(P26PROGRESSVAR.searchQuery.toLowerCase());
-        default:
-          return false;
+              .contains(P26PROGRESSVAR.SEARCH) ||
+          _datain[i].BARCODE.toLowerCase().contains(P26PROGRESSVAR.SEARCH) ||
+          _datain[i].SP.toLowerCase().contains(P26PROGRESSVAR.SEARCH) ||
+          _datain[i].ACTUAL.toLowerCase().contains(P26PROGRESSVAR.SEARCH)) {
+        _datasearch.add(_datain[i]);
       }
-    }).toList();
+    }
     double totalActual =
-        filteredData.fold(0.0, (sum, item) => sum + double.parse(item.ACTUAL));
+        _datasearch.fold(0.0, (sum, item) => sum + double.parse(item.ACTUAL));
     double totalSP =
-        filteredData.fold(0.0, (sum, item) => sum + double.parse(item.SP));
+        _datasearch.fold(0.0, (sum, item) => sum + double.parse(item.SP));
 
     return Scaffold(
       body: Stack(
@@ -259,56 +252,119 @@ class _P26PROGRESSMAINState extends State<P26PROGRESSMAIN> {
                           Row(
                             mainAxisAlignment: MainAxisAlignment.end,
                             children: [
-                              SizedBox(
-                                width: 150,
-                                height: 50,
-                                child: DropdownButtonHideUnderline(
-                                  child: DropdownButton<String>(
-                                    value: P26PROGRESSVAR.selectedColumn,
-                                    onChanged: (String? newValue) {
-                                      setState(() {
-                                        P26PROGRESSVAR.selectedColumn =
-                                            newValue!;
-                                      });
-                                    },
-                                    items: <String>[
-                                      'CHEMICAL',
-                                      'BARCODE',
-                                      'SP.(kg)',
-                                      'ACTUAL(kg)',
-                                    ].map<DropdownMenuItem<String>>(
-                                        (String value) {
-                                      return DropdownMenuItem<String>(
-                                        value: value,
-                                        child: Row(
-                                          children: [
-                                            Icon(Icons.data_usage_rounded,
-                                                color: Colors.blue),
-                                            SizedBox(width: 10),
-                                            Text(value),
-                                          ],
-                                        ),
-                                      );
-                                    }).toList(),
-                                    borderRadius:
-                                        BorderRadius.all(Radius.circular(10)),
-                                  ),
-                                ),
+                              ComInputTextTan(
+                                sPlaceholder: "Search...",
+                                isSideIcon: true,
+                                height: 40,
+                                width: 400,
+                                isContr: P26PROGRESSVAR.iscontrol,
+                                fnContr: (input) {
+                                  P26PROGRESSVAR.iscontrol = input;
+                                },
+                                sValue: P26PROGRESSVAR.SEARCH,
+                                returnfunc: (String s) {
+                                  setState(() {
+                                    P26PROGRESSVAR.SEARCH = s;
+                                  });
+                                },
                               ),
-                              SizedBox(width: 10),
-                              SizedBox(
-                                width: 200,
-                                height: 50,
-                                child: TextField(
-                                  onChanged: (value) {
+                              MouseRegion(
+                                onEnter: (_) {
+                                  setState(() {
+                                    P26PROGRESSVAR.isHoveredClear = true;
+                                  });
+                                },
+                                onExit: (_) {
+                                  setState(() {
+                                    P26PROGRESSVAR.isHoveredClear = false;
+                                  });
+                                },
+                                child: InkWell(
+                                  overlayColor: MaterialStateProperty.all(
+                                      Colors.transparent),
+                                  onTap: () {
                                     setState(() {
-                                      P26PROGRESSVAR.searchQuery = value;
+                                      P26PROGRESSVAR.isHoveredClear = false;
+                                      P26PROGRESSVAR.iscontrol = true;
+                                      P26PROGRESSVAR.SEARCH = '';
                                     });
                                   },
-                                  decoration: InputDecoration(
-                                    hintText: 'Search...',
-                                    prefixIcon: Icon(Icons.search),
-                                    border: OutlineInputBorder(),
+                                  child: AnimatedContainer(
+                                    duration: Duration(milliseconds: 200),
+                                    decoration: BoxDecoration(
+                                      border: Border.all(
+                                        color: P26PROGRESSVAR.isHoveredClear
+                                            ? Colors.yellowAccent.shade700
+                                            : Colors.redAccent.shade700,
+                                        width: 3.0,
+                                      ),
+                                      borderRadius: BorderRadius.circular(12.0),
+                                    ),
+                                    padding: EdgeInsets.all(8.0),
+                                    child: Column(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.center,
+                                      children: [
+                                        ShaderMask(
+                                          shaderCallback: (bounds) =>
+                                              LinearGradient(
+                                            colors: const [
+                                              Colors.white,
+                                              Colors.red,
+                                            ],
+                                            begin: Alignment.topCenter,
+                                            end: Alignment.bottomCenter,
+                                          ).createShader(bounds),
+                                          child: TweenAnimationBuilder<double>(
+                                            tween: Tween<double>(
+                                              begin:
+                                                  P26PROGRESSVAR.isHoveredClear
+                                                      ? 15
+                                                      : 17,
+                                              end: P26PROGRESSVAR.isHoveredClear
+                                                  ? 17
+                                                  : 15,
+                                            ),
+                                            duration:
+                                                Duration(milliseconds: 200),
+                                            builder: (context, size, child) {
+                                              return TweenAnimationBuilder<
+                                                  Color?>(
+                                                tween: ColorTween(
+                                                  begin: P26PROGRESSVAR
+                                                          .isHoveredClear
+                                                      ? Colors
+                                                          .redAccent.shade700
+                                                      : Colors.yellowAccent
+                                                          .shade700,
+                                                  end:
+                                                      P26PROGRESSVAR
+                                                              .isHoveredClear
+                                                          ? Colors.yellowAccent
+                                                              .shade700
+                                                          : Colors.redAccent
+                                                              .shade700,
+                                                ),
+                                                duration:
+                                                    Duration(milliseconds: 200),
+                                                builder:
+                                                    (context, color, child) {
+                                                  return Text(
+                                                    'CLEAR',
+                                                    style: TextStyle(
+                                                      fontSize: size,
+                                                      color: color,
+                                                      fontWeight:
+                                                          FontWeight.bold,
+                                                    ),
+                                                  );
+                                                },
+                                              );
+                                            },
+                                          ),
+                                        ),
+                                      ],
+                                    ),
                                   ),
                                 ),
                               ),
@@ -485,8 +541,8 @@ class _P26PROGRESSMAINState extends State<P26PROGRESSMAIN> {
                                   ),
                                 ],
                               ),
-                              ...filteredData.map((item) {
-                                int dataCount = filteredData.indexOf(item) + 1;
+                              ..._datasearch.map((item) {
+                                int dataCount = _datasearch.indexOf(item) + 1;
                                 return TableRow(
                                   children: [
                                     TableCell(

@@ -5,6 +5,7 @@ import '../../bloc/BlocEvent/13-13-P13PROGRESSGETDATA.dart';
 import '../../bloc/BlocEvent/ChangePageEvent.dart';
 import '../../data/global.dart';
 import '../../mainBody.dart';
+import '../../widget/common/ComInputTextTan.dart';
 import '../page10.dart';
 import '../page8.dart';
 import '../page9.dart';
@@ -28,46 +29,26 @@ class _P13PROGRESSMAINState extends State<P13PROGRESSMAIN> {
   void initState() {
     super.initState();
     context.read<P13PROGRESSGETDATA_Bloc>().add(P13PROGRESSGETDATA_GET());
+    P13PROGRESSVAR.iscontrol = true;
+    P13PROGRESSVAR.SEARCH = '';
   }
 
   @override
   Widget build(BuildContext context) {
     P13PROGRESSMAINcontext = context;
     List<P13PROGRESSGETDATAclass> _datain = widget.data ?? [];
-    List<P13PROGRESSGETDATAclass> filteredData = _datain.where((item) {
-      switch (P13PROGRESSVAR.selectedColumn) {
-        case 'MATCP':
-          return item.MATCP
-              .toLowerCase()
-              .contains(P13PROGRESSVAR.searchQuery.toLowerCase());
-        case 'CUST NAME':
-          return item.CUST_FULL
-              .toLowerCase()
-              .contains(P13PROGRESSVAR.searchQuery.toLowerCase());
-        case 'PART NAME':
-          return item.PARTNAME
-              .toLowerCase()
-              .contains(P13PROGRESSVAR.searchQuery.toLowerCase());
-        case 'PART NO':
-          return item.PART_NO
-              .toLowerCase()
-              .contains(P13PROGRESSVAR.searchQuery.toLowerCase());
-        case 'CHARG':
-          return item.CHARG
-              .toLowerCase()
-              .contains(P13PROGRESSVAR.searchQuery.toLowerCase());
-        case 'CUST LOT':
-          return item.CUST_LOT
-              .toLowerCase()
-              .contains(P13PROGRESSVAR.searchQuery.toLowerCase());
-        case 'QTY':
-          return item.QTY
-              .toLowerCase()
-              .contains(P13PROGRESSVAR.searchQuery.toLowerCase());
-        default:
-          return false;
+    List<P13PROGRESSGETDATAclass> _datasearch = [];
+    for (int i = 0; i < _datain.length; i++) {
+      if (_datain[i].MATCP.toLowerCase().contains(P13PROGRESSVAR.SEARCH) ||
+          _datain[i].CUST_FULL.toLowerCase().contains(P13PROGRESSVAR.SEARCH) ||
+          _datain[i].PARTNAME.toLowerCase().contains(P13PROGRESSVAR.SEARCH) ||
+          _datain[i].PART_NO.toLowerCase().contains(P13PROGRESSVAR.SEARCH) ||
+          _datain[i].CHARG.toLowerCase().contains(P13PROGRESSVAR.SEARCH) ||
+          _datain[i].CUST_LOT.toLowerCase().contains(P13PROGRESSVAR.SEARCH) ||
+          _datain[i].QTY.toLowerCase().contains(P13PROGRESSVAR.SEARCH)) {
+        _datasearch.add(_datain[i]);
       }
-    }).toList();
+    }
 
     return Scaffold(
       body: Stack(
@@ -195,57 +176,119 @@ class _P13PROGRESSMAINState extends State<P13PROGRESSMAIN> {
                           Row(
                             mainAxisAlignment: MainAxisAlignment.end,
                             children: [
-                              SizedBox(
-                                  width: 150,
-                                  height: 50,
-                                  child: DropdownButtonHideUnderline(
-                                    child: DropdownButton<String>(
-                                      value: P13PROGRESSVAR.selectedColumn,
-                                      onChanged: (String? newValue) {
-                                        setState(() {
-                                          P13PROGRESSVAR.selectedColumn =
-                                              newValue!;
-                                        });
-                                      },
-                                      items: <String>[
-                                        'MATCP',
-                                        'CUST NAME',
-                                        'PART NAME',
-                                        'PART NO',
-                                        'CHARG',
-                                        'CUST LOT',
-                                      ].map<DropdownMenuItem<String>>(
-                                          (String value) {
-                                        return DropdownMenuItem<String>(
-                                          value: value,
-                                          child: Row(
-                                            children: [
-                                              Icon(Icons.data_usage_rounded,
-                                                  color: Colors.blue),
-                                              SizedBox(width: 10),
-                                              Text(value),
-                                            ],
-                                          ),
-                                        );
-                                      }).toList(),
-                                      borderRadius:
-                                          BorderRadius.all(Radius.circular(10)),
-                                    ),
-                                  )),
-                              SizedBox(width: 10),
-                              SizedBox(
-                                width: 150,
-                                height: 50,
-                                child: TextField(
-                                  onChanged: (value) {
+                              ComInputTextTan(
+                                sPlaceholder: "Search...",
+                                isSideIcon: true,
+                                height: 40,
+                                width: 400,
+                                isContr: P13PROGRESSVAR.iscontrol,
+                                fnContr: (input) {
+                                  P13PROGRESSVAR.iscontrol = input;
+                                },
+                                sValue: P13PROGRESSVAR.SEARCH,
+                                returnfunc: (String s) {
+                                  setState(() {
+                                    P13PROGRESSVAR.SEARCH = s;
+                                  });
+                                },
+                              ),
+                              MouseRegion(
+                                onEnter: (_) {
+                                  setState(() {
+                                    P13PROGRESSVAR.isHoveredClear = true;
+                                  });
+                                },
+                                onExit: (_) {
+                                  setState(() {
+                                    P13PROGRESSVAR.isHoveredClear = false;
+                                  });
+                                },
+                                child: InkWell(
+                                  overlayColor: MaterialStateProperty.all(
+                                      Colors.transparent),
+                                  onTap: () {
                                     setState(() {
-                                      P13PROGRESSVAR.searchQuery = value;
+                                      P13PROGRESSVAR.isHoveredClear = false;
+                                      P13PROGRESSVAR.iscontrol = true;
+                                      P13PROGRESSVAR.SEARCH = '';
                                     });
                                   },
-                                  decoration: InputDecoration(
-                                    hintText: 'Search...',
-                                    prefixIcon: Icon(Icons.search),
-                                    border: OutlineInputBorder(),
+                                  child: AnimatedContainer(
+                                    duration: Duration(milliseconds: 200),
+                                    decoration: BoxDecoration(
+                                      border: Border.all(
+                                        color: P13PROGRESSVAR.isHoveredClear
+                                            ? Colors.yellowAccent.shade700
+                                            : Colors.redAccent.shade700,
+                                        width: 3.0,
+                                      ),
+                                      borderRadius: BorderRadius.circular(12.0),
+                                    ),
+                                    padding: EdgeInsets.all(8.0),
+                                    child: Column(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.center,
+                                      children: [
+                                        ShaderMask(
+                                          shaderCallback: (bounds) =>
+                                              LinearGradient(
+                                            colors: const [
+                                              Colors.white,
+                                              Colors.red,
+                                            ],
+                                            begin: Alignment.topCenter,
+                                            end: Alignment.bottomCenter,
+                                          ).createShader(bounds),
+                                          child: TweenAnimationBuilder<double>(
+                                            tween: Tween<double>(
+                                              begin:
+                                                  P13PROGRESSVAR.isHoveredClear
+                                                      ? 15
+                                                      : 17,
+                                              end: P13PROGRESSVAR.isHoveredClear
+                                                  ? 17
+                                                  : 15,
+                                            ),
+                                            duration:
+                                                Duration(milliseconds: 200),
+                                            builder: (context, size, child) {
+                                              return TweenAnimationBuilder<
+                                                  Color?>(
+                                                tween: ColorTween(
+                                                  begin: P13PROGRESSVAR
+                                                          .isHoveredClear
+                                                      ? Colors
+                                                          .redAccent.shade700
+                                                      : Colors.yellowAccent
+                                                          .shade700,
+                                                  end:
+                                                      P13PROGRESSVAR
+                                                              .isHoveredClear
+                                                          ? Colors.yellowAccent
+                                                              .shade700
+                                                          : Colors.redAccent
+                                                              .shade700,
+                                                ),
+                                                duration:
+                                                    Duration(milliseconds: 200),
+                                                builder:
+                                                    (context, color, child) {
+                                                  return Text(
+                                                    'CLEAR',
+                                                    style: TextStyle(
+                                                      fontSize: size,
+                                                      color: color,
+                                                      fontWeight:
+                                                          FontWeight.bold,
+                                                    ),
+                                                  );
+                                                },
+                                              );
+                                            },
+                                          ),
+                                        ),
+                                      ],
+                                    ),
                                   ),
                                 ),
                               ),
@@ -500,8 +543,8 @@ class _P13PROGRESSMAINState extends State<P13PROGRESSMAIN> {
                                   ),
                                 ],
                               ),
-                              ...filteredData.map((item) {
-                                int dataCount = filteredData.indexOf(item) + 1;
+                              ..._datasearch.map((item) {
+                                int dataCount = _datasearch.indexOf(item) + 1;
                                 return TableRow(
                                   children: [
                                     TableCell(

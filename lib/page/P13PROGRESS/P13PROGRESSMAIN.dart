@@ -38,17 +38,18 @@ class _P13PROGRESSMAINState extends State<P13PROGRESSMAIN> {
     P13PROGRESSMAINcontext = context;
     List<P13PROGRESSGETDATAclass> _datain = widget.data ?? [];
     List<P13PROGRESSGETDATAclass> _datasearch = [];
-    for (int i = 0; i < _datain.length; i++) {
-      if (_datain[i].MATCP.toLowerCase().contains(P13PROGRESSVAR.SEARCH) ||
-          _datain[i].CUST_FULL.toLowerCase().contains(P13PROGRESSVAR.SEARCH) ||
-          _datain[i].PARTNAME.toLowerCase().contains(P13PROGRESSVAR.SEARCH) ||
-          _datain[i].PART_NO.toLowerCase().contains(P13PROGRESSVAR.SEARCH) ||
-          _datain[i].CHARG.toLowerCase().contains(P13PROGRESSVAR.SEARCH) ||
-          _datain[i].CUST_LOT.toLowerCase().contains(P13PROGRESSVAR.SEARCH) ||
-          _datain[i].QTY.toLowerCase().contains(P13PROGRESSVAR.SEARCH)) {
-        _datasearch.add(_datain[i]);
-      }
-    }
+    _datasearch.addAll(
+      _datain.where(
+        (data) =>
+            data.MATCP.toLowerCase().contains(P13PROGRESSVAR.SEARCH) ||
+            data.CUST_FULL.toLowerCase().contains(P13PROGRESSVAR.SEARCH) ||
+            data.PARTNAME.toLowerCase().contains(P13PROGRESSVAR.SEARCH) ||
+            data.PART_NO.toLowerCase().contains(P13PROGRESSVAR.SEARCH) ||
+            data.CHARG.toLowerCase().contains(P13PROGRESSVAR.SEARCH) ||
+            data.CUST_LOT.toLowerCase().contains(P13PROGRESSVAR.SEARCH) ||
+            data.QTY.toLowerCase().contains(P13PROGRESSVAR.SEARCH),
+      ),
+    );
 
     return Scaffold(
       body: Stack(

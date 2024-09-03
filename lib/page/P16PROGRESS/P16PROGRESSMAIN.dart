@@ -41,16 +41,17 @@ class _P16PROGRESSMAINState extends State<P16PROGRESSMAIN> {
     P16PROGRESSMAINcontext = context;
     List<P16PROGRESSGETDATAclass> _datain = widget.data ?? [];
     List<P16PROGRESSGETDATAclass> _datasearch = [];
-    for (int i = 0; i < _datain.length; i++) {
-      if (_datain[i].PO.toLowerCase().contains(P16PROGRESSVAR.SEARCH) ||
-          _datain[i].CUST_FULL.toLowerCase().contains(P16PROGRESSVAR.SEARCH) ||
-          _datain[i].PARTNAME.toLowerCase().contains(P16PROGRESSVAR.SEARCH) ||
-          _datain[i].PARTNO.toLowerCase().contains(P16PROGRESSVAR.SEARCH) ||
-          _datain[i].QTY.toLowerCase().contains(P16PROGRESSVAR.SEARCH) ||
-          _datain[i].TPKLOT.toLowerCase().contains(P16PROGRESSVAR.SEARCH)) {
-        _datasearch.add(_datain[i]);
-      }
-    }
+    _datasearch.addAll(
+      _datain.where(
+        (data) =>
+            data.PO.toLowerCase().contains(P16PROGRESSVAR.SEARCH) ||
+            data.CUST_FULL.toLowerCase().contains(P16PROGRESSVAR.SEARCH) ||
+            data.PARTNAME.toLowerCase().contains(P16PROGRESSVAR.SEARCH) ||
+            data.PARTNO.toLowerCase().contains(P16PROGRESSVAR.SEARCH) ||
+            data.QTY.toLowerCase().contains(P16PROGRESSVAR.SEARCH) ||
+            data.TPKLOT.toLowerCase().contains(P16PROGRESSVAR.SEARCH),
+      ),
+    );
 
     return Scaffold(
       body: Stack(

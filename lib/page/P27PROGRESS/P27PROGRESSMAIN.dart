@@ -38,16 +38,17 @@ class _P27PROGRESSMAINState extends State<P27PROGRESSMAIN> {
     P27PROGRESSMAINcontext = context;
     List<P27PROGRESSGETDATAclass> _datain = widget.data?.toList() ?? [];
     List<P27PROGRESSGETDATAclass> _datasearch = [];
-    for (int i = 0; i < _datain.length; i++) {
-      if (_datain[i].LOT.toLowerCase().contains(P27PROGRESSVAR.SEARCH) ||
-          _datain[i].CHMNAME.toLowerCase().contains(P27PROGRESSVAR.SEARCH) ||
-          _datain[i].QTY.toLowerCase().contains(P27PROGRESSVAR.SEARCH) ||
-          _datain[i].TANK.toLowerCase().contains(P27PROGRESSVAR.SEARCH) ||
-          _datain[i].MIXER.toLowerCase().contains(P27PROGRESSVAR.SEARCH) ||
-          _datain[i].PACKAGING.toLowerCase().contains(P27PROGRESSVAR.SEARCH)) {
-        _datasearch.add(_datain[i]);
-      }
-    }
+    _datasearch.addAll(
+      _datain.where(
+        (data) =>
+            data.LOT.toLowerCase().contains(P27PROGRESSVAR.SEARCH) ||
+            data.CHMNAME.toLowerCase().contains(P27PROGRESSVAR.SEARCH) ||
+            data.QTY.toLowerCase().contains(P27PROGRESSVAR.SEARCH) ||
+            data.TANK.toLowerCase().contains(P27PROGRESSVAR.SEARCH) ||
+            data.MIXER.toLowerCase().contains(P27PROGRESSVAR.SEARCH) ||
+            data.PACKAGING.toLowerCase().contains(P27PROGRESSVAR.SEARCH),
+      ),
+    );
 
     return Scaffold(
       body: Stack(

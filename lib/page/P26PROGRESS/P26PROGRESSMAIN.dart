@@ -54,17 +54,16 @@ class _P26PROGRESSMAINState extends State<P26PROGRESSMAIN> {
         ids.add(x.ACTUAL));
 
     List<P26PROGRESSGETDATAclass> _datasearch = [];
-    for (int i = 0; i < _datain.length; i++) {
-      if (_datain[i]
-              .CHEMICALNAME
-              .toLowerCase()
-              .contains(P26PROGRESSVAR.SEARCH) ||
-          _datain[i].BARCODE.toLowerCase().contains(P26PROGRESSVAR.SEARCH) ||
-          _datain[i].SP.toLowerCase().contains(P26PROGRESSVAR.SEARCH) ||
-          _datain[i].ACTUAL.toLowerCase().contains(P26PROGRESSVAR.SEARCH)) {
-        _datasearch.add(_datain[i]);
-      }
-    }
+    _datasearch.addAll(
+      _datain.where(
+        (data) =>
+            data.CHEMICALNAME.toLowerCase().contains(P26PROGRESSVAR.SEARCH) ||
+            data.BARCODE.toLowerCase().contains(P26PROGRESSVAR.SEARCH) ||
+            data.SP.toLowerCase().contains(P26PROGRESSVAR.SEARCH) ||
+            data.ACTUAL.toLowerCase().contains(P26PROGRESSVAR.SEARCH),
+      ),
+    );
+
     double totalActual =
         _datasearch.fold(0.0, (sum, item) => sum + double.parse(item.ACTUAL));
     double totalSP =
